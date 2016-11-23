@@ -1,0 +1,14 @@
+{
+    "local": {
+      "do": false
+      ,"dest": "/local/tomcat/webapps/library/skin/vula"
+    },
+    "remote": {
+      "do": false
+      ,"dest" : "HostName"
+      ,"port" : 22
+      ,"username" : "Username"
+      ,"password" : "********"
+      ,"path": "/Where/You/Want/The/Files/To/Be"
+    }
+}
