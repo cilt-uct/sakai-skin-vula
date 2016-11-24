@@ -75,18 +75,11 @@ module.exports = function (grunt) {
             'sass',
             'postcss',
             //'cssmin',
-            'if']
-      },
-      livereload: {
+            'if'],
         options: {
-          livereload: true
+          livereload: true,
         },
-        files: [
-          'tmp/{,*/}*.css',
-          'tmp/js/{,*/}*.js',
-          'tmp/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
-      }
+      },
     },
 
     copy: { // Copy files from src folder to appropriate dest
@@ -139,15 +132,13 @@ module.exports = function (grunt) {
             options: {
                 config: 'app.local.do'
             },
-            ifTrue: ['copy:local'],
-            ifFalse: ['']
+            ifTrue: ['copy:local']
         },
         remote: {
             options: {
                 config: 'app.remote.do'
             },
-            ifTrue: ['sftp'],
-            ifFalse: ['']
+            ifTrue: ['sftp']
         }
     }
   });

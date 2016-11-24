@@ -1,12 +1,5 @@
 @import "compass";
 
-.sitesNav__drop{
-	cursor: pointer;
-	display: inline-block;
-	height:  12px;
-	width:   16px;
-}
-
 .blurry{
 	@include filter( blur(0.1em) );
 }
@@ -87,6 +80,52 @@
 		margin:  0 0.25em 0.15em 0;
 	}
 
+}
+
+@mixin sakai-fa-icon(
+
+    // Required Values
+    $fa-icon,
+
+    // Optional Values
+    $pseudo-position: before,
+    $display-value: inline,
+    $margin: 0,
+    $padding: 0,
+    $color: inherit,
+    $font-size: 1em,
+    $font-weight: normal,
+    $line-height: 1em
+
+) {
+
+    &:#{$pseudo-position} {
+        content: $fa-icon;
+        color: $color;
+        font-family: FontAwesome;
+        font-size: $font-size;
+        font-style: normal;
+        font-weight: $font-weight;
+        line-height: $line-height;
+        display: $display-value;
+        margin: $margin;
+        padding: $padding;
+        @include font-smoothing(on);
+    }
+}
+
+// Font Smoothing
+@mixin font-smoothing($value: on) {
+
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    @if $value == off {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
 }
 
 .select{

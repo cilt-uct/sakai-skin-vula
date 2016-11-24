@@ -1,20 +1,22 @@
-.#{$namespace}siteHierarchy{
+.#{$namespace}siteHierarchy {
 	$svg-gradient-shim-threshold: 1 !global;
 	background: linear-gradient( to right, $header-gradient-a, $header-gradient-b, $header-gradient-c, $header-gradient-d);
-	box-shadow: inset 0px -1px 5px rgba(0,0,0,0.1);
+	box-shadow: 0 10px 6px -10px rgba(0, 0, 0, 0.6) inset;
 	min-height: $hierarchy-size;
 
-	h1{
+	h1 {
 		color: $background-color;
 		font-weight: 300;
 		margin: 0 0 0 0;
 	}
-	a{
+
+	a {
 		color: $breadcrumbs-color;
 		margin: 0 0.5em 0 0.5em;
 		padding: 0em 0em 0.2em 0em;
 		text-decoration: none;
-		&:hover{
+
+    &:hover {
 			text-decoration: none;
 		}
 	}
@@ -28,52 +30,59 @@
 		min-height: initial;
 		padding: 0.75em 0 0.75em 1em;
 
-		.#{$namespace}hierarchy--siteName a, .#{$namespace}hierarchy--1 a{
+		.#{$namespace}hierarchy--siteName a, .#{$namespace}hierarchy--1 a {
 			/* Since we'll start on our own line, don't pad */
 			margin-left: 0;
 		}
 
-		.#{$namespace}hierarchy--siteName a:hover{
+		a:hover, a:active {
 			color: $breadcrumbs-hover-color;
 			border-bottom: 1px solid $breadcrumbs-hover-color;
 		}
 
-		/*
-		   Force a fixed width for these so we don't jump when switching
-		   between a narrow icon and the wider reset icon (or vice versa)
-		*/
-		.#{$namespace}breadcrumb--icon{
+		.#{$namespace}breadcrumb--icon {
 			display: inline-block;
 			text-align: right;
-			width: 24px;
+      margin: 0 0.12em 0 0.36em;
+			//width: 24px;
 		}
 
-		a.#{$namespace}hierarchy--toolName{
+		a.#{$namespace}hierarchy--toolName {
 			color: $breadcrumbs-tool-color;
-			text-transform: uppercase;
-			font-size: 110%;
-			font-weight: bold;
+			//text-transform: uppercase;
+			font-size: 102%;
+			font-weight: 600;
 			margin-left: 0;
 
-			.#{$namespace}breadcrumb--reset-icon{
+      > span {
+        display: inline-block;
+      }
+
+      &:hover span,
+      &:active span {
+  			color: $breadcrumbs-hover-color;
+  		}
+
+			.#{$namespace}breadcrumb--reset-icon {
 				display: none;
 			}
 		}
-
+/*
 		a.#{$namespace}hierarchy--toolName:hover{
+      color: $breadcrumbs-hover-color;
 			border-bottom: 1px solid $breadcrumbs-hover-color;
+
 
 			.#{$namespace}breadcrumb--icon{
 				display: none;
 			}
-
 			.#{$namespace}breadcrumb--reset-icon{
 				width: 24px;
 				text-align: right;
 				display: inline-block;
 			}
 		}
-
+*/
 		.Mrphs-hierarchy--parent-sites{
 			display: block;
 			font-size: 90%;
@@ -108,16 +117,16 @@
 			}
 			&:hover{
 				color: $background-color;
-			}			
+			}
 		}
 		.#{$namespace}hierarchy--siteName a:hover{
 			text-decoration: underline;
 		}
-		
+
 		a.#{$namespace}hierarchy--toolName:hover{
 			border-bottom: 1px solid  $background-color;
 		}
-		
+
 		.#{$namespace}hierarchy--serviceName, .#{$namespace}hierarchy--serviceNameSeparator{
 			display: none;
 		}
@@ -126,9 +135,6 @@
 			display: none;
 		}
 	}
-
-
-
 }
 
 .#{$namespace}breadCrumbs{
