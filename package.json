@@ -11,9 +11,14 @@
   "keywords": [
     "skin"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/coosthuizen/sakai-skin-vula.git"
+  },
   "devDependencies": {
     "autoprefixer": "latest",
     "grunt": "~0.4.5",
+    "grunt-cli": "^1.2.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "latest",

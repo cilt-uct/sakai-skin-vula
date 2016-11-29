@@ -1,5 +1,54 @@
 @import "font-awesome";
 
+@mixin fa-icon(
+
+    // Required Values
+    $fa-icon,
+
+    // Optional Values
+    $pseudo-position: before,
+    $display-value: inline,
+    $margin: 0,
+    $padding: 0,
+    $color: inherit,
+    $font-size: 12px,
+    $font-weight: normal,
+    $line-height: 1,
+    $position: inherit,
+    $transform: none
+) {
+
+    &:#{$pseudo-position} {
+        content: $fa-icon;
+        color: $color;
+        font-family: FontAwesome;
+        font-size: $font-size;
+        font-style: normal;
+        font-weight: $font-weight;
+        line-height: $line-height;
+        display: $display-value;
+        margin: $margin;
+        padding: $padding;
+        position: $position;
+        transform: $transform;
+        @include font-smoothing(on);
+    }
+}
+
+@mixin fa-icon-color($pseudo-position, $color) {
+
+    &:#{$pseudo-position} {
+        color: $color;
+    }
+}
+
+@mixin fa-icon-float($pseudo-position, $float) {
+
+    &:#{$pseudo-position} {
+        float: $float;
+    }
+}
+
 .Mrphs-toolsNav__menuitem--icon{
 	display: block;
 	line-height: 1.25;
@@ -39,8 +88,8 @@
 	.icon-sakai-emailtemplateservice{			@extend .fa-envelope;}
 	.icon-sakai-news{					@extend .fa-rss;}
 	.icon-sakai-simple-rss{					@extend .fa-newspaper-o;}
-	.icon-sakai-basiclti{					@extend .fa-globe;}
-	.icon-sakai-messages{					@extend .fa-inbox;}
+	//.icon-sakai-basiclti{					@extend .fa-globe;}
+  .icon-sakai-messages{					@extend .fa-inbox;}
 	.icon-sakai-dashboard{					@extend .fa-dashboard;}
 	.icon-sakai-site-roster2{				@extend .fa-users;}
 	.icon-sakai-sections{					@extend .fa-user;}
@@ -75,7 +124,7 @@
 	.icon-sakai-online{					@extend .fa-server;}
 	.icon-sakai-memory{					@extend .fa-hdd-o;}
 	.icon-sakai-scheduler{					@extend .fa-clock-o;}
-	.icon-sakai-basiclti-admin{				@extend .fa-globe;}
+	//.icon-sakai-basiclti-admin{				@extend .fa-globe;}
 	.icon-sakai-adminsiteperms{				@extend .fa-sliders;}
 	.icon-sakai-message-bundle-manager{			@extend .fa-gear;}
 	.icon-sakai-delegatedaccess{				@extend .fa-hand-o-right;}
@@ -92,4 +141,21 @@
 	.icon-sakai-rsf-evaluation{				@extend .fa-commenting;}
 	.icon-sakai-bbb{					@extend .fa-video-camera;}
 	.icon-sakai-oauth{					@extend .fa-key;}
+
+  // Custom Icons
+  .icon-sakai-site-roster { @extend .fa-users; }
+  .icon-sakai-profilewow { @extend .fa-user; }
+  .icon-sakai-blogwow { @extend .fa-newspaper-o; }
+  .icon-sakai-qna { @extend .fa-quora; }
+  .icon-osp-glossary { @extend .fa-bookmark; }
+  .icon-sakai-groupmanager { @extend .fa-th-large; }
+  .icon-sakai-permissions-helper { @extend .fa-lock; }
+  .icon-sakai-sms-user { @extend .fa-envelope; }
+  .icon-sakai-feeds { @extend .fa-rss; }
+
+  .icon-sakai-basiclti{					@extend .fa-plug;}
+  .icon-sakai-basiclti-admin {
+      @include fa-icon($fa-var-plug, after, inline-block, 0, 0);
+      @include fa-icon($fa-var-pencil, before, inline-block, 0 0 0 -0.5em, 0, inherit, 50%, normal, 1, absolute, rotateY(180deg));
+  }
 }

@@ -1,9 +1,43 @@
+@import "mixins/mixins";
+
 // Fonts
 // ----------------------------------------
+$font-path:     "fonts/";
+//$fa-font-path:  "fonts/font-awesome/";
+
+@mixin font-face($font-family, $file, $font-weight, $font-style) {
+  @font-face {
+    font-family: $font-family;
+      src: url('#{$font-path}#{$file}.eot');
+      src: url('#{$font-path}#{$file}.eot?#iefix') format('embedded-opentype'),
+           url('#{$font-path}#{$file}.woff') format('woff'),
+           url('#{$font-path}#{$file}.ttf') format('truetype');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+// Include Fonts
+@include font-face('Open Sans', 'OpenSans-Light-webfont', 300, normal);
+@include font-face('Open Sans', 'OpenSans-LightItalic-webfont', 300, italic);
+
+@include font-face('Open Sans', 'OpenSans-Regular-webfont', 400, normal);
+@include font-face('Open Sans', 'OpenSans-Italic-webfont', 400, italic);
+
+@include font-face('Open Sans', 'OpenSans-Semibold-webfont', 600, normal);
+@include font-face('Open Sans', 'OpenSans-SemiboldItalic-webfont', 600, italic);
+
+@include font-face('Open Sans', 'OpenSans-Bold-webfont', 700, normal);
+@include font-face('Open Sans', 'OpenSans-BoldItalic-webfont', 700, italic);
+
+@include font-face('Open Sans', 'OpenSans-ExtraBold-webfont', 800, normal);
+@include font-face('Open Sans', 'OpenSans-ExtraBoldItalic-webfont', 800, italic);
+
+@include font-face('FontAwesome', 'fontawesome-webfont', normal, normal);
+
 
 //Google family Fonts URL
-$font-path:                     "../fonts/";
-$font-family-url: "//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"  !default;
+//$font-family-url: "//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"  !default;
 $font-family: "Open Sans", Helvetica, sans-serif !default;
 
 $weight-light:        300;
@@ -94,31 +128,45 @@ $top-header-background: $color-secondary;
 $topNav-text-color:                         $color-white !default; /* used for links and text in the topNav */
 $topNav-text-alt-color:                     $color-graylight !default;
 
-$sites-nav-menu-item-background:            $color-graylighter !default;
-$sites-nav-menu-item-color:                 $color-gray-dark !default;
-$sites-nav-menu-item-color-hover:           $color-gray-darker !default;
+//$sites-nav-menu-item-background:            $color-graylighter !default;
+//$sites-nav-menu-item-color:                 $color-gray-dark !default;
+//$sites-nav-menu-item-color-hover:           $color-gray-darker !default;
+
+$sites-nav-menu-item-background:          $link-color !default;
+$sites-nav-menu-item-background-hover:    $link-hover-color !default;
+$sites-nav-menu-item-color:               $color-graylighter !default;
+$sites-nav-menu-item-color-hover:         $color-white !default;
+
 $sites-nav-menu-item-border-top:            1px solid transparent !default; /* to pre-allocate space for dropdown top border needed for illusion */
 $sites-nav-menu-item-border-right:          none !default;
 $sites-nav-menu-item-border-bottom:         $sites-nav-menu-item-border-top !default; /* to pre-allocate space for dropdown top border needed for illusion */
 $sites-nav-menu-item-border-left:           none !default;
 
-$sites-nav-menu-item-selected-background:   $link-color !default;
-$sites-nav-menu-item-selected-color:        $color-graylighter !default;
-$sites-nav-menu-item-selected-color-hover:  $color-white !default;
+//$sites-nav-menu-item-selected-background:   $link-color !default;
+//$sites-nav-menu-item-selected-color:        $color-graylighter !default;
+//$sites-nav-menu-item-selected-color-hover:  $color-white !default;
+
+$sites-nav-menu-item-selected-background:            darken($color-graylighter, 5%) !default;
+$sites-nav-menu-item-selected-background-hover:      $color-white !default;
+$sites-nav-menu-item-selected-color:                 $color-gray-dark !default;
+$sites-nav-menu-item-selected-color-hover:           $color-gray-darker !default;
 
 $sites-nav-menu-item-selected-border-top:   $sites-nav-menu-item-border-top !default; /* to pre-allocate space for dropdown top border needed for illusion */
 $sites-nav-menu-item-selected-border-right: none !default;
 $sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top !default; /* to pre-allocate space for dropdown top border needed for illusion */
 $sites-nav-menu-item-selected-border-left:  none !default;
 
-$sites-nav-submenu-background:              $sites-nav-menu-item-background !default;
-$sites-nav-submenu-item-background:         $sites-nav-menu-item-background !default;
-$sites-nav-submenu-item-background-hover:   $color-gray !default;
-$sites-nav-submenu-item-color:              $sites-nav-menu-item-color !default;
-$sites-nav-submenu-item-color-hover:        $sites-nav-submenu-item-color !default;
+$sites-nav-submenu-background:              $color-graylighter !default;
+$sites-nav-submenu-item-background:         $color-graylighter !default;
+$sites-nav-submenu-item-background-hover:   $color-gray-dark !default;
+
+$sites-nav-submenu-item-color:              $color-gray-darker !default;
+$sites-nav-submenu-item-color-hover:        $color-white !default;
+
 $sites-nav-submenu-item-border:             none !default;
 $sites-nav-submenu-item-border-hover:       none !default;
-$sites-nav-submenu-selected-background:     $sites-nav-menu-item-selected-background !default;
+
+$sites-nav-submenu-selected-background:     $color-graylighter !default;
 $sites-nav-submenu-item-selected-background:$sites-nav-menu-item-selected-background !default;
 $sites-nav-submenu-item-selected-color:     $sites-nav-menu-item-selected-color !default;
 $sites-nav-submenu-item-selected-border:    none !default;
@@ -160,6 +208,11 @@ $tool-sub-menu-current-hover-color: $tool-menu-color !default;
 $tool-sub-menu-current-hover-background-color: $background-color !default;
 
 $tool-nav-link-color: $color-gray-dark !default;
+
+// Footer
+// ----------------------------------------
+$footer-background: $color-graylighter !default;
+$footer-color: $text-color !default;
 
 // Layout
 // ----------------------------------------

@@ -3,7 +3,7 @@
 //.#{$namespace}
 .is-logged-out{
 	#content, .#{$namespace}container--footer{
-		margin: 0 0 0 0;
+		margin: 2em;
 		@media #{$phone}{
 			margin: 6.5em 0 0 0;
 		}
@@ -34,8 +34,7 @@
 }
 
 #content, .#{$namespace}container--footer{
-	margin: 0 0 0 0;
-	width: 100%;
+	margin: 2em;
 
 	@media #{$phone}{
 		margin: 6.5em 0 0 0;
@@ -65,19 +64,68 @@
 	}
 }
 
-.#{$namespace}container--footer{
+.#{$namespace}container--footer {
 	background: $footer-background;
+  border: 1px solid darken( $footer-background, 10% );
+  border-radius: $main-border-radius;
 }
 
-.#{$namespace}footer{
+.#{$namespace}footer {
 	color: $footer-color;
-	padding: 0.8em;
-	font-size: 0.8em;
-	#footer-links{
-		list-style: none;
-		padding: 0 0 0 0;
-		li{
-			display: inline-block;
-		}
+	font-size: 0.66em;
+  text-align: center;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul > li {
+    display: inline-block;
+    list-style: none;
+  }
+
+  .#{$namespace}footer--nav__project--copyright {
+    display: none;
+  }
+
+  a {
+    color: $footer-color;
+    text-decoration: none;
+
+    &:hover, &:active {
+      text-decoration: underline;
+    }
+  }
+
+	#footer-links {
+		padding: 1em;
+
+    a {
+      font-size: 1.25em;
+      border-left: 1px solid darken( $footer-background, 10% );
+      padding: 0 0.6em 0 0.8em;
+    }
+
+    li:first-child {
+      a {
+        border-left-width: 0px;
+      }
+    }
 	}
+
+  details {
+    color: $color-gray-dark;
+    margin: 0.4em;
+  }
+
+  details > summary {
+    display: inline-block;
+    font-weight: 700;
+  }
+
+  details > p {
+    display: inline-block;
+    margin: 0;
+  }
 }

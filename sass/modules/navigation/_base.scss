@@ -188,7 +188,7 @@ body.is-logged-out{
 
 .#{$namespace}topHeader{
 	background: $top-header-background;
-  @include gradient-vertical($start-color: $color-secondary, $end-color: lighten($color-secondary,20%));
+  @include gradient-vertical($start-color: darken($color-primary, 25%), $end-color: darken($color-primary, 15%));
 
 	color: $background-color;
 	font-size: 1em;
@@ -536,10 +536,10 @@ body.is-logged-out{
 	border-left: 1px solid $tool-border-color;
 }
 
-.#{$namespace}sitesNav__menu{
+.#{$namespace}sitesNav__menu {
 	list-style: none;
 	padding: 0 0 0 0;
-	margin-bottom:0px;
+	margin-bottom: 0px;
 }
 
 .view-all-sites-btn{
@@ -590,6 +590,7 @@ body.is-logged-out{
 }
 
 #linkNav {
+
 	ul {
 		@include display-flex(flex);
 		@include flex-wrap( wrap );
@@ -615,6 +616,11 @@ body.is-logged-out{
 				color: $sites-nav-menu-item-color;
 				text-decoration: none;
         border-radius: $small-border-radius;
+        font-size: 0.96em;
+        height: 2.25em;
+
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        transition: all 0.3s ease 0s;
 
         > span {
           display: inline-block;
@@ -629,37 +635,52 @@ body.is-logged-out{
         &:hover, &:active
         {
           color: $sites-nav-menu-item-color-hover;
+          background: $sites-nav-menu-item-background-hover;
         }
 			}
 
       // hover for sites when tool quick-menu isn't open
-			&:not(.dropdown-is-visible) > a:hover, &:not(.dropdown-is-visible) > a:active {
-				box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.1) inset;
-				color: $sites-nav-menu-item-color-hover;
-			}
+			//&:not(.dropdown-is-visible) > a:hover, &:not(.dropdown-is-visible) > a:active {
+			//	box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.1) inset;
+			//	color: $sites-nav-menu-item-color-hover;
+			//}
+
+      &.dropdown-is-visible > a {
+        border-radius: $small-border-radius $small-border-radius 0 0;
+
+        .#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown {
+          border-radius: 0 $small-border-radius 0 0;
+        }
+      }
 
 			span {
-				line-height: 1;
+				//line-height: 1;
 			}
 
 			.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown {
 				outline: 0;
 				text-align: right;
-        padding: 0.3em;
+        padding: 0.4em 0.3em;
         cursor: pointer;
         display: inline-block;
-				//margin-left: 0.2em;
+        height: inherit;
+        border-radius: 0 $small-border-radius $small-border-radius 0;
 
-        border-left: 1px solid rgba( $color-gray-darker, .3 );
+        &:before {
+          content: "";
+          position: absolute;
+          height: 80%;
+          border-left: 1px solid rgba( $color-gray-darker, .3 );
+          top: 0.2em;
+          margin-left: -0.3em;
+        }
 
         @include sakai-fa-icon($fa-var-angle-down, after, inline-block);
-        //@extend .fa-angle-down;
-				//@extend .fa;
 				@extend .fa-lg;
 
         &:hover, &:active
         {
-          background-color: #f00;
+          @include linear-gradient($sites-nav-menu-item-background-hover, $sites-nav-menu-item-background);
         }
 
 				&.is-clicked{
@@ -669,15 +690,17 @@ body.is-logged-out{
 			}
 
 			ul {
-				background: $sites-nav-menu-item-background;
+				background: $sites-nav-submenu-background;
 				display: none;
 				font-family: $header-font-family;
 				position: absolute;
-				border-top: 1px solid black;
+				border-top: 0px solid black;
 				margin-top: -1px;
 				width: 26rem;
-				z-index: 99;
-				box-shadow: 0 3px 2px rgba( $text-color, 0.35);
+				z-index: $z-90;
+				//box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        box-shadow: 0 3px 2px rgba( $text-color, 0.35);
+        border-bottom-right-radius: $main-border-radius;
 
 				li {
 					display: block;
@@ -693,15 +716,16 @@ body.is-logged-out{
 						text-decoration: underline;
 					}
 */
-					a {
+					> a {
 						display: block;
 						padding: 0.5em 0.65em;
 						text-decoration: none;
 						color: $sites-nav-submenu-item-color;
+            background: inherit;
 
 						&:hover, &:active
 						{
-							color: $sites-nav-submenu-item-color; /* to override default link hover color */
+							color: $sites-nav-submenu-item-color-hover; /* to override default link hover color */
 							text-decoration: underline;
 						}
 						.toolMenuIcon{
@@ -709,8 +733,6 @@ body.is-logged-out{
 							margin: 0;
 						}
 					}
-
-
 
 					.#{$namespace}sitesNav__submenuitem-icon {
 						display: inline-block;
@@ -722,46 +744,60 @@ body.is-logged-out{
 						width: 80%;
 					}
 				}
+
 				&.is-visible{
 					display: block;
 				}
+
 				&.is-hidden{
 					display: none;
 				}
-
 			}
+
 			&.is-selected {
-				a {
+				> a {
 					background: $sites-nav-menu-item-selected-background;
 					color: $sites-nav-menu-item-selected-color;
-					border-top: $sites-nav-menu-item-selected-border-top; /* to balance bottom border for vertical centering */
+					border-top: $sites-nav-menu-item-selected-border-top; // to balance bottom border for vertical centering
 					border-right: $sites-nav-menu-item-selected-border-right;
-					border-bottom: $sites-nav-menu-item-selected-border-bottom; /* to pre-allocate space for dropdown top border needed for illusion */
+					border-bottom: $sites-nav-menu-item-selected-border-bottom; // to pre-allocate space for dropdown top border needed for illusion
 					border-left: $sites-nav-menu-item-selected-border-left;
 
           &:hover, &:active
           {
             color: $sites-nav-menu-item-selected-color-hover;
+            background: $sites-nav-menu-item-selected-background-hover;
+          }
+
+          .#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown {
+
+            &:hover, &:active
+            {
+              @include linear-gradient($sites-nav-menu-item-selected-background-hover, darken($sites-nav-menu-item-selected-background, 5%));
+            }
           }
 				}
 
+        /*
 				ul {
 					background: $sites-nav-menu-item-selected-background;
 
 					a:hover, a:active
 					{
-						color: $sites-nav-menu-item-selected-color; /* to override default link hover color */
+						color: $sites-nav-menu-item-selected-color; // to override default link hover color
 					}
 				}
+        */
 			}
 
-			&.#{$namespace}sitesNav__menuitem--myworkspace{
-				.#{$namespace}sitesNav__drop{
+			&.#{$namespace}sitesNav__menuitem--myworkspace {
+
+				.#{$namespace}sitesNav__drop {
 					display: none;
 				}
 
-				a{
-					i{
+				a {
+					i {
 						margin-top: 1px; /* to compensate for an issue with the icon */
 						margin-bottom: -1px; /* to compensate for an issue with the icon */
 						margin-right:0.35em;
@@ -771,7 +807,7 @@ body.is-logged-out{
 			}
 
 			&.dropdown-is-visible {
-				> a{
+				> a {
 					border-bottom: 1px solid $sites-nav-menu-item-background;
 					z-index: 150;
 				}
@@ -785,41 +821,63 @@ body.is-logged-out{
 
 			ul.#{$namespace}sitesNav__submenu{
 				background: $sites-nav-submenu-background;
+        font-size: 0.8em;
+
 				li.#{$namespace}sitesNav__submenuitem{
 					a {
 						background: $sites-nav-submenu-item-background;
 						color: $sites-nav-submenu-item-color;
-						border: $sites-nav-submenu-item-border;
+            text-decoration: none;
+            text-align: center;
+            border-top: 1px solid rgba($sites-nav-submenu-item-color, 0.1);
 
-						&:hover, &:active
-						{
+            &.#{$namespace}sitesNav__submenuitem-icon {
+              border-width: 0px;
+            }
+            &.#{$namespace}sitesNav__submenuitem-title {
+              border-width: 0px;
+              text-align: left;
+            }
+
+						&:hover, &:active {
 							background: $sites-nav-submenu-item-background-hover;
 							color: $sites-nav-submenu-item-color-hover;
-							border: $sites-nav-submenu-item-border-hover;
+              text-decoration: none;
 						}
 					}
 				}
 			}
 
 			&.is-selected {
-				ul.#{$namespace}sitesNav__submenu{
-					background: $sites-nav-submenu-selected-background;
-					li.#{$namespace}sitesNav__submenuitem{
+
+				ul.#{$namespace}sitesNav__submenu {
+					//background: $sites-nav-submenu-selected-background;
+
+					li.#{$namespace}sitesNav__submenuitem {
+
+            &.is-current {
+              a {
+                font-weight: $weight-semibold;
+              }
+            }
+            /*
 						a {
-							background: $sites-nav-submenu-item-selected-background;
-							color: $sites-nav-submenu-item-selected-color;
-							border: $sites-nav-submenu-item-selected-border;
+							//background: $sites-nav-submenu-item-selected-background;
+							//color: $sites-nav-submenu-item-selected-color;
+							//border: $sites-nav-submenu-item-selected-border;
 
 							&:hover, &:active
 							{
-								color: $sites-nav-menu-item-selected-color-hover;
+								//color: $sites-nav-menu-item-selected-color-hover;
 							}
 						}
+            */
 					}
 				}
 			}
 		}
 	}
+
 	&.opened{
 		@media #{$desktop}{
 			max-height: 100%;
@@ -841,11 +899,11 @@ body.is-logged-out{
 	z-index: 20;
 }
 
-body.is-logged-out{
-	#linkNav{
-		ul{
-			li.#{$namespace}sitesNav__menuitem{
-				.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
+body.is-logged-out {
+	#linkNav {
+		ul {
+			li.#{$namespace}sitesNav__menuitem {
+				.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown {
 					display: none;
 				}
 			}

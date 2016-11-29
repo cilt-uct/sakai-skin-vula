@@ -198,7 +198,7 @@ nav#subSites{
 		margin:  0;
 		li {
       list-style: none;
-      
+
 			&.#{$namespace}collapseTools {
 				display: flex;
 				align-items: center;
@@ -241,6 +241,24 @@ nav#subSites{
         float: left;
 			}
 
+      p {
+        border-bottom: 1px solid darken( $tool-menu-background-color, 10% );
+        border-right:  1px solid darken( $tool-menu-background-color, 10% );
+        color: $tool-menu-color;
+        padding: 0.2em;
+        margin: 0;
+
+        > i.#{$namespace}toolsNav__menuitem--icon {
+          margin-top: 0.2em;
+        }
+
+        > select {
+          font-size: 0.7em;
+          display: block;
+          width: calc(100% - 25px);
+        }
+      }
+
 			a {
 				border-bottom: 1px solid darken( $tool-menu-background-color, 10% );
         border-right:  1px solid darken( $tool-menu-background-color, 10% );
@@ -252,8 +270,9 @@ nav#subSites{
 			    line-height: 1.75;
 			    min-height: 3em;
 				padding: 0.5em 0.25em;
-				text-align: center;
+				text-align: left;
 				text-decoration: none;
+
 				&:hover {
 					background: $tool-menu-hover-background-color;
 					color: $tool-menu-hover-color;
@@ -266,9 +285,7 @@ nav#subSites{
 				}
 
 				.#{$namespace}toolsNav__menuitem--title {
-					display: inline-block;
-					//width: 100%;
-          float: left;
+					display: block;
 					text-overflow: ellipsis;
 					white-space: pre-wrap;
 					overflow: hidden;
@@ -283,8 +300,8 @@ nav#subSites{
 						@extend .fa;
 						content: '\f070';
 						position: absolute;
-						top: 4px;
-						right: 4px;
+						top: 0.6em;
+						right: 0.4em;
 					}
 					.#{$namespace}toolsNav__menuitem--icon{
 						font-style: italic;

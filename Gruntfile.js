@@ -9,6 +9,10 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     app: grunt.file.readJSON('config.json'), // don't keep passwords in source control
+    vendor: {
+        bootstrap: 'bootstrap-sass-3.3.7/assets',
+        fontawesome: 'font-awesome-sass-4.7.0/assets'
+    },
 
     // Tasks
     clean: { // Empties folders to start fresh
@@ -27,10 +31,7 @@ module.exports = function (grunt) {
       skin: {
         options: {
           sourcemap: 'none',
-          loadPath: [
-              'bootstrap-sass-3.3.6/assets/stylesheets',
-              'font-awesome-sass-4.5.0/assets/stylesheets'
-          ],
+          loadPath: [ "<%= vendor.bootstrap %>/stylesheets", "<%= vendor.fontawesome %>/stylesheets"],
         },
         files: [{
           expand: true,
@@ -44,7 +45,10 @@ module.exports = function (grunt) {
 
     postcss: { // Begin Post CSS Plugin
       options: {
-        map: false,
+        map: {
+          inline: false, // save all sourcemaps as separate files...
+          annotation: 'tmp/' // ...to the specified directory
+        },
         processors: [
           require('autoprefixer')({
             browsers: ['last 2 versions']
@@ -85,8 +89,9 @@ module.exports = function (grunt) {
     copy: { // Copy files from src folder to appropriate dest
       dist: {
         files: [
-          {expand: true, cwd: 'bootstrap-sass-3.3.6/assets/fonts/', src: ['**'], dest: 'tmp/fonts'},
-          {expand: true, cwd: 'font-awesome-sass-4.5.0/assets/fonts/', src: ['**'], dest: 'tmp/fonts'},
+          {expand: true, cwd: "<%= vendor.bootstrap %>/fonts/", src: ['**'], dest: 'tmp/fonts'},
+          {expand: true, cwd: "<%= vendor.fontawesome %>/fonts/", src: ['**'], dest: 'tmp/fonts'},
+          {expand: true, cwd: 'fonts/', src: ['**'], dest: 'tmp/fonts'},
           {expand: true, cwd: 'js/', src: ['ie/*','lib/*'], dest: 'tmp/js'},
           {expand: true, src: ['images/**'], dest: 'tmp/'},
         ]
