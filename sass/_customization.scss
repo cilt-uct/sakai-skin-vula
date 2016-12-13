@@ -83,7 +83,7 @@ $link-background-color: transparent !default;
 $link-active-background-color: transparent !default;
 $link-hover-background-color: transparent !default;
 
-$background-color: 			 $color-white!default;
+$background-color: 			 $color-white !default;
 $background-color-secondary: $color-gray-darker !default;
 
 $tool-background-color: $color-white !default;
@@ -172,6 +172,13 @@ $sites-nav-submenu-item-selected-color:     $sites-nav-menu-item-selected-color 
 $sites-nav-submenu-item-selected-border:    none !default;
 
 
+/* General button colors */
+$button-color-text-color: #FFF !default;
+$button-color-border-color: darken($link-color, 12%) !default;
+$button-color-background-color: $link-color !default;
+$button-color-background-secondary-color: $link-hover-color !default;
+/* ///////////// */
+
 
 // Breadcrumbs
 $breadcrumbs-color:			 $text-color !default;
@@ -222,6 +229,7 @@ $footer-color: $text-color !default;
 
 // Helpers
 $z-0:                             0;
+$z-1:                            10;
 $z-10:                          100;
 $z-20:                          200;
 $z-30:                          300;
@@ -239,3 +247,7 @@ $max-z:                         2147483647 - 100;
 
 $main-border-radius:           0.4em; // ± 4px
 $small-border-radius:           0.2em; // ± 2px
+
+// Border
+// ----------------------------------------
+$std-shadow: 0 3px 2px rgba( $text-color, 0.35);

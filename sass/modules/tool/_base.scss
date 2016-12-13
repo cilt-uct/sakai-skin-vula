@@ -180,10 +180,10 @@
 
 .portletBody {
 	background: $tool-background-color;
-	padding: $default-font-size $default-font-size 40px $default-font-size;
+	padding: 0.6em 0.6em 1em 0.6em; //$default-font-size $default-font-size 40px $default-font-size;
 
 	@media #{$phone} {
-		margin: 2.3em 0 0 0;
+		margin: 0; //2.3em 0 0 0;
 	}
 
 	> * {

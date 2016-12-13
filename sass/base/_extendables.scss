@@ -175,7 +175,8 @@
 	}
 }
 
-@mixin sakai_button( $button-background-color, $button-border-color, $button-text-color, $button-background-secondary-color ){
+@mixin sakai_button( $button-background-color, $button-border-color, $button-text-color, $button-background-secondary-color ) {
+
 	background: $button-background-color;
 	border: 1px solid $button-border-color;
 	color: $button-text-color !important;
@@ -188,16 +189,19 @@
 	margin: 0.5em 0.8em 0.5em 0;
 	padding: 0.4em 0.8em 0.45em 0.8em;
 	text-decoration: none !important;
+	
 	@include appearance(none);
 	@include border-radius(3px);
 	&:hover{
 		text-decoration: none;
-		background: linear-gradient( $button-background-secondary-color, $button-background-color );
+		//background: linear-gradient( $button-background-secondary-color, $button-background-color );
+		@include linear-gradient($button-background-secondary-color, $button-background-color);
 	}
 	&:active{
 		outline: 0;
 		text-decoration: none;
-		background: linear-gradient( $button-background-color, $button-background-secondary-color );
+		//background: linear-gradient( $button-background-color, $button-background-secondary-color );
+		@include linear-gradient($button-background-color, $button-background-secondary-color);
 	}
 	&[disabled="disabled"],&[disabled],&[disabled="true"]{
 		background: $button-background-color;
@@ -211,10 +215,12 @@
 	@include sakai_button( $button-color-background-color, $button-color-border-color, $button-color-text-color, $button-color-background-secondary-color );
 	position: relative;
 	&:hover{
-		background: linear-gradient( $button-color-background-color, $button-color-background-secondary-color );
+		//background: linear-gradient( $button-color-background-color, $button-color-background-secondary-color );
+		@include linear-gradient($button-color-background-secondary-color, $button-color-background-color);	
 	}
 	&:active{
-		background: linear-gradient( $button-color-background-secondary-color, $button-color-background-color );
+		//background: linear-gradient( $button-color-background-secondary-color, $button-color-background-color );
+		@include linear-gradient($button-color-background-color, $button-color-background-secondary-color);
 	}
 }
 

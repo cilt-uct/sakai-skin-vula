@@ -29,7 +29,7 @@
 	@media #{$phone}{
 		position: fixed;
 		z-index: 20;
-		top: 3.6em;
+		top: 4.28em;
 		left: 0;
 		background: lighten($tool-menu-color, 15% );
 		width: 100%;
@@ -61,14 +61,14 @@
 			{
 				display: none;
 			}
-			a{
+			a {
 				@include display-flex( flex );
 				@include justify-content( center );
 				@include align-items( center );
 				color: $background-color;
 				text-align: center;
 				font-size: 12px;
-				padding: 0.7em 0.5em;
+				padding: 0.8em 0.5em;
 				text-decoration: none;
 				text-transform: uppercase;
 				white-space: nowrap;

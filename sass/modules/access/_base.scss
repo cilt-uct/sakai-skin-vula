@@ -1,4 +1,4 @@
-##{$namespace}xlogin{
+##{$namespace}xlogin, #login-choice{
 	
 	position: fixed;
 	top: calc(50% - 15em);
@@ -8,7 +8,8 @@
 
 	background: $background-color;
 	box-shadow: 0 0 5px rgba( $text-color , 0.25 );
-	.logo{
+
+	.logo {
 		background: $primary-color url($logo) no-repeat center center;
 		width: 100%;
 		height: 64px;
@@ -16,50 +17,79 @@
 		overflow: hidden;
 		@include border-radius( 0px );
 	}
-	h1{
+
+	h1 {
 		padding: 0.6em;
   		font-size: 1.8em;
   		color: $primary-color;
   		text-align: center;
 	}
-	.alertMessage{
+	.alertMessage {
 		background: $error-background-color;
 		border: $error-color;
 		color: $error-color;
 		padding: 0.8em;
 		text-align: center;
 	}
-	fieldset{
+
+	fieldset {
 		padding: 1em;
-		label{
-			font-size: 1.2em;
+		display: inline-block;
+    	font-size: 1em;
+    	min-height: 3em;
+    	min-width: 100%;
+
+		@media #{$phone} {
+			padding: 0.75em;
+		}
+
+		label {
+			font-size: 1em;
 			display: inline-block;
-			min-width: 38%;
-			min-height: 3em;
+			min-width: 30%;
+			min-height: 2.2em;
+			text-align: right;
+    		padding-right: 0.4em;
+			font-weight: normal;
+			text-transform: capitalize;
+
 			@media #{$phone}{
+				text-align: left;
 				display: block;
 				min-height: 0.5em;
+				min-width: 100%;
+				margin: 0;
 			}
 		}
-		input[type="text"],input[type="password"]{
-			display: inline-block;
-			min-width: 56%;
-			border: 1px solid darken($background-color-secondary, 15%);
-			padding: 0.3em;
-			@media #{$phone}{
-				display: block;
-				width: 95%;
-			}
-		}
-		input[type="submit"]{
-			font-size: 1.1em;
+
+		input {
 			margin: 0 0 1em 0;
 		}
-		p{
+
+		input[type="text"], input[type="password"] {
+			display: inline-block;
+			min-width: 65%;
+			border: 1px solid $color-gray;
+			padding: 0.3em;
+
+			@media #{$phone} {
+				display: block;
+				width: 100%;
+			}
+		}
+
+		input[type="submit"] {
+			font-size: 1.1em;
+		}
+
+		p {
 			text-align: right;
-			@media #{$phone}{
+			margin: 0 0 1em 0;
+			/*
+			@media #{$phone} {
 				margin: 1em 0 0 0;
 			}
+			*/
 		}
 	}
 
@@ -85,7 +115,7 @@
 
 }
 
-#Mrphs-xlogin-container{
+##{$namespace}-xlogin-container{
 	opacity: 0;
 	@include transition(opacity 0.25s linear 0s);
 	&.loaded{
@@ -101,4 +131,45 @@
 	top:  0;
 	left: 0;
 	z-index: 1000;
+}
+
+
+#login-choice.login {
+    border-width: 0px;
+	margin: 0px;
+
+	$login-choice-image-size: 80px;
+
+	fieldset {
+		padding-bottom: 2em;
+	}
+
+	a {
+		text-align: center;
+		display: inline-block;
+		width: 40%;
+		
+		> img {
+			background-position: 50% center;
+			background-size: auto 100%;
+			@include border-radius(50%);
+			display: block;
+			margin: auto;
+			
+			width: $login-choice-image-size;
+			height: $login-choice-image-size;
+			@include opacity(.6);
+		}
+
+		> span {
+			display: block;
+		}
+
+		&:hover, &:active {
+
+			> img {
+				@include opacity(1);
+			}
+		}
+	}
 }

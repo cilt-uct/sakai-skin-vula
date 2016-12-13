@@ -29,14 +29,14 @@ body.#{$namespace}toolMenu-collapsed {
 		ul {
 			li {
 
-        .#{$namespace}toolsNav__menuitem--icon {
-          margin: 0.1em 0.4em 0 0.6em;
-        }
+				.#{$namespace}toolsNav__menuitem--icon {
+				margin: 0.1em 0.4em 0 0.6em;
+				}
 
 				a {
 					/*min-height: 1.7em;*/
 
-					&:hover{
+					&:hover {
 						.#{$namespace}toolsNav__menuitem--title {
 							position: absolute;
 							display: block;
@@ -49,7 +49,7 @@ body.#{$namespace}toolMenu-collapsed {
 							width: auto;
 							border-radius: 0 15px 15px 0;
 							line-height: 100%;
-              opacity: 0.8;
+              				opacity: 0.8;
 						}
 					}
 
@@ -85,7 +85,7 @@ body.#{$namespace}toolMenu-collapsed {
 #toolMenuWrap {
 	#toolMenu {
 		position: relative;
-    background: $tool-menu-background-color;
+    	//background: $tool-menu-background-color;
 	}
 	background: $background-color;
 	display: block;
@@ -96,11 +96,11 @@ body.#{$namespace}toolMenu-collapsed {
 	text-align: center;
 	@include transition( left 0.25s linear 0s );
 
-	@media #{$phone}{
+	@media #{$phone} {
 		left: -100%;
 		position: fixed;
 		top: 5.5em;
-		z-index: 9999;
+		z-index: $z-1;
 		padding: 0 0 2em 0;
 		margin: 0 0 0;
 		height: 100%;
@@ -197,7 +197,7 @@ nav#subSites{
 		padding: 0;
 		margin:  0;
 		li {
-      list-style: none;
+      		list-style: none;
 
 			&.#{$namespace}collapseTools {
 				display: flex;
@@ -237,8 +237,8 @@ nav#subSites{
 
 			.#{$namespace}toolsNav__menuitem--icon {
 				margin: 0 0.4em;
-        display: inline-block;
-        float: left;
+        		display: inline-block;
+        		float: left;
 			}
 
       p {
@@ -261,7 +261,7 @@ nav#subSites{
 
 			a {
 				border-bottom: 1px solid darken( $tool-menu-background-color, 10% );
-        border-right:  1px solid darken( $tool-menu-background-color, 10% );
+        		border-right:  1px solid darken( $tool-menu-background-color, 10% );
 				color: $tool-menu-color;
 				display: block;
 				font-family: $header-font-family;
@@ -276,12 +276,40 @@ nav#subSites{
 				&:hover {
 					background: $tool-menu-hover-background-color;
 					color: $tool-menu-hover-color;
+
+					@media #{$phone} {
+						.#{$namespace}toolsNav__menuitem--icon {
+							color: darken( $color-graylight, 10% );
+						}
+					}
 				}
 
 				@media #{$phone} {
 					height:  5.5em;
 					overflow: hidden;
-					padding: 0.85em 0.25em 0.1em;
+					padding: 0.25em;
+					text-align: center;
+					border: 1px solid darken( $tool-menu-background-color, 10% );
+
+					.#{$namespace}toolsNav__menuitem--icon {
+						position: absolute;
+						margin: 0;
+						z-index: 1;
+						font-size: 3em;
+						color: $color-graylight;
+						width: 25%;
+						display:block;
+						line-height: 1.6;
+
+						&:before {
+							display:block;
+						}
+					}
+
+					.#{$namespace}toolsNav__menuitem--title {
+						z-index: 2;
+						position: relative;
+					}
 				}
 
 				.#{$namespace}toolsNav__menuitem--title {
@@ -312,9 +340,11 @@ nav#subSites{
 				background: $tool-menu-current-background-color;
 
 				a {
+					
 					border-right: 3px solid $tool-menu-current-border-color;
 					border-bottom: 1px solid $tool-menu-current-border-color;
 					color: $tool-menu-current-color;
+
 					.#{$namespace}toolsNav__menuitem--title {
 						font-weight: 700;
 					}
@@ -325,8 +355,10 @@ nav#subSites{
 					}
 
 					@media #{$phone} {
-						border: 1px solid $tool-menu-current-border-color;
-						border-left: 1px solid $tool-menu-current-border-color;
+						border-color: $tool-menu-current-border-color;
+						border-width: 1px;
+						border-right-width: 1px;
+						background: inherit;
 					}
 				}
 			}
@@ -341,7 +373,7 @@ nav#subSites{
 			  			padding: 0.6em 0 0.6em 0em;
 						background: $tool-sub-menu-background-color;
 
-            &:hover {
+            		&:hover {
 							background: $tool-sub-menu-hover-background-color;
 							color: $tool-sub-menu-hover-color;
 						}

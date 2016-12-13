@@ -89,7 +89,7 @@
 	.icon-sakai-news{					@extend .fa-rss;}
 	.icon-sakai-simple-rss{					@extend .fa-newspaper-o;}
 	//.icon-sakai-basiclti{					@extend .fa-globe;}
-  .icon-sakai-messages{					@extend .fa-inbox;}
+    .icon-sakai-messages{					@extend .fa-inbox;}
 	.icon-sakai-dashboard{					@extend .fa-dashboard;}
 	.icon-sakai-site-roster2{				@extend .fa-users;}
 	.icon-sakai-sections{					@extend .fa-user;}
@@ -153,9 +153,11 @@
   .icon-sakai-sms-user { @extend .fa-envelope; }
   .icon-sakai-feeds { @extend .fa-rss; }
 
-  .icon-sakai-basiclti{					@extend .fa-plug;}
+  .icon-sakai-basiclti, .icon-sakai-rutgers-linktool { @extend .fa-plug;}
   .icon-sakai-basiclti-admin {
       @include fa-icon($fa-var-plug, after, inline-block, 0, 0);
       @include fa-icon($fa-var-pencil, before, inline-block, 0 0 0 -0.5em, 0, inherit, 50%, normal, 1, absolute, rotateY(180deg));
   }
+
+  .icon-sakai-synoptic-messagecenter-HOLD {@extend .fa-inbox;}
 }

@@ -43,7 +43,7 @@
 		.#{$namespace}breadcrumb--icon {
 			display: inline-block;
 			text-align: right;
-      margin: 0 0.12em 0 0.36em;
+      		margin: 0 0.12em 0 0.36em;
 			//width: 24px;
 		}
 
@@ -97,7 +97,7 @@
 		background-image: none;
 		color: $background-color;
 		position: fixed;
-		top: 6.3em;
+		top: 7.15em;
 		width: 100%;
 		z-index: 2;
 		@include transition( top 0.25s linear 0s );
