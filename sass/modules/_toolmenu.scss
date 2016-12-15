@@ -29,10 +29,6 @@ body.#{$namespace}toolMenu-collapsed {
 		ul {
 			li {
 
-				.#{$namespace}toolsNav__menuitem--icon {
-				margin: 0.1em 0.4em 0 0.6em;
-				}
-
 				a {
 					/*min-height: 1.7em;*/
 
@@ -62,13 +58,31 @@ body.#{$namespace}toolMenu-collapsed {
 						white-space: pre;
 					}
 				}
+
+				.#{$namespace}toolsNav__menuitem--icon {
+					margin: 0.1em 0.4em 0 0.6em;
+				}
+
 				.#{$namespace}toolsNav__menuitem--title{
 					display: none;
 				}
+
 				&.#{$namespace}collapseTools{
 					i{
 						@include transform( scaleX(-1) ); /* flip horizontally */
 					}
+				}
+			}
+		}
+	}
+}
+
+.is-logged-out {
+	#toolMenu { 
+		ul {
+			li {
+				&.#{$namespace}collapseTools {
+					display: none;
 				}
 			}
 		}
@@ -83,10 +97,12 @@ body.#{$namespace}toolMenu-collapsed {
 }
 
 #toolMenuWrap {
+
 	#toolMenu {
 		position: relative;
     	//background: $tool-menu-background-color;
 	}
+
 	background: $background-color;
 	display: block;
 	min-width: $tool-menu-width;
@@ -170,12 +186,15 @@ nav#subSites{
 	max-width: #{$tool-menu-width * 2 };
 	position: relative;
 	z-index: 9999;
+
 	@media #{$desktop}{
 		min-width: 15em;
 	}
-	&.floating{
+
+	&.floating {
 		margin: 0 0 0 7px;
-		&:after{
+		
+		&:after {
 			right: 100%;
 			top: 25%;
 			border: solid transparent;
@@ -199,6 +218,12 @@ nav#subSites{
 		li {
       		list-style: none;
 
+			@media #{$phone} {
+				border-right: 2px solid darken( $tool-menu-background-color, 10% );
+				margin: -4px -4px 0px 0; //FIX for inline-block extra space.
+				width: calc( 25% - 1px );
+			}
+
 			&.#{$namespace}collapseTools {
 				display: flex;
 				align-items: center;
@@ -216,7 +241,7 @@ nav#subSites{
 					color: $tool-menu-hover-color;
 				}
 
-        &.min {
+        		&.min {
 					justify-content:center; /* center the arrows when collapsed */
 				}
 
@@ -229,35 +254,34 @@ nav#subSites{
 				}
 			}
 
-			@media #{$phone} {
-				border-right: 2px solid darken( $tool-menu-background-color, 10% );
-				margin: -4px -4px 0px 0; //FIX for inline-block extra space.
-				width: calc( 25% - 1px );
-			}
-
 			.#{$namespace}toolsNav__menuitem--icon {
 				margin: 0 0.4em;
         		display: inline-block;
         		float: left;
+
+				&.fa {
+					font-size: (4em / 3);
+				}
+
 			}
 
-      p {
-        border-bottom: 1px solid darken( $tool-menu-background-color, 10% );
-        border-right:  1px solid darken( $tool-menu-background-color, 10% );
-        color: $tool-menu-color;
-        padding: 0.2em;
-        margin: 0;
+			p {
+				border-bottom: 1px solid darken( $tool-menu-background-color, 10% );
+				border-right:  1px solid darken( $tool-menu-background-color, 10% );
+				color: $tool-menu-color;
+				padding: 0.2em;
+				margin: 0;
 
-        > i.#{$namespace}toolsNav__menuitem--icon {
-          margin-top: 0.2em;
-        }
+				> i.#{$namespace}toolsNav__menuitem--icon {
+				margin-top: 0.2em;
+				}
 
-        > select {
-          font-size: 0.7em;
-          display: block;
-          width: calc(100% - 25px);
-        }
-      }
+				> select {
+				font-size: 0.7em;
+				display: block;
+				width: calc(100% - 25px);
+				}
+			}
 
 			a {
 				border-bottom: 1px solid darken( $tool-menu-background-color, 10% );

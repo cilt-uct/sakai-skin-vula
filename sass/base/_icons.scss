@@ -49,7 +49,7 @@
     }
 }
 
-.Mrphs-toolsNav__menuitem--icon{
+.#{$namespace}toolsNav__menuitem--icon{
 	display: block;
 	line-height: 1.25;
 	text-align: center;
@@ -150,8 +150,12 @@
   .icon-osp-glossary { @extend .fa-bookmark; }
   .icon-sakai-groupmanager { @extend .fa-th-large; }
   .icon-sakai-permissions-helper { @extend .fa-lock; }
+
   .icon-sakai-sms-user { @extend .fa-envelope; }
+  .icon-sakai-sms-admin { @extend .fa-envelope; }
+
   .icon-sakai-feeds { @extend .fa-rss; }
+  .icon-sakai-oauth-admin { @extend .fa-skyatlas; } 
 
   .icon-sakai-basiclti, .icon-sakai-rutgers-linktool { @extend .fa-plug;}
   .icon-sakai-basiclti-admin {

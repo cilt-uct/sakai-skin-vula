@@ -91,9 +91,9 @@
 		}
 	}
 
-	@media #{$phone}{
+	@media #{$phone} {
 		padding: 1em;
-		background-color: $primary-color;
+		background-color: $color-secondary; //$primary-color;
 		background-image: none;
 		color: $background-color;
 		position: fixed;
@@ -101,13 +101,16 @@
 		width: 100%;
 		z-index: 2;
 		@include transition( top 0.25s linear 0s );
-		&.moving{
+		
+		&.moving {
 			top: -22.2em;
 		}
-		h1{
+
+		h1 {
 			color: $background-color;
 		}
-		a{
+
+		a {
 			border-bottom: 0px none;
 			color: $background-color;
 			font-size: 0.9em;
@@ -137,7 +140,23 @@
 	}
 }
 
-.#{$namespace}breadCrumbs{
+.#{$namespace}breadCrumbs {
 	margin:auto;
 	max-width: calc( 50% - 3em);
+}
+
+.is-logged-out {
+	.#{$namespace}siteHierarchy {
+
+		* {
+			display:none;
+		}
+	}
+
+	@media #{$phone} {
+
+		.#{$namespace}siteHierarchy {
+			display:none;
+		}
+	}
 }

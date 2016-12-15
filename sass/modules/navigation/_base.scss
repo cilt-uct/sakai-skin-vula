@@ -40,8 +40,9 @@ body.is-logged-out {
 		}
 	}
 
-	.#{$namespace}loginUser{
+	.#{$namespace}loginUser {
 		@include display-flex( inline-flex );
+
 		li {
 			display: inline-block;
 			margin: 0 0.8em 0 0;
@@ -69,6 +70,33 @@ body.is-logged-out {
 			}
 		}
 
+		p {
+			margin: 0.05em 1.5em 0 0;
+		}
+	}
+
+	&.is-maximized{
+		.siteNavWrap{
+			@include display-flex(flex);
+			@include align-items(center);
+			@include flex-grow( 1 );
+			@media #{$phone}{
+				display: none;
+			}
+			background: none;
+		}
+	}
+	@media #{$phone}{
+		background: $primary-color;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 20;
+	}
+}
+
+nav {
+	> div.#{$namespace}loginUser {
 		> a {
 			background: $button-background-color;
 			border: 1px solid $button-border-color;
@@ -106,29 +134,6 @@ body.is-logged-out {
 				
 			}
 		}
-
-		p {
-			margin: 0.05em 1.5em 0 0;
-		}
-	}
-
-	&.is-maximized{
-		.siteNavWrap{
-			@include display-flex(flex);
-			@include align-items(center);
-			@include flex-grow( 1 );
-			@media #{$phone}{
-				display: none;
-			}
-			background: none;
-		}
-	}
-	@media #{$phone}{
-		background: $primary-color;
-		position: fixed;
-		top: 0;
-		width: 100%;
-		z-index: 20;
 	}
 }
 
@@ -156,6 +161,7 @@ body.is-logged-out {
 	box-shadow: $std-shadow;
 	list-style: none;
 	padding: 0 0 0 0;
+	border-bottom-left-radius: $main-border-radius;
 
 	li {
 		display: block;
@@ -749,6 +755,12 @@ body.is-logged-out {
 				//box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 				box-shadow: $std-shadow;
 				border-bottom-right-radius: $main-border-radius;
+				border-bottom-left-radius: $main-border-radius;
+
+				li:last-child {
+					border-bottom-right-radius: $main-border-radius;
+					border-bottom-left-radius: $main-border-radius;
+				}
 
 				li {
 					display: block;
@@ -780,6 +792,11 @@ body.is-logged-out {
 							vertical-align: sub;
 							margin: 0;
 						}
+					}
+
+					> a:last-child {
+						border-bottom-right-radius: $main-border-radius;
+						border-bottom-left-radius: $main-border-radius;
 					}
 
 					.#{$namespace}sitesNav__submenuitem-icon {
