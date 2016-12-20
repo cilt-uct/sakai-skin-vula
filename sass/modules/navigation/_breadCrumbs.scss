@@ -1,5 +1,5 @@
 .#{$namespace}siteHierarchy {
-	$svg-gradient-shim-threshold: 1 !global;
+	//$svg-gradient-shim-threshold: 1 !global;
 	background: linear-gradient( to right, $header-gradient-a, $header-gradient-b, $header-gradient-c, $header-gradient-d);
 	box-shadow: 0 10px 6px -10px rgba(0, 0, 0, 0.6) inset;
 	min-height: $hierarchy-size;
@@ -99,7 +99,7 @@
 		position: fixed;
 		top: 7.15em;
 		width: 100%;
-		z-index: 2;
+		z-index: $z-10;
 		@include transition( top 0.25s linear 0s );
 		
 		&.moving {
@@ -134,7 +134,11 @@
 			display: none;
 		}
 
-		.#{$namespace}breadcrumb--reset-icon{
+		.#{$namespace}breadcrumb--reset-icon {
+			display: none;
+		}
+
+		.buttonset {
 			display: none;
 		}
 	}

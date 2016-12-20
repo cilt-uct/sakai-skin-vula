@@ -77,13 +77,13 @@
 		float: right;
 		display: block;
 		position: relative;
-		//margin: 0px 0 -20px 0;
 		top: -2px;
-		//z-index: 1;
+		z-index: $z-1;
+		//margin: 0px 0 -20px 0;
 
 		@media #{$tablet} {
-			left: 0.35em;
-			font-size: 1.5em;
+			//left: 0.35em;
+			font-size: 1.2em;
 			margin: 0px 0 0px 0;
 			top: -4px;
 			z-index: 1;
@@ -185,19 +185,92 @@
 	}
 }
 
-.portletBody {
+body > .portletBody, .portletBody {
+
 	background: $tool-background-color;
 	//padding: 0.6em 0.6em 1em 0.6em; //$default-font-size $default-font-size 40px $default-font-size;
-
-	@media #{$phone} {
-		margin: 0; //2.3em 0 0 0;
-	}
+	margin: 0 0.3em;
 
 	> * {
 		position: relative;
 		//top: -2px;
 	}
-}
+
+	&.container-fluid {
+		padding: 0 0.5em;		
+	}
+
+  h1 {
+    font-size: 1.6em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3, h4 {
+    font-size: 1.2em;
+  }
+
+  .page-header {
+    padding-bottom: 0; //(($line-height-computed / 2) - 1);
+    margin: 0; //($line-height-computed * 2) 0 $line-height-computed;
+    border-bottom: 0px solid white;
+
+    h1 {
+      font-size: 1.2em;
+    }
+
+    h2 {
+      font-size: 1.1em;
+    }
+
+    h3, h4 {
+      font-size: 1em;
+    }
+  }
+
+  legend{
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 1em;
+  }
+
+  .table-responsive {
+      border: 0px none;
+
+      .table-bordered {
+        border: 1px solid #ddd;
+      }
+
+  }
+
+  table {
+
+      a[data-toggle=collapse] {
+        color: $text-color;
+        text-decoration: none;
+        font-size: 1em;
+
+        @include fa-icon($fa-var-sort-down, before, inline, 0, 0 0.5em 0 0, inherit, inherit, normal, inherit, relative);
+
+        &:hover, &:active {
+          color: $link-hover-color;
+        }
+      }
+
+      fieldset {
+        margin-bottom: 1em;
+      }
+
+	  label {
+		  font-size: 0.9em;
+		  font-weight: $weight-regular;
+	  }
+  } // table 
+
+} // portletBody
+
 
 .#{$namespace}toolBody--sakai-iframe-service {
 
@@ -228,10 +301,50 @@
 
 }
 
-.validationEmbedded,.validation{
+.validationEmbedded, .validation {
 	@extend .bs-callout-primary;
 }
 
-.alertMessage{
+.alertMessage {
 	@extend .bs-callout-danger;
+}
+
+.static {
+	font-size: 1em;
+	text-align: center; 
+
+	> div {	
+		width: 30%;
+		margin: 4em auto auto;
+		text-align: left; 
+
+		h2 {
+			padding: 2em 0 3em 5.2em;
+
+			background-image: url("images/logo_b.png");
+			background-repeat: no-repeat;
+			background-position: top left;
+			background-size: 100px;
+		}
+
+		@media #{$tablet} {
+			width: 60%;
+			margin: auto;
+
+			h2 {
+				background-size: 60px;
+				padding: 1em 0 1em 3.4em;
+			}
+		}
+
+		@media #{$phone} {
+			width: 90%;
+			margin: auto;
+
+			h2 {
+				background-size: 40px;
+				padding: 0 0 1em 2.6em;
+			}
+		}
+	}
 }

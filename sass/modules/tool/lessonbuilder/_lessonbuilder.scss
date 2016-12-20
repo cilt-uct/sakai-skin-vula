@@ -1,4 +1,4 @@
-.Mrphs-sakai-lessonbuildertool{
+.#{$namespace}sakai-lessonbuildertool{
 	.navIntraTool{
 		margin: 0 0 0 0;
 		padding: 0 0 0 0;
@@ -19,5 +19,26 @@
 	.mainList{
 		list-style: none;
 		padding: 0 0 0 0;
+	}
+
+	nav {
+		&.#{$namespace}container--toolTitleNav {
+			z-index: $z-1 !important;
+		}
+	}
+
+	.navIntraTool { 
+		
+		.contentButton {
+			z-index: $z-1;
+		}
+
+		& ~ div.itemclass {
+			margin-top: 2em !important
+		}
+	}
+
+	.column {
+		border-color: darken($tool-menu-background-color, 20% );
 	}
 }

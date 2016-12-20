@@ -69,7 +69,12 @@
 		input[type="text"], input[type="password"] {
 			display: inline-block;
 			min-width: 65%;
+			
 			border: 1px solid $color-gray;
+			@include border-radius($small-border-radius);
+			box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1) inset;
+    		box-sizing: border-box;
+
 			padding: 0.3em;
 
 			@media #{$phone} {
@@ -105,12 +110,24 @@
 		box-shadow: 0 0 15px rgba( $text-color , 0.25 );
 	}
 
+	/*
 	@media #{$phone}{
 		position: absolute;
 		top:   0;
-		left:  10%;
-		width: 80%;
+		left:  0;
+		width: 100%;
 		margin: 2em auto;
+	}
+	*/
+
+	@media #{$phone}{
+		width: 100%;
+		left: 0;
+		box-shadow: none;
+
+		h1 {
+			font-size: 1.3em;
+		}
 	}
 
 }

@@ -137,7 +137,7 @@ nav {
 	}
 }
 
-.userNav_link{
+.userNav_link {
 	color: $text-color;
 	font-family: $header-font-family;
 	font-size: 0.9em;
@@ -212,6 +212,7 @@ nav {
 
 		.#{$namespace}userNav__submenuitem--displayid{
 			font-weight: normal;
+			font-size: 70%;
 		}
 
 	}
@@ -926,18 +927,6 @@ nav {
 								font-weight: $weight-semibold;
 							}
 						}
-            /*
-						a {
-							//background: $sites-nav-submenu-item-selected-background;
-							//color: $sites-nav-submenu-item-selected-color;
-							//border: $sites-nav-submenu-item-selected-border;
-
-							&:hover, &:active
-							{
-								//color: $sites-nav-menu-item-selected-color-hover;
-							}
-						}
-            */
 					}
 				}
 			}

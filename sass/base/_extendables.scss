@@ -26,8 +26,9 @@
 
 @mixin bs-callout($color, $bgcolor) {
   display: block;
-  margin: 20px 0;
-  padding: 15px 30px 15px 15px;
+  //margin: 20px 0;
+  padding: 0.4em; //15px 30px 15px 15px;
+  font-size: 0.9em;
   border: 1px solid;
   border-left-width: 5px;
   border-color: lighten($color, 25%);

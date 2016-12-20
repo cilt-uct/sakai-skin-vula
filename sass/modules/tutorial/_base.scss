@@ -1,12 +1,17 @@
+$tutorial-background-color: darken($color-success, 10%);
+$tutorial-background-link-color: $primary-color;
+
 .sakai-tutorial.qtip {
 	border: 0 none;
-  border-radius: $main-border-radius;
+  @include border-radius($main-border-radius);
 
   background-color: $background-color;
 	font-family: $font-family;
 	font-size: $default-font-size;
 	line-height: 1.4;
-	//color: $alt-colour; /* determines the colour of the tip */
+	color: $tutorial-background-color; /* determines the colour of the tip */
+	
+	border: 2px solid $tutorial-background-color;
 
   &.qtip-shadow {
   	box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
@@ -17,17 +22,17 @@
 		align-items: center;
 		justify-content: space-between;
 		padding: 4px 8px;
-		background: $color-gray-dark;
+		background: $tutorial-background-color;
 		color: $color-white;
-    border-radius: $main-border-radius $main-border-radius 0 0;
+    @include border-radius($small-border-radius $small-border-radius 0 0);
     font-weight: $weight-semibold;
 	}
 
 	.qtip-content {
 		padding: 1em;
-		border: 2px solid $color-gray-dark;
+		
     border-top:0 none;
-    border-radius: 0 0 $main-border-radius $main-border-radius;
+		@include border-radius(0 0 $small-border-radius $small-border-radius);
 		color: $text-color;
 
 		.no-wrap {
@@ -69,6 +74,11 @@
 			align-items:center;
 			font-size: inherit;
 			text-decoration:none;
+			color: darken($tutorial-background-link-color, 10%);
+
+			&:hover, &:active {
+				color: $tutorial-background-link-color;
+			}
 		}
 
 		.tut-next {
@@ -81,6 +91,13 @@
 		}
 	}
 
+	.qtip-tip {
+		color: $tutorial-background-color;
+
+		canvas {
+			color: $tutorial-background-color;
+		}
+	}	
   /*
 	.qtip-tipped {
 	  background-color: $tool-background-color;

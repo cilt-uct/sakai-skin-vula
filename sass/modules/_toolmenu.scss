@@ -116,7 +116,7 @@ body.#{$namespace}toolMenu-collapsed {
 		left: -100%;
 		position: fixed;
 		top: 5.5em;
-		z-index: $z-1;
+		z-index: $z-100;
 		padding: 0 0 2em 0;
 		margin: 0 0 0;
 		height: 100%;
@@ -258,11 +258,6 @@ nav#subSites{
 				margin: 0 0.4em;
         		display: inline-block;
         		float: left;
-
-				&.fa {
-					font-size: (4em / 3);
-				}
-
 			}
 
 			p {
@@ -273,13 +268,13 @@ nav#subSites{
 				margin: 0;
 
 				> i.#{$namespace}toolsNav__menuitem--icon {
-				margin-top: 0.2em;
+					margin-top: 0.2em;
 				}
 
 				> select {
-				font-size: 0.7em;
-				display: block;
-				width: calc(100% - 25px);
+					font-size: 0.7em;
+					display: block;
+					width: calc(100% - 25px);
 				}
 			}
 
@@ -300,40 +295,6 @@ nav#subSites{
 				&:hover {
 					background: $tool-menu-hover-background-color;
 					color: $tool-menu-hover-color;
-
-					@media #{$phone} {
-						.#{$namespace}toolsNav__menuitem--icon {
-							color: darken( $color-graylight, 10% );
-						}
-					}
-				}
-
-				@media #{$phone} {
-					height:  5.5em;
-					overflow: hidden;
-					padding: 0.25em;
-					text-align: center;
-					border: 1px solid darken( $tool-menu-background-color, 10% );
-
-					.#{$namespace}toolsNav__menuitem--icon {
-						position: absolute;
-						margin: 0;
-						z-index: 1;
-						font-size: 3em;
-						color: $color-graylight;
-						width: 25%;
-						display:block;
-						line-height: 1.6;
-
-						&:before {
-							display:block;
-						}
-					}
-
-					.#{$namespace}toolsNav__menuitem--title {
-						z-index: 2;
-						position: relative;
-					}
 				}
 
 				.#{$namespace}toolsNav__menuitem--title {
@@ -344,7 +305,7 @@ nav#subSites{
 				}
 
 				&.is-invisible {
-					color: #AAAAAA;
+					color: $color-success; //#AAAAAA;
 					font-style: italic;
 					position: relative;
 					&:after {
@@ -354,17 +315,73 @@ nav#subSites{
 						position: absolute;
 						top: 0.6em;
 						right: 0.4em;
+
+						@media #{$phone} {
+							top: 0.2em;
+							right: 0.2em;
+						}
 					}
+
 					.#{$namespace}toolsNav__menuitem--icon{
 						font-style: italic;
 					}
 				}
+
+				> span {
+					
+					&.fa {
+						font-size: (4em / 3);
+					}
+				}		
+
+				@media #{$phone} {
+					height:  5.5em;
+					overflow: hidden;
+					padding: 0.25em;
+					text-align: center;
+					border: 1px solid darken( $tool-menu-background-color, 10% );
+					position: relative;
+
+					.#{$namespace}toolsNav__menuitem--icon {
+						z-index: 1;
+						margin: 0;
+						color: $color-graylight;
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						margin-right: -50%;
+						transform: translate(-50%, -50%);
+						font-size: 3em !important;
+
+						&:before {
+							display:block;
+						}
+					}
+
+					&:hover {
+						.#{$namespace}toolsNav__menuitem--icon {
+							color: darken( $color-graylight, 10% );
+						}
+					}
+
+					.#{$namespace}toolsNav__menuitem--title {						
+						z-index: 2;
+						margin: 0;
+						padding: 0.2em;
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						margin-right: -50%;
+						transform: translate(-50%, -50%);
+					}
+					
+				} // on phone
 			}
+
 			&.is-current {
 				background: $tool-menu-current-background-color;
 
 				a {
-					
 					border-right: 3px solid $tool-menu-current-border-color;
 					border-bottom: 1px solid $tool-menu-current-border-color;
 					color: $tool-menu-current-color;
@@ -406,14 +423,15 @@ nav#subSites{
 							padding: 0.6em 0.6em;
 						}
 					}
-					&.is-current{
-						a{
+					&.is-current {
+						a {
 							background: $tool-sub-menu-current-background-color;
 							color: $tool-sub-menu-current-color;
-							.#{$namespace}toolsNav__menuitem--title{
+
+							.#{$namespace}toolsNav__menuitem--title {
 								font-weight: 700;
 							}
-							&:hover{
+							&:hover {
 								background: $tool-sub-menu-current-hover-background-color;
 								color: $tool-sub-menu-current-hover-color;
 							}
@@ -429,8 +447,8 @@ nav#subSites{
 			}
 		}
 
-    li:last-child a {
-      border-radius: 0px 0px $main-border-radius 0px;
-    }
+		li:last-child a {
+		border-radius: 0px 0px $main-border-radius 0px;
+		}
 	}
 }

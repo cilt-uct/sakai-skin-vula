@@ -1,24 +1,25 @@
 @import "../base/compass";
 
 //.#{$namespace}
-.is-logged-out{
+.is-logged-out {
 	#content, .#{$namespace}container--footer{
 		margin: 2em;
-		@media #{$phone}{
-			margin: 8em 0 0 0;
+
+		@media #{$phone} {
+			margin: 5em 0 0 0;
 		}
 	}
 
-	.#{$namespace}container--footer{
-		@media #{$phone}{
+	.#{$namespace}container--footer {
+		@media #{$phone} {
 			margin: 2em 0 0 0;
 			border-radius: 0;
 		}
 	}
 
 	.#{$namespace}topHeader {
-		@media #{$phone}{
-			&.moving{
+		@media #{$phone} {
+			&.moving {
 	    		top: -12em;
 	    	}
 	    }
@@ -49,15 +50,27 @@
 	}
 
 	#col1of2, #col2of2{
+		
 		display: inline-block;
 		margin: 0 0 0 1%;
 		vertical-align: top;
 		width: 48%;
+
 		@media #{$phone}{
 			display: block;
 			width: 100%;
 		}
 	}
+
+/*
+	#col1of2 {
+		margin: 0;
+
+		@media #{$phone} {
+			margin: 0 0 0 1%;
+		}
+	}
+*/
 }
 
 .#{$namespace}mainContent{
@@ -81,6 +94,9 @@
 	@media #{$phone}{
 		margin: 2em 0 0 0;
 		@include border-radius(0);
+		border-left-width: 0px;
+		border-right-width: 0px;
+		border-bottom-width: 0px;		
 	}
 }
 

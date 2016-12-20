@@ -17,7 +17,9 @@
 			padding: 0.5em;
 		}
 	}
+
 	&footerApp{
+
 		&__presence, &__portalChat{
 		    background-color: $footerApp__chat__header__background;
 		    color: $footerApp__chat__header__color;
@@ -670,8 +672,18 @@
 				}
 				
 			}
-		
 	}
-	
+}
 
+@media #{$phone} {
+
+	.#{$namespace}container--footer {
+		##{$namespace}footerApp__chat{
+			display: none !important;
+		}
+
+		#footerAppPresence {
+			display: none !important;
+		}
+	}
 }
