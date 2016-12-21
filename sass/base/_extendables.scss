@@ -27,7 +27,7 @@
 @mixin bs-callout($color, $bgcolor) {
   display: block;
   //margin: 20px 0;
-  padding: 0.4em; //15px 30px 15px 15px;
+  padding: 0.6em; //15px 30px 15px 15px;
   font-size: 0.9em;
   border: 1px solid;
   border-left-width: 5px;
@@ -348,10 +348,6 @@ label.panelGridLabel{
 	&:hover {
 		border-color: lighten( $tool-menu-color, 5% ) !important;
 		background-color: lighten( $tool-menu-background-color, 5% ) !important;
-	}
-
-	.dz-progress{
-		top: 70% !important;
 	}
 }
 

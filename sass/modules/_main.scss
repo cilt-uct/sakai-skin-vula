@@ -3,7 +3,7 @@
 //.#{$namespace}
 .is-logged-out {
 	#content, .#{$namespace}container--footer{
-		margin: 2em;
+		margin: 0.5em; //2em;
 
 		@media #{$phone} {
 			margin: 5em 0 0 0;
@@ -43,13 +43,13 @@
 }
 
 #content, .#{$namespace}container--footer{
-	margin: 2em;
+	margin: 0.5em; //2em;
 
-	@media #{$phone}{
+	@media #{$phone} {
 		margin: 8em 0 0 0;
 	}
 
-	#col1of2, #col2of2{
+	#col1of2, #col2of2 {
 		
 		display: inline-block;
 		margin: 0 0 0 1%;
