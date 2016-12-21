@@ -1,5 +1,5 @@
-table{
-	h4{
+table {
+	h4 {
 		margin: 0.2em 0 0.5em 0;
 	}
 	&.listHier{
@@ -12,7 +12,7 @@ table{
     		margin: 3em 0;
     		overflow: auto;
 		}
-		tr{
+		tr {
 			td {
 				border-right: 1px solid darken($tool-background-color, 10%);
 				padding: 0.25em;
@@ -29,9 +29,17 @@ table{
 			}
 			&:nth-child(odd){
 				background: darken($tool-background-color, 5%);
-				td{
+				td {
 					border-right: 1px solid darken($tool-background-color, 15%);
 				}
+			}
+		}
+	}
+
+	&.sectionTable { 
+		tr {
+			td {
+				border-color: darken($tool-background-color, 10%) !important;
 			}
 		}
 	}

@@ -212,6 +212,22 @@ body > .portletBody, .portletBody {
     font-size: 1.2em;
   }
 
+	table {
+
+		h1 {
+			font-size: 1.2em;
+		}
+
+		h2 {
+			font-size: 1.1em;
+		}
+
+		h3, h4 {
+			font-size: 1em;
+		}
+
+	}
+
   .page-header {
     padding-bottom: 0; //(($line-height-computed / 2) - 1);
     margin: 0; //($line-height-computed * 2) 0 $line-height-computed;

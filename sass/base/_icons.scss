@@ -87,7 +87,7 @@
 	.icon-sakai-mailbox{					@extend .fa-envelope-o;}
 	.icon-sakai-emailtemplateservice{			@extend .fa-envelope;}
 	.icon-sakai-news{					@extend .fa-rss;}
-	.icon-sakai-simple-rss{					@extend .fa-newspaper-o;}
+	//.icon-sakai-simple-rss{					@extend .fa-newspaper-o;}
 	//.icon-sakai-basiclti{					@extend .fa-globe;}
     .icon-sakai-messages{					@extend .fa-inbox;}
 	.icon-sakai-dashboard{					@extend .fa-dashboard;}
@@ -146,10 +146,13 @@
   .icon-sakai-site-roster { @extend .fa-users; }
   .icon-sakai-profilewow { @extend .fa-user; }
   .icon-sakai-blogwow { @extend .fa-newspaper-o; }
+  .icon-sakai-simple-rss { @extend .fa-rss; }
   .icon-sakai-qna { @extend .fa-quora; }
   .icon-osp-glossary { @extend .fa-bookmark; }
   .icon-sakai-groupmanager { @extend .fa-th-large; }
   .icon-sakai-permissions-helper { @extend .fa-lock; }
+  .icon-sakai-presentation { @extend .fa-tv; }
+  .icon-sakai-useralias { @extend .fa-address-book; }
 
   .icon-sakai-sms-user { @extend .fa-envelope; }
   .icon-sakai-sms-admin { @extend .fa-envelope; }

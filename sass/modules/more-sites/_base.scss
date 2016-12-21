@@ -257,7 +257,8 @@ ul.otherSitesCategorList {
 	}
 }
 
-ul.otherSitesCategorList {
+ul.otherSitesCategorList,
+ul.organizeFavoritesList {
 
 	li {
 		display: inline-block;
@@ -479,29 +480,39 @@ div.fav-title-myworkspace {
 	list-style: none;
 	padding: 0 0 0 0;
 
-	.fav-drag-handle {
-		display: inline-block;
-		position: relative;
-		right: -4px;
-		color: $tool-border-color;
-		cursor: move; /* fallback if grab cursor is unsupported */
-		cursor: grab;
-		cursor: -moz-grab;
-		cursor: -webkit-grab;
+	li.fav-sites-entry {
+		@include clearfix;
+		float: none;
+		display: block;
 
-		@media #{$phone}{
-			display: none;
+		.fav-drag-handle {
+			display: block;
+			float: right;
+			padding: 0.4em 0.6em;
+			color: $tool-border-color;
+			cursor: move; /* fallback if grab cursor is unsupported */
+			cursor: grab;
+			cursor: -moz-grab;
+			cursor: -webkit-grab;
+
+			@media #{$phone}{
+				display: none;
+			}
 		}
-	}
-	
-	.fav-drag-handle:active{
-		cursor: grabbing;
-		cursor: -moz-grabbing;
-		cursor: -webkit-grabbing;
-	}
+		
+		.fav-drag-handle:active{
+			cursor: grabbing;
+			cursor: -moz-grabbing;
+			cursor: -webkit-grabbing;
+		}
 
-	.site-favorite-btn{
-		padding-right: 0.5em;
+		.site-favorite-btn{
+			padding-right: 0.5em;
+		}
+
+		&.ui-sortable-placeholder {
+			height: 36px;	
+		}
 	}
 }
 
