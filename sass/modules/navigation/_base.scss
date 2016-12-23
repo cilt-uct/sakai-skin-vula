@@ -91,7 +91,7 @@ body.is-logged-out {
 		position: fixed;
 		top: 0;
 		width: 100%;
-		z-index: 20;
+		z-index: ($z-100 + 1);
 	}
 }
 
@@ -549,7 +549,7 @@ nav {
 				margin: 3.9em 0 0 -9.8em;
 				position: fixed;
 				top: 0.3em;
-				z-index: 61;
+				z-index: ($z-100+5);
 			}
 			.#{$namespace}loginUser{
 				padding: 0 0 0 0;

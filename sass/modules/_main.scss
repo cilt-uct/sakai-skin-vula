@@ -7,6 +7,14 @@
 
 		@media #{$phone} {
 			margin: 5em 0 0 0;
+			
+				&.help {
+					margin: 0.2em;
+				}
+		}
+
+		&.help {
+			margin: 0.5em;
 		}
 	}
 
@@ -47,7 +55,16 @@
 
 	@media #{$phone} {
 		margin: 8em 0 0 0;
+
+			&.help {
+				margin: 0.2em;
+			}
 	}
+
+	&.help {
+		margin: 0.5em;
+	}
+
 
 	#col1of2, #col2of2 {
 		
@@ -71,6 +88,22 @@
 		}
 	}
 */
+}
+
+#content.help {
+
+	.button {
+		border-color: darken($color-success, 10%);
+		@include linear-gradient( lighten($color-success, 60%), lighten($color-success, 40%));
+
+		&:hover {
+		   @include linear-gradient( lighten($color-success, 40%), lighten($color-success, 20%));
+		}
+
+		&:active {
+			@include linear-gradient( lighten($color-success, 20%), lighten($color-success, 40%));
+		}
+	}
 }
 
 .#{$namespace}mainContent{
