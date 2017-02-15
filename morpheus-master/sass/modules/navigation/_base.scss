@@ -26,6 +26,7 @@ body.is-logged-out{
 		min-width: $tool-menu-width;
 		@include flex-shrink( 0 );
 		@include transition( width 0.5s linear 0s );
+		margin: 1em;
 		.#{$namespace}headerLogo--institution{
 			background: url($logo) no-repeat center center;
 			width: 		$logo-width;
@@ -76,6 +77,26 @@ body.is-logged-out{
 			background: $sites-nav-background;
 		}
 	}
+	
+	&.is-fixed {
+		
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 9999;
+		height: 2.8em;
+		
+		#topnav {
+			display: none;
+		}
+		
+		.#{$namespace}topHeader > * {
+			-webkit-transform: scale(0.75, 0.75); /* Safari */
+		    transform: scale(0.75, 0.75);
+		}
+		
+	}
+	
 	@media #{$phone}{
 		background: $primary-color;
 		position: fixed;
@@ -120,9 +141,11 @@ body.is-logged-out{
 			display: block;
 			padding: 0.5em 0.65em;
 			text-decoration: none;
-			&:hover, &:active
+			color: $primary-color-highContrast;
+			&:focus, &:hover, &:active
 			{
 				text-decoration: underline;
+    			color: $primary-color-highContrast;
 			}
 			.toolMenuIcon{
 				@extend .fa-fw;
@@ -187,7 +210,7 @@ body.is-logged-out{
 	background: $top-header-background;
 	color: $background-color;
 	font-size: 1em;
-	min-height: $header-size;
+	height: auto;
 	width: 100%;
 	@include display-flex(inline-flex);
 	@include align-items(center);
@@ -202,6 +225,7 @@ body.is-logged-out{
 		color: $topNav-text-color;
 	}
 	> * {
+		transition: all 0.3s ease;
 		@media #{$phone}{
 			display: inline;
 		}
@@ -400,6 +424,9 @@ body.is-logged-out{
 
 	.#{$namespace}loginUser{
 		padding: 0.9em 0.5em;
+		@media #{$phone}{
+			padding: 0em;
+		}
 	}
 
 	.#{$namespace}userNav__dropdown, .#{$namespace}userNav__drop{
@@ -595,13 +622,10 @@ body.is-logged-out{
 		li.#{$namespace}sitesNav__menuitem{
 			margin: 0 0.5em 0.5em 0;
 			padding: 0;
+			position: relative;
 			
-			> a{
-				@include display-flex(flex);
-				@include align-items(center);
-				@include justify-content( space-between );
-				padding: 0.5em;
-				position: relative;
+			> .link-container{
+				padding: 0.5em 36px 0.5em 0.5em;
 				border-top: $sites-nav-menu-item-border-top; /* to balance bottom border for vertical centering */
 				border-right: $sites-nav-menu-item-border-right;
 				border-bottom: $sites-nav-menu-item-border-bottom; /* to pre-allocate space for dropdown top border needed for illusion */
@@ -622,9 +646,13 @@ body.is-logged-out{
 				line-height: 1;
 			}
 			.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
-				outline: 0;
 				text-align: right;
 				margin-left: 0.2em;
+				position: absolute;
+				right: 8px;
+				top: 50%;
+				transform: translate(0%,-50%);
+				text-decoration: none;
 				
 				@extend .fa-angle-down;
 				@extend .fa;
@@ -632,8 +660,8 @@ body.is-logged-out{
 				@extend .sitesNav__drop;
 				
 				&.is-clicked{
-					@include transform( scaleY(-1) );
-					position: relative;
+					@include transform( rotate(180deg) );
+					top: 40%;
 				}
 			}
 			ul{

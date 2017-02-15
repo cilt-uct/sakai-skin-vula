@@ -71,7 +71,6 @@ $color-graylighter: rgba(249, 250, 251, 1);
 $color-white: rgba(255, 255, 255, 1);
 
 $primary-color:    	$color-primary !default;
-//$secondary-color: #F00 !default;
 
 $text-color:				 $color-gray-dark !default;
 
@@ -198,6 +197,7 @@ $hierarchy-size: 3.5em !default;
 
 // Tool Menu
 $tool-menu-width: 12em !default;
+$tool-menu-width-collapsed: $tool-menu-width / 4 !default;
 
 $tool-background-color:		 $background-color !default;
 $tool-menu-background-color:			 $color-graylighter !default;
