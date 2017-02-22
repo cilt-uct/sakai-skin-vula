@@ -1,8 +1,8 @@
 //.#{$namespace}
-body.is-logged-out{
-	#toolMenuWrap{
+body.is-logged-out {
+	#toolMenuWrap {
 		//top: 0;
-		@media #{$phone}{
+		@media #{$phone} {
 			//top: $header-size;
 		}
 	}
@@ -10,69 +10,74 @@ body.is-logged-out{
 		top: $header-size;
 	}
 }
+
 // Prevent tool menu collapsed styles being applied when using a mobile sized screen - an issue 
 // when switching between phone and non-phone sized screens.
 @media #{$nonPhone} {
+
 	// LHS tool menu collapsed to show icons only and not tool titles.
 	body.#{$namespace}toolMenu-collapsed {
 
-	#content, .Mrphs-container--footer {
-	    margin: 1em; //0 0 0 0;
-	}
-
-	#toolMenuWrap{
-		max-width: #{ $tool-menu-width-collapsed };
-		min-width: #{ $tool-menu-width-collapsed };
-		width: #{ $tool-menu-width-collapsed };
-	}
-	
-	#toolMenu, ul#subSites{
-		.img_site_toolmenu{
-			display: none;
+		#content, .Mrphs-container--footer {
+			margin: 1em; //0 0 0 0;
 		}
-		ul {
-			li {
 
-				a {
-					&:hover {
-						.#{$namespace}toolsNav__menuitem--title {
-							position: absolute;
-							display: block;
-							float: right;
-							margin: -0.23em 0em 0em 3.3em;
-							background: darken( $tool-menu-background-color, 10% );
-							padding: 0.71em;
-							border-right: 2px solid darken( $tool-menu-background-color, 20% );
-							z-index: $z-100;
-							width: auto;
-							border-radius: 0 15px 15px 0;
-							line-height: 100%;
-              				opacity: 0.8;
+		#toolMenuWrap {
+			max-width: #{ $tool-menu-width-collapsed };
+			min-width: #{ $tool-menu-width-collapsed };
+			width: #{ $tool-menu-width-collapsed };
+		}
+		
+		#toolMenu, ul#subSites {
+			
+			.img_site_toolmenu {
+				display: none;
+			}
+
+			ul {
+				li {
+
+					a {
+						&:hover {
+							.#{$namespace}toolsNav__menuitem--title {
+								position: absolute;
+								display: block;
+								float: right;
+								margin: -0.23em 0em 0em 3.3em;
+								background: darken( $tool-menu-background-color, 10% );
+								padding: 0.71em;
+								border-right: 2px solid darken( $tool-menu-background-color, 20% );
+								z-index: $z-100;
+								width: auto;
+								border-radius: 0 15px 15px 0;
+								line-height: 100%;
+								opacity: 0.8;
+							}
+						}
+
+						&.is-invisible {
+							&:after {
+								display: none;
+							}
+						}
+						
+						span.#{$namespace}toolsNav__menuitem--title{
+							white-space: pre;
 						}
 					}
 
-					&.is-invisible {
-						&:after {
-							display: none;
+					.#{$namespace}toolsNav__menuitem--icon {
+						margin: 0.1em 0.4em 0 0.6em;
+					}
+
+					.#{$namespace}toolsNav__menuitem--title{
+						display: none;
+					}
+
+					&.#{$namespace}collapseTools{
+						i{
+							@include transform( scaleX(-1) ); /* flip horizontally */
 						}
-					}
-					
-					span.#{$namespace}toolsNav__menuitem--title{
-						white-space: pre;
-					}
-				}
-
-				.#{$namespace}toolsNav__menuitem--icon {
-					margin: 0.1em 0.4em 0 0.6em;
-				}
-
-				.#{$namespace}toolsNav__menuitem--title{
-					display: none;
-				}
-
-				&.#{$namespace}collapseTools{
-					i{
-						@include transform( scaleX(-1) ); /* flip horizontally */
 					}
 				}
 			}
@@ -81,7 +86,7 @@ body.is-logged-out{
 }
 
 .is-logged-out {
-	#toolMenu { 
+	#toolMenu {
 		ul {
 			li {
 				&.#{$namespace}collapseTools {
@@ -191,12 +196,12 @@ body.is-logged-out{
 	}
 }
 
-nav#subSites{
+nav#subSites {
 	width: #{$tool-menu-width };
 	position: relative;
 	z-index: 9999;
 
-	@media #{$desktop}{
+	@media #{$desktop} {
 		min-width: 15em;
 	}
 
@@ -233,6 +238,7 @@ nav#subSites{
 	ul {
 		padding: 0;
 		margin:  0;
+		
 		li {
       		list-style: none;
 
@@ -457,16 +463,17 @@ nav#subSites{
 					}
 				}
 			}
+
 			.#{$namespace}toolsNav__category {
 				background-color: darken( $tool-sub-menu-background-color, 5% );
-				@media #{$phone}{
+				@media #{$phone} {
 					display: none;
 				}
 			}
 		}
 
 		li:last-child a {
-		border-radius: 0px 0px $main-border-radius 0px;
+			border-radius: 0px 0px $main-border-radius 0px;
 		}
 	}
 }

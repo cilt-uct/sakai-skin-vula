@@ -210,6 +210,19 @@ body > .portletBody, .portletBody {
 
   h3, h4 {
     font-size: 1.2em;
+
+		// wikiStyle override
+		&.heading-h1 {
+			font-size: 1.45em;
+		}
+
+		&.heading-h2 {
+			font-size: 1.35em;
+		}
+
+		&.heading-h3 {
+			font-size: 1.25em;
+		}	
   }
 
 	table {
