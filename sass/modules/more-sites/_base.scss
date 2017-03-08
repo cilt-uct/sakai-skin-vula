@@ -115,6 +115,7 @@ body.active-more-sites{
 
 	.tab-bar .tab-btn.tab-disabled{
 		color: lighten( $text-color, 50% );
+		background-color: darken( $tool-background-color, 10% );
 	}
 
 	.tab-bar .tab-btn.tab-disabled:hover{

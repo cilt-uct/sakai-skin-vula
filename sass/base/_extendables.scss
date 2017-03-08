@@ -1,5 +1,12 @@
 @import "compass";
 
+.sitesNav__drop{
+	cursor: pointer;
+	display: inline-block;
+	height:  12px;
+	width:   16px;
+}
+
 .blurry{
 	@include filter( blur(0.1em) );
 }
@@ -350,9 +357,9 @@ label.panelGridLabel{
 		background-color: lighten( $tool-menu-background-color, 5% ) !important;
 	}
 	
-	.dz-progress{
+	/*.dz-progress{
 		top: 70% !important;
-	}
+	}*/
 }
 
 .dropzone .dz-message .note {

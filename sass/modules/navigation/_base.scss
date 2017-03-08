@@ -110,7 +110,7 @@ nav {
 			margin: 0.5em 0.8em 0.5em 0;
 			padding: 0.4em 0.8em 0.45em 0.8em;
 			text-decoration: none !important;
-			
+
 			@include appearance(none);
 			@include border-radius($main-border-radius);
 
@@ -131,7 +131,7 @@ nav {
 			}
 
 			@media #{$phone}{
-				
+
 			}
 		}
 	}
@@ -330,7 +330,7 @@ nav {
 			margin: 0 1em 0 0;
 			padding: 0.25em;
 			border: 0px none;
-			
+
 			@include border-radius($small-border-radius);
 			box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1) inset;
     		box-sizing: border-box;
@@ -442,8 +442,9 @@ nav {
 			display:inline-block;
 			background-size: auto 100%;
 			background-position: 50%;
+			background-color: $color-graylight;
 			border-radius:50%;
-			margin: 0 4px 0 0;
+			margin: 0 4px 0 0; 
 			position: relative;
 
 			&:hover, &:active
@@ -537,6 +538,7 @@ nav {
 			{
 				margin-bottom: 0.5em; /* to match the top of the dropdown */
 			}
+
 			.#{$namespace}userNav__submenuitem-indented{
 				padding-left: 1.5em;
 
@@ -649,10 +651,11 @@ nav {
 }
 
 #linkNav {
+	@include display-flex(flex);
 
 	ul {
 		@include display-flex(flex);
-		@include flex-wrap( wrap );
+		@include flex-wrap(wrap);
 		font-family: $header-font-family;
 		margin: 0.5em 0 0 0;
 		padding: 0;
@@ -660,19 +663,19 @@ nav {
 		li.#{$namespace}sitesNav__menuitem {
 			margin: 0 0.8em 0.4em 0;
 			padding: 0;
+			position: relative;
 
-			> a {
-				@include display-flex(flex);
-				@include align-items(center);
-				@include justify-content( space-between );
+			> .link-container {
+				//@include display-flex(flex);
+				//@include align-items(center);
+				//@include justify-content(space-between);
 
-				//padding: 0.5em;
-				position: relative;
-				border-top: $sites-nav-menu-item-border-top; /* to balance bottom border for vertical centering */
+				//position: relative;
+				border-top: $sites-nav-menu-item-border-top; // to balance bottom border for vertical centering
 				border-right: $sites-nav-menu-item-border-right;
-				border-bottom: $sites-nav-menu-item-border-bottom; /* to pre-allocate space for dropdown top border needed for illusion */
+				border-bottom: $sites-nav-menu-item-border-bottom; // to pre-allocate space for dropdown top border needed for illusion
 				border-left: $sites-nav-menu-item-border-left;
-				background: $sites-nav-menu-item-background; /* color */
+				background: $sites-nav-menu-item-background; // color
 				color: $sites-nav-menu-item-color;
 				text-decoration: none;
 				border-radius: $small-border-radius;
@@ -682,6 +685,8 @@ nav {
 				box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 				transition: all 0.3s ease 0s;
 
+				padding: 0.5em 36px 0.5em 0.5em;
+
 				> span {
 					display: inline-block;
 					padding: 0.5em;
@@ -689,14 +694,19 @@ nav {
 
 				> i {
 					display: inline-block;
-					padding: 0.5em 0 0.5em 0.5em;
+					padding: 0.5em 0 0 0.5em;
+					margin: 0;
 				}
 
 				&:hover, &:active
 				{
 					color: $sites-nav-menu-item-color-hover;
 					background: $sites-nav-menu-item-background-hover;
-				}
+				}				
+			}
+
+			> a:only-of-type {
+				padding: 0.5em;
 			}
 
 			// hover for sites when tool quick-menu isn't open
@@ -705,26 +715,25 @@ nav {
 			//	color: $sites-nav-menu-item-color-hover;
 			//}
 
-			&.dropdown-is-visible > a {
-				border-radius: $small-border-radius $small-border-radius 0 0;
-
-				.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown {
-					border-radius: 0 $small-border-radius 0 0;
-				}
-			}
-
 			span {
-				//line-height: 1;
+				line-height: 1;
 			}
 
 			.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown {
 				outline: 0;
 				text-align: right;
-				padding: 0.4em 0.3em;
+				padding: 0.3em 0.3em;
 				cursor: pointer;
 				display: inline-block;
-				height: inherit;
+				position: absolute;
+				right: 0;
+				top: 50%;
+				transform: translate(0%,-50%);
+				text-decoration: none;
 				border-radius: 0 $small-border-radius $small-border-radius 0;
+
+				@include sakai-fa-icon($fa-var-angle-down, after, inline-block);
+				@extend .fa-lg;
 
 				&:before {
 					content: "";
@@ -735,17 +744,14 @@ nav {
 					margin-left: -0.3em;
 				}
 
-				@include sakai-fa-icon($fa-var-angle-down, after, inline-block);
-				@extend .fa-lg;
-
-				&:hover, &:active
-				{
+				&:hover, &:active {
+					color: $sites-nav-menu-item-color-hover;
 					@include linear-gradient($sites-nav-menu-item-background-hover, $sites-nav-menu-item-background);
 				}
 
-				&.is-clicked{
+				&.is-clicked {
 					@include transform( scaleY(-1) );
-					position: relative;
+					top: 0%;
 				}
 			}
 
@@ -758,7 +764,6 @@ nav {
 				margin-top: -1px;
 				width: 26rem;
 				z-index: $z-90;
-				//box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 				box-shadow: $std-shadow;
 				border-bottom-right-radius: $main-border-radius;
 				border-bottom-left-radius: $main-border-radius;
@@ -776,12 +781,10 @@ nav {
 					padding: 0 0 0 0;
 					min-height: 15px;
 
-/*
-					&:hover a, &:active a
-					{
-						text-decoration: underline;
-					}
-*/
+					//&:hover a, &:active a {
+					//	text-decoration: underline;
+					//}
+
 					> a {
 						display: block;
 						padding: 0.5em 0.65em;
@@ -789,12 +792,12 @@ nav {
 						color: $sites-nav-submenu-item-color;
 						background: inherit;
 
-						&:hover, &:active
-						{
-							color: $sites-nav-submenu-item-color-hover; /* to override default link hover color */
+						&:hover, &:active {
+							color: $sites-nav-submenu-item-color-hover; // to override default link hover color
 							text-decoration: underline;
 						}
-						.toolMenuIcon{
+
+						.toolMenuIcon {
 							vertical-align: sub;
 							margin: 0;
 						}
@@ -803,12 +806,13 @@ nav {
 					> a:last-child {
 						border-bottom-right-radius: $main-border-radius;
 						border-bottom-left-radius: $main-border-radius;
-					}
+					}		
 
 					.#{$namespace}sitesNav__submenuitem-icon {
 						display: inline-block;
 						vertical-align: top;
 					}
+
 					.#{$namespace}sitesNav__submenuitem-title {
 						margin-bottom: 2px;
 						display: inline-block;
@@ -816,11 +820,11 @@ nav {
 					}
 				}
 
-				&.is-visible{
+				&.is-visible {
 					display: block;
 				}
 
-				&.is-hidden{
+				&.is-hidden {
 					display: none;
 				}
 			}
@@ -829,49 +833,44 @@ nav {
 				> a {
 					background: $sites-nav-menu-item-selected-background;
 					color: $sites-nav-menu-item-selected-color;
-					border-top: $sites-nav-menu-item-selected-border-top; // to balance bottom border for vertical centering
-					border-right: $sites-nav-menu-item-selected-border-right;
-					border-bottom: $sites-nav-menu-item-selected-border-bottom; // to pre-allocate space for dropdown top border needed for illusion
-					border-left: $sites-nav-menu-item-selected-border-left;
 
-          &:hover, &:active
-          {
-            color: $sites-nav-menu-item-selected-color-hover;
-            background: $sites-nav-menu-item-selected-background-hover;
-          }
+					&:hover, &:active
+					{
+						color: $sites-nav-menu-item-selected-color-hover;
+						background: $sites-nav-menu-item-selected-background-hover;
+					}
 
-          .#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown {
+					.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown {
 
-            &:hover, &:active
-            {
-              @include linear-gradient($sites-nav-menu-item-selected-background-hover, darken($sites-nav-menu-item-selected-background, 5%));
-            }
-          }
+						&:hover, &:active
+						{
+						    @include linear-gradient($sites-nav-menu-item-selected-background-hover, darken($sites-nav-menu-item-selected-background, 5%));
+						}
+					}
 				}
-
-        /*
+				/*
 				ul {
 					background: $sites-nav-menu-item-selected-background;
-
+					
 					a:hover, a:active
 					{
 						color: $sites-nav-menu-item-selected-color; // to override default link hover color
 					}
 				}
-        */
+				*/
 			}
 
 			&.#{$namespace}sitesNav__menuitem--myworkspace {
-
 				.#{$namespace}sitesNav__drop {
 					display: none;
 				}
 
 				a {
 					i {
-						margin-top: 1px; /* to compensate for an issue with the icon */
-						margin-bottom: -1px; /* to compensate for an issue with the icon */
-						margin-right:0.35em;
+						margin-top: 1px; // to compensate for an issue with the icon
+						margin-bottom: -1px; // to compensate for an issue with the icon
+						margin-right: 0;
+						padding: 0;
 						font-size: 1em;
 					}
 				}
@@ -885,7 +884,7 @@ nav {
 			}
 
 			&.dropdown-is-visible.is-selected {
-				> a{
+				> a {
 					border-bottom: 1px solid $sites-nav-menu-item-selected-background;
 				}
 			}
@@ -895,20 +894,26 @@ nav {
         		font-size: 0.8em;
 
 				li.#{$namespace}sitesNav__submenuitem {
+					background: $sites-nav-submenu-item-background;
+					color: $sites-nav-submenu-item-color;
 
-					a {
-						background: $sites-nav-submenu-item-background;
-						color: $sites-nav-submenu-item-color;
+					> a {
+						background: inherit;
+						color: inherit;
 						text-decoration: none;
 						text-align: center;
 						border-top: 1px solid rgba($sites-nav-submenu-item-color, 0.1);
+						border-radius: 0;
 
 						&.#{$namespace}sitesNav__submenuitem-icon {
 							border-width: 0px;
+							width: 2.9em;
 						}
+
 						&.#{$namespace}sitesNav__submenuitem-title {
 							border-width: 0px;
 							text-align: left;
+							width: calc(100% - 3em)
 						}
 
 						&:hover, &:active {
@@ -917,19 +922,27 @@ nav {
               				text-decoration: none;
 						}
 					}
+
+					&:hover, &:active {
+						background: $sites-nav-submenu-item-background-hover;
+						color: $sites-nav-submenu-item-color-hover;
+						text-decoration: none;
+					}
 				}
 			}
 
 			&.is-selected {
-
-				ul.#{$namespace}sitesNav__submenu {
-					//background: $sites-nav-submenu-selected-background;
-
-					li.#{$namespace}sitesNav__submenuitem {
-
-						&.is-current {
-							a {
-								font-weight: $weight-semibold;
+				ul.#{$namespace}sitesNav__submenu{
+					background: $sites-nav-submenu-selected-background;
+					li.#{$namespace}sitesNav__submenuitem{
+						a {
+							background: $sites-nav-submenu-item-selected-background;
+							color: $sites-nav-submenu-item-selected-color;
+							border: $sites-nav-submenu-item-selected-border;
+							
+							&:hover, &:active
+							{
+								color: $sites-nav-menu-item-selected-color-hover;
 							}
 						}
 					}
@@ -939,20 +952,21 @@ nav {
 	}
 
 	&.opened {
-		@media #{$desktop} {
+		@media #{$desktop}{
 			max-height: 100%;
 			overflow: visible;
-			#how-many-hidden{
+			#how-many-hidden {
 				display: none;
 			}
 		}
 	}
-	@media #{$phone}{
+
+	@media #{$phone} {
 		display: none;
 	}
 }
 
-.sitenav-dropdown-overlay{
+.sitenav-dropdown-overlay {
 	height: 100%;
 	position: fixed;
 	width: 100%;

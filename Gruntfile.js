@@ -10,8 +10,8 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
     app: grunt.file.readJSON('config.json'), // don't keep passwords in source control
     vendor: {
-        bootstrap: 'bootstrap-sass-3.3.7/assets',
-        fontawesome: 'font-awesome-sass-4.7.0/assets'
+        bootstrap: 'bootstrap-sass/assets',
+        fontawesome: 'font-awesome-sass/assets'
     },
 
     // Tasks

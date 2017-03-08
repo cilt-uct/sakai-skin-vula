@@ -22,7 +22,7 @@
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "latest",
-    "grunt-contrib-sass": "latest",
+    "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "latest",
     "grunt-if": "^0.1.5",
