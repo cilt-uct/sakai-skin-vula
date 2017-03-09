@@ -1,7 +1,7 @@
 {
     "local": {
       "do": false
-      ,"dest": "/local/tomcat/webapps/library/skin/vula"
+      ,"dest": ["/local/tomcat/webapps/library/skin/vula","/another/local/folder"]
     },
     "remote": {
       "do": false

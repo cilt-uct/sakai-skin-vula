@@ -97,9 +97,19 @@ module.exports = function (grunt) {
         ]
       },
       local: {
-        files: [
-          {expand: true, cwd: 'tmp/', src: ['**'], dest: "<%= app.local.dest %>"}
-        ]
+        files: (function() {
+          var l = grunt.file.readJSON('config.json');
+          var out = [];
+          l.local.dest.forEach(function(element, index) { 
+             out.push({
+                 expand: true,
+                 cwd: 'tmp/',
+                 src: ['**'],
+                 dest: element
+             });
+          });
+          return out;
+        })()
       }
     },
 
