@@ -10,6 +10,7 @@
 
 - Install project dependencies.
 
+  `npm install -g grunt-cli`
   `npm install`
 
 - Copy `config-dist.json` to `config.json`.
