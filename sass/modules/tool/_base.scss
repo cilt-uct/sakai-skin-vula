@@ -338,6 +338,10 @@ body > .portletBody, .portletBody {
 	@extend .bs-callout-danger;
 }
 
+#wrapper > #article-content {
+  padding: 0 1em 1em;
+}
+
 .static {
 	font-size: 1em;
 	text-align: center; 
