@@ -144,6 +144,8 @@
   .icon-sakai--subsites-list {                              @extend .fa-level-down; }
 
   // Custom Icons
+  .icon-sakai--sakai-opencast-setup {                       @extend .fa-pencil-square-o; }
+  .icon-sakai--sakai-opencast-series {                      @extend .fa-play-circle-o; }
   .icon-sakai--sakai-basiclti, .icon-sakai--sakai-rutgers-linktool { @extend .fa-plug;}
   .icon-sakai--sakai-basiclti-admin {
       @include fa-icon($fa-var-plug, after, inline-block, 0, 0);
