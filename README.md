@@ -1,6 +1,6 @@
 # Vula Skin based on Morpheus for Sakai
 
-## installation
+## Installation and Deployment
 
 - You will need to install NodeJS (which includes npm).
 
@@ -27,17 +27,23 @@
 
 `grunt`
 
+## Developement
+
+1. Get the update from the Sakai repository (`/library/source/morpheus-master`) and overwrite the contained `morpheus-master` folder.
+2. Copy the assets folder from `./morpheus-master/bootstrap-sass-x/` and overwrite the assets folder in `bootstrap-sass`.
+3. Copy the assets folder from `./morpheus-master/font-awesome-sass-x/` and overwrite the assets folder in `font-awesome-sass`.
+4. Update `./images` and `./js` with versions from `./morpheus-master/images` and `./morpheus-master/js`.
+5. Copy `./morpheus-master/sass` to `./sass` and review the changes.
+
+NOTE:
+[How to get the skin to compile and deploy on SLE 11 SP4](./SLE11_SP4.md)
 
 ## Morpheus for Sakai
 
-Morpheus (Mobile Optimized Responsive Portal for Higher Education Using Sass) is the new responsive design portal (the primary UI) which will be available in Sakai 11 (and is in a preview state for Sakai 10). The neo portal is the portal which was developed and released for Sakai 2.9. Before that the portal was known as the Charon portal.
+Morpheus (Mobile Optimized Responsive Portal for Higher Education Using Sass) is the new responsive design portal (the primary UI) for Sakai (from 11 onwards).
 
 ## Documentation about morpheus:
- - [Technologies](./technologies.md) [Spanish version](./technologies.es.md)
- - [Folder structure and files](./folder-structure.md) [Spanish version](./folder-structure.es.md)
- - [Compiling my own skin with maven](./compile-skin.md)
- - [Adding a tool to Morpheus](./customization-tool.md)
-
-## Fixing methods for tools
-
-There's a confluence page created to help developers to approach fixing tools. Maybe want to read it [https://confluence.sakaiproject.org/display/QA/How+can+I+fix+a+tool+in+Morpheus]
+ - [Technologies](./morpheus-master/technologies.md) [Spanish version](./morpheus-master/technologies.es.md)
+ - [Folder structure and files](./morpheus-master/folder-structure.md) [Spanish version](./morpheus-master/folder-structure.es.md)
+ - [Compiling my own skin with maven](./morpheus-master/compile-skin.md)
+ - [Adding a tool to Morpheus](./morpheus-master/customization-tool.md)
