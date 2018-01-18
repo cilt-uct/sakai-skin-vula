@@ -18,7 +18,10 @@
 	}
 
 	.navIntraTool {
-	    margin: -2px -14px 0 -14px;
+	    margin: -2px -14px 0 0;
+	    @media #{$phone}{
+	    	margin-top: 10px;
+	    }
 	}
 
 	.Mrphs-pageColumns--single {
@@ -28,7 +31,7 @@
 
 	.portletBody {
 	    background: #fff;
-	    //padding: 2.5em 0 40px 0;
+	    padding: 2.5em 0 40px 0;
 	}
 
 	/* tabs */

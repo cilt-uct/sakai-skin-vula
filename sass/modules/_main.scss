@@ -1,33 +1,10 @@
 @import "../base/compass";
 
 //.#{$namespace}
-.is-logged-out {
-	#content, .#{$namespace}container--footer{
-		margin: 0.5em; //2em;
-
-		@media #{$phone} {
-			margin: 5em 0 0 0;
-			
-				&.help {
-					margin: 0.2em;
-				}
-		}
-
-		&.help {
-			margin: 0.5em;
-		}
-	}
-
-	.#{$namespace}container--footer {
-		@media #{$phone} {
-			margin: 2em 0 0 0;
-			border-radius: 0;
-		}
-	}
-
+.is-logged-out{
 	.#{$namespace}topHeader {
-		@media #{$phone} {
-			&.moving {
+		@media #{$phone}{
+			&.moving{
 	    		top: -12em;
 	    	}
 	    }
@@ -36,6 +13,7 @@
 
 .#{$namespace}portalWrapper {
 	position: relative;
+	background: $main-content-background;
 }
 
 #pageBody{
@@ -45,148 +23,63 @@
 	> .#{$namespace}pagebody{
 		width: 100%;
 	}
-	@media #{$phone}{
-		//padding: 12px;
-	}
 }
 
 #content, .#{$namespace}container--footer{
-	margin: 0.5em; //2em;
+	margin: 0;
+	width: 100%;
 
-	@media #{$phone} {
-		margin: 8em 0 0 0;
-
-			&.help {
-				margin: 0.2em;
-			}
-	}
-
-	&.help {
-		margin: 0.5em;
-	}
-
-
-	#col1of2, #col2of2{
-		display: inline-block;
-		margin: 0 0 0 1%;
-		vertical-align: top;
-		width: 48%;
-		@media #{$phone}{
-			display: block;
-			width: 100%;
-		}
-	}
-
-	//#col1of2 {
-	//	width: 66%;
-	//}
-
-	//#col2of2{
-	//	width: 32%;
-	//}
-}
-
-#content.help {
-
-	.button {
-		border-color: darken($color-success, 10%);
-		@include linear-gradient( lighten($color-success, 60%), lighten($color-success, 40%));
-
-		&:hover {
-		   @include linear-gradient( lighten($color-success, 40%), lighten($color-success, 20%));
-		}
-
-		&:active {
-			@include linear-gradient( lighten($color-success, 20%), lighten($color-success, 40%));
-		}
-	}
+	@media #{$nonPhone} {
+		#col1of2, #col2of2{
+			margin: 0 0 0 1%;
+			vertical-align: top;
+	    display: inline-block;
+    }
+		#col1of2 {
+      width: $col1of2-width;
+    }
+    #col2of2 {
+      width: $col2of2-width;
+    }
+  }
 }
 
 .#{$namespace}mainContent{
-  background: $main-content-background;
+	background: $main-content-background;
+	padding-top: 1em;
+}
+
+#content {
+	@media #{$phone}{
+		margin: 0;
+		padding-top: 2em; // make way for the button container
+	}
 }
 
 .#{$namespace}pageColumns--single, .#{$namespace}footer{
-	margin: 0 1em 1em 1em;
+	margin: 0 1em;
 	clear: both;
 	@media #{$phone}{
-		margin: 0 0 0 0;
+		margin: 0;
 	}
 }
 
-.#{$namespace}container--footer {
-	background: $footer-background;
-  border: 1px solid darken( $footer-background, 10% );
-  @include border-radius($main-border-radius);
-	margin: 2em;
-
-	@media #{$phone}{
-		margin: 2em 0 0 0;
-		@include border-radius(0);
-		border-left-width: 0px;
-		border-right-width: 0px;
-		border-bottom-width: 0px;		
-	}
+.#{$namespace}container--footer{
+	background-color: $footer-background-color;
+	border-top: 1px solid $footer-border-color;
 }
 
-.#{$namespace}footer {
+.#{$namespace}footer{
 	color: $footer-color;
-	font-size: 0.66em;
-  text-align: center;
-
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  ul > li {
-    display: inline-block;
-    list-style: none;
-  }
-
-  .#{$namespace}footer--nav__project--copyright {
-    display: none;
-  }
-
-  a {
-    color: $footer-color;
-    text-decoration: none;
-
-    &:hover, &:active {
-      text-decoration: underline;
-    }
-  }
-
-	#footer-links {
-		padding: 1em;
-
-    a {
-      font-size: 1.25em;
-      border-left: 1px solid darken( $footer-background, 10% );
-      padding: 0 0.6em 0 0.8em;
-    }
-
-    li:first-child {
-      a {
-        border-left-width: 0px;
-      }
-    }
+	padding: 0.8em;
+	font-size: 0.8em;
+	#footer-links{
+		list-style: none;
+		padding: 0 0 0 0;
+		li{
+			display: inline-block;
+		}
 	}
-
-  details {
-    color: $color-gray-dark;
-    margin: 0.4em;
-  }
-
-  details > summary {
-    display: inline-block;
-    font-weight: 700;
-  }
-
-  details > p {
-    display: inline-block;
-    margin: 0;
-  }
 }
 
 .#{$namespace}noJs.js-warn-no-js

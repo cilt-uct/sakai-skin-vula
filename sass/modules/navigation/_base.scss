@@ -1,61 +1,55 @@
-body.is-logged-out {
-	.#{$namespace}loginUser {
-		li {
-			a {
-				.login-Icon {
+body.is-logged-out{
+	.#{$namespace}loginUser{
+		li{
+			a{
+				.login-Icon{
 					display: none;
 				}
 			}
 		}
 	}
-	.#{$namespace}topHeader {
+	.#{$namespace}topHeader{
 		@media #{$phone}{
 			min-height: $header-size;
 		}
 	}
 }
 
-.#{$namespace}mainHeader {
+.#{$namespace}mainHeader{
+		box-shadow: $divider-shadow;
+		position: relative;
 
-	.#{$namespace}headerLogo {
-		@include display-flex( flex );
-		@include justify-content( center );
+	.#{$namespace}headerLogo{
+		width: 100%;
 		overflow: hidden;
 		padding: 0 1em;
+		height: $banner-height;
+		background: $top-header-background;
+
 		text-align: center;
-		min-width: $tool-menu-width;
-
-		@media #{$phone} {
-			min-width: $logo-width;
-		}
-
-		@include flex-shrink( 0 );
 		@include transition( width 0.5s linear 0s );
 		.#{$namespace}headerLogo--institution{
 			background: url($logo) no-repeat center center;
-      		background-size: 96% 96%;
 			width: 		$logo-width;
-			height: 	$logo-height;
-			display:	inline-block;
+			height: 100%; // align vertically center
+			float: left;
+			background-size: $logo-width $logo-height;
 		}
 	}
 
-	.#{$namespace}loginUser {
+	.#{$namespace}loginUser{
 		@include display-flex( inline-flex );
-
-		li {
+		li{
 			display: inline-block;
 			margin: 0 0.8em 0 0;
-			@media #{$phone} {
+			@media #{$phone}{
 				margin: 0 0.2em 0 0;
 			}
-
-			.#{$namespace}loginUser__message {
+			.#{$namespace}loginUser__message{
 				display: inline-block;
 				margin: 0 1em 0 0;
 			}
-
-			a {
+			a{
 				.login-Icon{
 					@extend .fa-power-off;
 					@extend .fa;
@@ -69,75 +63,44 @@ body.is-logged-out {
 				}
 			}
 		}
-
-		p {
+		p{
 			margin: 0.05em 1.5em 0 0;
 		}
 	}
 
 	&.is-maximized{
 		.siteNavWrap{
-			@include display-flex(flex);
-			@include align-items(center);
-			@include flex-grow( 1 );
 			@media #{$phone}{
 				display: none;
 			}
-			background: none;
+			background: $sites-nav-background;
 		}
 	}
+
+	&.is-fixed {
+		.#{$namespace}topHeader {
+			padding-top: $banner-height;
+		}
+		.#{$namespace}headerLogo {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			box-shadow: $divider-shadow;
+			z-index: 1000;
+			overflow: visible;
+		}
+	}
+
 	@media #{$phone}{
 		background: $primary-color;
 		position: fixed;
 		top: 0;
 		width: 100%;
-		z-index: ($z-100 + 1);
+		z-index: 20;
 	}
 }
 
-nav {
-	> div.#{$namespace}loginUser {
-		> a {
-			background: $button-background-color;
-			border: 1px solid $button-border-color;
-			color: $button-text-color !important;
-			cursor: pointer;
-			display: inline-block;
-			font-family: $font-family;
-			font-size: 0.8em;
-			letter-spacing: 0.8px;
-			line-height: 18px;
-			margin: 0.5em 0.8em 0.5em 0;
-			padding: 0.4em 0.8em 0.45em 0.8em;
-			text-decoration: none !important;
-
-			@include appearance(none);
-			@include border-radius($main-border-radius);
-
-			&:hover{
-				text-decoration: none;
-				background: linear-gradient( $button-background-secondary-color, $button-background-color );
-			}
-			&:active{
-				outline: 0;
-				text-decoration: none;
-				background: linear-gradient( $button-background-color, $button-background-secondary-color );
-			}
-			&[disabled="disabled"],&[disabled],&[disabled="true"]{
-				background: $button-background-color;
-				color: lighten( $button-text-color, 5% );
-				cursor: not-allowed;
-				opacity: 0.7;
-			}
-
-			@media #{$phone}{
-
-			}
-		}
-	}
-}
-
-.userNav_link {
+.userNav_link{
 	color: $text-color;
 	font-family: $header-font-family;
 	font-size: 0.9em;
@@ -157,13 +120,11 @@ nav {
 	position: absolute;
 	right: 0em;
 	width: 20em;
-	z-index: $z-100;
-	box-shadow: $std-shadow;
+	z-index: 99;
+	box-shadow: 0 0 4px rgba( $text-color ,0.35);
 	list-style: none;
 	padding: 0 0 0 0;
-	border-bottom-left-radius: $main-border-radius;
-
-	li {
+	li{
 		display: block;
 		border: 0px none;
 		@include border-radius( 0 );
@@ -172,13 +133,14 @@ nav {
 		min-height: 15px;
 		a{
 			display: block;
-			padding: 0.5em 0.65em;
+			padding: 0.65em;
 			text-decoration: none;
-			//color: $primary-color-highContrast;
+			color: $primary-color-highContrast;
+			line-height: 1em;
 			&:focus, &:hover, &:active
 			{
 				text-decoration: underline;
-    			//color: $primary-color-highContrast;
+    			color: $primary-color-highContrast;
 			}
 			.toolMenuIcon{
 				@extend .fa-fw;
@@ -212,7 +174,6 @@ nav {
 
 		.#{$namespace}userNav__submenuitem--displayid{
 			font-weight: normal;
-			font-size: 70%;
 		}
 
 	}
@@ -242,16 +203,11 @@ nav {
 
 .#{$namespace}topHeader{
 	background: $top-header-background;
-  @include gradient-vertical($start-color: darken($color-primary, 25%), $end-color: darken($color-primary, 15%));
-
 	color: $background-color;
 	font-size: 1em;
-	min-height: $header-size;
+	height: auto;
 	width: 100%;
-	@include display-flex(inline-flex);
-	@include align-items(center);
-	@include justify-content( space-between );
-	@include transition( top 0.25s linear 0s );
+	box-shadow: $divider-shadow;
 
 	a
 	{
@@ -261,17 +217,138 @@ nav {
 		color: $topNav-text-color;
 	}
 	> * {
+		transition: all 0.3s ease;
 		@media #{$phone}{
 			display: inline;
 		}
 	}
 	.#{$namespace}loginNav{
 		float: right;
-		margin: 0 1em 0 0px;
+		height: $banner-height;
 		@include flex-shrink( 0 );
 		@include display-flex( flex );
 		@include align-items( center );
 		@include justify-content( flex-end );
+
+		#roleSwitch {
+			padding-right: 1em;
+			margin-right: 1em;
+			border-right: 1px solid #F0F0F0;
+			white-space: nowrap;
+
+				@media #{$phone} {
+					&.menu-not-setup {
+						display: none;
+					}
+				}
+
+			// Show as a menu on mobile
+			#roleSwitchDropDownToggle {
+				display: none;
+
+				@media #{$phone} {
+					display: block;
+				}
+
+				vertical-align: middle;
+				text-decoration: none;
+
+				i {
+					font-size: 1.33333em;
+					vertical-align: -15%;
+				}
+
+				&:hover {
+					text-decoration: none;
+					color: #FFF;
+					text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+				}
+			}
+
+			#roleSwitchDropDown {
+				@media #{$phone} {
+					position: absolute;
+					left: -100000000;
+					height: 1px;
+					width: 1px;
+					overflow: hidden;
+
+					> i {
+						display: none;
+					}
+				}
+
+				@media #{$nonPhone} {
+					> i {
+						display: inline-block;
+						vertical-align: middle;
+					}
+					.#{$namespace}roleSwitch__anchor {
+						display: inline-block;
+					}
+				}
+
+				line-height: 1em;
+				display: inline-block;
+
+				@media #{$phone} {
+					&.open {
+						left: auto;
+						height: auto;
+						width: auto;
+						background: #FAFAFA;
+						box-shadow: 2px 2px 4px rgba(33,33,33,0.35);
+						padding: 1em;
+						z-index: 50;
+						overflow: visible;
+						min-width: 180px;
+						margin-top: 4px;
+
+						&:after {
+							bottom: 100%;
+							right: 21px;
+							border: solid transparent;
+							content: " ";
+							height: 0;
+							width: 0;
+							position: absolute;
+							pointer-events: none;
+							border-color: rgba(255,255,255,0);
+							border-bottom-color: #FAFAFA;
+							border-width: 7px;
+							margin-left: -7px;
+							outline: 0;
+						}
+
+						a {
+							display: inline-block;
+						}
+					}
+				}
+			}
+
+			#roleSwitchAnchor {
+				text-decoration: none;
+				@media #{$phone} {
+					color: $primary-color;
+				}
+
+				@media #{$nonPhone} {
+					color: $topNav-text-color;
+					display: inline-block;
+				}
+
+				&:hover, &:active {
+					span {
+						text-decoration: underline;
+					}
+				}
+
+				&.#{$namespace}roleSwitch__exit {
+					color: $topNav-text-color;
+				}
+			}
+		}
 	}
 
 	@media #{$phone}{
@@ -281,6 +358,7 @@ nav {
 		top: 0;
 		font-size: 12px;
 		min-height: $header-size;
+		box-shadow: none;
 
 		&.moving{
 			top: -4.2em;
@@ -292,13 +370,19 @@ nav {
 
 }
 
-#mastLogin {
+#mastLogin{
 
-	@media #{$phone} {
-		min-width: 50%;
+	// make it so the separator lines are a consistent height
+	> * {
+		height: 2.3em;
+		line-height: 2.3em;
 	}
 
-	ul {
+	@media #{$phone}{
+		width: 50%;
+	}
+
+	ul{
 		display: inline-block;
 		text-align: left;
 		padding: 0 0.5em;
@@ -330,11 +414,6 @@ nav {
 			margin: 0 1em 0 0;
 			padding: 0.25em;
 			border: 0px none;
-
-			@include border-radius($small-border-radius);
-			box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1) inset;
-    		box-sizing: border-box;
-
 			@media #{$phone}{
 				width: 40%;
 				margin-right: 0.6em;
@@ -425,11 +504,6 @@ nav {
 		{
 			display: none;
 		}
-
-		@media #{$phone}
-		{
-			padding: 1em; /* provide a bigger hit area for this link */
-		}
 	}
 
 	.has-avatar{
@@ -437,14 +511,13 @@ nav {
 			padding: 0 !important;
 		}
 		.#{$namespace}userNav__submenuitem--profilepicture{
-			width:32px;
-			height:32px;
+			width: 2.3em;
+			height: 2.3em;
 			display:inline-block;
 			background-size: auto 100%;
 			background-position: 50%;
-			background-color: $color-graylight;
 			border-radius:50%;
-			margin: 0 4px 0 0; 
+			margin: 0 4px 0 0;
 			position: relative;
 
 			&:hover, &:active
@@ -453,7 +526,25 @@ nav {
 			}
 			@media #{$phone}
 			{
-				margin-right: 1em;
+				margin-right: 0;
+			}
+		}
+		.#{$namespace}userNav__pic-changer{
+			overflow: hidden;
+			&:hover, &:active
+			{
+				&:after {
+					content: 'Change';
+					background: #888;
+					color: #FFFFFF;
+					position: absolute;
+					bottom: 0px;
+					font-size: 10px;
+					width: 100%;
+					text-align: center;
+					padding: 0 0 4px;
+					box-shadow: -1px 0 3px #666;
+				}
 			}
 		}
 		.#{$namespace}userNav__submenuitem--username, .#{$namespace}userNav__submenuitem--userid{
@@ -465,6 +556,9 @@ nav {
 
 	.#{$namespace}loginUser{
 		padding: 0.9em 0.5em;
+		@media #{$phone}{
+			padding: 0em;
+		}
 	}
 
 	.#{$namespace}userNav__dropdown, .#{$namespace}userNav__drop{
@@ -489,12 +583,13 @@ nav {
 
 	#loginLinks{
 		font-family: $header-font-family;
-		margin: 0;
+		margin: 0 1em 0 0;
 		list-style: none;
 		padding: 0 0 0 1em;
 
 		@media #{$phone}
 		{
+			margin: 0;
 			border: 0 none;
 		}
 
@@ -514,7 +609,7 @@ nav {
 			background-color: $tool-tab-background-color;
 			text-align: left;
 			padding: 0 0 0 0;
-			margin: 0.48em 0 0 0.9em;
+			margin: 0.48em 1em 0 0.9em;
 			@extend .userNav__subnav;
 			&:after {
 				bottom: 100%;
@@ -538,7 +633,6 @@ nav {
 			{
 				margin-bottom: 0.5em; /* to match the top of the dropdown */
 			}
-
 			.#{$namespace}userNav__submenuitem-indented{
 				padding-left: 1.5em;
 
@@ -551,7 +645,7 @@ nav {
 				margin: 3.9em 0 0 -9.8em;
 				position: fixed;
 				top: 0.3em;
-				z-index: ($z-100+5);
+				z-index: 61;
 			}
 			.#{$namespace}loginUser{
 				padding: 0 0 0 0;
@@ -597,11 +691,31 @@ nav {
 	border-left: 1px solid $tool-border-color;
 }
 
-.#{$namespace}sitesNav__menu {
+.#{$namespace}sitesNav__menu{
 	list-style: none;
 	padding: 0 0 0 0;
-	margin-bottom: 0px;
+	margin-bottom:0px;
 }
+
+.portal-bullhorns-buttons{
+	position: relative;
+	display: inline-block;
+	padding-right: 1em;
+	border-right: 1px solid $tool-border-color;
+    white-space: nowrap;
+}
+
+##{$namespace}academic-bullhorn,
+##{$namespace}social-bullhorn {
+	display: inline-block; /* Sakai 11.1 makes it flex, which is wrong */
+
+	&:hover {
+		text-decoration: none;
+		color: $topNav-text-color;
+		text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+	}
+}
+
 
 .view-all-sites-btn{
 	position: relative;
@@ -637,7 +751,7 @@ nav {
 	vertical-align: middle;
 }
 
-.all-sites-icon, .tools-icon
+.all-sites-icon
 {
 	/* Using !important here because CKEditor pulls in its own
 		fontawesome.css which adjusts the size of our icon unless
@@ -648,132 +762,115 @@ nav {
 #topnav_container
 {
 	@include display-flex(flex);
+	padding-left: 0.5em;
+	background-color: $sites-nav-background;
+	min-height: 52px;
+	padding: 4px 8px;
 }
 
-#linkNav {
-	@include display-flex(flex);
-
-	ul {
+#linkNav{
+	ul{
 		@include display-flex(flex);
-		@include flex-wrap(wrap);
+		@include flex-wrap( wrap );
 		font-family: $header-font-family;
 		margin: 0.5em 0 0 0;
 		padding: 0;
-
-		li.#{$namespace}sitesNav__menuitem {
-			margin: 0 0.8em 0.4em 0;
+		li.#{$namespace}sitesNav__menuitem{
+			margin: 0 0.5em 0.5em 0;
 			padding: 0;
 			position: relative;
+			border-top: $sites-nav-menu-item-border-top;
+			border-right: $sites-nav-menu-item-border-right;
+			border-bottom: $sites-nav-menu-item-border-bottom;
+			border-left: $sites-nav-menu-item-border-left;
+			background: $sites-nav-menu-item-background;
 
-			> .link-container {
-				//@include display-flex(flex);
-				//@include align-items(center);
-				//@include justify-content(space-between);
-
-				//position: relative;
-				border-top: $sites-nav-menu-item-border-top; // to balance bottom border for vertical centering
-				border-right: $sites-nav-menu-item-border-right;
-				border-bottom: $sites-nav-menu-item-border-bottom; // to pre-allocate space for dropdown top border needed for illusion
-				border-left: $sites-nav-menu-item-border-left;
-				background: $sites-nav-menu-item-background; // color
-				color: $sites-nav-menu-item-color;
-				text-decoration: none;
-				border-radius: $small-border-radius;
-				font-size: 0.96em;
-				height: 2.25em;
-
-				box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-				transition: all 0.3s ease 0s;
+			> a.link-container{
+				@include display-flex( flex );
+				@include align-items( center );
 
 				padding: 0.5em 36px 0.5em 0.5em;
+				color: $sites-nav-menu-item-color;
+				text-decoration: none;
 
-				> span {
-					display: inline-block;
-					padding: 0.5em;
+				i.fa {
+					color: $sites-nav-menu-item-icon-color;
 				}
-
-				> i {
-					display: inline-block;
-					padding: 0.5em 0 0 0.5em;
-					margin: 0;
-				}
-
-				&:hover, &:active
-				{
-					color: $sites-nav-menu-item-color-hover;
-					background: $sites-nav-menu-item-background-hover;
-				}				
 			}
 
-			> a:only-of-type {
-				padding: 0.5em;
+			/* hover for sites when tool quick-menu isn't open */
+			&:not(.dropdown-is-visible){
+				> .link-container:hover,
+				> .link-container:active {
+					color: $sites-nav-menu-item-hover-color;
+
+					i.fa {
+						color: $sites-nav-menu-item-hover-icon-color;
+					}
+				}
 			}
 
-			// hover for sites when tool quick-menu isn't open
-			//&:not(.dropdown-is-visible) > a:hover, &:not(.dropdown-is-visible) > a:active {
-			//	box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.1) inset;
-			//	color: $sites-nav-menu-item-color-hover;
-			//}
+			&.dropdown-is-visible, &:hover {
+				border-top: $sites-nav-menu-item-hover-border-top;
+				border-right: $sites-nav-menu-item-hover-border-right;
+				border-bottom: $sites-nav-menu-item-hover-border-bottom;
+				border-left: $sites-nav-menu-item-hover-border-left;
+				background: $sites-nav-menu-item-hover-background;
+			}
 
-			span {
+			&.dropdown-is-visible {
+				&:after {
+					border-bottom: 1px solid $sites-nav-submenu-topleft-border-color;
+					content: "";
+					width: 100%;
+					position: absolute;
+					bottom: -1px;
+					left: 0;
+					z-index: 100;
+				}
+			}
+
+			span
+			{
 				line-height: 1;
 			}
-
-			.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown {
-				outline: 0;
-				text-align: right;
-				padding: 0.3em 0.3em;
-				cursor: pointer;
-				display: inline-block;
+			.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
+				text-align: center;
+				margin-left: 0.2em;
 				position: absolute;
-				right: 0;
+				right: 8px;
 				top: 50%;
 				transform: translate(0%,-50%);
 				text-decoration: none;
-				border-radius: 0 $small-border-radius $small-border-radius 0;
+				color: $sites-nav-menu-item-icon-color;
+				border: none;
 
-				@include sakai-fa-icon($fa-var-angle-down, after, inline-block);
+				@extend .fa-angle-down;
+				@extend .fa;
 				@extend .fa-lg;
+				@extend .sitesNav__drop;
 
-				&:before {
-					content: "";
-					position: absolute;
-					height: 80%;
-					border-left: 1px solid rgba( $color-gray-darker, .3 );
-					top: 0.2em;
-					margin-left: -0.3em;
+				&.is-clicked{
+					@include transform( rotate(180deg) );
+					top: 40%;
 				}
 
-				&:hover, &:active {
-					color: $sites-nav-menu-item-color-hover;
-					@include linear-gradient($sites-nav-menu-item-background-hover, $sites-nav-menu-item-background);
-				}
-
-				&.is-clicked {
-					@include transform( scaleY(-1) );
-					top: 0%;
+				&:hover {
+					color: $sites-nav-menu-item-hover-icon-color;
 				}
 			}
-
-			ul {
-				background: $sites-nav-submenu-background;
+			ul{
+				background: $sites-nav-menu-item-background;
 				display: none;
 				font-family: $header-font-family;
 				position: absolute;
-				border-top: 0px solid black;
-				margin-top: -1px;
-				width: 26rem;
-				z-index: $z-90;
-				box-shadow: $std-shadow;
-				border-bottom-right-radius: $main-border-radius;
-				border-bottom-left-radius: $main-border-radius;
-
-				li:last-child {
-					border-bottom-right-radius: $main-border-radius;
-					border-bottom-left-radius: $main-border-radius;
-				}
-
-				li {
+				border: 1px solid $sites-nav-submenu-border-color;
+				margin-top: 0;
+				margin-left: -1px;
+				width: 17em;
+				z-index: 99;
+				box-shadow: 0 3px 2px rgba( $text-color, 0.35);
+				li{
 					display: block;
 					border: 0px none;
 					@include border-radius( 0 );
@@ -781,168 +878,164 @@ nav {
 					padding: 0 0 0 0;
 					min-height: 15px;
 
-					//&:hover a, &:active a {
-					//	text-decoration: underline;
-					//}
-
-					> a {
+					a{
 						display: block;
 						padding: 0.5em 0.65em;
 						text-decoration: none;
 						color: $sites-nav-submenu-item-color;
-						background: inherit;
-
-						&:hover, &:active {
-							color: $sites-nav-submenu-item-color-hover; // to override default link hover color
-							text-decoration: underline;
+						font-size: $sites-nav-submenu-item-text-size;
+						line-height: 1em;
+						&:hover, &:active
+						{
+							color: $sites-nav-submenu-item-color; /* to override default link hover color */
 						}
-
-						.toolMenuIcon {
+						.toolMenuIcon{
 							vertical-align: sub;
 							margin: 0;
 						}
 					}
-
-					> a:last-child {
-						border-bottom-right-radius: $main-border-radius;
-						border-bottom-left-radius: $main-border-radius;
-					}		
-
 					.#{$namespace}sitesNav__submenuitem-icon {
 						display: inline-block;
-						vertical-align: top;
+						vertical-align: middle;
+						padding: 0 10px;
 					}
-
 					.#{$namespace}sitesNav__submenuitem-title {
 						margin-bottom: 2px;
 						display: inline-block;
 						width: 80%;
 					}
 				}
-
-				&.is-visible {
+				&.is-visible{
 					display: block;
 				}
-
-				&.is-hidden {
+				&.is-hidden{
 					display: none;
 				}
+
 			}
+			&.is-selected{
+				background: $sites-nav-menu-item-selected-background;
+				border-top: $sites-nav-menu-item-selected-border-top;
+				border-right: $sites-nav-menu-item-selected-border-right;
+				border-bottom: $sites-nav-menu-item-selected-border-bottom;
+				border-left: $sites-nav-menu-item-selected-border-left;
 
-			&.is-selected {
-				> a {
-					background: $sites-nav-menu-item-selected-background;
+				a.link-container{
 					color: $sites-nav-menu-item-selected-color;
-
-					&:hover, &:active
-					{
-						color: $sites-nav-menu-item-selected-color-hover;
-						background: $sites-nav-menu-item-selected-background-hover;
+					i.fa {
+						color: $sites-nav-menu-item-selected-icon-color;
 					}
+				}
+				/* hover for sites when tool quick-menu isn't open */
+				&:not(.dropdown-is-visible) {
+					> .link-container:hover,
+					> .link-container:active {
+						color: $sites-nav-menu-item-selected-hover-color;
 
-					.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown {
-
-						&:hover, &:active
-						{
-						    @include linear-gradient($sites-nav-menu-item-selected-background-hover, darken($sites-nav-menu-item-selected-background, 5%));
+						i.fa {
+							color: $sites-nav-menu-item-selected-hover-icon-color;
 						}
 					}
 				}
-				/*
-				ul {
-					background: $sites-nav-menu-item-selected-background;
-					
-					a:hover, a:active
-					{
-						color: $sites-nav-menu-item-selected-color; // to override default link hover color
+
+				&.dropdown-is-visible, &:hover {
+					border-top: $sites-nav-menu-item-selected-hover-border-top;
+					border-right: $sites-nav-menu-item-selected-hover-border-right;
+					border-bottom: $sites-nav-menu-item-selected-hover-border-bottom;
+					border-left: $sites-nav-menu-item-selected-hover-border-left;
+					background: $sites-nav-menu-item-selected-hover-background;
+				}
+
+				&.dropdown-is-visible {
+					&:after {
+						border-bottom: 1px solid $sites-nav-selected-submenu-topleft-border-color;
+						content: "";
+						width: 100%;
+						position: absolute;
+						bottom: -1px;
+						left: 0;
+						z-index: 100;
 					}
 				}
-				*/
+
+				.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
+					color: $sites-nav-menu-item-selected-hover-icon-color;
+					&:hover {
+						color: $sites-nav-menu-item-selected-hover-icon-color;
+					}
+				}
+
+				ul{
+					border-color: $sites-nav-selected-submenu-border-color;
+				}
 			}
 
-			&.#{$namespace}sitesNav__menuitem--myworkspace {
-				.#{$namespace}sitesNav__drop {
+			&.#{$namespace}sitesNav__menuitem--myworkspace{
+				.#{$namespace}sitesNav__drop{
 					display: none;
 				}
 
-				a {
-					i {
-						margin-top: 1px; // to compensate for an issue with the icon
-						margin-bottom: -1px; // to compensate for an issue with the icon
-						margin-right: 0;
-						padding: 0;
+				a{
+					padding: 0.5em;
+
+					i{
+						margin-top: 1px; /* to compensate for an issue with the icon */
+						margin-bottom: -1px; /* to compensate for an issue with the icon */
+						margin-right:0.35em;
 						font-size: 1em;
 					}
 				}
 			}
 
-			&.dropdown-is-visible {
-				> a {
-					border-bottom: 1px solid $sites-nav-menu-item-background;
-					z-index: 150;
-				}
-			}
-
-			&.dropdown-is-visible.is-selected {
-				> a {
-					border-bottom: 1px solid $sites-nav-menu-item-selected-background;
-				}
-			}
-
-			ul.#{$namespace}sitesNav__submenu {
+			ul.#{$namespace}sitesNav__submenu{
 				background: $sites-nav-submenu-background;
-        		font-size: 0.8em;
-
-				li.#{$namespace}sitesNav__submenuitem {
-					background: $sites-nav-submenu-item-background;
-					color: $sites-nav-submenu-item-color;
-
-					> a {
-						background: inherit;
-						color: inherit;
-						text-decoration: none;
-						text-align: center;
-						border-top: 1px solid rgba($sites-nav-submenu-item-color, 0.1);
-						border-radius: 0;
-
-						&.#{$namespace}sitesNav__submenuitem-icon {
-							border-width: 0px;
-							width: 2.9em;
+				li.#{$namespace}sitesNav__submenuitem{
+					a {
+						background: $sites-nav-submenu-item-background;
+						color: $sites-nav-submenu-item-color;
+						.toolMenuIcon {
+							color: $sites-nav-submenu-item-icon-color;
 						}
 
-						&.#{$namespace}sitesNav__submenuitem-title {
-							border-width: 0px;
-							text-align: left;
-							width: calc(100% - 3em)
+						position: relative;
+
+						&:before{
+							border-left: 4px solid $sites-nav-submenu-item-left-border-color;
+							content: '';
+							height: 100%;
+							display: inline-block;
+							position: absolute;
+							top: 0;
+							left: 0;
 						}
 
-						&:hover, &:active {
-							background: $sites-nav-submenu-item-background-hover;
-							color: $sites-nav-submenu-item-color-hover;
-              				text-decoration: none;
+						&:hover, &:active
+						{
+							background: $sites-nav-submenu-item-hover-background;
+							color: $sites-nav-submenu-item-hover-color;
+							.toolMenuIcon {
+								color: $sites-nav-submenu-item-hover-icon-color;
+							}
+							&:before{
+								border-left-color: $sites-nav-submenu-item-hover-left-border-color;
+							}
 						}
 					}
+					&.#{$namespace}sitesNav__submenuitem__gotosite {
+						border-top: 1px solid $sites-nav-submenu-item-divider-color;
 
-					&:hover, &:active {
-						background: $sites-nav-submenu-item-background-hover;
-						color: $sites-nav-submenu-item-color-hover;
-						text-decoration: none;
-					}
-				}
-			}
+						> a:after {
+							font-family: FontAwesome;
+							content: '\f178';
+							margin-left: 10px;
+							color: $sites-nav-submenu-item-icon-color;
+						}
 
-			&.is-selected {
-				ul.#{$namespace}sitesNav__submenu{
-					background: $sites-nav-submenu-selected-background;
-					li.#{$namespace}sitesNav__submenuitem{
-						a {
-							background: $sites-nav-submenu-item-selected-background;
-							color: $sites-nav-submenu-item-selected-color;
-							border: $sites-nav-submenu-item-selected-border;
-							
-							&:hover, &:active
-							{
-								color: $sites-nav-menu-item-selected-color-hover;
+						&:hover {
+							border-top: 1px solid $sites-nav-submenu-item-divider-color;
+
+							> a:after {
+								color: $sites-nav-submenu-item-hover-icon-color;
 							}
 						}
 					}
@@ -950,34 +1043,32 @@ nav {
 			}
 		}
 	}
-
-	&.opened {
+	&.opened{
 		@media #{$desktop}{
 			max-height: 100%;
 			overflow: visible;
-			#how-many-hidden {
+			#how-many-hidden{
 				display: none;
 			}
 		}
 	}
-
-	@media #{$phone} {
+	@media #{$phone}{
 		display: none;
 	}
 }
 
-.sitenav-dropdown-overlay {
+.sitenav-dropdown-overlay{
 	height: 100%;
 	position: fixed;
 	width: 100%;
 	z-index: 20;
 }
 
-body.is-logged-out {
-	#linkNav {
-		ul {
-			li.#{$namespace}sitesNav__menuitem {
-				.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown {
+body.is-logged-out{
+	#linkNav{
+		ul{
+			li.#{$namespace}sitesNav__menuitem{
+				.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
 					display: none;
 				}
 			}
@@ -1054,4 +1145,78 @@ body.is-logged-out {
 	position: fixed;
 	width: 100%;
 	z-index: 20;
+}
+
+#profileImageUpload {
+    .modal-dialog {
+        width: 332px !important;
+    }
+
+    #upload {
+        position: relative;
+
+        input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+    }
+    #cropme {
+        height: 300px;
+        width: 300px;
+        margin-bottom: 20px;
+
+       .cropper-view-box {
+            border-radius: 50% !important;
+        }
+    }
+
+    #cropToolbar {
+        margin-top: 10px;
+        .profile-image-zoom-in {
+            &:before {
+                font-family: 'FontAwesome';
+                content: '\f00e';
+            }
+        }
+        .profile-image-zoom-out {
+            &:before {
+                font-family: 'FontAwesome';
+                content: '\f010';
+            }
+        }
+        .profile-image-pan-left {
+            &:before {
+                font-family: 'FontAwesome';
+                content: '\f060';
+            }
+        }
+        .profile-image-pan-right {
+            &:before {
+                font-family: 'FontAwesome';
+                content: '\f061';
+            }
+        }
+        .profile-image-pan-up {
+            &:before {
+                font-family: 'FontAwesome';
+                content: '\f062';
+            }
+        }
+        .profile-image-pan-down {
+            &:before {
+                font-family: 'FontAwesome';
+                content: '\f063';
+            }
+        }
+        .profile-image-rotate {
+            &:before {
+                font-family: 'FontAwesome';
+                content: '\f01e';
+            }
+        }
+    }
 }

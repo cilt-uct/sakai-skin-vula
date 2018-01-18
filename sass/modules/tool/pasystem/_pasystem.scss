@@ -1,70 +1,11 @@
-.#{$namespace}sakai-pasystem {
-	.form-horizontal {
+.#{$namespace}sakai-pasystem{
+	.form-horizontal{
 		margin: 2.5em 0 0 0;
-		.input-group-btn {
+		.input-group-btn{
 			top: -7px;
-			.btn-primary {
+			.btn-primary{
 			 	margin-right: 0;
 			}
 		}
 	}
-}
-
-.featherlight {
-	.featherlight-content {
-		padding: 2em 2em 1em;
-		border-bottom-width: 0px;
-
-		.featherlight-close-icon {
-			@extend .fa;
-			@extend .fa-times;
-			color: #fff;
-			width: 30px;
-			height: 30px;
-
-			&:before {
-				color: $text-color;
-				padding: 0.4em 0.5em;
-				display: block;
-			}
-
-			&:hover {
-				&:before {
-					color: $link-hover-color;
-				}
-			}
-
-			&:active {
-				&:before {
-					color: $link-active-color;
-				}
-			}
-		}
-
-		.popup-container-header {
-			background: transparent;
-			border-bottom: 1px solid #979a9b;
-			color: #002238;
-			display: block;
-			font-size: 2em;
-			font-weight: 600;
-			margin-bottom: 0.6em;
-			padding: 0 0 0.4em;
-			position: relative;
-			text-align: center;
-		}
-
-		section {
-			@include clearfix;
-		}
-
-		.popup-container-footer {
-			font-size: 1em !important;
-
-			.popup-dismiss-button {
-				text-decoration: none;
-				@include border-radius($small-border-radius);
-			}
-		}
-	}	
 }

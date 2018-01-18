@@ -1,40 +1,75 @@
-.#{$namespace}multipleTools {
-	.#{$namespace}toolTitleNav {
-		.#{$namespace}toolTitleNav__title {
+
+.#{$namespace}pageColumns--single {
+	.#{$namespace}toolTitleNav__button_container {
+		top: -34px;
+		right: 10px;
+		position: absolute;
+		float: none;
+		left: initial;
+	}
+}
+
+.#{$namespace}multipleTools{
+	padding-top: 4px;
+
+	.#{$namespace}container {
+		border: 1px solid $overview-portlet-border-color;
+		box-shadow: $overview-portlet-shadow;
+		margin-bottom: 20px;
+
+		@media #{$tablet} {
+		  margin: 0 7px 10px !important;
+		}
+
+		&.#{$namespace}toolTitleNav.#{$namespace}container.#{$namespace}container--toolTitleNav {
+			border-top: 0;
+			border-left: 0;
+			border-right: 0;
+			box-shadow: none;
+			margin: 0 !important;
+		}
+
+		.#{$namespace}container--toolTitleNav {
+			background-color: $overview-portlet-title-background-color;
+			border-bottom: 1px solid $overview-portlet-border-color;
+			padding: 0.6em;
+  	}
+
+		.#{$namespace}toolBody {
+			border-bottom: none;
+		}
+  }
+
+	.#{$namespace}toolTitleNav__button_container {
+		position: absolute;
+		float: right;
+		top: 0;
+		right: 4px;
+
+		@media #{$tablet}{
+			font-size: 1.2em;
+		}
+  }
+
+	.#{$namespace}toolTitleNav{
+		.#{$namespace}toolTitleNav__title{
 			display: inline-block;
-			color: $color-gray-dark;
-			font-size: 1em;
-			font-weight: 600;
-			letter-spacing: 1px;
-			margin: 0px;
-			//position: relative;
-			//text-transform: uppercase;
-			//width: calc(100% - 90px);
-			//z-index: 21;
-
-			a {
-				color: $link-color;
-				font-weight: 400;
+			font-size: 0.9em;
+			font-weight: 400;
+			margin: 0;
+			position: relative;
+			width: calc(100% - 90px);
+			a{
 				margin-right: 0.25em;
-
-        &:hover {
-    			color: $link-hover-color;
-    		}
-
-        &:active {
-          color: $link-active-color;
-        }
 			}
 		}
 	}
 }
 
-.#{$namespace}toolTitleNav {
-	margin: 1em 0 0 0;
-	padding: 0.5em;
+.#{$namespace}toolTitleNav{
+	margin: 0;
 	position: relative;
-
-	.#{$namespace}toolTitleNav__title {
+	.#{$namespace}toolTitleNav__title{
 		display: none;
 		& ~ .#{$namespace}toolTitleNav__button_container > .#{$namespace}directUrl__dropDown{
 			display: none;
@@ -52,12 +87,12 @@
 				display:    block;
 				background: #FFF;
 				width: 250px;
-  				margin: 10px 0 0 -250px;
-  				z-index: 2;
-				box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+				margin: 10px 0 0 -250px;
+				z-index: 2;
+				box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 				label{
 					font-size: $default-font-size;
-					margin: 5px 0 0px 5px;
+					margin: 5px 0 0 5px;
 					vertical-align: middle;
 				}
 				textarea{
@@ -67,257 +102,90 @@
 					width: 98%;
 				}
 				@media #{$phone}{
-					margin: -1px 0 0px -214px;
+					margin: -1px 0 0 -214px;
 				}
 			}
 		}
 	}
 
-	.#{$namespace}toolTitleNav__button_container {
-		float: right;
-		display: block;
-		position: relative;
-		top: -2px;
-		z-index: $z-1;
-		//margin: 0px 0 -20px 0;
+	.#{$namespace}toolTitleNav__link{
+		@include sakai_secondary_button();
 
-		@media #{$tablet} {
-			//left: 0.35em;
-			font-size: 1.2em;
-			margin: 0px 0 0px 0;
-			top: -4px;
-			z-index: 1;
-		}
-	}
-
-	.#{$namespace}toolTitleNav__link {
-		color: darken($color-primary, 12%);
-		//border: 1px solid #e0e0e0;
-		//background: $tool-tab-background-color;
 		margin-right: 0.25em;
-		padding: 5px 8px;
-		text-decoration: none;
+		padding: 0.4em 0.8em 0.45em 0.8em;
 		vertical-align: 0%;
-    font-size: 1.25em;
-    border-radius: 3px;
+		line-height: 1em;
 
-    span {
-      display: none;
-    }
-
-		&:hover {
-			background: $tool-menu-background-color;
-			color: $primary-color;
-			text-decoration: none;
+		&:before {
+			@extend .fa;
 		}
 
-		@media #{$tablet} {
-			background: $tool-menu-background-color;
-			border: 0px none;
-			color: $primary-color;
+		@media #{$tablet}{
 			margin-right: 0em;
-      font-size: 1em;
 		}
-
-		/*@media #{$tablet}{
-			background: transparent;
-		}*/
-
-		//@include icon();
-		&--directurl {
+		&--directurl{
 			@extend .fa;
 			@extend .fa-link;
-			//@extend .fa-lg;
 			/*position: absolute;
 			right: #{$icon-size * 1.5};*/
 		}
-
-		&--help-popup {
+		&--help-popup{
 			@extend .fa;
 			@extend .fa-question;
-			//@extend .fa-lg;
-			/*position: absolute;
-			right: 0;*/
 		}
-		&--edit {
+		&--edit{
 			@extend .fa;
 			@extend .fa-pencil;
-			//@extend .fa-lg;
-			/*position: absolute;
-			right: #{$icon-size * 3};*/
 		}
-		&--reset {
+		&--reset{
 			@extend .fa;
 			@extend .fa-share;
-			//@extend .fa-lg;
 			display: none;
 			font-size: 0.9em;
 			float: left;
 		}
-
-		.#{$namespace}itemTitle {
-			font-family: $font-family;
-			/*font-size: $default-font-size;*/
-			text-transform: uppercase;
-			font-size: 0.8em;
-			letter-spacing: 1px;
-
-			@media #{$tablet} {
+		.#{$namespace}itemTitle{
+			@media #{$tablet}{
 				display: none;
 			}
 		}
 	}
+
 }
 
-.is-logged-out {
-	
-	.#{$namespace}toolTitleNav {
-		display: none;
-	}
-}
-
-.#{$namespace}toolBody {
+.#{$namespace}toolBody{
 	background: $tool-background-color;
-	//border-bottom: 1px solid $tool-border-color;
+	border-bottom: 1px solid $tool-border-color;
 	iframe{
 		margin: 0 0 0 0;
 		width: 100%;
 	}
 }
 
-body > .portletBody, .portletBody {
-
+.portletBody{
 	background: $tool-background-color;
-	//padding: 0.6em 0.6em 1em 0.6em; //$default-font-size $default-font-size 40px $default-font-size;
-	margin: 0 0.3em;
-
+	padding: $default-font-size $default-font-size 40px $default-font-size;
+	@media #{$phone}{
+		margin: 2.3em 0 0 0;
+	}
 	> * {
 		position: relative;
-		//top: -2px;
+		top: -2px;
 	}
-
-	&.container-fluid {
-		padding: 0 0.5em;		
+	> .modal {
+		position: fixed;
 	}
-
-  h1 {
-    font-size: 1.6em;
-  }
-
-  h2 {
-    font-size: 1.4em;
-  }
-
-  h3, h4 {
-    font-size: 1.2em;
-
-		// wikiStyle override
-		&.heading-h1 {
-			font-size: 1.45em;
-		}
-
-		&.heading-h2 {
-			font-size: 1.35em;
-		}
-
-		&.heading-h3 {
-			font-size: 1.25em;
-		}	
-  }
-
-	table {
-
-		h1 {
-			font-size: 1.2em;
-		}
-
-		h2 {
-			font-size: 1.1em;
-		}
-
-		h3, h4 {
-			font-size: 1em;
-		}
-
-	}
-
-  .page-header {
-    padding-bottom: 0; //(($line-height-computed / 2) - 1);
-    margin: 0; //($line-height-computed * 2) 0 $line-height-computed;
-    border-bottom: 0px solid white;
-
-    h1 {
-      font-size: 1.2em;
-    }
-
-    h2 {
-      font-size: 1.1em;
-    }
-
-    h3, h4 {
-      font-size: 1em;
-    }
-  }
-
-  legend{
-    padding: 0;
-    margin-bottom: 0;
-    font-size: 1em;
-  }
-
-  .table-responsive {
-      border: 0px none;
-
-      .table-bordered {
-        border: 1px solid #ddd;
-      }
-
-  }
-
-  table {
-
-      a[data-toggle=collapse] {
-        color: $text-color;
-        text-decoration: none;
-        font-size: 1em;
-
-        @include fa-icon($fa-var-sort-down, before, inline, 0, 0 0.5em 0 0, inherit, inherit, normal, inherit, relative);
-
-        &:hover, &:active {
-          color: $link-hover-color;
-        }
-      }
-
-      fieldset {
-        margin-bottom: 1em;
-      }
-
-	  label {
-		  font-size: 0.9em;
-		  font-weight: $weight-regular;
-	  }
-  } // table 
-
-} // portletBody
-
-
-.#{$namespace}toolBody--sakai-iframe-service {
-
-  .portletBody {
-    padding: 0;
-  }
 }
 
-
-.itemNav {
+.itemNav{
 	float: right;
 	vertical-align: bottom;
 	text-align: right;
 	line-height: 2em;
 	clear: both;
-	margin: 1em 0em 0.5em 0;
+	margin: 1em 0 0.5em 0;
 	white-space: nowrap;
-	a {
+	a{
 		white-space: nowrap;
 	}
 	@media #{$phone}{
@@ -330,54 +198,10 @@ body > .portletBody, .portletBody {
 
 }
 
-.validationEmbedded, .validation {
+.validationEmbedded,.validation{
 	@extend .bs-callout-primary;
 }
 
-.alertMessage {
+.alertMessage{
 	@extend .bs-callout-danger;
-}
-
-#wrapper > #article-content {
-  padding: 0 1em 1em;
-}
-
-.static {
-	font-size: 1em;
-	text-align: center; 
-
-	> div {	
-		width: 30%;
-		margin: 4em auto auto;
-		text-align: left; 
-
-		h2 {
-			padding: 2em 0 3em 5.2em;
-
-			background-image: url("images/logo_b.png");
-			background-repeat: no-repeat;
-			background-position: top left;
-			background-size: 100px;
-		}
-
-		@media #{$tablet} {
-			width: 60%;
-			margin: auto;
-
-			h2 {
-				background-size: 60px;
-				padding: 1em 0 1em 3.4em;
-			}
-		}
-
-		@media #{$phone} {
-			width: 90%;
-			margin: auto;
-
-			h2 {
-				background-size: 40px;
-				padding: 0 0 1em 2.6em;
-			}
-		}
-	}
 }

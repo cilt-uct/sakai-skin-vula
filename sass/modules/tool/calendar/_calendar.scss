@@ -42,7 +42,7 @@
 
 	table.calendar{
 		font-size: 0.8em;
-		background-color: $color-graylight; //lighten($calendar-event-background-color,40%);
+		background-color: lighten($calendar-event-background-color,40%);
 
 		tr{
 			td, th{
@@ -152,7 +152,7 @@
 		}
 
 		.borderOnlyLeftDay {
-		    background-color: lighten($calendar-event-background-color, 20%);
+		    background-color: lighten($calendar-event-background-color,10%);
 		    border-left: #bbb;
 		}
 
@@ -166,7 +166,7 @@
 
 		.borderTodayCenter {
 			border: 1px solid #bbb;
-			background-color: lighten($calendar-event-background-color, 65%);
+			background-color: lighten($calendar-event-background-color,45%);
 		}
 
 		.borderTodayTop {
@@ -238,7 +238,7 @@
 		}
 
 		.borderGrayTodayMiddleBottom, .borderFullGray, .borderGrayMonth {
-		    border-bottom: 1px solid #bbb;
+		    border: 1px solid #bbb;
 		}
 
 		.borderTodayBottom, .borderGrayTodayBottom, .borderOnlyLeftTodayBottom {
@@ -269,8 +269,7 @@
 		margin: 0 0 1.5em 0;
 	}
 
-	#calendarForm {
-
+	#calendarForm{
 		.sectionContainerNav{
 			width: 93% !important;
 		}
@@ -284,120 +283,28 @@
 	}
 }
 
-.#{$namespace}sakai-schedule, #calendarForm {
-	.icon{
-			@extend .fa;
-			&.icon-calendar-academic-calendar				{	@extend .fa-graduation-cap;}
-			&.icon-calendar-activity						{	@extend .fa-rocket;}
-			&.icon-calendar-cancellation					{	@extend .fa-calendar-times-o;}
-			&.icon-calendar-class-section-discussion		{	@extend .fa-comments;}
-			&.icon-calendar-class-section-lab				{	@extend .fa-flask;}
-			&.icon-calendar-class-section-lecture			{	@extend .fa-book;}
-			&.icon-calendar-class-section-small-group		{	@extend .fa-users;}
-			&.icon-calendar-class-session					{	@extend .fa-bell;}
-			&.icon-calendar-computer-session				{	@extend .fa-desktop;}
-			&.icon-calendar-deadline						{	@extend .fa-hourglass-end;}
-			&.icon-calendar-exam							{	@extend .fa-check-square-o;}
-			&.icon-calendar-meeting							{	@extend .fa-clock-o;}
-			&.icon-calendar-multidisciplinary-conference	{	@extend .fa-cubes;}
-			&.icon-calendar-quiz							{	@extend .fa-star;}
-			&.icon-calendar-special-event					{	@extend .fa-certificate;}
-			&.icon-calendar-web-assignment					{	@extend .fa-code;}
-	}
-}
-
-// Extend cal.css and Overwrite
-// ----------------------------------------
-
-body > .portletBody {
-
-	> form#calendarForm{
-		overflow: hidden;
-		padding: 0;
-	}
-
-	.calLeft {
-		text-align: left;
-		vertical-align: middle;
-		width: 50%;
-	}
-
-	.calRight {
-		text-align: right;
-		vertical-align: middle;
-		width: 50%;
-	}
-
-	.calRight fieldset {
-		display: inline;
-		margin: 0;
-		padding: 0;
-	}
-
-	.calRight legend {
-		clip: rect(1px, 1px, 1px, 1px);
-		display: inline;
-		margin: 0;
-		padding: 0;
-		position: absolute !important;
-	}
-
-	.calTop {
-		vertical-align: top;
-	}
-
-	.calHeader {
-		background: $color-graylight none repeat scroll 0 0;
-		border: 1px solid white;
-		font-size: 0.75em;
-		padding: 0.4em;
-		text-align: center;
-	}
-
-	.calDay {
-		border: 0 none;
-		margin: 0;
-		padding: 1px;
-		width: 14%;
-	}
-
-	.calToday {
-		border: 1px solid #000 !important;
-	}
-
-	.calSelectedDay {
-		border: 1px dashed #000 !important;
-	}
-
-	.calDayWithActivity {
-		background-color: #d4dfee;
-		border: 1px solid #ddd;
-		font-weight: bold;
-		text-align: center;
-	}
-
-	.calDayWithoutActivity {
-		text-align: center;
-	}
-
-	.calOtherDayWithNoActivity {
-		background-color: transparent;
-		border: 0px solid white;
-		color: $color-gray;
-		font-style: italic;
-		text-align: center;
-	}
-
-	.eventCount {
-		color: $color-gray-dark;
-		display: inline !important;
-		font-size: 9px;
-		font-weight: normal;
-		margin: 0;
-		padding: 0;
-		position: absolute;
-		right: 0;
-		top: -2px;
-	}
-
+// Icons used in more than one tool so not restricted by a specific namespace.
+.icon{
+	@extend .fa;
+	&.icon-calendar-academic-calendar				{	@extend .fa-graduation-cap}
+	&.icon-calendar-activity						{	@extend .fa-rocket}
+	&.icon-calendar-cancellation					{	@extend .fa-calendar-times-o}
+	&.icon-calendar-class-section-discussion		{	@extend .fa-comments}
+	&.icon-calendar-class-section-lab				{	@extend .fa-flask}
+	&.icon-calendar-class-section-lecture			{	@extend .fa-book}
+	&.icon-calendar-class-section-small-group		{	@extend .fa-users}
+	&.icon-calendar-class-session					{	@extend .fa-bell}
+	&.icon-calendar-computer-session				{	@extend .fa-desktop}
+	&.icon-calendar-deadline						{	@extend .fa-hourglass-end}
+	&.icon-calendar-exam							{	@extend .fa-check-square-o}
+	&.icon-calendar-meeting							{	@extend .fa-clock-o}
+	&.icon-calendar-multidisciplinary-conference	{	@extend .fa-cubes}
+	&.icon-calendar-quiz							{	@extend .fa-star}
+	&.icon-calendar-special-event					{	@extend .fa-certificate}
+	&.icon-calendar-web-assignment					{	@extend .fa-code}
+	&.icon-calendar-formative-assessment			{	@extend .fa-pencil-square-o}
+	&.icon-calendar-submission-date					{	@extend .fa-hourglass-end}
+	&.icon-calendar-tutorial						{	@extend .fa-graduation-cap}
+	&.icon-calendar-workshop						{	@extend .fa-group}
+	&.icon-calendar-attachment						{	@extend .fa-paperclip}
 }

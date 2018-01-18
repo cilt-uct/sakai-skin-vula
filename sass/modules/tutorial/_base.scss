@@ -1,107 +1,87 @@
-$tutorial-background-color: darken($color-success, 10%);
-$tutorial-background-link-color: $primary-color;
-
-.sakai-tutorial.qtip {
+.sakai-tutorial.qtip
+{
 	border: 0 none;
-  @include border-radius($main-border-radius);
-
-  background-color: $background-color;
+	background-color: $background-color;
 	font-family: $font-family;
-	font-size: $default-font-size;
+	font-size: $default-font-size + 2px;
 	line-height: 1.4;
-	color: $tutorial-background-color; /* determines the colour of the tip */
-	
-	border: 2px solid $tutorial-background-color;
+	color: $alt-colour; /* determines the colour of the tip */
 
-  &.qtip-shadow {
-  	box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
-  }
-
-	.qtip-titlebar {
+	.qtip-titlebar
+	{
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		padding: 4px 8px;
-		background: $tutorial-background-color;
-		color: $color-white;
-    @include border-radius($small-border-radius $small-border-radius 0 0);
-    font-weight: $weight-semibold;
+		background: $alt-colour;
+		color: $background-color;
 	}
-
-	.qtip-content {
+	
+	.qtip-content
+	{
 		padding: 1em;
-		
-    border-top:0 none;
-		@include border-radius(0 0 $small-border-radius $small-border-radius);
+		border: 4px solid $alt-colour;
+		border-top:0 none;
 		color: $text-color;
-
-		.no-wrap {
+		
+		.no-wrap
+		{
 			white-space:nowrap;
 		}
 	}
 
-	.tut-icon-home, .tut-icon-sites, .tut-icon-toggle, .tut-icon-help {
-		font-size: $default-font-size;
+	.tut-icon-home, .tut-icon-sites, .tut-icon-toggle, .tut-icon-help
+	{
+		font-size: $default-font-size + 2px;;
 	}
 
-	.qtip-title:focus {
+	.qtip-title:focus
+	{
 		outline: none;
 	}
-
-	.qtipClose {
-    border: 0 none;
+	
+	.qtipClose
+	{
+		border: 0 none;
 		background:none;
 		color: $background-color;
-
-    &:hover {
-      color: $link-hover-color;
-    }
-
-    &:active {
-      color: $link-active-color;
-    }
 	}
-
-	.tut-footer {
+	
+	.tut-footer
+	{
 		display: flex;
 		justify-content: space-between;
 		margin-top:1em;
 		padding-top:1em;
 		border-top:1px solid #ccc;
-
-		.qtipLinkButton {
+		
+		.qtipLinkButton
+		{
 			display:flex;
 			align-items:center;
 			font-size: inherit;
 			text-decoration:none;
-			color: darken($tutorial-background-link-color, 10%);
-
-			&:hover, &:active {
-				color: $tutorial-background-link-color;
-			}
 		}
-
-		.tut-next {
+		
+		.tut-next
+		{
 			margin-left:auto;
-
+			
 		}
-
-		.tut-close {
+		
+		.tut-close
+		{
 			margin: -5px 0 0 0;
 		}
 	}
-
-	.qtip-tip {
-		color: $tutorial-background-color;
-
-		canvas {
-			color: $tutorial-background-color;
-		}
-	}	
-  /*
+/*
+	.qtip-shadow {
+	  box-shadow: 1px 1px 8px 4px rgba(0, 0, 0, 0.25);
+	}
 	.qtip-tipped {
 	  background-color: $tool-background-color;
 	  border: 4px solid $primary-color;
 	}
-  */
+*/
+
 }

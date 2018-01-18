@@ -1,29 +1,73 @@
+
+.#{$namespace}pageColumns--single {
+	.#{$namespace}toolTitleNav__button_container {
+		top: -34px;
+		right: 10px;
+		position: absolute;
+		float: none;
+		left: initial;
+	}
+}
+
 .#{$namespace}multipleTools{
+	padding-top: 4px;
+
+	.#{$namespace}container {
+		border: 1px solid $overview-portlet-border-color;
+		box-shadow: $overview-portlet-shadow;
+		margin-bottom: 20px;
+
+		@media #{$tablet} {
+		  margin: 0 7px 10px !important;
+		}
+
+		&.#{$namespace}toolTitleNav.#{$namespace}container.#{$namespace}container--toolTitleNav {
+			border-top: 0;
+			border-left: 0;
+			border-right: 0;
+			box-shadow: none;
+			margin: 0 !important;
+		}
+
+		.#{$namespace}container--toolTitleNav {
+			background-color: $overview-portlet-title-background-color;
+			border-bottom: 1px solid $overview-portlet-border-color;
+			padding: 0.6em;
+  	}
+
+		.#{$namespace}toolBody {
+			border-bottom: none;
+		}
+  }
+
+	.#{$namespace}toolTitleNav__button_container {
+		position: absolute;
+		float: right;
+		top: 0;
+		right: 4px;
+
+		@media #{$tablet}{
+			font-size: 1.2em;
+		}
+  }
+
 	.#{$namespace}toolTitleNav{
 		.#{$namespace}toolTitleNav__title{
 			display: inline-block;
-			color: rgba(21,21,21,0.5);
-			font-size: 0.85em;
+			font-size: 0.9em;
 			font-weight: 400;
-			letter-spacing: 1.2px;
-			margin: 0px;
+			margin: 0;
 			position: relative;
-			text-transform: uppercase;
 			width: calc(100% - 90px);
-			z-index: 21;
 			a{
-				color: rgba(21,21,21,0.5);
-				font-weight: 400;
 				margin-right: 0.25em;
 			}
 		}
 	}
-
 }
 
 .#{$namespace}toolTitleNav{
-	margin: 1em 0 0 0;
-	padding: 0.5em;
+	margin: 0;
 	position: relative;
 	.#{$namespace}toolTitleNav__title{
 		display: none;
@@ -43,12 +87,12 @@
 				display:    block;
 				background: #FFF;
 				width: 250px;
-  				margin: 10px 0 0 -250px;
-  				z-index: 2;
-				box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+				margin: 10px 0 0 -250px;
+				z-index: 2;
+				box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 				label{
 					font-size: $default-font-size;
-					margin: 5px 0 0px 5px;
+					margin: 5px 0 0 5px;
 					vertical-align: middle;
 				}
 				textarea{
@@ -58,84 +102,49 @@
 					width: 98%;
 				}
 				@media #{$phone}{
-					margin: -1px 0 0px -214px;
+					margin: -1px 0 0 -214px;
 				}
 			}
 		}
 	}
-	.#{$namespace}toolTitleNav__button_container{
-		float: right;
-		display: block;
-		position: relative;
-		margin: 0px 0 -20px 0;
-		top: 9px;
-		z-index: 1;
-		@media #{$tablet}{
-			left: 0.35em;
-			font-size: 1.5em;
-			margin: 0px 0 0px 0;
-			top: -4px;
-			z-index: 1;
-		}
-	}
+
 	.#{$namespace}toolTitleNav__link{
-		color: $tool-nav-link-color;
-		border: 1px solid #e0e0e0;
-		background: $tool-tab-background-color;
+		@include sakai_secondary_button();
+
 		margin-right: 0.25em;
-		padding: 5px 8px;
-		text-decoration :none;
+		padding: 0.4em 0.8em 0.45em 0.8em;
 		vertical-align: 0%;
-		&:hover{
-			background: $tool-background-color;
-			color: $swapped-view-text-color;
-			text-decoration: none;
+		line-height: 1em;
+
+		&:before {
+			@extend .fa;
 		}
+
 		@media #{$tablet}{
-			background: $tool-background-color;
-			border: 0px none;
-			color: $primary-color;
 			margin-right: 0em;
 		}
-		/*@media #{$tablet}{
-			background: transparent;
-		}*/
-		//@include icon();
 		&--directurl{
 			@extend .fa;
 			@extend .fa-link;
-			//@extend .fa-lg;
 			/*position: absolute;
 			right: #{$icon-size * 1.5};*/
 		}
 		&--help-popup{
 			@extend .fa;
 			@extend .fa-question;
-			//@extend .fa-lg;
-			/*position: absolute;
-			right: 0;*/
 		}
 		&--edit{
 			@extend .fa;
 			@extend .fa-pencil;
-			//@extend .fa-lg;
-			/*position: absolute;
-			right: #{$icon-size * 3};*/
 		}
 		&--reset{
 			@extend .fa;
 			@extend .fa-share;
-			//@extend .fa-lg;
 			display: none;
 			font-size: 0.9em;
 			float: left;
 		}
 		.#{$namespace}itemTitle{
-			font-family: $font-family;
-			/*font-size: $default-font-size;*/
-			text-transform: uppercase;
-			font-size: 0.8em;
-			letter-spacing: 1px;
 			@media #{$tablet}{
 				display: none;
 			}
@@ -163,6 +172,9 @@
 		position: relative;
 		top: -2px;
 	}
+	> .modal {
+		position: fixed;
+	}
 }
 
 .itemNav{
@@ -171,7 +183,7 @@
 	text-align: right;
 	line-height: 2em;
 	clear: both;
-	margin: 1em 0em 0.5em 0;
+	margin: 1em 0 0.5em 0;
 	white-space: nowrap;
 	a{
 		white-space: nowrap;
@@ -192,8 +204,4 @@
 
 .alertMessage{
 	@extend .bs-callout-danger;
-}
-
-#wrapper > #article-content {
-  padding: 0 1em 1em;
 }

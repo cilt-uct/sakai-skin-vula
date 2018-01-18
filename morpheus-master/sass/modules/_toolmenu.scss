@@ -11,55 +11,138 @@ body.is-logged-out{
 	}
 }
 
-body.#{$namespace}toolMenu-collapsed{
+// Prevent tool menu collapsed styles being applied when using a mobile sized screen - an issue
+// when switching between phone and non-phone sized screens.
+@media #{$nonPhone} {
 
-	#content, .Mrphs-container--footer {
-	    margin: 0 0 0 0;
+	.#{$namespace}collapseTools button.js-toggle-nav {
+		background: transparent;
+		border: 0;
+		font-size: 1.0em;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		text-align: right;
 	}
 
-	#toolMenuWrap{
-		max-width: #{ $tool-menu-width / 2 };
-		min-width: #{ $tool-menu-width / 2 };
-		width: #{ $tool-menu-width / 2 };
-	}
-	#toolMenu, ul#subSites{
-		.img_site_toolmenu{
-			display: none;
+	// LHS tool menu collapsed to show icons only and not tool titles.
+	body.#{$namespace}toolMenu-collapsed{
+
+		#content, .Mrphs-container--footer {
+			margin: 0 0 0 0;
+
 		}
-		ul{
-			li{
-				a{
-					min-height: 1.7em;
-					&:hover{
-						.#{$namespace}toolsNav__menuitem--title{
-							position: absolute;
-							display: block;
-							float: right;
-							margin: -2.1em 0em 0em 3.2em;
-							background: $primary-color;
-							padding: 0.71em;
-							border-left: 3px solid $primary-color-shadow;
-							z-index: 10;
-							width: auto;
-							border-radius: 0 15px 15px 0;
-							line-height: 100%;
+
+		#toolMenuWrap{
+			max-width: #{ $tool-menu-width-collapsed };
+			min-width: #{ $tool-menu-width-collapsed };
+			width: #{ $tool-menu-width-collapsed };
+		}
+		#toolMenu, #subSites, .floatingToolMenu{
+			.img_site_toolmenu{
+				display: none;
+			}
+			ul{
+				li{
+					.Mrphs-toolsNav__menuitem--link{
+						min-height: 1.7em;
+						text-align: center;
+						&:hover{
+							position: relative;
+							.#{$namespace}toolsNav__menuitem--title{
+								display: block;
+								position: absolute;
+								top: -1px;
+								bottom: -1px;
+								left: $tool-menu-width-collapsed;
+								z-index: 50;
+								width: auto;
+								border-radius: 0 5px 5px 0;
+								line-height: 40px;
+								background: $tool-menu-item-hover-background-color;
+								border-top: 1px solid $tool-menu-item-separator-color;
+								border-right: 1px solid $tool-menu-item-separator-color;
+								border-bottom: 1px solid $tool-menu-item-separator-color;
+								padding: 0 10px;
+							}
+						}
+						&.is-invisible {
+							&:after {
+								display: none;
+							}
+							&:hover{
+								.#{$namespace}toolsNav__menuitem--title{
+									background: $tool-menu-item-hidden-hover-background-color;
+								}
+							}
+						}
+						span.#{$namespace}toolsNav__menuitem--title{
+							white-space: pre;
 						}
 					}
-					&.is-invisible {
-						&:after {
-							display: none;
+					&.is-current{
+						.Mrphs-toolsNav__menuitem--link{
+							&:hover{
+								.#{$namespace}toolsNav__menuitem--title{
+									background: $tool-menu-item-selected-hover-background-color;
+								}
+							}
 						}
 					}
-					span.#{$namespace}toolsNav__menuitem--title{
-						white-space: pre;
+					&.is-current{
+						.Mrphs-toolsNav__menuitem--link{
+							&:hover{
+								.#{$namespace}toolsNav__menuitem--title{
+									background: $tool-menu-item-selected-hover-background-color;
+								}
+							}
+						}
+					}
+ 					&:nth-of-type(2){
+						.Mrphs-toolsNav__menuitem--link{
+							&:hover{
+								border-top: 1px solid $tool-menu-item-separator-color;
+							}
+						}
+					}
+					.#{$namespace}toolsNav__menuitem--icon{
+						@if $tool-menu-icon-on-left {
+							padding: 0 1em 0 0.2em;
+						}
+					}
+					.#{$namespace}toolsNav__menuitem--title{
+						display: none;
+					}
+					&.#{$namespace}collapseTools{
+						.fa{
+							@include transform( scaleX(-1) ); /* flip horizontally */
+						}
 					}
 				}
-				.#{$namespace}toolsNav__menuitem--title{
-					display: none;
-				}
-				&.#{$namespace}collapseTools{
-					i{
-						@include transform( scaleX(-1) ); /* flip horizontally */
+			}
+			// Properties for portal.showSubsitesAsFlyout=true
+			&.floating {
+				ul {
+					li {
+						a.is-invisible {
+							.#{$namespace}toolsNav__menuitem--title {
+								display: block;
+							}
+							color: #AAAAAA;
+							font-style: italic;
+							position: relative;
+							&:hover {
+								background: $primary-color;
+								.#{$namespace}toolsNav__menuitem--title {
+									position: relative;
+									float: none;
+									margin: 0;
+									padding: 0;
+									border-left: none;
+									line-height: initial;
+								}
+							}
+						}
 					}
 				}
 			}
@@ -67,11 +150,27 @@ body.#{$namespace}toolMenu-collapsed{
 	}
 }
 
+// One cannot use @extend within a media query so this has been pulled out from
+// the showSubsitesAsFlyouts properties above.  This may change with a Sass upgrade.
+#subSites.floating a.#{$namespace}toolsNav__menuitem--link.is-invisible {
+	&:after {
+		@extend .fa-lg;
+		@extend .fa;
+		content: '\f070';
+		position: absolute;
+		top: 4px;
+		right: 4px;
+	}
+}
+
 #toolMenuWrap .img_site_toolmenu{
   width: 100%;
   max-width: $tool-menu-width;
   height: auto;
-  margin: 0 auto; 
+  margin: 0 auto;
+  @media #{$phone}{
+    display: none;
+  }
 }
 
 #toolMenuWrap{
@@ -82,23 +181,22 @@ body.#{$namespace}toolMenu-collapsed{
 	display: block;
 	min-width: $tool-menu-width;
 	width: $tool-menu-width;
-	@include flex-basis( 7.5em );
-	margin: 0 0 0 0;
+	@include flex-basis( $tool-menu-width );
+	padding: 5px 0 0 0;
 	text-align: center;
+	border-right: 1px solid $tool-border-color;
 	@include transition( left 0.25s linear 0s );
-	
+
 	@media #{$phone}{
 		left: -100%;
-		position: fixed;
-		top: 5.5em;
-		z-index: 9999;
-		padding: 0 0 2em 0;
-		margin: 0 0 0;
-		height: 100%;
+		position: absolute;
+		padding: 0;
+		margin: 0;
+
 		@if $skin-with-icons {
 			.#{$namespace}toolsNav__menuitem--title{
 				display: none;
-			}	
+			}
 		} @else {
 			.#{$namespace}toolsNav__menuitem--title{
 				display: inline-block;
@@ -114,12 +212,6 @@ body.#{$namespace}toolMenu-collapsed{
 	}
 	&.openedLinkNav{
 		margin: 0 0 0 0;
-	}
-}
-
-#totoolmenu{
-	@media #{$phone}{
-		display:none !important;
 	}
 }
 
@@ -152,18 +244,17 @@ body.#{$namespace}toolMenu-collapsed{
 #subSites{
 	background: darken( $tool-menu-background-color, 10% );
 	ul{
-		list-style: none;
 		padding: 0 0 0 0;
+	}
+	@media #{$phone}{
+		background: $tool-menu-background-color;
+		padding-top: 4px;
 	}
 }
 
 nav#subSites{
-	width: #{$tool-menu-width };
 	position: relative;
 	z-index: 9999;
-	@media #{$desktop}{
-		min-width: 7em;
-	}
 	&.floating{
 		min-width: #{$tool-menu-width * 2 };
 		max-width: #{$tool-menu-width * 2 };
@@ -189,14 +280,19 @@ nav#subSites{
 			border-width: 7px;
 			margin-top: -7px;
 		}
+		ul li a .#{$namespace}toolsNav__menuitem--icon {
+			overflow: hidden;
+		}
 	}
 }
 
-#toolMenu, #subSites{
+#toolMenu, #subSites, .floatingToolMenu{
 	ul{
 		padding: 0;
 		margin:  0;
 		li{
+			border-bottom: 1px solid $tool-menu-item-separator-color;
+
 			&.#{$namespace}collapseTools
 			{
 				display:flex;
@@ -204,70 +300,165 @@ nav#subSites{
 				justify-content:flex-end; /* right-align the arrows when expanded */
 				height:3em;
 				padding: 0 1em;
-				border-right: 1px solid $tool-menu-background-color;
-				border-bottom: 1px solid darken( $tool-menu-background-color, 10% );
 				cursor:pointer;
 				font-size: 1.2em;
-				background-color: $tool-tab-background-color;
+				z-index: 1;
+
+				color: $tool-menu-collapse-text-color;
+				border-top: $tool-menu-collapse-border-top;
+				border-bottom: none;
+				background-color: $tool-menu-collapse-background-color;
+				box-shadow: $tool-menu-collapse-shadow;
+
 				&:hover
 				{
-					background: $tool-menu-hover-background-color;
-					color: $tool-menu-hover-color;
+					color: $tool-menu-collapse-hover-text-color;
+					border-top: $tool-menu-collapse-hover-border-top;
+					background-color: $tool-menu-collapse-hover-background-color;
+					box-shadow: $tool-menu-collapse-hover-shadow;
 				}
 				&.min
 				{
 					justify-content:center; /* center the arrows when collapsed */
+					color: $tool-menu-collapse-active-text-color;
+					border-top: $tool-menu-collapse-active-border-top;
+					background-color: $tool-menu-collapse-active-background-color;
+					box-shadow: $tool-menu-collapse-active-shadow;
+
+					&:hover{
+						color: $tool-menu-collapse-active-hover-text-color;
+						border-top: $tool-menu-collapse-active-hover-border-top;
+						background-color: $tool-menu-collapse-active-hover-background-color;
+						box-shadow: $tool-menu-collapse-active-hover-shadow;
+					}
+
+					span.fa-angle-double-left {
+						color: $tool-menu-collapse-active-icon-color;
+					}
 				}
-				
-				i
+				span.fa-angle-double-left
 				{
 					@include transition( transform, 0.25s, ease-out, 0s ); /* animate the arrow direction change */
 				}
-				
 				@media #{$phone}{
-					display: none;
+					display: none !important;
 				}
 			}
 			@media #{$phone}{
-				border-left: 2px solid darken( $tool-menu-background-color, 10% );
-				margin: -4px -4px 0px 0; //FIX for inline-block extra space.
 				width: calc( 25% - 1px );
 			}
 			.#{$namespace}toolsNav__menuitem--icon{
-				margin: 0 0.25em 0 0;
+				@if $tool-menu-icon-on-left {
+					display: inline-block;
+					width: 18%;
+					height: 100%;
+					padding: 0 0.2em 0 0.2em;
+					@media #{$phone}{
+						width: 10%;
+						padding: 0.4em 0.5em;
+					}
+				} @else {
+					margin: 0 0.25em 0 0;
+					@media #{$phone}{
+						margin: 0.5em 0;
+					}
+				}
 			}
-			a{
-				border-bottom: 1px solid darken( $tool-menu-background-color, 10% );
-				color: $tool-menu-color;
+			.Mrphs-toolsNav__menuitem--link{
 				display: block;
 				font-family: $header-font-family;
-				font-weight: 300;
-				font-size: 0.85em;
-			    line-height: 1.25;
-			    min-height: 3em;
-				padding: 0.5em 0.25em;
-				text-align: center;
+				font-weight: 400;
+				font-size: 0.9em;
+				position: relative;
+				@if $tool-menu-icon-on-left {
+					text-align: left;
+					padding: 0.7em 0.5em;
+				} @else {
+					text-align: center;
+					padding: 0.5em 0.25em;
+					min-height: 3em;
+					line-height: 1.25;
+				}
 				text-decoration: none;
+
+				color: $tool-menu-item-text-color;
+				background-color: $tool-menu-item-background-color;
+				font-weight: $tool-menu-item-text-weight;
+
+				.#{$namespace}toolsNav__menuitem--icon{
+					color: $tool-menu-item-icon-color
+				}
+
+				&:before{
+					border-left: $tool-menu-item-border-left;
+					content: '';
+					height: 100%;
+					display: inline-block;
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+
 				&:hover{
-					background: $tool-menu-hover-background-color;
-					color: $tool-menu-hover-color;
+					color: $tool-menu-item-hover-text-color;
+					background: $tool-menu-item-hover-background-color;
+
+					&:before{
+						border-left: $tool-menu-item-hover-border-left;
+					}
+
+					.#{$namespace}toolsNav__menuitem--icon{
+						color: $tool-menu-item-hover-icon-color;
+					}
 				}
 				@media #{$phone}{
-					height:  5.5em;
+					@if $tool-menu-icon-on-left {
+						border: none;
+						font-size: 0.9em;
+						font-weight: 700;
+						padding: 3px 0;
+						min-height: 3em;
+					}
+					@else {
+						border-width: 1px;
+						border-style: solid;
+						border-color: darken( $tool-menu-background-color, 10% );
+						height:  5.5em;
+					}
 					overflow: hidden;
-					padding: 0.85em 0.25em 0.1em;
 				}
 				.#{$namespace}toolsNav__menuitem--title{
-					display: block;
-					width: 100%;
+					@if $tool-menu-icon-on-left {
+						display: inline-block;
+						width: 75%;
+						vertical-align: middle;
+						@media #{$phone}{
+							width: 90%;
+						}
+					} @else {
+						display: block;
+						width: 100%;
+					}
 					text-overflow: ellipsis;
-					white-space: pre-wrap;
+					white-space: pre;
 					overflow: hidden;
 				}
 				&.is-invisible {
-					color: #AAAAAA;
 					font-style: italic;
 					position: relative;
+
+					color: $tool-menu-item-hidden-text-color;
+					background: $tool-menu-item-hidden-background-color;
+
+					&:before{
+						border-left: $tool-menu-item-hidden-border-left;
+					}
+
+					.#{$namespace}toolsNav__menuitem--icon{
+						color: $tool-menu-item-hidden-icon-color;
+						font-style: italic;
+					}
+
 					&:after {
 						@extend .fa-lg;
 						@extend .fa;
@@ -276,27 +467,61 @@ nav#subSites{
 						top: 4px;
 						right: 4px;
 					}
-					.#{$namespace}toolsNav__menuitem--icon{
-						font-style: italic;
+
+					&:hover{
+						color: $tool-menu-item-hidden-hover-color;
+						background: $tool-menu-item-hidden-hover-background-color;
+
+						&:before{
+							border-left: $tool-menu-item-hidden-hover-border-left;
+						}
+
+						.#{$namespace}toolsNav__menuitem--icon{
+							color: $tool-menu-item-hidden-hover-icon-color;
+						}
 					}
 				}
 			}
 			&.is-current{
-				background: $tool-menu-current-background-color;
-				a{
-					border-left: 4px solid $tool-menu-current-border-color;
-					border-bottom: 1px solid $tool-menu-current-border-color;
-					color: $tool-menu-current-color;
+				position: relative;
+				margin-right: -1px;
+
+				.Mrphs-toolsNav__menuitem--link{
+					color: $tool-menu-item-selected-text-color;
+					background: $tool-menu-item-selected-background-color;
+
+					&:before{
+						border-left: $tool-menu-item-selected-border-left;
+					}
+
+					.#{$namespace}toolsNav__menuitem--icon{
+						color: $tool-menu-item-selected-icon-color;
+					}
+
 					.#{$namespace}toolsNav__menuitem--title{
 						font-weight: 700;
 					}
+
 					&:hover{
-						background: $tool-menu-hover-background-color;
-						color: $tool-menu-hover-color;
+						color: $tool-menu-item-selected-hover-text-color;
+						background: $tool-menu-item-selected-hover-background-color;
+
+						&:before{
+							border-left: $tool-menu-item-selected-hover-border-left;
+						}
+
+						.#{$namespace}toolsNav__menuitem--icon{
+							color: $tool-menu-item-selected-hover-icon-color;
+						}
 					}
 					@media #{$phone}{
-						border: 1px solid $tool-menu-current-border-color;
-						border-left: 1px solid $tool-menu-current-border-color;
+						@if $tool-menu-icon-on-left {
+							border: none;
+						}
+						@else {
+							border: 1px solid $tool-menu-current-border-color;
+							border-left: 1px solid $tool-menu-current-border-color;
+						}
 					}
 				}
 			}
@@ -305,7 +530,7 @@ nav#subSites{
 				li{
 					border-bottom: 1px solid $tool-sub-menu-border-color;
 					a{
-			  			padding: 0.6em 0 0.6em 0em;
+						padding: 0.6em 0 0.6em 0em;
 						background: $tool-sub-menu-background-color;
 						&:hover{
 							background: $tool-sub-menu-hover-background-color;
@@ -334,6 +559,358 @@ nav#subSites{
 				background-color: darken( $tool-sub-menu-background-color, 5% );
 				@media #{$phone}{
 					display: none;
+				}
+			}
+		}
+	}
+}
+
+// -------------------------------------------------------------------------------------------------------------------
+//  Lessons-Tool Subpage Menu
+// -------------------------------------------------------------------------------------------------------------------
+body {
+	#toolMenu {
+		li.has-lessons-sub-pages {
+			margin-right: 0;
+
+			&.is-parent-of-current.expanded {
+				.Mrphs-toolsNav__menuitem--link {
+					&:before {
+						border-left: $tool-menu-item-border-left !important;
+					}
+				}
+			}
+
+			> .Mrphs-toolsNav__menuitem--link {
+				.#{$namespace}toolsNav__menuitem--icon {
+					&:before {
+						content: '\f0da';
+					}
+				}
+			}
+
+			&.has-lessons-sub-pages {
+				> .Mrphs-toolsNav__menuitem--link {
+					background-color: $tool-menu-item-background-color !important;
+
+					&.is-current, &.is-parent-of-current {
+						.#{$namespace}toolsNav__menuitem--title {
+							font-weight: bold !important;
+						}
+					}
+
+					&:hover {
+						background-color: $tool-menu-item-hover-background-color !important;
+					}
+				}
+
+				.lessons-top-level-placeholder {
+					.lessons-expand-collapse-icon {
+						// Morpheus default clips tool menu by default, so cannot use absolute here:
+						//position: absolute;
+						// Instead tinker the marge right on the icon so things line up ok:
+						margin-right: 3.5px;
+
+						.Mrphs-toolsNav__menuitem--icon {
+							position: relative;
+						}
+					}
+
+					.lessons-goto-top-page {
+						.Mrphs-toolsNav__menuitem--title {
+							color: $tool-menu-item-text-color;
+						}
+						&:hover {
+							.Mrphs-toolsNav__menuitem--title {
+								color: $tool-menu-item-hover-text-color;
+							}
+						}
+					}
+
+					&:hover {
+						.lessons-goto-top-page {
+							.Mrphs-toolsNav__menuitem--title {
+								&:after {
+									font-family: 'FontAwesome';
+									content: '\f0a9';
+									padding-left: 4px;
+								}
+							}
+						}
+					}
+					.lessons-goto-top-page {
+						&:focus {
+							.Mrphs-toolsNav__menuitem--title {
+								&:after {
+									font-family: 'FontAwesome';
+									content: '\f0a9';
+									padding-left: 4px;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			&.expanded {
+				background-color: $tool-menu-item-selected-background-color;
+
+				&.is-parent-of-current {
+					> .Mrphs-toolsNav__menuitem--link {
+						.#{$namespace}toolsNav__menuitem--icon {
+							color: $tool-menu-item-icon-color !important;
+						}
+						.#{$namespace}toolsNav__menuitem--title {
+							color: $tool-menu-item-text-color !important;
+							font-weight: normal !important;
+						}
+						&:hover {
+							color: $tool-menu-item-hover-text-color !important;
+							&:before {
+								border-left: $tool-menu-item-hover-border-left !important;
+							}
+
+							.#{$namespace}toolsNav__menuitem--icon {
+								color: $tool-menu-item-hidden-icon-color !important;
+							}
+						}
+					}
+				}
+
+				> .Mrphs-toolsNav__menuitem--link {
+					background-color: $tool-menu-item-selected-background-color !important;
+
+					&:hover {
+						background-color: $tool-menu-item-selected-hover-background-color !important;
+					}
+
+					.#{$namespace}toolsNav__menuitem--icon {
+						&:before {
+							//content: '\f0d7';
+						}
+
+						-ms-transform: rotate(90deg);
+						-webkit-transform: rotate(90deg);
+						transform: rotate(90deg);
+					}
+				}
+			}
+
+			&.sliding-down {
+					background-color: $tool-menu-item-selected-background-color !important;
+
+					.Mrphs-toolsNav__menuitem--link {
+							.#{$namespace}toolsNav__menuitem--icon {
+									-webkit-transition-duration: 0.5s;
+									-moz-transition-duration: 0.5s;
+									-o-transition-duration: 0.5s;
+									transition-duration: 0.5s;
+
+									-webkit-transition-property: -webkit-transform;
+									-moz-transition-property: -moz-transform;
+									-o-transition-property: -o-transform;
+									transition-property: transform;
+
+									-ms-transform: rotate(90deg);
+									-webkit-transform: rotate(90deg);
+									transform: rotate(90deg);
+							}
+							background-color: $tool-menu-item-selected-background-color !important;
+
+							&:hover {
+									background-color: $tool-menu-item-selected-background-color !important;
+							}
+					}
+			}
+
+			&.sliding-up {
+					.Mrphs-toolsNav__menuitem--link {
+							.#{$namespace}toolsNav__menuitem--icon {
+									-webkit-transition-duration: 0.5s;
+									-moz-transition-duration: 0.5s;
+									-o-transition-duration: 0.5s;
+									transition-duration: 0.5s;
+
+									-webkit-transition-property: -webkit-transform;
+									-moz-transition-property: -moz-transform;
+									-o-transition-property: -o-transform;
+									transition-property: transform;
+
+									-ms-transform: rotate(0deg);
+									-webkit-transform: rotate(0deg);
+									transform: rotate(0deg);
+							}
+					}
+			}
+
+			ul.lessons-sub-page-menu {
+				display: none;
+
+				li {
+					display: block;
+					border-bottom: none;
+					min-height: 28px;
+					max-height: 100px;
+					text-overflow: ellipsis;
+					overflow:hidden;
+					background-color: #FFFFFF;
+
+					&:last-child{
+							margin-bottom: 8px;
+					}
+
+					a {
+						text-align: left;
+						padding: 3.5px 3.5px 3.5px 40px;
+						font-size: 12px !important;
+						min-height: 28px;
+						max-height: 100px;
+						text-overflow: ellipsis;
+						overflow:hidden;
+						border-left: $tool-menu-item-border-left !important;
+						color: $tool-menu-item-text-color !important;
+						display: flex;
+						align-items: center;
+						text-decoration: none;
+
+						&:hover {
+							border-left: $tool-menu-item-hover-border-left !important;
+							background-color: $tool-menu-item-hover-background-color !important;
+							color: $tool-menu-item-hover-text-color !important;
+						}
+
+						&.is-invisible {
+							color: $tool-menu-item-hidden-text-color !important;
+							font-style: italic;
+							position: relative;
+
+							.#{$namespace}toolsNav__menuitem--icon {
+								font-style: normal !important;
+								color: $tool-menu-item-hidden-icon-color !important;
+							}
+
+							&:hover {
+								color: $tool-menu-item-hidden-hover-color !important;
+
+								.#{$namespace}toolsNav__menuitem--icon {
+									color: $tool-menu-item-hidden-hover-icon-color !important;
+								}
+							}
+
+							&:after {
+								@extend .fa-lg;
+								@extend .fa;
+								content: '\f070';
+								position: absolute;
+								top: 8px;
+								right: 4px;
+							}
+						}
+						&.has-prerequisite {
+							color: $tool-menu-item-hidden-text-color !important;
+							position: relative;
+
+							&.disabled {
+								cursor: not-allowed;
+							}
+
+							&:hover {
+								color: $tool-menu-item-hidden-hover-color !important;
+
+								&:after {
+									@extend .fa-lg;
+									@extend .fa;
+									content: '\f05e';
+									position: absolute;
+									top: 8px;
+									right: 4px;
+								}
+							}
+						}
+					}
+					&.is-current {
+						margin-right: 0;
+
+						a {
+							font-weight: bold !important;
+							color: $tool-menu-item-selected-text-color !important;
+							border-left: $tool-menu-item-selected-border-left !important;
+							margin-right: 0;
+
+							&:hover {
+								color: $tool-menu-item-selected-hover-text-color !important;
+								border-left: $tool-menu-item-selected-hover-border-left !important;
+								background-color: $tool-menu-item-selected-hover-background-color !important;
+							}
+						}
+					}
+				}
+			}
+
+			&.is-current {
+				.lessons-goto-top-page {
+					.Mrphs-toolsNav__menuitem--title {
+						color: $tool-menu-item-selected-text-color !important;
+					}
+					&:hover {
+						.Mrphs-toolsNav__menuitem--title {
+							color: $tool-menu-item-selected-hover-text-color !important;
+						}
+					}
+				}
+			}
+
+			&.is-current.is-parent-of-current {
+				.lessons-goto-top-page {
+					.Mrphs-toolsNav__menuitem--title {
+						color: $tool-menu-item-text-color !important;
+					}
+					&:hover {
+						.Mrphs-toolsNav__menuitem--title {
+							color: $tool-menu-item-hover-text-color !important;
+						}
+					}
+				}
+			}
+
+			@media #{$tablet} {
+				&.expanded {
+					.lessons-goto-top-page {
+						display: inline-block;
+					}
+				}
+			}
+		}
+	}
+	&.#{$namespace}toolMenu-collapsed {
+		#toolMenu {
+			li {
+				&.has-lessons-sub-pages {
+					.lessons-sub-page-menu {
+						display: none !important;
+					}
+					.#{$namespace}toolsNav__menuitem--icon {
+						-ms-transform: rotate(0deg) !important;
+						-webkit-transform: rotate(0deg) !important;
+						transform: rotate(0deg) !important;
+						&:before {
+							content: '\f212';
+						}
+					}
+					&.is-current, &.is-parent-of-current,
+					&.expanded.is-current, &.expanded.is-parent-of-current {
+						.#{$namespace}toolsNav__menuitem--link {
+							border-left: $tool-menu-item-selected-border-left !important;
+							.#{$namespace}toolsNav__menuitem--icon {
+								color: $tool-menu-item-selected-icon-color !important;
+							}
+							&:hover {
+								.#{$namespace}toolsNav__menuitem--icon {
+									color: $tool-menu-item-selected-hover-icon-color !important;
+								}
+							}
+						}
+					}
 				}
 			}
 		}

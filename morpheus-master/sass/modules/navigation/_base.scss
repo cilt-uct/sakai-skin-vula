@@ -16,24 +16,27 @@ body.is-logged-out{
 }
 
 .#{$namespace}mainHeader{
-	
+		box-shadow: $divider-shadow;
+		position: relative;
+
 	.#{$namespace}headerLogo{
-		@include display-flex( flex );
-		@include justify-content( center );
+		width: 100%;
 		overflow: hidden;
 		padding: 0 1em;
+		height: $banner-height;
+		background: $top-header-background;
+
 		text-align: center;
-		min-width: $tool-menu-width;
-		@include flex-shrink( 0 );
 		@include transition( width 0.5s linear 0s );
 		.#{$namespace}headerLogo--institution{
 			background: url($logo) no-repeat center center;
 			width: 		$logo-width;
-			height: 	$logo-height;
-			display:	inline-block;
+			height: 100%; // align vertically center
+			float: left;
+			background-size: $logo-width $logo-height;
 		}
 	}
-	
+
 	.#{$namespace}loginUser{
 		@include display-flex( inline-flex );
 		li{
@@ -67,15 +70,27 @@ body.is-logged-out{
 
 	&.is-maximized{
 		.siteNavWrap{
-			@include display-flex(flex);
-			@include align-items(center);
-			@include flex-grow( 1 );
 			@media #{$phone}{
 				display: none;
 			}
 			background: $sites-nav-background;
 		}
 	}
+
+	&.is-fixed {
+		.#{$namespace}topHeader {
+			padding-top: $banner-height;
+		}
+		.#{$namespace}headerLogo {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			box-shadow: $divider-shadow;
+			z-index: 1000;
+			overflow: visible;
+		}
+	}
+
 	@media #{$phone}{
 		background: $primary-color;
 		position: fixed;
@@ -118,11 +133,14 @@ body.is-logged-out{
 		min-height: 15px;
 		a{
 			display: block;
-			padding: 0.5em 0.65em;
+			padding: 0.65em;
 			text-decoration: none;
-			&:hover, &:active
+			color: $primary-color-highContrast;
+			line-height: 1em;
+			&:focus, &:hover, &:active
 			{
 				text-decoration: underline;
+    			color: $primary-color-highContrast;
 			}
 			.toolMenuIcon{
 				@extend .fa-fw;
@@ -169,7 +187,7 @@ body.is-logged-out{
 		display: inline-block;
 		vertical-align: top;
 		padding: 1em 1em 0 1em;
-		
+
 		.#{$namespace}userNav__submenuitem--profilepicture{
 			width: 64px;
 			height: 64px;
@@ -187,32 +205,150 @@ body.is-logged-out{
 	background: $top-header-background;
 	color: $background-color;
 	font-size: 1em;
-	min-height: $header-size;
+	height: auto;
 	width: 100%;
-	@include display-flex(inline-flex);
-	@include align-items(center);
-	@include justify-content( space-between );
-	@include transition( top 0.25s linear 0s );
-	
+	box-shadow: $divider-shadow;
+
 	a
 	{
 		@include display-flex( flex );
 		@include align-items( center );
-		
+
 		color: $topNav-text-color;
 	}
 	> * {
+		transition: all 0.3s ease;
 		@media #{$phone}{
 			display: inline;
 		}
 	}
 	.#{$namespace}loginNav{
 		float: right;
-		margin: 0 1em 0 0px;
+		height: $banner-height;
 		@include flex-shrink( 0 );
 		@include display-flex( flex );
 		@include align-items( center );
 		@include justify-content( flex-end );
+
+		#roleSwitch {
+			padding-right: 1em;
+			margin-right: 1em;
+			border-right: 1px solid #F0F0F0;
+			white-space: nowrap;
+
+				@media #{$phone} {
+					&.menu-not-setup {
+						display: none;
+					}
+				}
+
+			// Show as a menu on mobile
+			#roleSwitchDropDownToggle {
+				display: none;
+
+				@media #{$phone} {
+					display: block;
+				}
+
+				vertical-align: middle;
+				text-decoration: none;
+
+				i {
+					font-size: 1.33333em;
+					vertical-align: -15%;
+				}
+
+				&:hover {
+					text-decoration: none;
+					color: #FFF;
+					text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+				}
+			}
+
+			#roleSwitchDropDown {
+				@media #{$phone} {
+					position: absolute;
+					left: -100000000;
+					height: 1px;
+					width: 1px;
+					overflow: hidden;
+
+					> i {
+						display: none;
+					}
+				}
+
+				@media #{$nonPhone} {
+					> i {
+						display: inline-block;
+						vertical-align: middle;
+					}
+					.#{$namespace}roleSwitch__anchor {
+						display: inline-block;
+					}
+				}
+
+				line-height: 1em;
+				display: inline-block;
+
+				@media #{$phone} {
+					&.open {
+						left: auto;
+						height: auto;
+						width: auto;
+						background: #FAFAFA;
+						box-shadow: 2px 2px 4px rgba(33,33,33,0.35);
+						padding: 1em;
+						z-index: 50;
+						overflow: visible;
+						min-width: 180px;
+						margin-top: 4px;
+
+						&:after {
+							bottom: 100%;
+							right: 21px;
+							border: solid transparent;
+							content: " ";
+							height: 0;
+							width: 0;
+							position: absolute;
+							pointer-events: none;
+							border-color: rgba(255,255,255,0);
+							border-bottom-color: #FAFAFA;
+							border-width: 7px;
+							margin-left: -7px;
+							outline: 0;
+						}
+
+						a {
+							display: inline-block;
+						}
+					}
+				}
+			}
+
+			#roleSwitchAnchor {
+				text-decoration: none;
+				@media #{$phone} {
+					color: $primary-color;
+				}
+
+				@media #{$nonPhone} {
+					color: $topNav-text-color;
+					display: inline-block;
+				}
+
+				&:hover, &:active {
+					span {
+						text-decoration: underline;
+					}
+				}
+
+				&.#{$namespace}roleSwitch__exit {
+					color: $topNav-text-color;
+				}
+			}
+		}
 	}
 
 	@media #{$phone}{
@@ -222,7 +358,8 @@ body.is-logged-out{
 		top: 0;
 		font-size: 12px;
 		min-height: $header-size;
-		
+		box-shadow: none;
+
 		&.moving{
 			top: -4.2em;
 			#mastLogin #loginLinks ul.#{$namespace}userNav__subnav{
@@ -234,7 +371,13 @@ body.is-logged-out{
 }
 
 #mastLogin{
-	
+
+	// make it so the separator lines are a consistent height
+	> * {
+		height: 2.3em;
+		line-height: 2.3em;
+	}
+
 	@media #{$phone}{
 		width: 50%;
 	}
@@ -253,7 +396,7 @@ body.is-logged-out{
 
 
 	#loginForm{
-		
+
 		@include display-flex( flex );
 		@include align-items( center );
 		@include justify-content( flex-end );
@@ -262,7 +405,7 @@ body.is-logged-out{
 			margin: 0 0.5em 0 0;
 			font-weight: normal;
 			text-transform: capitalize;
-						
+
 			@media #{$phone}{
 				display: none;
 			}
@@ -283,7 +426,7 @@ body.is-logged-out{
 			font-size: $default-font-size;
 			color: #333333;
 			position: relative;
-			
+
 			@media #{$phone}
 			{
 				font-size: $default-font-size - 2px;
@@ -298,16 +441,16 @@ body.is-logged-out{
 	#loginUser{
 		@include display-flex( flex );
 		@include align-items( center );
-		
+
 		&.has-avatar:hover .#{$namespace}userNav__submenuitem--profilepicture,
 			&.has-avatar:active .#{$namespace}userNav__submenuitem--profilepicture
 		{
 			box-shadow: 0px 0px 5px 1px rgba(165, 165, 165, 0.95);
 		}
-		
-		&.has-avatar:hover .#{$namespace}userNav__submenuitem--username, 
+
+		&.has-avatar:hover .#{$namespace}userNav__submenuitem--username,
 			&.has-avatar:hover .has-avatar .#{$namespace}userNav__submenuitem--userid
-		&.has-avatar:active .#{$namespace}userNav__submenuitem--username, 
+		&.has-avatar:active .#{$namespace}userNav__submenuitem--username,
 			&.has-avatar:active .has-avatar .#{$namespace}userNav__submenuitem--userid,
 		&.has-avatar .#{$namespace}userNav__submenuitem--username:hover,
 			&.has-avatar .#{$namespace}userNav__submenuitem--username:active
@@ -320,7 +463,7 @@ body.is-logged-out{
 
 	.has-avatar, .no-avatar{
 		position: relative;
-		
+
 		.#{$namespace}userNav__submenuitem--username, .#{$namespace}userNav__submenuitem--userid{
 			display: inline-block;
 			max-width: 100px;
@@ -335,10 +478,10 @@ body.is-logged-out{
 	.no-avatar
 	{
 		text-decoration: none;
-				
+
 		&::after
 		{
-			content: "\f0d7"; /* fa-carrot-down */			
+			content: "\f0d7"; /* fa-carrot-down */
 			margin-top: 2px;
 			margin-left: 0.5em;
 			font-family: FontAwesome;
@@ -356,15 +499,10 @@ body.is-logged-out{
 			text-decoration: none;
 			color: $topNav-text-color;
 		}
-		
+
 		.#{$namespace}userNav__submenuitem--userid
 		{
 			display: none;
-		}		
-		
-		@media #{$phone}
-		{
-			padding: 1em; /* provide a bigger hit area for this link */
 		}
 	}
 
@@ -373,8 +511,8 @@ body.is-logged-out{
 			padding: 0 !important;
 		}
 		.#{$namespace}userNav__submenuitem--profilepicture{
-			width:32px;
-			height:32px;
+			width: 2.3em;
+			height: 2.3em;
 			display:inline-block;
 			background-size: auto 100%;
 			background-position: 50%;
@@ -382,13 +520,31 @@ body.is-logged-out{
 			margin: 0 4px 0 0;
 			position: relative;
 
-			&:hover, &:active 
+			&:hover, &:active
 			{
 				box-shadow: 0px 0px 5px 1px rgba(165, 165, 165, 0.95);
 			}
 			@media #{$phone}
 			{
-				margin-right: 1em;
+				margin-right: 0;
+			}
+		}
+		.#{$namespace}userNav__pic-changer{
+			overflow: hidden;
+			&:hover, &:active
+			{
+				&:after {
+					content: 'Change';
+					background: #888;
+					color: #FFFFFF;
+					position: absolute;
+					bottom: 0px;
+					font-size: 10px;
+					width: 100%;
+					text-align: center;
+					padding: 0 0 4px;
+					box-shadow: -1px 0 3px #666;
+				}
 			}
 		}
 		.#{$namespace}userNav__submenuitem--username, .#{$namespace}userNav__submenuitem--userid{
@@ -400,6 +556,9 @@ body.is-logged-out{
 
 	.#{$namespace}loginUser{
 		padding: 0.9em 0.5em;
+		@media #{$phone}{
+			padding: 0em;
+		}
 	}
 
 	.#{$namespace}userNav__dropdown, .#{$namespace}userNav__drop{
@@ -424,19 +583,20 @@ body.is-logged-out{
 
 	#loginLinks{
 		font-family: $header-font-family;
-		margin: 0;
+		margin: 0 1em 0 0;
 		list-style: none;
 		padding: 0 0 0 1em;
-		
+
 		@media #{$phone}
 		{
+			margin: 0;
 			border: 0 none;
 		}
-		
+
 		.no-avatar ~ ul:after
 		{
 			left: 91.5%;
-			
+
 			@media #{$phone}
 			{
 				margin-top: 3.3em;
@@ -444,12 +604,12 @@ body.is-logged-out{
 				right: 1.65em;
 			}
 		}
-		
+
 		ul{
 			background-color: $tool-tab-background-color;
 			text-align: left;
 			padding: 0 0 0 0;
-			margin: 0.48em 0 0 0.9em;
+			margin: 0.48em 1em 0 0.9em;
 			@extend .userNav__subnav;
 			&:after {
 				bottom: 100%;
@@ -472,10 +632,10 @@ body.is-logged-out{
 			li:last-of-type
 			{
 				margin-bottom: 0.5em; /* to match the top of the dropdown */
-			}			
+			}
 			.#{$namespace}userNav__submenuitem-indented{
 				padding-left: 1.5em;
-				
+
 				@media #{$phone}
 				{
 					padding-left: 2em;
@@ -519,7 +679,7 @@ body.is-logged-out{
 			}
 		}
 	}
-	
+
 	.#{$namespace}userNav__submenuitem--userid{
 		font-style: italic;
 	}
@@ -528,7 +688,7 @@ body.is-logged-out{
 /* because #loginLinks appears on the Gateway page when two log-in links are available (e.g. for CAS), the following applies only when you are logged in: */
 .is-maximized #loginLinks
 {
-	border-left: 1px solid $tool-border-color; 
+	border-left: 1px solid $tool-border-color;
 }
 
 .#{$namespace}sitesNav__menu{
@@ -536,6 +696,26 @@ body.is-logged-out{
 	padding: 0 0 0 0;
 	margin-bottom:0px;
 }
+
+.portal-bullhorns-buttons{
+	position: relative;
+	display: inline-block;
+	padding-right: 1em;
+	border-right: 1px solid $tool-border-color;
+    white-space: nowrap;
+}
+
+##{$namespace}academic-bullhorn,
+##{$namespace}social-bullhorn {
+	display: inline-block; /* Sakai 11.1 makes it flex, which is wrong */
+
+	&:hover {
+		text-decoration: none;
+		color: $topNav-text-color;
+		text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+	}
+}
+
 
 .view-all-sites-btn{
 	position: relative;
@@ -553,12 +733,12 @@ body.is-logged-out{
 	{
 		text-decoration: none;
 		color: $topNav-text-color;
-		
+
 		i
 		{
 			text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
 		}
-		
+
 		span.all-sites-label
 		{
 			text-decoration: underline; /* just underline the text */
@@ -571,7 +751,7 @@ body.is-logged-out{
 	vertical-align: middle;
 }
 
-.all-sites-icon, .tools-icon
+.all-sites-icon
 {
 	/* Using !important here because CKEditor pulls in its own
 		fontawesome.css which adjusts the size of our icon unless
@@ -582,10 +762,13 @@ body.is-logged-out{
 #topnav_container
 {
 	@include display-flex(flex);
+	padding-left: 0.5em;
+	background-color: $sites-nav-background;
+	min-height: 52px;
+	padding: 4px 8px;
 }
 
 #linkNav{
-	@include display-flex(flex);
 	ul{
 		@include display-flex(flex);
 		@include flex-wrap( wrap );
@@ -596,45 +779,84 @@ body.is-logged-out{
 			margin: 0 0.5em 0.5em 0;
 			padding: 0;
 			position: relative;
-			
-			> .link-container{
+			border-top: $sites-nav-menu-item-border-top;
+			border-right: $sites-nav-menu-item-border-right;
+			border-bottom: $sites-nav-menu-item-border-bottom;
+			border-left: $sites-nav-menu-item-border-left;
+			background: $sites-nav-menu-item-background;
+
+			> a.link-container{
+				@include display-flex( flex );
+				@include align-items( center );
+
 				padding: 0.5em 36px 0.5em 0.5em;
-				border-top: $sites-nav-menu-item-border-top; /* to balance bottom border for vertical centering */
-				border-right: $sites-nav-menu-item-border-right;
-				border-bottom: $sites-nav-menu-item-border-bottom; /* to pre-allocate space for dropdown top border needed for illusion */
-				border-left: $sites-nav-menu-item-border-left;
-				background: $sites-nav-menu-item-background; /* color */
 				color: $sites-nav-menu-item-color;
 				text-decoration: none;
+
+				i.fa {
+					color: $sites-nav-menu-item-icon-color;
+				}
 			}
-				
-			&:not(.dropdown-is-visible) > a:hover, &:not(.dropdown-is-visible) > a:active /* hover for sites when tool quick-menu isn't open */
-			{
-				box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.1) inset;
-				color: $sites-nav-menu-item-color-hover;
+
+			/* hover for sites when tool quick-menu isn't open */
+			&:not(.dropdown-is-visible){
+				> .link-container:hover,
+				> .link-container:active {
+					color: $sites-nav-menu-item-hover-color;
+
+					i.fa {
+						color: $sites-nav-menu-item-hover-icon-color;
+					}
+				}
 			}
-			
+
+			&.dropdown-is-visible, &:hover {
+				border-top: $sites-nav-menu-item-hover-border-top;
+				border-right: $sites-nav-menu-item-hover-border-right;
+				border-bottom: $sites-nav-menu-item-hover-border-bottom;
+				border-left: $sites-nav-menu-item-hover-border-left;
+				background: $sites-nav-menu-item-hover-background;
+			}
+
+			&.dropdown-is-visible {
+				&:after {
+					border-bottom: 1px solid $sites-nav-submenu-topleft-border-color;
+					content: "";
+					width: 100%;
+					position: absolute;
+					bottom: -1px;
+					left: 0;
+					z-index: 100;
+				}
+			}
+
 			span
 			{
 				line-height: 1;
 			}
 			.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
-				text-align: right;
+				text-align: center;
 				margin-left: 0.2em;
 				position: absolute;
 				right: 8px;
 				top: 50%;
 				transform: translate(0%,-50%);
 				text-decoration: none;
-				
+				color: $sites-nav-menu-item-icon-color;
+				border: none;
+
 				@extend .fa-angle-down;
 				@extend .fa;
 				@extend .fa-lg;
 				@extend .sitesNav__drop;
-				
+
 				&.is-clicked{
 					@include transform( rotate(180deg) );
 					top: 40%;
+				}
+
+				&:hover {
+					color: $sites-nav-menu-item-hover-icon-color;
 				}
 			}
 			ul{
@@ -642,9 +864,10 @@ body.is-logged-out{
 				display: none;
 				font-family: $header-font-family;
 				position: absolute;
-				border-top: 1px solid black;
-				margin-top: -1px;
-				width: 26rem;
+				border: 1px solid $sites-nav-submenu-border-color;
+				margin-top: 0;
+				margin-left: -1px;
+				width: 17em;
 				z-index: 99;
 				box-shadow: 0 3px 2px rgba( $text-color, 0.35);
 				li{
@@ -654,21 +877,17 @@ body.is-logged-out{
 					margin: 0 0 0 0;
 					padding: 0 0 0 0;
 					min-height: 15px;
-					
-					&:hover a, &:active a
-					{
-						text-decoration: underline;
-					}
-					
+
 					a{
 						display: block;
 						padding: 0.5em 0.65em;
 						text-decoration: none;
 						color: $sites-nav-submenu-item-color;
+						font-size: $sites-nav-submenu-item-text-size;
+						line-height: 1em;
 						&:hover, &:active
 						{
 							color: $sites-nav-submenu-item-color; /* to override default link hover color */
-							text-decoration: underline;
 						}
 						.toolMenuIcon{
 							vertical-align: sub;
@@ -677,7 +896,8 @@ body.is-logged-out{
 					}
 					.#{$namespace}sitesNav__submenuitem-icon {
 						display: inline-block;
-						vertical-align: top;
+						vertical-align: middle;
+						padding: 0 10px;
 					}
 					.#{$namespace}sitesNav__submenuitem-title {
 						margin-bottom: 2px;
@@ -694,21 +914,59 @@ body.is-logged-out{
 
 			}
 			&.is-selected{
-				a{
-					background: $sites-nav-menu-item-selected-background;
+				background: $sites-nav-menu-item-selected-background;
+				border-top: $sites-nav-menu-item-selected-border-top;
+				border-right: $sites-nav-menu-item-selected-border-right;
+				border-bottom: $sites-nav-menu-item-selected-border-bottom;
+				border-left: $sites-nav-menu-item-selected-border-left;
+
+				a.link-container{
 					color: $sites-nav-menu-item-selected-color;
-					border-top: $sites-nav-menu-item-selected-border-top; /* to balance bottom border for vertical centering */
-					border-right: $sites-nav-menu-item-selected-border-right;
-					border-bottom: $sites-nav-menu-item-selected-border-bottom; /* to pre-allocate space for dropdown top border needed for illusion */
-					border-left: $sites-nav-menu-item-selected-border-left;
-				}
-				ul{
-					background: $sites-nav-menu-item-selected-background;
-					
-					a:hover, a:active
-					{
-						color: $sites-nav-menu-item-selected-color; /* to override default link hover color */
+					i.fa {
+						color: $sites-nav-menu-item-selected-icon-color;
 					}
+				}
+				/* hover for sites when tool quick-menu isn't open */
+				&:not(.dropdown-is-visible) {
+					> .link-container:hover,
+					> .link-container:active {
+						color: $sites-nav-menu-item-selected-hover-color;
+
+						i.fa {
+							color: $sites-nav-menu-item-selected-hover-icon-color;
+						}
+					}
+				}
+
+				&.dropdown-is-visible, &:hover {
+					border-top: $sites-nav-menu-item-selected-hover-border-top;
+					border-right: $sites-nav-menu-item-selected-hover-border-right;
+					border-bottom: $sites-nav-menu-item-selected-hover-border-bottom;
+					border-left: $sites-nav-menu-item-selected-hover-border-left;
+					background: $sites-nav-menu-item-selected-hover-background;
+				}
+
+				&.dropdown-is-visible {
+					&:after {
+						border-bottom: 1px solid $sites-nav-selected-submenu-topleft-border-color;
+						content: "";
+						width: 100%;
+						position: absolute;
+						bottom: -1px;
+						left: 0;
+						z-index: 100;
+					}
+				}
+
+				.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
+					color: $sites-nav-menu-item-selected-hover-icon-color;
+					&:hover {
+						color: $sites-nav-menu-item-selected-hover-icon-color;
+					}
+				}
+
+				ul{
+					border-color: $sites-nav-selected-submenu-border-color;
 				}
 			}
 
@@ -718,6 +976,8 @@ body.is-logged-out{
 				}
 
 				a{
+					padding: 0.5em;
+
 					i{
 						margin-top: 1px; /* to compensate for an issue with the icon */
 						margin-bottom: -1px; /* to compensate for an issue with the icon */
@@ -727,49 +987,55 @@ body.is-logged-out{
 				}
 			}
 
-			&.dropdown-is-visible {
-				> a{
-					border-bottom: 1px solid $sites-nav-menu-item-background;
-					z-index: 150;
-				}
-			}
-
-			&.dropdown-is-visible.is-selected {
-				> a{
-					border-bottom: 1px solid $sites-nav-menu-item-selected-background;
-				}
-			}
-
 			ul.#{$namespace}sitesNav__submenu{
 				background: $sites-nav-submenu-background;
 				li.#{$namespace}sitesNav__submenuitem{
 					a {
 						background: $sites-nav-submenu-item-background;
 						color: $sites-nav-submenu-item-color;
-						border: $sites-nav-submenu-item-border;
-						
-						&:hover, &:active 
+						.toolMenuIcon {
+							color: $sites-nav-submenu-item-icon-color;
+						}
+
+						position: relative;
+
+						&:before{
+							border-left: 4px solid $sites-nav-submenu-item-left-border-color;
+							content: '';
+							height: 100%;
+							display: inline-block;
+							position: absolute;
+							top: 0;
+							left: 0;
+						}
+
+						&:hover, &:active
 						{
-							background: $sites-nav-submenu-item-background-hover;
-							color: $sites-nav-submenu-item-color-hover;
-							border: $sites-nav-submenu-item-border-hover;
+							background: $sites-nav-submenu-item-hover-background;
+							color: $sites-nav-submenu-item-hover-color;
+							.toolMenuIcon {
+								color: $sites-nav-submenu-item-hover-icon-color;
+							}
+							&:before{
+								border-left-color: $sites-nav-submenu-item-hover-left-border-color;
+							}
 						}
 					}
-				}
-			}
+					&.#{$namespace}sitesNav__submenuitem__gotosite {
+						border-top: 1px solid $sites-nav-submenu-item-divider-color;
 
-			&.is-selected {
-				ul.#{$namespace}sitesNav__submenu{
-					background: $sites-nav-submenu-selected-background;
-					li.#{$namespace}sitesNav__submenuitem{
-						a {
-							background: $sites-nav-submenu-item-selected-background;
-							color: $sites-nav-submenu-item-selected-color;
-							border: $sites-nav-submenu-item-selected-border;
-							
-							&:hover, &:active
-							{
-								color: $sites-nav-menu-item-selected-color-hover;
+						> a:after {
+							font-family: FontAwesome;
+							content: '\f178';
+							margin-left: 10px;
+							color: $sites-nav-submenu-item-icon-color;
+						}
+
+						&:hover {
+							border-top: 1px solid $sites-nav-submenu-item-divider-color;
+
+							> a:after {
+								color: $sites-nav-submenu-item-hover-icon-color;
 							}
 						}
 					}
@@ -875,8 +1141,82 @@ body.is-logged-out{
 }
 
 .user-dropdown-overlay{
-	height: 100%; 
-	position: fixed; 
-	width: 100%; 
+	height: 100%;
+	position: fixed;
+	width: 100%;
 	z-index: 20;
+}
+
+#profileImageUpload {
+    .modal-dialog {
+        width: 332px !important;
+    }
+
+    #upload {
+        position: relative;
+
+        input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+    }
+    #cropme {
+        height: 300px;
+        width: 300px;
+        margin-bottom: 20px;
+
+       .cropper-view-box {
+            border-radius: 50% !important;
+        }
+    }
+
+    #cropToolbar {
+        margin-top: 10px;
+        .profile-image-zoom-in {
+            &:before {
+                font-family: 'FontAwesome';
+                content: '\f00e';
+            }
+        }
+        .profile-image-zoom-out {
+            &:before {
+                font-family: 'FontAwesome';
+                content: '\f010';
+            }
+        }
+        .profile-image-pan-left {
+            &:before {
+                font-family: 'FontAwesome';
+                content: '\f060';
+            }
+        }
+        .profile-image-pan-right {
+            &:before {
+                font-family: 'FontAwesome';
+                content: '\f061';
+            }
+        }
+        .profile-image-pan-up {
+            &:before {
+                font-family: 'FontAwesome';
+                content: '\f062';
+            }
+        }
+        .profile-image-pan-down {
+            &:before {
+                font-family: 'FontAwesome';
+                content: '\f063';
+            }
+        }
+        .profile-image-rotate {
+            &:before {
+                font-family: 'FontAwesome';
+                content: '\f01e';
+            }
+        }
+    }
 }
