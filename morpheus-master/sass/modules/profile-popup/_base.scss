@@ -1,47 +1,25 @@
 .profile-popup {
-    background-color: #FFFFFF;
+    background-color: $tool-tab-background-color;
+    width: 250px;
 
-    a, a:hover {
-        text-decoration: none;
+    .profile-popup-display-name {
+        font-weight: bold;
+        padding-bottom: 5px;
+        font-size: larger;
     }
+    .profile-popup-email {
+        padding-bottom: 10px;
+        font-weight: bold;
+    }
+    .profile-connection-button {
+        background-color: $primary-color;
 
-    .profile-popup-table {
-        border-spacing: 7px;
-        border-collapse: separate;
-        margin: 5px;
-
-        .profile-popup-icon-cell {
-            padding-right: 3px;
-            .profile-popup-icon {
-                font-size: 16px;
-                width: 16px;
-            }
-            .profile-popup-label {
-                margin-left: 8px;
-            }
+        .profile-popup-action-label {
+            color: #fff;
+            font-weight: bold;
+            font-family: $font-family;
+            font-size: smaller;
+            padding-left: 5px;
         }
-    }
-
-    button {
-        width: 100%;
-        border-radius: 0px;
-        margin: 0px;
-        border: none;
-    }
-
-    .profile-popup-incoming-block {
-        button {
-            width: 50%;
-        }
-    }
-}
-
-.qtip.profile-popup-qtip {
-    border: 0px #E0E0E0 solid !important;
-    background-color: #FFFFFF !important;
-    max-width: 310px;
-    padding: 0px !important;
-    .qtip-content {
-        padding: 0px !important;
     }
 }

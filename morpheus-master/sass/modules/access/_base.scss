@@ -9,8 +9,7 @@
 	background: $background-color;
 	box-shadow: 0 0 5px rgba( $text-color , 0.25 );
 	.logo{
-		background: $top-header-background url($logo) no-repeat center center;
-		background-size: $logo-width $logo-height;
+		background: $primary-color url($logo) no-repeat center center;
 		width: 100%;
 		height: 64px;
 		margin: 0 auto;
@@ -69,10 +68,6 @@
 			border: 1px solid $error-color;
 			background: $error-background-color;
 		}
-
-		input[type="password"].capsLockOnDisplay {
-			background: $error-background-color url("images/capsLock.png") no-repeat right;
-		}
 	}
 
 	&.loadedByAjax{
@@ -98,27 +93,6 @@
 	}
 }
 
-#Mrphs-choice{
-	@extend #Mrphs-xlogin;
-	.msg{
-		padding: 0.6em;
-		font-size: 1.4em;
-		font-weight: 700;
-		color: $primary-color;
-		text-align: center;
-	}
-
-	.link{
-		width: 48%;
-		display: inline-block;
-		text-align: center;
-	}
-}
-#Mrphs-xlogin .xloginMessage{
-	padding: 0.9em;
-	text-align: center;
-}
-
 #loginPortalMask{
 	background: rgba(0,0,0,0.5);
 	position: fixed;
@@ -127,8 +101,4 @@
 	top:  0;
 	left: 0;
 	z-index: 1000;
-}
-
-.capsLockOnDisplay {
-	background: $background-color url("images/capsLock.png") no-repeat right;
 }

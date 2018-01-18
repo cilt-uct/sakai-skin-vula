@@ -18,10 +18,7 @@
 	}
 
 	.navIntraTool {
-	    margin: -2px -14px 0 0;
-	    @media #{$phone}{
-	    	margin-top: 10px;
-	    }
+	    margin: -2px -14px 0 -14px;
 	}
 
 	.Mrphs-pageColumns--single {

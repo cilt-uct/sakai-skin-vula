@@ -1,11 +1,3 @@
-body > .portletBody {
-	margin: 0;
-
-	> .navIntraTool {
-		margin: 0;
-	}
-}
-
 .#{$namespace}sakai-synoptic-announcement, .#{$namespace}sakai-summary-calendar, .#{$namespace}sakai-synoptic-messagecenter, .#{$namespace}sakai-synoptic-chat{
 	iframe{
 		z-index: 0;
@@ -13,15 +5,11 @@ body > .portletBody {
 }
 .#{$namespace}sakai-iframe-site{
 	.siteDescription{
-		overflow: auto;
+		margin: 2em 0 0 0;
 	}
 }
 
 body > .portletBody > #calendarForm{
 	overflow: hidden;
 	padding: 5px 0 0 4px;
-
-	.navIntraTool {
-		margin: 0;
-	}
 }

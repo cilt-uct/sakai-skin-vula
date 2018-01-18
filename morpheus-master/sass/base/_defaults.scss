@@ -1,15 +1,18 @@
 @import "base/compass";
 
 body{
+	background:  $tool-background-color;
 	color: 		 $text-color;
 	font-family: $font-family;
 	font-size: 	 $default-font-size !important; // Bootstrap Tool error
 	font-weight: $default-font-weight;
 	line-height: 1.55;					// http://practicaltypography.com/line-spacing.html
 	&.#{$namespace}portalBody{
-		background-color: $body-background-color;
+		background:  $portal-background-color;
 		@media #{$phone}{
-			padding: $banner-height 0 0 0;
+			background: linear-gradient( to bottom, #b6c3d4, #d9cdcd, #c4ccd7, #a6c2df ) fixed;
+			background-size: auto 100%;
+			padding: 2.8em 0 0 0;
 		}
 	}
 }
@@ -22,6 +25,7 @@ a{
 	}
 	&[href]{  // This means a[href]
 		color: $link-color;
+		background-color: $link-background-color;
 		&:focus, &::-moz-focus-inner{ // This would compile to -> a[href]:focus, a[href]::moz-focus-inner
 			outline-color: invert;
 		}
@@ -40,7 +44,7 @@ a{
 		&.btn-primary{
 			@include sakai_button_color( $button-color-background-color, $button-color-border-color, $button-color-text-color, $button-color-background-secondary-color );
 		}
-		text-decoration:underline;
+		text-decoration:underline;	
 	}
 	&.url{
 		@media #{$phone}{
@@ -94,13 +98,11 @@ h4{
 
 .skip{
 	position: absolute !important;
-	height: 0px; width: 0px;
+	height: 1px; width: 1px; 
 	overflow: hidden;
 	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
 	clip: rect(1px, 1px, 1px, 1px);
 	clip-path: polygon(0px 0px, 0px 0px,0px 0px, 0px 0px);
-	margin: 0;
-	padding: 0;
 }
 
 input[type="submit"],input[type="button"]{
@@ -172,15 +174,6 @@ u, ins {
 
 s, strike, del {
 	text-decoration: line-through;
-}
-
-img {
-	max-width: 100%;
-	height: auto;
-}
-
-video, embed, object, iframe {
-	max-width: 100%;
 }
 
 legend{
