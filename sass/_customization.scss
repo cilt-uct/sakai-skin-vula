@@ -1,65 +1,150 @@
-/* Typography*/
+@import "mixins/mixins";
+
+// Fonts
+// ----------------------------------------
+$font-path:     "fonts/";
+//$fa-font-path:  "fonts/font-awesome/";
+
+@mixin font-face($font-family, $file, $font-weight, $font-style) {
+  @font-face {
+    font-family: $font-family;
+      src: url('#{$font-path}#{$file}.eot');
+      src: url('#{$font-path}#{$file}.eot?#iefix') format('embedded-opentype'),
+           url('#{$font-path}#{$file}.woff') format('woff'),
+           url('#{$font-path}#{$file}.ttf') format('truetype');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+// Include Fonts
+@include font-face('Open Sans', 'OpenSans-Light-webfont', 300, normal);
+@include font-face('Open Sans', 'OpenSans-LightItalic-webfont', 300, italic);
+
+@include font-face('Open Sans', 'OpenSans-Regular-webfont', 400, normal);
+@include font-face('Open Sans', 'OpenSans-Italic-webfont', 400, italic);
+
+@include font-face('Open Sans', 'OpenSans-Semibold-webfont', 600, normal);
+@include font-face('Open Sans', 'OpenSans-SemiboldItalic-webfont', 600, italic);
+
+@include font-face('Open Sans', 'OpenSans-Bold-webfont', 700, normal);
+@include font-face('Open Sans', 'OpenSans-BoldItalic-webfont', 700, italic);
+
+@include font-face('Open Sans', 'OpenSans-ExtraBold-webfont', 800, normal);
+@include font-face('Open Sans', 'OpenSans-ExtraBoldItalic-webfont', 800, italic);
+
+@include font-face('FontAwesome', 'fontawesome-webfont', normal, normal);
+
 
 //Google family Fonts URL
-//$font-family-url: "//fonts.googleapis.com/css?family=Noto+Sans" !default;
-//$header-font-family-url: "//fonts.googleapis.com/css?family=Raleway:300" !default;
+// ----------------------------------------
+$font-family: "Open Sans", Helvetica, sans-serif !default;
 
-//Typography variables
-//$font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif !default;
-//$default-font-size: 15px !default;
-//Font weight: 300, 400 or 700 as you wish, 300 is light, 700 is bold.
-//$default-font-weight: 400 !default;										
-//$header-font-family: "Raleway", Arial, sans-serif !default;
-//Header font weight: 300, 400 or 700 as you wish, 300 is light, 700 is bold
-//$header-font-weight: 300 !default;
+$weight-light:        300;
+$weight-regular:      400;
+$weight-semibold:     600;
+$weight-bold:         700;
+$weight-extrabold:    800;
 
-/* Color palette */
-//$background-color: #454545 !default;
-//$background-color-secondary: #F8F8F8 !default;
+$default-font-size:   14px !default;
+$default-font-weight: 400 !default;										// 400 or 700 as you wish
+$header-font-family:  $font-family;
+$header-font-weight:  700 !default;										// 400 or 700 as you wish
 
-//$tool-background-color: #ffffff !default;
-//$tool-menu-color: #F8F8F8 !default;
+// Vula Colour Palette
+// ----------------------------------------
 
-//$primary-color: #43a7c8 !default;
-//$secondary-color: #F00 !default;
+// Primary
+$color-primary: rgba(0, 153, 255, 1);
+$color-secondary: rgba(0, 34, 56, 1);
+$color-success: rgba(82, 165, 54, 1);
+$color-warning: rgba(239, 199, 119, 1);
+$color-alert: rgba(145, 53, 58, 1);
 
-//$text-color: #363636 !default;
+// Grays
+$color-black: rgba(0, 0, 0, 1);
+$color-gray-darker: rgba(30, 32, 34, 1);
+$color-gray-dark: rgba(65, 70, 73, 1);
+$color-gray: rgba(151, 154, 155, 1);
+$color-graylight: rgba(227, 228, 229, 1);
+$color-graylighter: rgba(249, 250, 251, 1);
+$color-white: rgba(255, 255, 255, 1);
 
-/* Linknav button colors */
-//$button-text-color:	 #777 !default;
-//$button-border-color: #C0C0C0 !default;
-//$button-background-color: #F0F0F0 !default;
-//$button-background-secondary-color: #FFF !default;
-/* General button colors */
-//$button-color-text-color: #FFF !default;
-//$button-color-border-color: #4a8db3 !default;
-//$button-color-background-color: #60b3e3 !default;
-//$button-color-background-secondary-color: #5299c2 !default;
-/* ///////////// */
+$primary-color: $color-primary !default;
+$text-color:    $color-gray-dark !default;
 
-//$okcolor: #dff0d8 !default;
-//$errorcolor: #f2dede !default;
-//$warncolor: #fcf8e3 !default;
+// Link colors
+$link-color: darken($primary-color, 12%) !default;
+$link-active-color: $primary-color !default;
+$link-hover-color: $primary-color !default;
+$link-background-color: transparent !default;
+$link-active-background-color: transparent !default;
+$link-hover-background-color: transparent !default;
 
-//$swapped-view-primary: #CE9466 !default;
-//$swapped-view-text-color: #302436 !default;
+$background-color: 			 $color-white !default;
+$background-color-secondary: $color-gray-darker !default;
+
+$tool-background-color: $color-white !default;
+$tool-menu-color: $color-gray-darker !default;
+
+$okcolor: $color-success !default;
+$errorcolor: $color-alert !default;
+$warncolor: $color-warning !default;
+
+// Calendar 
+// ----------------------------------------
+$calendar-event-background-color: $primary-color !default;
+$calendar-event-text-color: $text-color !default;
 
 
-/* Main Menu */
-//$header-size : 3.1em !default;
+// Header and Menus
+// ----------------------------------------
+$banner-height: 4.66em !default;
+$header-size : 5em !default;
+$top-header-background: $color-secondary;
 
-/* Tool Menu */
-//$tool-menu-width: 14.5em !default;
 
-/* Golden Ratio width for 16px font http://www.pearsonified.com/typography/ */
-//$measure: 960px !default;
+// Logo
+// ----------------------------------------
+$logo: 'images/logo.svg' !default;
+// match $banner-height so that we fill the space and the background size to the edges don't touch
+$logo-height: $banner-height !default; 
+$logo-width: $banner-height !default;
+$logo-background-size: 72% !default;
 
-/* Logo location */
-//$logo: 'images/logo.png' !default;
 
-/* Tool icons */
-//$skin-with-icons: true !default;
-//$icon-size: 20px !default;
+// Footer
+// ----------------------------------------
+$footer-background: $color-graylighter !default;
+$footer-color: $text-color !default;
 
-//@import url( #{$font-family-url}    );
-//@import url( #{$header-font-family-url} );
+// Layout
+// ----------------------------------------
+
+// Golden Ratio width for 16px font http://www.pearsonified.com/typography/
+// $measure: 960px !default;
+
+// Helpers
+$z-0:                             0;
+$z-1:                            10;
+$z-10:                          100;
+$z-20:                          200;
+$z-30:                          300;
+$z-40:                          400;
+$z-50:                          500;
+$z-60:                          600;
+$z-70:                          700;
+$z-80:                          800;
+$z-90:                          900;
+$z-100:                         1000;
+$max-z:                         2147483647 - 100;
+
+// Border
+// ----------------------------------------
+
+$main-border-radius:           0.4em; // +- 4px
+$small-border-radius:           0.2em; // +- 2px
+
+// Border
+// ----------------------------------------
+$std-shadow: 0 3px 2px rgba( $text-color, 0.35);

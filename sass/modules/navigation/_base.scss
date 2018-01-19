@@ -25,15 +25,16 @@ body.is-logged-out{
 		padding: 0 1em;
 		height: $banner-height;
 		background: $top-header-background;
+		@include gradient-vertical($start-color: darken($color-primary, 25%), $end-color: darken($color-primary, 15%) ); //UCT
 
 		text-align: center;
 		@include transition( width 0.5s linear 0s );
 		.#{$namespace}headerLogo--institution{
 			background: url($logo) no-repeat center center;
-			width: 		$logo-width;
-			height: 100%; // align vertically center
+			width: $logo-width;
+			height: $logo-height;
 			float: left;
-			background-size: $logo-width $logo-height;
+			background-size: $logo-background-size; //UCT
 		}
 	}
 
@@ -203,11 +204,12 @@ body.is-logged-out{
 
 .#{$namespace}topHeader{
 	background: $top-header-background;
+	@include gradient-vertical($start-color: darken($color-primary, 25%), $end-color: darken($color-primary, 15%) ); //UCT
 	color: $background-color;
 	font-size: 1em;
 	height: auto;
 	width: 100%;
-	box-shadow: $divider-shadow;
+	box-shadow: $std-shadow; // $divider-shadow; UCT
 
 	a
 	{
