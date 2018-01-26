@@ -74,7 +74,6 @@
          if($pos == bottom, top, null);
 }
 
-
 // Gradient
 @mixin linear-gradient($pos, $g1, $g2: null,
                        $g3: null, $g4: null,
@@ -113,4 +112,54 @@
   background-color: $fallback-color;
   background-image: -webkit-linear-gradient($pos-degree $full); // Safari 5.1+, Chrome
   background-image: unquote("linear-gradient(#{$pos-spec}#{$full})");
+}
+
+@mixin sakai-fa-icon(
+
+    // Required Values
+    $fa-icon,
+
+    // Optional Values
+    $pseudo-position: before,
+    $display-value: inline,
+    $margin: 0,
+    $padding: 0,
+    $color: inherit,
+    $font-size: 1em,
+    $font-weight: normal,
+    $line-height: 1em,
+    $position: relative
+) {
+
+    &:#{$pseudo-position} {
+        content: $fa-icon;
+        color: $color;
+        font-family: FontAwesome;
+        font-size: $font-size;
+        font-style: normal;
+        font-weight: $font-weight;
+        line-height: $line-height;
+        display: $display-value;
+        margin: $margin;
+        padding: $padding;
+        @include font-smoothing(on);
+    }
+}
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
 }

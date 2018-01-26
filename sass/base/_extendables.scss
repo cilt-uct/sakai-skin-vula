@@ -31,16 +31,17 @@
 	}
 }
 
-@mixin bs-callout($color, $bgcolor) {
+// UCT - make a bit smaller and change text colors...
+@mixin bs-callout($color, $bgcolor, $text-color: $instruction-text-color) {
   display: block;
-  margin: 20px 0;
-  padding: 15px 30px 15px 15px;
-  border: 1px solid;
+  margin: 10px 0;
+  padding: 0.8em;
+  border: 1px solid tint($color, 10%);
   border-left-width: 5px;
-  border-color: lighten($color, 25%);
   border-left-color: $color;
-  color: darken($color, 30%);
+  color: $text-color;
   background-color: $bgcolor;
+  font-size: 0.9em;
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     color: $color;
@@ -54,17 +55,17 @@
 }
 
 .bs-callout-primary, .bs-callout-info, .messageInformation, .messageInstruction, .messageProgress {
-  @include bs-callout($info-color, $info-background-color);
+  @include bs-callout($info-color, $info-background-color, shade($info-color, 30%));
 }
 
 .bs-callout-success, .messageValidation, .messageSuccess {
-  @include bs-callout($ok-color, $ok-background-color);
+  @include bs-callout($ok-color, $ok-background-color, shade($ok-color, 30%));
 }
 .bs-callout-warn, .bs-callout-alert, .messageWarning, .messageConfirmation {
-  @include bs-callout($warn-color, $warn-background-color);
+  @include bs-callout($warn-color, $warn-background-color, shade($warn-color, 30%));
 }
 .bs-callout-danger, .bs-callout-error, .messageError {
-  @include bs-callout($error-color, $error-background-color);
+  @include bs-callout($error-color, $error-background-color, shade($error-color, 30%));
 }
 
 @mixin icon( $width : $icon-size, $height : $icon-size ){

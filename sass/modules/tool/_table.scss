@@ -2,6 +2,13 @@ table{
 	h4{
 		margin: 0.2em 0 0.5em 0;
 	}
+	a[href]{
+		text-decoration: none; // UCT - Tables links don't have underline
+
+		&:hover, &:active, &:focus {
+			text-decoration: none;
+		}
+	}
 	&.listHier{
 		font-size: $default-font-size;
 		border: 1px solid darken($tool-background-color, 10%);

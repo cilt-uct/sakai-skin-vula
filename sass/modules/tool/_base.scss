@@ -1,4 +1,3 @@
-
 .#{$namespace}pageColumns--single {
 	.#{$namespace}toolTitleNav__button_container {
 		top: -34px;
@@ -13,8 +12,9 @@
 	padding-top: 4px;
 
 	.#{$namespace}container {
-		border: 1px solid $overview-portlet-border-color;
-		box-shadow: $overview-portlet-shadow;
+		// UCT - remove border and shadow from inside tools
+		// border: 1px solid $overview-portlet-border-color;
+		// box-shadow: $overview-portlet-shadow;
 		margin-bottom: 20px;
 
 		@media #{$tablet} {
@@ -118,6 +118,7 @@
 
 		&:before {
 			@extend .fa;
+			text-align: center;
 		}
 
 		@media #{$tablet}{
@@ -128,10 +129,16 @@
 			@extend .fa-link;
 			/*position: absolute;
 			right: #{$icon-size * 1.5};*/
+			span {
+				display: none;
+			}
 		}
 		&--help-popup{
 			@extend .fa;
 			@extend .fa-question;
+			span {
+				display: none;
+			}
 		}
 		&--edit{
 			@extend .fa;
@@ -155,26 +162,137 @@
 
 .#{$namespace}toolBody{
 	background: $tool-background-color;
-	border-bottom: 1px solid $tool-border-color;
+	//border-bottom: 1px solid $tool-border-color;
 	iframe{
 		margin: 0 0 0 0;
 		width: 100%;
 	}
 }
 
-.portletBody{
+body > .portletBody, .portletBody {
+	// UCT - ovverride tool_base.css
 	background: $tool-background-color;
 	padding: $default-font-size $default-font-size 40px $default-font-size;
+	margin: 0 0.3em;
+	font-family: $font-family;
+
 	@media #{$phone}{
 		margin: 2.3em 0 0 0;
 	}
 	> * {
 		position: relative;
-		top: -2px;
+		//top: -2px;
 	}
 	> .modal {
 		position: fixed;
 	}
+
+	// UCT custom
+	&.container-fluid {
+		padding: 0 0.5em;		
+	}
+
+	h1 {
+		font-size: 1.6em;
+	}
+
+	h2 {
+		font-size: 1.4em;
+	}
+
+	h3, h4 {
+		font-size: 1.2em;
+
+			// UCT wikiStyle override
+			&.heading-h1 {
+				font-size: 1.45em;
+			}
+
+			&.heading-h2 {
+				font-size: 1.35em;
+			}
+
+			&.heading-h3 {
+				font-size: 1.25em;
+			}	
+	}
+
+		table {
+
+			h1 {
+				font-size: 1.2em;
+			}
+
+			h2 {
+				font-size: 1.1em;
+			}
+
+			h3, h4 {
+				font-size: 1em;
+			}
+
+		}
+
+	.page-header {
+		padding-bottom: 0; //(($line-height-computed / 2) - 1);
+		margin: 0; //($line-height-computed * 2) 0 $line-height-computed;
+		border-bottom: 0px solid white;
+
+		h1 {
+		font-size: 1.2em;
+		}
+
+		h2 {
+		font-size: 1.1em;
+		}
+
+		h3, h4 {
+		font-size: 1em;
+		}
+	}
+
+	legend{
+		padding: 0;
+		margin-bottom: 0;
+		font-size: 1em;
+	}
+
+	.table-responsive {
+		border: 0px none;
+
+		.table-bordered {
+			border: 1px solid #ddd;
+		}
+
+		a{
+			text-decoration: none; // remove underlined links in table
+		}
+	}
+
+	table {
+
+		a[data-toggle=collapse] {
+			color: $text-color;
+			text-decoration: none;
+			font-size: 1em;
+
+			@include sakai-fa-icon($fa-var-sort-down, before, inline, 0, 0 0.5em 0 0, inherit, inherit, normal, inherit, relative);
+
+			&:hover, &:active {
+			color: $link-hover-color;
+			}
+		}
+
+		fieldset {
+			margin-bottom: 1em;
+		}
+
+		label {
+			font-size: 0.9em;
+			font-weight: $weight-regular;
+		}
+	} // table 
+
 }
 
 .itemNav{

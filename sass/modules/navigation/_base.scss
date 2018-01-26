@@ -1,5 +1,8 @@
 body.is-logged-out{
 	.#{$namespace}loginUser{
+		> p > a{ // UCT login screen
+			@extend .button;
+		}		
 		li{
 			a{
 				.login-Icon{
@@ -13,6 +16,23 @@ body.is-logged-out{
 			min-height: $header-size;
 		}
 	}
+	#linkNav{
+		ul{
+			li.#{$namespace}sitesNav__menuitem{
+				.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
+					display: none;
+				}
+			}
+		}
+	}
+	.userNav__subnav{
+		position: inherit;
+	}
+
+	// UCT - Link / help not shown if not logged in
+	.#{$namespace}toolTitleNav {
+		display: none;
+	}
 }
 
 .#{$namespace}mainHeader{
@@ -25,7 +45,7 @@ body.is-logged-out{
 		padding: 0 1em;
 		height: $banner-height;
 		background: $top-header-background;
-		@include gradient-vertical($start-color: darken($color-primary, 25%), $end-color: darken($color-primary, 15%) ); //UCT
+		@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient 
 
 		text-align: center;
 		@include transition( width 0.5s linear 0s );
@@ -40,6 +60,7 @@ body.is-logged-out{
 
 	.#{$namespace}loginUser{
 		@include display-flex( inline-flex );
+		flex-direction: row-reverse; // UCT button reverse order
 		li{
 			display: inline-block;
 			margin: 0 0.8em 0 0;
@@ -50,7 +71,7 @@ body.is-logged-out{
 				display: inline-block;
 				margin: 0 1em 0 0;
 			}
-			a{
+			a{	
 				.login-Icon{
 					@extend .fa-power-off;
 					@extend .fa;
@@ -65,7 +86,7 @@ body.is-logged-out{
 			}
 		}
 		p{
-			margin: 0.05em 1.5em 0 0;
+			margin: 0;
 		}
 	}
 
@@ -110,19 +131,13 @@ body.is-logged-out{
 	text-decoration: none;
 }
 
-.is-logged-out{
-	.userNav__subnav{
-		position: inherit;
-	}
-}
-
 .userNav__subnav{
 	font-family: $header-font-family;
 	position: absolute;
 	right: 0em;
 	width: 20em;
 	z-index: 99;
-	box-shadow: 0 0 4px rgba( $text-color ,0.35);
+	box-shadow: $std-shadow; //0 0 4px rgba( $text-color ,0.35);
 	list-style: none;
 	padding: 0 0 0 0;
 	li{
@@ -136,12 +151,13 @@ body.is-logged-out{
 			display: block;
 			padding: 0.65em;
 			text-decoration: none;
-			color: $primary-color-highContrast;
+			color: $link-color;
 			line-height: 1em;
 			&:focus, &:hover, &:active
 			{
-				text-decoration: underline;
-    			color: $primary-color-highContrast;
+				text-decoration: none;
+				color: $link-hover-color;
+				background-color: $sites-nav-submenu-item-hover-background;
 			}
 			.toolMenuIcon{
 				@extend .fa-fw;
@@ -161,7 +177,7 @@ body.is-logged-out{
 		padding-top: 1em;
 		color: $text-color;
 		display: inline-block;
-		margin-bottom: 5px;
+		margin-bottom: 11px;
 		width: 10em;
 		word-wrap: break-word;
 		vertical-align: top;
@@ -175,8 +191,8 @@ body.is-logged-out{
 
 		.#{$namespace}userNav__submenuitem--displayid{
 			font-weight: normal;
+			font-size: 70%; // UCT - smaller id text
 		}
-
 	}
 	.#{$namespace}userData{
 		border-bottom: 1px solid $tool-border-color;
@@ -204,15 +220,14 @@ body.is-logged-out{
 
 .#{$namespace}topHeader{
 	background: $top-header-background;
-	@include gradient-vertical($start-color: darken($color-primary, 25%), $end-color: darken($color-primary, 15%) ); //UCT
+	@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient 
 	color: $background-color;
 	font-size: 1em;
 	height: auto;
 	width: 100%;
 	box-shadow: $std-shadow; // $divider-shadow; UCT
 
-	a
-	{
+	a{
 		@include display-flex( flex );
 		@include align-items( center );
 
@@ -375,10 +390,10 @@ body.is-logged-out{
 #mastLogin{
 
 	// make it so the separator lines are a consistent height
-	> * {
-		height: 2.3em;
-		line-height: 2.3em;
-	}
+	//> * {
+	//	height: 2.3em;
+	//	line-height: 2.3em;
+	//}
 
 	@media #{$phone}{
 		width: 50%;
@@ -458,7 +473,7 @@ body.is-logged-out{
 			&.has-avatar .#{$namespace}userNav__submenuitem--username:active
 		{
 			color: $topNav-text-color;
-			text-decoration: underline;
+			text-decoration: none;
 		}
 	}
 
@@ -511,6 +526,12 @@ body.is-logged-out{
 	.has-avatar{
 		.#{$namespace}userNav__submenuitem--profilelink{
 			padding: 0 !important;
+			background-color: $tool-menu-background-color;
+
+			&:focus, &:hover, &:active
+			{
+				background-color: $tool-menu-background-color !important; // hover not trigger background-color
+			}
 		}
 		.#{$namespace}userNav__submenuitem--profilepicture{
 			width: 2.3em;
@@ -521,11 +542,6 @@ body.is-logged-out{
 			border-radius:50%;
 			margin: 0 4px 0 0;
 			position: relative;
-
-			&:hover, &:active
-			{
-				box-shadow: 0px 0px 5px 1px rgba(165, 165, 165, 0.95);
-			}
 			@media #{$phone}
 			{
 				margin-right: 0;
@@ -533,11 +549,14 @@ body.is-logged-out{
 		}
 		.#{$namespace}userNav__pic-changer{
 			overflow: hidden;
+			background-color: $color-graylight;
+			border: 1px solid $color-gray; 
 			&:hover, &:active
 			{
+				border-color: $sites-nav-menu-item-hover-border-color;
 				&:after {
 					content: 'Change';
-					background: #888;
+					background: shade($color-gray-dark, 20%);
 					color: #FFFFFF;
 					position: absolute;
 					bottom: 0px;
@@ -545,7 +564,7 @@ body.is-logged-out{
 					width: 100%;
 					text-align: center;
 					padding: 0 0 4px;
-					box-shadow: -1px 0 3px #666;
+					box-shadow: -1px 0 3px $sites-nav-menu-item-hover-border-color;
 				}
 			}
 		}
@@ -585,9 +604,9 @@ body.is-logged-out{
 
 	#loginLinks{
 		font-family: $header-font-family;
-		margin: 0 1em 0 0;
+		margin: 0;
 		list-style: none;
-		padding: 0 0 0 1em;
+		padding: 0 1em;
 
 		@media #{$phone}
 		{
@@ -610,7 +629,7 @@ body.is-logged-out{
 		ul{
 			background-color: $tool-tab-background-color;
 			text-align: left;
-			padding: 0 0 0 0;
+			padding: 0;
 			margin: 0.48em 1em 0 0.9em;
 			@extend .userNav__subnav;
 			&:after {
@@ -704,7 +723,17 @@ body.is-logged-out{
 	display: inline-block;
 	padding-right: 1em;
 	border-right: 1px solid $tool-border-color;
-    white-space: nowrap;
+	white-space: nowrap;
+	
+	> a {
+		padding: 0.4em;
+		opacity: 0.8;
+		@include transition(opacity 0.25s linear 0s);
+
+		&:hover, &:active {
+			opacity: 1;
+		}
+	}
 }
 
 ##{$namespace}academic-bullhorn,
@@ -731,19 +760,22 @@ body.is-logged-out{
 
 .view-all-sites-btn a{
 	text-decoration: none;
+	opacity: 0.9;
+	@include transition(opacity 0.25s linear 0s);
+
 	&:hover, &:active
 	{
+		opacity: 1;
 		text-decoration: none;
 		color: $topNav-text-color;
 
-		i
-		{
+		i{
 			text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
 		}
 
 		span.all-sites-label
 		{
-			text-decoration: underline; /* just underline the text */
+			text-decoration: none;
 		}
 	}
 }
@@ -778,7 +810,7 @@ body.is-logged-out{
 		margin: 0.5em 0 0 0;
 		padding: 0;
 		li.#{$namespace}sitesNav__menuitem{
-			margin: 0 0.5em 0.5em 0;
+			margin: 0 0.8em 0.5em 0;
 			padding: 0;
 			position: relative;
 			border-top: $sites-nav-menu-item-border-top;
@@ -835,30 +867,46 @@ body.is-logged-out{
 			span
 			{
 				line-height: 1;
+				padding-left: 0.4em;
 			}
 			.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
-				text-align: center;
-				margin-left: 0.2em;
+				outline: 0;
+				text-align: right;
+				padding: 0.26em 0.3em;
+				cursor: pointer;
+				display: inline-block;
 				position: absolute;
-				right: 8px;
+				right: 0;
 				top: 50%;
 				transform: translate(0%,-50%);
 				text-decoration: none;
 				color: $sites-nav-menu-item-icon-color;
 				border: none;
 
-				@extend .fa-angle-down;
-				@extend .fa;
+				@include sakai-fa-icon($fa-var-angle-down, after, inline-block);
 				@extend .fa-lg;
-				@extend .sitesNav__drop;
+				//@extend .sitesNav__drop;
 
 				&.is-clicked{
-					@include transform( rotate(180deg) );
-					top: 40%;
+					@include transform( scaleY(-1) );
+					top: 0%;
 				}
 
-				&:hover {
+				&:hover, &:active {
 					color: $sites-nav-menu-item-hover-icon-color;
+
+					&:before {
+						border-left-color: $sites-nav-menu-item-hover-border-color;
+					}
+				}
+
+				&:before {
+					content: "";
+					position: absolute;
+					height: 74%;
+					border-left: 1px solid tint($sites-nav-menu-item-border-color, 10%);
+					top: 13%;
+					margin-left: -0.3em;
 				}
 			}
 			ul{
@@ -871,7 +919,10 @@ body.is-logged-out{
 				margin-left: -1px;
 				width: 17em;
 				z-index: 99;
-				box-shadow: 0 3px 2px rgba( $text-color, 0.35);
+				box-shadow: $std-shadow;
+				border-bottom-right-radius: $main-border-radius;
+				border-bottom-left-radius: $main-border-radius;
+				
 				li{
 					display: block;
 					border: 0px none;
@@ -907,6 +958,17 @@ body.is-logged-out{
 						width: 80%;
 					}
 				}
+				
+				li:last-child {
+					border-bottom-right-radius: $main-border-radius;
+					border-bottom-left-radius: $main-border-radius;
+
+					> a {
+						border-bottom-right-radius: $main-border-radius;
+						border-bottom-left-radius: $main-border-radius;
+					}	
+				}
+
 				&.is-visible{
 					display: block;
 				}
@@ -928,6 +990,7 @@ body.is-logged-out{
 						color: $sites-nav-menu-item-selected-icon-color;
 					}
 				}
+
 				/* hover for sites when tool quick-menu isn't open */
 				&:not(.dropdown-is-visible) {
 					> .link-container:hover,
@@ -964,6 +1027,14 @@ body.is-logged-out{
 					color: $sites-nav-menu-item-selected-hover-icon-color;
 					&:hover {
 						color: $sites-nav-menu-item-selected-hover-icon-color;
+
+						&:before{
+							border-left-color: tint($sites-nav-menu-item-selected-hover-border-color, 15%);
+						}
+					}
+
+					&:before {
+						border-left: 1px solid tint($sites-nav-menu-item-selected-border-color, 15%);
 					}
 				}
 
@@ -979,6 +1050,10 @@ body.is-logged-out{
 
 				a{
 					padding: 0.5em;
+
+					> span:first-child { /* home icon */
+						padding-right: 0.6rem;
+					}
 
 					i{
 						margin-top: 1px; /* to compensate for an issue with the icon */
@@ -1001,15 +1076,15 @@ body.is-logged-out{
 
 						position: relative;
 
-						&:before{
-							border-left: 4px solid $sites-nav-submenu-item-left-border-color;
-							content: '';
-							height: 100%;
-							display: inline-block;
-							position: absolute;
-							top: 0;
-							left: 0;
-						}
+						//&:before{
+						//	border-left: 4px solid $sites-nav-submenu-item-left-border-color;
+						//	content: '';
+						//	height: 100%;
+						//	display: inline-block;
+						//	position: absolute;
+						//	top: 0;
+						//	left: 0;
+						//}
 
 						&:hover, &:active
 						{
@@ -1018,28 +1093,34 @@ body.is-logged-out{
 							.toolMenuIcon {
 								color: $sites-nav-submenu-item-hover-icon-color;
 							}
-							&:before{
-								border-left-color: $sites-nav-submenu-item-hover-left-border-color;
-							}
+							//&:before{
+							//	border-left-color: $sites-nav-submenu-item-hover-left-border-color;
+							//}
 						}
 					}
 					&.#{$namespace}sitesNav__submenuitem__gotosite {
 						border-top: 1px solid $sites-nav-submenu-item-divider-color;
 
-						> a:after {
-							font-family: FontAwesome;
-							content: '\f178';
-							margin-left: 10px;
-							color: $sites-nav-submenu-item-icon-color;
+						> a {
+							text-align: center;
+							padding: 0.7em;
+							display: block;
+							font-size: 0.82em;
 						}
+						//> a:after {
+						//	font-family: FontAwesome;
+						//	content: '\f178';
+						//	margin-left: 10px;
+						//	color: $sites-nav-submenu-item-icon-color;
+						//}
 
-						&:hover {
-							border-top: 1px solid $sites-nav-submenu-item-divider-color;
-
-							> a:after {
-								color: $sites-nav-submenu-item-hover-icon-color;
-							}
-						}
+						//&:hover {
+						//	border-top: 1px solid $sites-nav-submenu-item-divider-color;
+						//	
+						//	> a:after {
+						//		color: $sites-nav-submenu-item-hover-icon-color;
+						//	}
+						//}
 					}
 				}
 			}
@@ -1064,18 +1145,6 @@ body.is-logged-out{
 	position: fixed;
 	width: 100%;
 	z-index: 20;
-}
-
-body.is-logged-out{
-	#linkNav{
-		ul{
-			li.#{$namespace}sitesNav__menuitem{
-				.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
-					display: none;
-				}
-			}
-		}
-	}
 }
 
 #show-all-sites{

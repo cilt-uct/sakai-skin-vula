@@ -25,8 +25,8 @@
     sakai-announcements : ( extend : fa-bullhorn ),
     sakai-archive : ( extend : fa-archive ),
     sakai-assignment-grades : ( extend : fa-file-text ),
-    sakai-basiclti : ( extend : fa-globe ),
-    sakai-basiclti-admin : ( extend : fa-globe ),
+    //sakai-basiclti : ( extend : fa-globe ),
+    //sakai-basiclti-admin : ( extend : fa-globe ),
     sakai-chat : ( extend : fa-comments-o ),
     sakai-createuser : ( extend : fa-user-plus ),
     sakai-commons : ( extend : fa-bank ),
@@ -51,7 +51,7 @@
     sakai-motd : ( extend : fa-list-ul ),
     sakai-news : ( extend : fa-rss ),
     sakai-oauth : ( extend : fa-key ),
-    sakai-oauth-admin : ( extend : fa-key ),
+    //sakai-oauth-admin : ( extend : fa-key ),
     sakai-online : ( extend : fa-server ),
     sakai-pasystem : ( extend : fa-bell ),
     sakai-podcasts : ( extend : fa-microphone ),
@@ -70,7 +70,7 @@
     sakai-sections : ( extend : fa-user ),
     sakai-search : ( extend : fa-search ),
     sakai-signup : ( extend : fa-calendar-check-o ),
-    sakai-simple-rss : ( extend : fa-newspaper-o ),
+    //sakai-simple-rss : ( extend : fa-newspaper-o ),
     sakai-singleuser : ( extend : fa-user ),
     sakai-site-roster2 : ( extend : fa-users ),
     sakai-sitebrowser : ( extend : fa-globe ),
@@ -106,8 +106,35 @@
     subsite : ( extend : fa-level-up ),
     subsites-list : ( extend : fa-level-down ),
     add-tool : ( extend : fa-plus ),
-  );
 
+    // UCT Custom Icons
+    sakai-opencast-setup : ( extend : fa-pencil-square-o ),
+    sakai-opencast-series : ( extend : fa-play-circle-o ),
+    sakai-basiclti : ( extend : fa-plug ),
+    sakai-basiclti-admin : ( extend : fa-plug ),
+
+    // .icon-sakai--sakai-basiclti-admin {
+    //   @include sakai-fa-icon($fa-var-plug, after, inline-block, 0, 0);
+    //   @include sakai-fa-icon($fa-var-pencil, before, inline-block, 0 0 0 -0.5em, 0, inherit, 50%, normal, 1, absolute, rotateY(180deg));
+    // }
+
+    sakai-rutgers-linktool : ( extend : fa-plug ),
+    sakai-blogwow : ( extend : fa-newspaper-o ),
+    sakai-feeds : ( extend : fa-rss ),
+    sakai-groupmanager : ( extend : fa-th-large ),
+    sakai-permissions-helper : ( extend : fa-lock ),
+    sakai-presentation : ( extend : fa-tv ),
+    sakai-profilewow : ( extend : fa-user ),
+    sakai-oauth-admin : ( extend : fa-skyatlas ),
+    sakai-qna : ( extend : fa-quora ),
+    sakai-simple-rss : ( extend : fa-rss ),
+    sakai-site-roster : ( extend : fa-users ),
+    sakai-sms-user : ( extend : fa-envelope ),
+    sakai-sms-admin : ( extend : fa-envelope ),
+    sakai-synoptic-messagecenter-HOLD : ( extend : fa-inbox ),
+    sakai-useralias : ( extend : fa-address-book ),
+    sakai-osp-glossary : ( extend : fa-bookmark ),
+  );
 
   $icons : map-merge($default-icons, $custom-icons);
 

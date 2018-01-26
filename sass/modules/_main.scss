@@ -66,19 +66,81 @@
 
 .#{$namespace}container--footer{
 	background-color: $footer-background-color;
-	border-top: 1px solid $footer-border-color;
+	//border-top: $footer-border; moved down to ul first child
 }
 
 .#{$namespace}footer{
 	color: $footer-color;
 	padding: 0.8em;
-	font-size: 0.8em;
+	font-size: 0.66em;
+	text-align: center;
+
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	ul > li {
+		display: inline-block;
+		list-style: none;
+	}
+
+	.#{$namespace}footer--nav__project--copyright {
+		display: none;
+	}
+
+	ul:first-child {
+		border-top: $footer-border; // border moved down to top of first child
+	}
+
+	a {
+		color: $footer-color;
+		text-decoration: none;
+
+		&:hover, &:active {
+			text-decoration: underline;
+		}
+	}
+
 	#footer-links{
 		list-style: none;
-		padding: 0 0 0 0;
+		padding: 0.7em 1em 0.6em;
+
+		a {
+			font-size: 1.1em;
+			border-left: 1px solid shade( $footer-background-color, 20%);
+			padding: 0 0.6em 0 0.8em;
+		}
+
 		li{
 			display: inline-block;
 		}
+		li:first-child {
+			a {
+				border-left-width: 0px;
+			}
+		}
+	}
+
+	p {
+		margin: 0;
+		font-size: 0.9em;
+	}
+
+	ul.#{$namespace}footer--nav__build__list {
+		li:before {
+			content: " - ";
+		}
+		li:first-child::before {
+			content: "";
+		}
+	}
+
+	.#{$namespace}footer--nav__project {
+		display: none; // UCT - reduce footer
+	}
+	.#{$namespace}footer--nav__project--copyright {
+		display: none; // UCT - reduce footer
 	}
 }
 

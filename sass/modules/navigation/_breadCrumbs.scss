@@ -1,3 +1,10 @@
+body.is-logged-out{
+	// UCT - Don't display breadcrumbs on gateway
+	.#{$namespace}siteHierarchy{
+		display: none;
+	}
+}
+
 .#{$namespace}siteHierarchy{
 	background: $tool-background-color;
 	min-height: $hierarchy-size;

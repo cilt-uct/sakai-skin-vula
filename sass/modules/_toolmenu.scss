@@ -9,6 +9,10 @@ body.is-logged-out{
 	.#{$namespace}mainHeader.is-maximized ~ #container #toolMenuWrap{
 		top: $header-size;
 	}
+
+	.#{$namespace}collapseTools{
+		display: none !important; // UCT - hide collapse button on gateway
+	}
 }
 
 // Prevent tool menu collapsed styles being applied when using a mobile sized screen - an issue
@@ -364,7 +368,7 @@ nav#subSites{
 					}
 				}
 			}
-			.Mrphs-toolsNav__menuitem--link{
+			.#{$namespace}toolsNav__menuitem--link{
 				display: block;
 				font-family: $header-font-family;
 				font-weight: 400;
@@ -460,12 +464,15 @@ nav#subSites{
 					}
 
 					&:after {
-						@extend .fa-lg;
+						//@extend .fa-lg;
+						font-size: 1.2em;
+						color: $color-success;
 						@extend .fa;
 						content: '\f070';
 						position: absolute;
-						top: 4px;
+						top: 2px;
 						right: 4px;
+						opacity: 0.8;
 					}
 
 					&:hover{
@@ -486,7 +493,7 @@ nav#subSites{
 				position: relative;
 				margin-right: -1px;
 
-				.Mrphs-toolsNav__menuitem--link{
+				.#{$namespace}toolsNav__menuitem--link{
 					color: $tool-menu-item-selected-text-color;
 					background: $tool-menu-item-selected-background-color;
 

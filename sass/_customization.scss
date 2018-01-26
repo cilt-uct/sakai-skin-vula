@@ -55,26 +55,26 @@ $header-font-weight:  700 !default;										// 400 or 700 as you wish
 // ----------------------------------------
 
 // Primary
-$color-primary: rgba(0, 153, 255, 1);
-$color-secondary: rgba(0, 34, 56, 1);
-$color-success: rgba(82, 165, 54, 1);
-$color-warning: rgba(239, 199, 119, 1);
-$color-alert: rgba(145, 53, 58, 1);
+$color-primary: #0099ff;
+$color-secondary: #005c99;
+$color-success: #52a536;
+$color-warning: #efc777;
+$color-alert: #91353a;
 
 // Grays
-$color-black: rgba(0, 0, 0, 1);
-$color-gray-darker: rgba(30, 32, 34, 1);
-$color-gray-dark: rgba(65, 70, 73, 1);
-$color-gray: rgba(151, 154, 155, 1);
-$color-graylight: rgba(227, 228, 229, 1);
-$color-graylighter: rgba(249, 250, 251, 1);
-$color-white: rgba(255, 255, 255, 1);
+$color-black: #000000;
+$color-gray-darker: #1f2123;
+$color-gray-dark: #414649;
+$color-gray: #979a9b;
+$color-graylight: #e3e4e5;
+$color-graylighter: #f9fafb;
+$color-white: #ffffff;
 
 $primary-color: $color-primary !default;
 $text-color:    $color-gray-dark !default;
 
 // Link colors
-$link-color: darken($primary-color, 12%) !default;
+$link-color: shade($primary-color, 12%) !default;
 $link-active-color: $primary-color !default;
 $link-hover-color: $primary-color !default;
 $link-background-color: transparent !default;
@@ -91,6 +91,85 @@ $okcolor: $color-success !default;
 $errorcolor: $color-alert !default;
 $warncolor: $color-warning !default;
 
+// Gradient
+// %head-gradient {
+//   @include gradient-vertical($start-color: darken($color-primary, 25%), $end-color: darken($color-primary, 15%) ); //UCT - %head-gradient
+//   @include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient 
+// }
+
+
+// Favorites 
+// ----------------------------------------
+
+// Favorites - item
+$sites-nav-menu-item-background:            $color-white !default;
+$sites-nav-menu-item-color:                 tint($color-gray-darker, 10%) !default;
+$sites-nav-menu-item-icon-color:            tint($color-gray-darker, 15%) !default;
+$sites-nav-menu-item-border-color:          tint($color-gray, 30%) !default;
+$sites-nav-menu-item-border-top:            1px solid $sites-nav-menu-item-border-color !default;
+$sites-nav-menu-item-border-right:          $sites-nav-menu-item-border-top !default;
+$sites-nav-menu-item-border-bottom:         $sites-nav-menu-item-border-top !default;
+$sites-nav-menu-item-border-left:           $sites-nav-menu-item-border-top !default;
+
+// Favorites - item hovered
+$sites-nav-menu-item-hover-background:      $color-white !default;
+$sites-nav-menu-item-hover-color:           $color-gray-darker !default;
+$sites-nav-menu-item-hover-icon-color:      tint($color-gray-darker, 5%) !default;
+$sites-nav-menu-item-hover-border-color:    tint($color-gray-dark, 10%) !default;
+$sites-nav-menu-item-hover-border-top:      1px solid $sites-nav-menu-item-hover-border-color !default;
+$sites-nav-menu-item-hover-border-right:    $sites-nav-menu-item-hover-border-top !default;
+$sites-nav-menu-item-hover-border-bottom:   $sites-nav-menu-item-hover-border-top !default;
+$sites-nav-menu-item-hover-border-left:     $sites-nav-menu-item-hover-border-top !default;
+
+// Favorites - item selected
+$sites-nav-menu-item-selected-background:   shade($color-secondary, 10%) !default;
+$sites-nav-menu-item-selected-color:        $color-white !default;
+$sites-nav-menu-item-selected-icon-color:   $color-white !default;
+$sites-nav-menu-item-selected-border-color: shade($color-secondary, 15%) !default;
+$sites-nav-menu-item-selected-border-top:   1px solid $sites-nav-menu-item-selected-border-color !default;
+$sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top !default;
+$sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top !default;
+$sites-nav-menu-item-selected-border-left:  $sites-nav-menu-item-selected-border-top !default;
+
+// Favorites - item selected and hovered
+$sites-nav-menu-item-selected-hover-background:   shade($color-secondary, 0%) !default;
+$sites-nav-menu-item-selected-hover-color:        $color-white !default;
+$sites-nav-menu-item-selected-hover-icon-color:   $color-white !default;
+$sites-nav-menu-item-selected-hover-border-color: shade($color-secondary, 5%) !default;
+$sites-nav-menu-item-selected-hover-border-top:   1px solid $sites-nav-menu-item-selected-hover-border-color !default;
+$sites-nav-menu-item-selected-hover-border-right: $sites-nav-menu-item-selected-hover-border-top !default;
+$sites-nav-menu-item-selected-hover-border-bottom:$sites-nav-menu-item-selected-hover-border-top !default;
+$sites-nav-menu-item-selected-hover-border-left:  $sites-nav-menu-item-selected-hover-border-top !default;
+
+// Favorites - tool submenu
+$sites-nav-submenu-background:              $color-white !default;
+$sites-nav-submenu-topleft-border-color:    $sites-nav-menu-item-background !default;
+$sites-nav-submenu-border-color:            $sites-nav-menu-item-hover-border-color !default;
+
+// Favorites - tool selected submenu
+$sites-nav-selected-submenu-border-color: $sites-nav-menu-item-selected-hover-border-color !default;
+$sites-nav-selected-submenu-topleft-border-color: $sites-nav-menu-item-selected-background !default;
+
+// Favorites - tool submenu items
+$sites-nav-submenu-item-text-size:          13px !default;
+$sites-nav-submenu-item-background:         $color-white !default;
+$sites-nav-submenu-item-color:              $color-gray-dark !default;
+$sites-nav-submenu-item-icon-color:         $color-gray-darker !default;
+$sites-nav-submenu-item-divider-color:      $color-graylight !default;
+$sites-nav-submenu-item-left-border-color:  $color-white !default;
+
+// Favorites - tool submenu items hovered
+$sites-nav-submenu-item-hover-background:   $color-graylight !default;
+$sites-nav-submenu-item-hover-color:        $color-gray-darker !default;
+$sites-nav-submenu-item-hover-icon-color:   $color-gray-dark !default;
+$sites-nav-submenu-item-hover-left-border-color: $color-gray !default;
+
+
+// All Sites menu
+// ----------------------------------------
+$all-sites-mask-background: rgba(0,0,0,0.45) !default;
+
+
 // Calendar 
 // ----------------------------------------
 $calendar-event-background-color: $primary-color !default;
@@ -104,6 +183,12 @@ $header-size : 5em !default;
 $top-header-background: $color-secondary;
 
 
+// Instructions
+// ----------------------------------------
+$instruction-text-color: $color-gray-darker !default; //#5c5c5c !default;
+$instruction-color: #A5D1FF !default; //#5c5c5c !default;
+$instruction-background-color: #F3FAFF !default; //#fff !default;
+
 // Logo
 // ----------------------------------------
 $logo: 'images/logo.svg' !default;
@@ -115,8 +200,10 @@ $logo-background-size: 72% !default;
 
 // Footer
 // ----------------------------------------
-$footer-background: $color-graylighter !default;
-$footer-color: $text-color !default;
+$footer-background-color: $color-white !default;
+$footer-border-color: shade( $footer-background-color, 20%) !default;
+$footer-color: tint($text-color, 10%) !default;
+$footer-border: 1px solid $footer-border-color;
 
 // Layout
 // ----------------------------------------

@@ -308,3 +308,98 @@
 	&.icon-calendar-workshop						{	@extend .fa-group}
 	&.icon-calendar-attachment						{	@extend .fa-paperclip}
 }
+
+// Extend cal.css and Overwrite (UCT)
+// ----------------------------------------
+body > .portletBody {
+
+	> form#calendarForm{
+		overflow: hidden;
+		padding: 0;
+	}
+
+	.calLeft {
+		text-align: left;
+		vertical-align: middle;
+		width: 50%;
+	}
+
+	.calRight {
+		text-align: right;
+		vertical-align: middle;
+		width: 50%;
+	}
+
+	.calRight fieldset {
+		display: inline;
+		margin: 0;
+		padding: 0;
+	}
+
+	.calRight legend {
+		clip: rect(1px, 1px, 1px, 1px);
+		display: inline;
+		margin: 0;
+		padding: 0;
+		position: absolute !important;
+	}
+
+	.calTop {
+		vertical-align: top;
+	}
+
+	.calHeader {
+		background: $color-graylight none repeat scroll 0 0;
+		border: 1px solid white;
+		font-size: 0.75em;
+		padding: 0.4em;
+		text-align: center;
+	}
+
+	.calDay {
+		border: 0 none;
+		margin: 0;
+		padding: 1px;
+		width: 14%;
+	}
+
+	.calToday {
+		border: 1px solid #000 !important;
+	}
+
+	.calSelectedDay {
+		border: 1px dashed #000 !important;
+	}
+
+	.calDayWithActivity {
+		background-color: #d4dfee;
+		border: 1px solid #ddd;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.calDayWithoutActivity {
+		text-align: center;
+	}
+
+	.calOtherDayWithNoActivity {
+		background-color: transparent;
+		border: 0px solid white;
+		color: $color-gray;
+		font-style: italic;
+		text-align: center;
+	}
+
+	.eventCount {
+		color: $color-gray-dark;
+		display: inline !important;
+		font-size: 9px;
+		font-weight: normal;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		right: 0;
+		top: -2px;
+	}
+
+}

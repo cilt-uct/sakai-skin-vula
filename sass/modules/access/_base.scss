@@ -1,4 +1,4 @@
-##{$namespace}xlogin{
+##{$namespace}xlogin{ 
 	
 	position: fixed;
 	top: calc(50% - 15em);
@@ -10,7 +10,7 @@
 	box-shadow: 0 0 5px rgba( $text-color , 0.25 );
 	.logo{
 		background: $top-header-background url($logo) no-repeat center center;
-		background-size: $logo-width $logo-height;
+		//background-size: $logo-width $logo-height;
 		width: 100%;
 		height: 64px;
 		margin: 0 auto;
@@ -32,34 +32,57 @@
 	}
 	fieldset{
 		padding: 1em;
-		label{
-			font-size: 1.2em;
+		label {
+			font-size: 1em;
 			display: inline-block;
-			min-width: 38%;
-			min-height: 3em;
+			min-width: 30%;
+			min-height: 2.2em;
+			text-align: right;
+    		padding-right: 0.4em;
+			font-weight: normal;
+			text-transform: capitalize;
 			@media #{$phone}{
+				text-align: left;
 				display: block;
 				min-height: 0.5em;
+				min-width: 100%;
+				margin: 0;
 			}
 		}
-		input[type="text"],input[type="password"]{
+		input {
+			margin: 0 0 1em 0;
+		}
+		input[type="text"], input[type="password"] {
 			display: inline-block;
-			min-width: 56%;
-			border: 1px solid darken($background-color-secondary, 15%);
+			min-width: 66%;
+			
+			border: 1px solid $color-gray;
+			@include border-radius($small-border-radius);
+			box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1) inset;
+    		box-sizing: border-box;
+
 			padding: 0.3em;
-			@media #{$phone}{
+
+			@media #{$phone} {
 				display: block;
-				width: 95%;
+				width: 100%;
 			}
 		}
 		input[type="submit"]{
+			@extend .button;
 			font-size: 1.1em;
-			margin: 0 0 1em 0;
+			min-width: 7em
 		}
 		p{
 			text-align: right;
-			@media #{$phone}{
-				margin: 1em 0 0 0;
+			// @media #{$phone}{
+			// 	margin: 1em 0 0 0;
+			// }
+		}
+		p:last-child {
+			padding-right: 0.8em; // UCT: Forgot password link at the bottom
+			a{
+				font-size:0.9em;
 			}
 		}
 	}
@@ -90,7 +113,7 @@
 
 }
 
-#Mrphs-xlogin-container{
+##{$namespace}xlogin-container{
 	opacity: 0;
 	@include transition(opacity 0.25s linear 0s);
 	&.loaded{
@@ -98,8 +121,11 @@
 	}
 }
 
-#Mrphs-choice{
+##{$namespace}choice{
 	@extend #Mrphs-xlogin;
+
+	$login-choice-image-size: 80px;
+
 	.msg{
 		padding: 0.6em;
 		font-size: 1.4em;
@@ -108,13 +134,48 @@
 		text-align: center;
 	}
 
-	.link{
-		width: 48%;
-		display: inline-block;
+	> div {
+		padding: 2em 1em;
 		text-align: center;
+		@include display-flex( inline-flex );
+		flex-direction: row-reverse; // UCT reverse order
+		justify-content: center;
+	}	
+
+	a.link {
+		color: $text-color;
+		text-decoration: none;
+
+		text-align: center;
+		display: inline-block;
+		width: 40%;
+		
+		> img {
+			background-position: 50% center;
+			background-size: auto 100%;
+			@include border-radius(50%);
+			display: block;
+			margin: auto;
+			
+			width: $login-choice-image-size;
+			height: $login-choice-image-size;
+			@include opacity(.6);
+		}
+
+		> span {
+			display: block;
+		}
+
+		&:hover, &:active {
+			color: $primary-color;
+
+			> img {
+				@include opacity(1);
+			}
+		}
 	}
 }
-#Mrphs-xlogin .xloginMessage{
+##{$namespace}xlogin .xloginMessage{
 	padding: 0.9em;
 	text-align: center;
 }
@@ -131,4 +192,29 @@
 
 .capsLockOnDisplay {
 	background: $background-color url("images/capsLock.png") no-repeat right;
+}
+
+// UCT 
+.login-password-form {
+	
+	input[type="text"], input[type="password"] {
+		display: inline-block;
+		min-width: 45%;
+		
+		border: 1px solid $color-gray;
+		@include border-radius($small-border-radius);
+		box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1) inset;
+		box-sizing: border-box;
+
+		padding: 0.3em;
+
+		@media #{$phone} {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	input[type="submit"] {
+		padding: 0.5em 1.2em;
+	}
 }

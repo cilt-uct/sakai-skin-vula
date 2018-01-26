@@ -1,5 +1,5 @@
 .navIntraTool{
-	margin: -14px -14px 0 -14px;
+	margin: 0 -14px 0 -14px;
 	border-bottom: 1px solid $tool-border-color;
 	padding: 0 1em 0 0;
 	//max-width: calc(100% - 170px);
@@ -14,7 +14,9 @@
 		font-size: $default-font-size;
 		margin: 0 -1px 0 0;
 		span{
-			display: inline;
+			display: inline-block;
+			border-width: 0px;
+			padding: 0 5px 0 3px;
 			a{
 				background: $tool-tab-background-color;
 				border-top: 1px solid $tool-tab-border-color;
@@ -25,7 +27,7 @@
 				font-weight: $tool-tab-text-weight;
 				display: block;
 				margin: 0;
-				padding: 0 0.6em;
+				padding: 0 12px !important;
 				line-height: $tool-tab-height;
 				height: $tool-tab-height;
 				text-decoration: none;
@@ -47,7 +49,7 @@
 						right: -1px;
 						top: -1px;
 					}
-			  }
+			  	}
 			}
 			&.current{
 				color: $tool-tab-active-text-color;
@@ -57,8 +59,8 @@
 				border-left: 1px solid $tool-tab-border-color;
 				border-right: 1px solid $tool-tab-border-color;
 				position: relative;
-				margin: 0;
-				padding: 0 0.6em;
+				margin: 0 5px 0 3px;
+				padding: 0 12px 0 12px;
 				line-height: $tool-tab-height;
 				height: $tool-tab-height;
 				display: block;
@@ -83,30 +85,62 @@
 					bottom: -1px;
 				}
 				a{
+					background-color: $tool-tab-active-background-color;
 				    border: 0px none;
-				    font-size: 1em;
-				    margin: 0;
-				    padding: 0;
-				    top: 1px;
+					padding: 0px !important;
+					&:hover{
+						color: $tool-tab-hover-text-color;
+						background: transparent;
+						text-decoration: none;
+						position: inherit;
+	
+						&:before{
+							display:none;
+						}
+					  }
 				}
 			}
 			&.inactive{
 				border-left: 0px none;
 			}
 		}
-		a{
+		// a{
 
-			&.current{
-			}
+		//  	&.current{
+		//  	}
+		//  }
+
+		// UCT - resize search fields
+		.inlineForm {
+			position: relative;
 		}
 		.searchField{
+			margin-left: 1.4em;
+			padding: 0.14em 0.2em;
+			min-width: 18em;
+			position: relative;
+			top: 0px;
+		 }
+	}
+	li:first-child {
+		span{
+			padding: 0 2px 0 0;
+			margin: 0 3px 0 0;
 
+			&.current{ 
+				padding: 0 12px 0 12px;
+				margin: 0 5px 0 0;	
+
+				a{
+					padding: 0px !important;
+				}
+			}
 		}
 	}
 }
 
 .instruction{
-	@include bs-callout($instruction-color, $instruction-background-color);
+	@include bs-callout($instruction-color, $instruction-background-color, $instruction-text-color);
 }
 
 .listNav{
