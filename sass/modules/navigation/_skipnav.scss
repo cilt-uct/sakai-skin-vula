@@ -31,7 +31,7 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		margin:  0 0 0 0;
+		margin: 0 0 0.4em 0;
 
 		box-shadow: inset 0 0 5px rgba(0,0,0,0.25);
 		@include transition( top 0.25s linear 0s );
@@ -73,7 +73,7 @@
 			// Tool row
 			&.#{$namespace}skipNav__menuitem.#{$namespace}skipNav__menuitem--tools {
 				background: $portal-background-color;
-				box-shadow: $divider-shadow;
+				/*box-shadow: $divider-shadow; - UCT no shadow on phone */
 
 				a {
 					float: left;

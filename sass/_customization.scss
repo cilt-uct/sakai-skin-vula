@@ -5,13 +5,13 @@
 $font-path:     "fonts/";
 //$fa-font-path:  "fonts/font-awesome/";
 
-@mixin font-face($font-family, $file, $font-weight, $font-style) {
+@mixin font-face($font-family, $file, $font-weight, $font-style, $path: $font-path) {
   @font-face {
     font-family: $font-family;
-      src: url('#{$font-path}#{$file}.eot');
-      src: url('#{$font-path}#{$file}.eot?#iefix') format('embedded-opentype'),
-           url('#{$font-path}#{$file}.woff') format('woff'),
-           url('#{$font-path}#{$file}.ttf') format('truetype');
+      src: url('#{$path}#{$file}.eot');
+      src: url('#{$path}#{$file}.eot?#iefix') format('embedded-opentype'),
+           url('#{$path}#{$file}.woff') format('woff'),
+           url('#{$path}#{$file}.ttf') format('truetype');
     font-weight: $font-weight;
     font-style: $font-style;
   }
@@ -33,7 +33,8 @@ $font-path:     "fonts/";
 @include font-face('Open Sans', 'OpenSans-ExtraBold-webfont', 800, normal);
 @include font-face('Open Sans', 'OpenSans-ExtraBoldItalic-webfont', 800, italic);
 
-@include font-face('FontAwesome', 'fontawesome-webfont', normal, normal);
+@include font-face('FontAwesome', 'fontawesome-webfont', normal, normal, "fonts/font-awesome/");
+@include font-face('Glyphicons Halflings', 'glyphicons-halflings-regular', normal, normal, "fonts/bootstrap/");
 
 
 //Google family Fonts URL
@@ -178,8 +179,8 @@ $calendar-event-text-color: $text-color !default;
 
 // Header and Menus
 // ----------------------------------------
-$banner-height: 4.66em !default;
-$header-size : 5em !default;
+$banner-height: 56px !default; //4.66em !default;
+$header-size: 60px !default; //5em !default;
 $top-header-background: $color-secondary;
 
 

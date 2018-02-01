@@ -108,12 +108,12 @@ body.is-logged-out{
 		}
 
 		.#{$namespace}hierarchy--siteName a:hover .#{$namespace}hierarchy--siteName-label {
-			text-decoration: underline;
+			text-decoration: none; // UCT - no underline
 		}
 		
 		a.#{$namespace}hierarchy--toolName:hover{
 			color: $breadcrumbs-tool-color;
-			border-bottom: 1px solid $breadcrumbs-hover-color;
+			//border-bottom: 1px solid $breadcrumbs-hover-color;
 		}
 		
 		.#{$namespace}hierarchy--serviceName, .#{$namespace}hierarchy--serviceNameSeparator{

@@ -33,6 +33,11 @@ body.is-logged-out{
 	.#{$namespace}toolTitleNav {
 		display: none;
 	}
+
+	// UCT - Sites not shown when not logged in
+	li.#{$namespace}skipNav__menuitem--worksite {
+		display: none; 
+	}
 }
 
 .#{$namespace}mainHeader{
@@ -390,13 +395,13 @@ body.is-logged-out{
 #mastLogin{
 
 	// make it so the separator lines are a consistent height
-	//> * {
-	//	height: 2.3em;
-	//	line-height: 2.3em;
-	//}
+	// > * {
+	// 	height: 2.3em;
+	// 	line-height: 2.3em;
+	// }
 
 	@media #{$phone}{
-		width: 50%;
+		width: 70%;
 	}
 
 	ul{
@@ -867,7 +872,6 @@ body.is-logged-out{
 			span
 			{
 				line-height: 1;
-				padding-left: 0.4em;
 			}
 			.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
 				outline: 0;
@@ -989,6 +993,12 @@ body.is-logged-out{
 					i.fa {
 						color: $sites-nav-menu-item-selected-icon-color;
 					}
+					span
+					{
+						line-height: 1;
+						padding-left: 0.4em;
+					}
+		
 				}
 
 				/* hover for sites when tool quick-menu isn't open */
@@ -1053,6 +1063,7 @@ body.is-logged-out{
 
 					> span:first-child { /* home icon */
 						padding-right: 0.6rem;
+						padding-left: 0.4em;
 					}
 
 					i{

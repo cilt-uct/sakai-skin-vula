@@ -242,9 +242,15 @@
 	}
 	
 	/* SAK-32371 : Resources doesnt use font awesome icons */
-	.fa {
+	/* UCT - only do this for inside links */
+	.portletBody .fa {
 		display : inline;
 		color : $primary-color;
 		text-decoration: none;
+	}
+
+	.btn-group > .btn.resources-dropdown:first-child:not(:last-child):not(.dropdown-toggle) {
+		border-bottom-right-radius: 3px;
+		border-top-right-radius: 3px;
 	}
 }
