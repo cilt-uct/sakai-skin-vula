@@ -38,6 +38,118 @@ body.is-logged-out{
 	li.#{$namespace}skipNav__menuitem--worksite {
 		display: none; 
 	}
+
+	// Online Platform - side nav not shown when not logged in
+	#toolMenuWrap.#{$namespace}container--nav-tools{
+		display: none;
+	}
+
+	.#{$namespace}mainHeader{
+		box-shadow: $divider-shadow;
+		position: relative;
+
+		.#{$namespace}headerLogo{
+			width: 100%;
+			overflow: hidden;
+			padding: 0 1em;
+			height: $banner-height;
+			background: $top-header-background;
+			//@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient 
+			display: flex;
+			justify-content: space-between;
+			text-align: center;
+
+			@include transition( width 0.5s linear 0s );
+			.#{$namespace}headerLogo--institution{
+				background: url($logo) no-repeat center center;
+				width: $logo-width;
+				height: $logo-height;
+				float: left;
+				background-size: $logo-background-size; //UCT
+			}
+
+			.#{$namespace}headerLogo--banner{
+				width: 30%;
+				min-width: 100px;
+				max-width: 500px;
+				padding: 10px;
+
+				.search {
+					width: 100%;
+					position: relative
+				}
+
+				input.searchTerm {
+					float: left;
+					width: 100%;
+					border: 1px solid #aaa;
+					padding: 5px;
+					outline: none;
+					color: $text-color;
+					background-color: $color-graylighter;
+				}
+
+				button[type="submit"].searchButton {
+					position: absolute;  
+					right: 2px;
+					top: 2px;
+					width: 30px;
+					height: 30px;
+					border: 1px solid $color-graylighter;
+					background: $color-graylighter;
+					text-align: center;
+					color: $text-color !important;
+					border-radius: 0px;
+					cursor: pointer;
+					font-size: 16px;
+					margin: 0;
+					padding: 0;
+				}
+			}
+
+			.#{$namespace}headerLogo--quicklinks {
+				width: 200px;
+				display: flex;
+				justify-content: space-around;
+
+				a {
+					display: inline-block;
+					text-decoration: none;
+					font-size: 13px;
+					padding: 10px;
+					margin: 6px 4px 0px;
+				}
+			}
+
+			.#{$namespace}loginNav {
+
+				a {
+					text-decoration: none;
+					font-size: 13px;
+					padding: 6px 16px;
+					display: inline-block;
+					border: 1px solid $color-gray-dark;
+					margin-left: 15px;
+
+					&:hover {
+						color: $link-hover-color;
+						border-color: $link-hover-color;
+					}
+				}
+
+				.#{$namespace}loginUser__signup {
+					background-color: $color-secondary;
+					border-color: $color-secondary;
+					color: $color-graylighter;
+
+					&:hover {
+						color: $color-white;
+						background-color: $link-hover-color;
+					}
+				}
+			}
+		}
+	}
 }
 
 .#{$namespace}mainHeader{
@@ -50,9 +162,11 @@ body.is-logged-out{
 		padding: 0 1em;
 		height: $banner-height;
 		background: $top-header-background;
-		@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient 
-
+		//@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient 
+		display: flex;
+		justify-content: space-between;
 		text-align: center;
+
 		@include transition( width 0.5s linear 0s );
 		.#{$namespace}headerLogo--institution{
 			background: url($logo) no-repeat center center;
@@ -225,7 +339,7 @@ body.is-logged-out{
 
 .#{$namespace}topHeader{
 	background: $top-header-background;
-	@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient 
+	//@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient 
 	color: $background-color;
 	font-size: 1em;
 	height: auto;

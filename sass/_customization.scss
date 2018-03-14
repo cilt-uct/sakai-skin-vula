@@ -181,8 +181,12 @@ $calendar-event-text-color: $text-color !default;
 // ----------------------------------------
 $banner-height: 56px !default; //4.66em !default;
 $header-size: 60px !default; //5em !default;
-$top-header-background: $color-secondary;
+$top-header-background: $color-white; //$color-secondary;
 
+/* topNav Main Menu */
+$header-size: 50px !default;
+$topNav-text-color:                         $color-gray-darker !default; /* used for links and text in the topNav */
+$topNav-text-alt-color:                     $color-gray-dark !default;
 
 // Instructions
 // ----------------------------------------
@@ -193,9 +197,10 @@ $instruction-background-color: #F3FAFF !default; //#fff !default;
 // Logo
 // ----------------------------------------
 $logo: 'images/logo.svg' !default;
+$logo2: 'images/logocircless.gif' !default;
 // match $banner-height so that we fill the space and the background size to the edges don't touch
 $logo-height: $banner-height !default; 
-$logo-width: $banner-height !default;
+$logo-width: 356px !default;
 $logo-background-size: 72% !default;
 
 
