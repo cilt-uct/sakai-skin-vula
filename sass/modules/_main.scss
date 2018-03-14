@@ -144,6 +144,39 @@
 	}
 }
 
+footer#signup {
+	margin-top: 3rem;
+    background-color: #051937;
+    background-image: linear-gradient(to right, #051937, #09284e, #0c3866, #0b4a7f, #005c99);
+
+    display: flex;
+    justify-content: space-between;
+
+	#copyright {
+    	margin: 10rem 2rem 2rem 6rem;
+    	color: #e3e4e5;
+	}
+
+	#social {
+    	width: 30%;
+	
+		p {
+    		color: #ccc;
+    		font-weight: bold;
+    		font-size: 16px;
+     		margin: 30px 0px 0px 0px;
+		}
+
+		a {
+			color: #eee;
+			font-size: 40px;
+			display: inline-block;
+			margin: 4px;
+			padding: 4px;
+		}
+	}
+}
+
 .#{$namespace}noJs.js-warn-no-js
 {
 	position: fixed;
