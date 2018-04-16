@@ -1,3 +1,101 @@
 .lessonsToolButton {
    @extend .button;
 }
+
+.#{$namespace}sakai-lessonbuildertool {
+
+    .column {
+        margin: 0;
+        padding: 0;
+        padding-top: 0;
+        list-style: none;
+        background-color: white;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+        border: 0px solid #222;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .item {
+
+        .link-div {
+            span {
+                &.fa-item-text,
+                &.fa-folder-open-o {
+                    display: none;
+                }
+            }
+        }
+        a.itemlink {
+            color: #222;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 25px;
+
+
+            background-image: url("images/notes.svg");
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 36px 36px;
+
+            height: 38px;
+            padding: 6px 0px 6px 43px;
+
+            &:visited { 
+               color: #464646;
+            }
+        }
+    }
+
+    .notes {
+        a.itemlink {
+           background-image: url("images/notes.svg");
+        }
+    }
+
+    .quiz {
+        a.itemlink {
+           background-image: url("images/quiz.svg");
+        }
+    }
+
+    .live {
+        a.itemlink {
+           background-image: url("images/live.svg");
+        }
+    }
+    
+    .slides {
+        a.itemlink {
+           background-image: url("images/slides.svg");
+        }
+    }    
+
+    .submit {
+        a.itemlink {
+           background-image: url("images/submit.svg");
+        }
+    }        
+
+    .tut {
+        a.itemlink {
+           background-image: url("images/tut.svg");
+        }
+    }     
+
+    .video {
+        a.itemlink {
+           background-image: url("images/video.svg");
+        }
+    }      
+
+    .web {
+        a.itemlink {
+           background-image: url("images/web.svg");
+        }
+    }      
+}
