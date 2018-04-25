@@ -127,7 +127,7 @@ body.is-logged-out {
 		left: -100%;
 		position: fixed;
 		top: 5.5em;
-		z-index: $z-100;
+		z-index: $max-z;
 		padding: 0 0 2em 0;
 		margin: 0 0 0;
 		height: 100%;
