@@ -1,8 +1,9 @@
 body.is-logged-out{
 	.#{$namespace}loginUser{
-		> p > a{ // UCT login screen
+		// UCT login screen
+		> p > a { 
 			@extend .button;
-		}		
+		}	
 		li{
 			a{
 				.login-Icon{
@@ -14,15 +15,6 @@ body.is-logged-out{
 	.#{$namespace}topHeader{
 		@media #{$phone}{
 			min-height: $header-size;
-		}
-	}
-	#linkNav{
-		ul{
-			li.#{$namespace}sitesNav__menuitem{
-				.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
-					display: none;
-				}
-			}
 		}
 	}
 	.userNav__subnav{
@@ -40,7 +32,7 @@ body.is-logged-out{
 	}
 }
 
-.#{$namespace}mainHeader{
+	.#{$namespace}mainHeader{
 		box-shadow: $divider-shadow;
 		position: relative;
 
@@ -76,7 +68,7 @@ body.is-logged-out{
 				display: inline-block;
 				margin: 0 1em 0 0;
 			}
-			a{	
+			a{
 				.login-Icon{
 					@extend .fa-power-off;
 					@extend .fa;
@@ -136,6 +128,12 @@ body.is-logged-out{
 	text-decoration: none;
 }
 
+.is-logged-out{
+	.userNav__subnav{
+		position: inherit;
+	}
+}
+
 .userNav__subnav{
 	font-family: $header-font-family;
 	position: absolute;
@@ -156,10 +154,11 @@ body.is-logged-out{
 			display: block;
 			padding: 0.65em;
 			text-decoration: none;
-			color: $link-color;
+			color: $link-color; //$primary-color-highContrast;
 			line-height: 1em;
 			&:focus, &:hover, &:active
 			{
+				// UCT no underline and different background color
 				text-decoration: none;
 				color: $link-hover-color;
 				background-color: $sites-nav-submenu-item-hover-background;
@@ -182,7 +181,7 @@ body.is-logged-out{
 		padding-top: 1em;
 		color: $text-color;
 		display: inline-block;
-		margin-bottom: 11px;
+		margin-bottom: 11px; // UCT bit more spacing
 		width: 10em;
 		word-wrap: break-word;
 		vertical-align: top;
@@ -232,11 +231,15 @@ body.is-logged-out{
 	width: 100%;
 	box-shadow: $std-shadow; // $divider-shadow; UCT
 
-	a{
+	a
+	{
 		@include display-flex( flex );
 		@include align-items( center );
 
 		color: $topNav-text-color;
+		@media #{$phone} {
+			line-height: 1;
+		}
 	}
 	> * {
 		transition: all 0.3s ease;
@@ -395,13 +398,14 @@ body.is-logged-out{
 #mastLogin{
 
 	// make it so the separator lines are a consistent height
-	// > * {
-	// 	height: 2.3em;
-	// 	line-height: 2.3em;
-	// }
+	// UCT - different spacing
+	//> * {
+	//	height: 2.3em;
+	//	line-height: 2.3em;
+	//}
 
 	@media #{$phone}{
-		width: 70%;
+		width: 70%; // UCT bigger login for phone
 	}
 
 	ul{
@@ -478,7 +482,7 @@ body.is-logged-out{
 			&.has-avatar .#{$namespace}userNav__submenuitem--username:active
 		{
 			color: $topNav-text-color;
-			text-decoration: none;
+			text-decoration: none; // UCT - no underline on links
 		}
 	}
 
@@ -533,6 +537,7 @@ body.is-logged-out{
 			padding: 0 !important;
 			background-color: $tool-menu-background-color;
 
+			// UCT - hover over avatar
 			&:focus, &:hover, &:active
 			{
 				background-color: $tool-menu-background-color !important; // hover not trigger background-color
@@ -547,14 +552,21 @@ body.is-logged-out{
 			border-radius:50%;
 			margin: 0 4px 0 0;
 			position: relative;
+
+			&:hover, &:active
+			{
+				box-shadow: 0px 0px 5px 1px rgba(165, 165, 165, 0.95);
+			}
 			@media #{$phone}
 			{
 				margin-right: 0;
 			}
 		}
+
+		// UCT - add border and some changes on hover
 		.#{$namespace}userNav__pic-changer{
 			overflow: hidden;
-			background-color: $color-graylight;
+			background-color: $color-graylight; 
 			border: 1px solid $color-gray; 
 			&:hover, &:active
 			{
@@ -609,9 +621,9 @@ body.is-logged-out{
 
 	#loginLinks{
 		font-family: $header-font-family;
-		margin: 0;
+		margin: 0; // UCT
 		list-style: none;
-		padding: 0 1em;
+		padding: 0 1em; // UCT
 
 		@media #{$phone}
 		{
@@ -634,7 +646,7 @@ body.is-logged-out{
 		ul{
 			background-color: $tool-tab-background-color;
 			text-align: left;
-			padding: 0;
+			padding: 0 0 0 0;
 			margin: 0.48em 1em 0 0.9em;
 			@extend .userNav__subnav;
 			&:after {
@@ -730,6 +742,7 @@ body.is-logged-out{
 	border-right: 1px solid $tool-border-color;
 	white-space: nowrap;
 	
+	// UCT - add opacity on bullhorns
 	> a {
 		padding: 0.4em;
 		opacity: 0.8;
@@ -765,7 +778,7 @@ body.is-logged-out{
 
 .view-all-sites-btn a{
 	text-decoration: none;
-	opacity: 0.9;
+	opacity: 0.9; // UCT - opacity on other sites btn
 	@include transition(opacity 0.25s linear 0s);
 
 	&:hover, &:active
@@ -774,13 +787,14 @@ body.is-logged-out{
 		text-decoration: none;
 		color: $topNav-text-color;
 
-		i{
+		i
+		{
 			text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
 		}
 
 		span.all-sites-label
 		{
-			text-decoration: none;
+			text-decoration: none; // UCT no underlined text
 		}
 	}
 }
@@ -815,7 +829,7 @@ body.is-logged-out{
 		margin: 0.5em 0 0 0;
 		padding: 0;
 		li.#{$namespace}sitesNav__menuitem{
-			margin: 0 0.8em 0.5em 0;
+			margin: 0 0.8em 0.5em 0; // uct - bit more spacing
 			padding: 0;
 			position: relative;
 			border-top: $sites-nav-menu-item-border-top;
@@ -874,43 +888,28 @@ body.is-logged-out{
 				line-height: 1;
 			}
 			.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
-				outline: 0;
-				text-align: right;
-				padding: 0.26em 0.3em;
-				cursor: pointer;
-				display: inline-block;
+				text-align: center;
+				margin-left: 0.2em;
 				position: absolute;
-				right: 0;
+				right: 8px;
 				top: 50%;
 				transform: translate(0%,-50%);
 				text-decoration: none;
 				color: $sites-nav-menu-item-icon-color;
 				border: none;
 
-				@include sakai-fa-icon($fa-var-angle-down, after, inline-block);
+				@extend .fa-angle-down;
+				@extend .fa;
 				@extend .fa-lg;
-				//@extend .sitesNav__drop;
+				@extend .sitesNav__drop;
 
 				&.is-clicked{
-					@include transform( scaleY(-1) );
-					top: 0%;
+					@include transform( rotate(180deg) );
+					top: 40%;
 				}
 
 				&:hover, &:active {
 					color: $sites-nav-menu-item-hover-icon-color;
-
-					&:before {
-						border-left-color: $sites-nav-menu-item-hover-border-color;
-					}
-				}
-
-				&:before {
-					content: "";
-					position: absolute;
-					height: 74%;
-					border-left: 1px solid tint($sites-nav-menu-item-border-color, 10%);
-					top: 13%;
-					margin-left: -0.3em;
 				}
 			}
 			ul{
@@ -923,10 +922,12 @@ body.is-logged-out{
 				margin-left: -1px;
 				width: 17em;
 				z-index: 99;
+
+				// UCT change shadow to std and border radius
 				box-shadow: $std-shadow;
 				border-bottom-right-radius: $main-border-radius;
 				border-bottom-left-radius: $main-border-radius;
-				
+
 				li{
 					display: block;
 					border: 0px none;
@@ -962,7 +963,8 @@ body.is-logged-out{
 						width: 80%;
 					}
 				}
-				
+
+				// UCT - last link borders
 				li:last-child {
 					border-bottom-right-radius: $main-border-radius;
 					border-bottom-left-radius: $main-border-radius;
@@ -993,14 +995,13 @@ body.is-logged-out{
 					i.fa {
 						color: $sites-nav-menu-item-selected-icon-color;
 					}
+					// UCT - spacing on span in selected link
 					span
 					{
 						line-height: 1;
 						padding-left: 0.4em;
 					}
-		
 				}
-
 				/* hover for sites when tool quick-menu isn't open */
 				&:not(.dropdown-is-visible) {
 					> .link-container:hover,
@@ -1038,11 +1039,12 @@ body.is-logged-out{
 					&:hover {
 						color: $sites-nav-menu-item-selected-hover-icon-color;
 
+						// UCT - left border on drop down
 						&:before{
 							border-left-color: tint($sites-nav-menu-item-selected-hover-border-color, 15%);
 						}
 					}
-
+					// UCT - left border on drop down
 					&:before {
 						border-left: 1px solid tint($sites-nav-menu-item-selected-border-color, 15%);
 					}
@@ -1054,14 +1056,14 @@ body.is-logged-out{
 			}
 
 			&.#{$namespace}sitesNav__menuitem--myworkspace{
-				.#{$namespace}sitesNav__drop{
-					display: none;
+
+				.link-container{
+					padding-left: 0.5em;
 				}
 
 				a{
-					padding: 0.5em;
-
-					> span:first-child { /* home icon */
+					// UCT - home icon spacing
+					> span:first-child { 
 						padding-right: 0.6rem;
 						padding-left: 0.4em;
 					}
@@ -1087,6 +1089,7 @@ body.is-logged-out{
 
 						position: relative;
 
+						// UCT - no border on sub menu items
 						//&:before{
 						//	border-left: 4px solid $sites-nav-submenu-item-left-border-color;
 						//	content: '';
@@ -1104,6 +1107,7 @@ body.is-logged-out{
 							.toolMenuIcon {
 								color: $sites-nav-submenu-item-hover-icon-color;
 							}
+							// UCT - no border
 							//&:before{
 							//	border-left-color: $sites-nav-submenu-item-hover-left-border-color;
 							//}
@@ -1112,12 +1116,14 @@ body.is-logged-out{
 					&.#{$namespace}sitesNav__submenuitem__gotosite {
 						border-top: 1px solid $sites-nav-submenu-item-divider-color;
 
+						// UCT - go site
 						> a {
 							text-align: center;
 							padding: 0.7em;
 							display: block;
 							font-size: 0.82em;
 						}
+						
 						//> a:after {
 						//	font-family: FontAwesome;
 						//	content: '\f178';
@@ -1127,7 +1133,7 @@ body.is-logged-out{
 
 						//&:hover {
 						//	border-top: 1px solid $sites-nav-submenu-item-divider-color;
-						//	
+						//
 						//	> a:after {
 						//		color: $sites-nav-submenu-item-hover-icon-color;
 						//	}
@@ -1156,6 +1162,18 @@ body.is-logged-out{
 	position: fixed;
 	width: 100%;
 	z-index: 20;
+}
+
+body.is-logged-out{
+	#linkNav{
+		ul{
+			li.#{$namespace}sitesNav__menuitem{
+				.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
+					display: none;
+				}
+			}
+		}
+	}
 }
 
 #show-all-sites{

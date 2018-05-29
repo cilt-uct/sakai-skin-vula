@@ -36,10 +36,11 @@
   display: block;
   margin: 10px 0;
   padding: 0.8em;
-  border: 1px solid tint($color, 10%);
+  border: 1px solid;
   border-left-width: 5px;
+  border-color: lighten($color, 25%);
   border-left-color: $color;
-  color: $text-color;
+  color: $text-color; //darken($color, 30%);
   background-color: $bgcolor;
   font-size: 0.9em;
   h1, h2, h3, h4, h5, h6 {
@@ -164,7 +165,8 @@
 	}
 
 	&:focus {
-		outline-color: darken( $button-border-color, 50% ) !important;
+		outline: 5px groove $focus-outline-color !important;
+		outline-offset: 2px !important;
 	}
 
 	&:hover{

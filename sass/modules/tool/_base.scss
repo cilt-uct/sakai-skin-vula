@@ -1,3 +1,4 @@
+
 .#{$namespace}pageColumns--single {
 	.#{$namespace}toolTitleNav__button_container {
 		top: -34px;
@@ -92,8 +93,16 @@
 				box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 				label{
 					font-size: $default-font-size;
-					margin: 5px 0 0 5px;
+					margin: -4px 0 0 5px;
 					vertical-align: middle;
+					&.dropDown_title {
+						display: block;
+					    font-size: 1.1rem;
+					    font-weight: 500;
+					    margin: 0;
+					    padding: 1px 0 5px 0;
+					    white-space: nowrap;
+					}
 				}
 				textarea{
 					display: block;
@@ -118,7 +127,7 @@
 
 		&:before {
 			@extend .fa;
-			text-align: center;
+			text-align: center; // UCT - change alignment
 		}
 
 		@media #{$tablet}{
@@ -129,6 +138,7 @@
 			@extend .fa-link;
 			/*position: absolute;
 			right: #{$icon-size * 1.5};*/
+			// UCT - no display
 			span {
 				display: none;
 			}
@@ -136,6 +146,7 @@
 		&--help-popup{
 			@extend .fa;
 			@extend .fa-question;
+			// UCT - no display
 			span {
 				display: none;
 			}
@@ -162,7 +173,7 @@
 
 .#{$namespace}toolBody{
 	background: $tool-background-color;
-	//border-bottom: 1px solid $tool-border-color;
+	//border-bottom: 1px solid $tool-border-color; UCT - no bottom border
 	iframe{
 		margin: 0 0 0 0;
 		width: 100%;
@@ -170,18 +181,18 @@
 }
 
 body > .portletBody, .portletBody {
-	// UCT - ovverride tool_base.css
+	// UCT - override tool_base.css
 	background: $tool-background-color;
 	padding: $default-font-size $default-font-size 40px $default-font-size;
 	margin: 0 0.3em;
 	font-family: $font-family;
-
+	
 	@media #{$phone}{
 		margin: 2.3em 0 0 0;
 	}
 	> * {
 		position: relative;
-		//top: -2px;
+		//top: -2px; UCT - adjust spacing
 	}
 	> .modal {
 		position: fixed;

@@ -31,7 +31,7 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		margin: 0 0 0.4em 0;
+		margin:  0 0 0.4em 0; // UCT a bit more spacing
 
 		box-shadow: inset 0 0 5px rgba(0,0,0,0.25);
 		@include transition( top 0.25s linear 0s );
@@ -88,6 +88,13 @@
 						right: 0;
 						top: 10%;
 						border-right: 1px solid $tool-menu-item-separator-color;
+					}
+				}
+				
+				a.#{$namespace}skipNav--toolName {
+					color: $link-color;
+					&::after {
+						border-right: 0px none;
 					}
 				}
 			}
