@@ -110,16 +110,17 @@
 		//  	}
 		//  }
 
-		// UCT - resize search fields
+		// UCT - reposition search fields
 		.inlineForm {
 			position: relative;
 		}
 		.searchField{
+			padding: 0.14em 0.12em;
 			margin-left: 1.4em;
-			padding: 0.14em 0.2em;
-			min-width: 18em;
+			height: 2.4em;
 			position: relative;
-			top: 0px;
+			top: 1px;
+			right: -8px;
 		 }
 	}
 	li:first-child {

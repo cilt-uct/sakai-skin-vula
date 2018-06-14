@@ -66,7 +66,8 @@ body.is-logged-out{
 			border-bottom: 1px solid transparent;
 
 			&:hover{
-				border-bottom: 1px solid $breadcrumbs-hover-color;
+				// UCT - no underline
+				//border-bottom: 1px solid $breadcrumbs-hover-color;
 
 				.#{$namespace}breadcrumb--icon{
 					display: none;
@@ -115,7 +116,7 @@ body.is-logged-out{
 		}
 		a.#{$namespace}hierarchy--toolName:hover{
 			color: $breadcrumbs-tool-color;
-			//border-bottom: 1px solid $breadcrumbs-hover-color; UCT- no underline
+			//border-bottom: 1px solid $breadcrumbs-hover-color; UCT - no underline
 		}
 		
 		.#{$namespace}hierarchy--serviceName, .#{$namespace}hierarchy--serviceNameSeparator{

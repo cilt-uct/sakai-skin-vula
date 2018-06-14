@@ -244,3 +244,26 @@
 
 
 }
+
+// UCT - override forum header
+body > .portletBody, .portletBody {
+	.forumHeader, .topicBloc {
+
+		td { 
+			a {
+				font-size: 0.86em;
+			}
+			.title {
+				font-size: 1.2em;
+			}
+		}
+	}
+
+	.topicBloc {
+		td {
+			.title {
+				font-size: 1.1em;
+			}
+		}
+	}
+}

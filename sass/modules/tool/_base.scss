@@ -204,15 +204,15 @@ body > .portletBody, .portletBody {
 	}
 
 	h1 {
-		font-size: 1.6em;
+		font-size: 1.45em;
 	}
 
 	h2 {
-		font-size: 1.4em;
+		font-size: 1.35em;
 	}
 
 	h3, h4 {
-		font-size: 1.2em;
+		font-size: 1.25em;
 
 			// UCT wikiStyle override
 			&.heading-h1 {
@@ -228,21 +228,21 @@ body > .portletBody, .portletBody {
 			}	
 	}
 
-		table {
+	table {
 
-			h1 {
-				font-size: 1.2em;
-			}
-
-			h2 {
-				font-size: 1.1em;
-			}
-
-			h3, h4 {
-				font-size: 1em;
-			}
-
+		h1 {
+			font-size: 1.2em;
 		}
+
+		h2 {
+			font-size: 1.1em;
+		}
+
+		h3, h4 {
+			font-size: 1em;
+		}
+
+	}
 
 	.page-header {
 		padding-bottom: 0; //(($line-height-computed / 2) - 1);
