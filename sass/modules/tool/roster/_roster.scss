@@ -202,3 +202,15 @@
         }
     }
 }
+
+// UCT - spacing on label and search field 
+.#{$namespace}sakai-site-roster {
+    .filterLabel {
+        padding-right: 0.5em;
+    }
+
+    #roster_form\:search{
+        margin-right: 0.5em;
+        padding: 0.2em 0.3em;
+    }
+}

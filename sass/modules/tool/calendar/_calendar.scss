@@ -369,6 +369,7 @@ body > .portletBody {
 
 	.calSelectedDay {
 		border: 1px dashed #000 !important;
+		font-weight: bold; // UCT - emphasis on selected
 	}
 
 	.calDayWithActivity {
@@ -382,11 +383,12 @@ body > .portletBody {
 		text-align: center;
 	}
 
+	// UCT - lighter grey and not italic
 	.calOtherDayWithNoActivity {
 		background-color: transparent;
 		border: 0px solid white;
-		color: $color-gray;
-		font-style: italic;
+		color: lighten($color-gray,15%);
+		font-style: normal;
 		text-align: center;
 	}
 

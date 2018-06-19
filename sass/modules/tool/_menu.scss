@@ -65,6 +65,7 @@
 				height: $tool-tab-height;
 				display: block;
 				margin-bottom: -1px;
+				bottom: -1px;
 
 				&:before {
 					border-top: 4px solid $tool-tab-active-highlight-color;
@@ -185,5 +186,11 @@
 
 	.floatRight {
 		float: right;
+	}
+
+	// UCT - search field style
+	input.searchField {
+		border: 1px solid #ccc;
+		padding: 3px 3px 4px;
 	}
 }

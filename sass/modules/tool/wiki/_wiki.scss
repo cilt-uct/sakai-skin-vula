@@ -1,0 +1,18 @@
+// UCT additional style for wiki
+.#{$namespace}sakai-rwiki {
+    .actionToolBar {
+        #homeLink, #viewLink, #editLink, #infoLink, #historyLink, #watchLink {
+            padding-left: 2.6em !important;
+            line-height: 2.3em;
+            background-position-x: 10px;
+        }
+    }
+
+    .viewNav h3.breadcrumb {
+        padding: 0.4em;
+    }
+
+    .editToolBarContainer, .previewToolBarContainer, .autosaveToolBarContainer {
+        height: auto;
+    }
+}

@@ -2,6 +2,10 @@
 
 	ul, ol {
 		padding-top: 0;
+
+		&.breadcrumb {
+			padding: 8px 15px;
+		}
 	}
 
 	input, textarea{
@@ -240,9 +244,43 @@
 	.dz-error-message{
 		top: 150px !important;
 	}
-	
+
+	// UCT - redefine the drop down preview
+	.dropzone {
+		.dz-preview, .dz-preview.dz-file-preview {
+			.dz-image {
+				border-radius: $main-border-radius;
+			}
+
+			.dz-remove {
+				text-decoration: none;
+				font-size: 0.9em;
+				color: $link-color;
+
+				&:hover {
+					color: $link-hover-color;
+				}
+
+				&:active {
+					color: $link-active-color;
+				}
+			}
+			
+			.dz-progress {
+				z-index: $z-10; // not over other items
+				width: 100px;
+				left: 42%;
+				border-radius: $main-border-radius;
+			}
+		}
+
+		.dz-preview:not(.dz-processing) .dz-progress {
+			animation: none;
+		}
+	}
+
 	/* SAK-32371 : Resources doesnt use font awesome icons */
-	/* UCT - only do this for inside links */
+	// UCT - only do this for inside links
 	.portletBody .fa {
 		display : inline;
 		color : $primary-color;

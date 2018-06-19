@@ -242,7 +242,10 @@
 		}
 	}
 
-
+	// UCT - spacing of more arrow
+	.moreMenuLink span {
+		padding-right: 17px;
+	}
 }
 
 // UCT - override forum header
@@ -264,6 +267,35 @@ body > .portletBody, .portletBody {
 			.title {
 				font-size: 1.1em;
 			}
+		}
+	}
+
+	// UCT - forum printing icon a bit bigger and easier to click
+	#printIcon {
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px; // $main-border-radius;
+		text-align: center;
+		padding: 8px;
+		margin-left: 10px;
+	}
+
+	#printIcon + a {
+		border: 1px solid #ccc;
+		display: inline-block;
+		border-radius: 4px; // $main-border-radius;
+		text-align: center;
+		padding: 5px 11px;
+		margin-left: 10px;
+		text-decoration: none;
+		position: relative;
+		top: 5px;
+		
+		&:after{
+			content: "X";
+			font-size: 14px;
+			font-weight: bold;
+			color: #333;
 		}
 	}
 }
