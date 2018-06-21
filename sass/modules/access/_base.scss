@@ -80,7 +80,7 @@
 			// }
 		}
 		p:last-child {
-			padding-right: 0.8em; // UCT: Forgot password link at the bottom
+			padding-right: 0.8em; // UCT - Forgot password link at the bottom
 			a{
 				font-size:0.9em;
 			}
@@ -138,7 +138,7 @@
 		padding: 2em 1em;
 		text-align: center;
 		@include display-flex( inline-flex );
-		flex-direction: row-reverse; // UCT reverse order
+		flex-direction: row-reverse; // UCT - reverse order of the buttons
 		justify-content: center;
 	}	
 
@@ -194,7 +194,7 @@
 	background: $background-color url("images/capsLock.png") no-repeat right;
 }
 
-// UCT 
+// UCT - change login form inputs
 .login-password-form {
 	
 	input[type="text"], input[type="password"] {
