@@ -1,0 +1,21 @@
+// UCT - additional style for sections
+.#{$namespace}sakai-sections {
+
+    .portletBody {
+
+        table {
+            
+            tr:first-child td:first-child:empty {
+                display:none;
+            }
+        }
+        
+        #optionsForm\:openSwitch {
+            margin-right: 12px;
+        }
+
+        #optionsForm\:openDate {
+            text-align: center;
+        }
+    }
+}

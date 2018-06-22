@@ -1,0 +1,14 @@
+// UCT - additional style for postem
+.#{$namespace}sakai-postem {
+
+    .portletBody {
+
+        table {
+            margin-top: 0.8em;
+            
+            tr:first-child td:first-child:empty {
+                display:none;
+            }
+		}
+    }
+}

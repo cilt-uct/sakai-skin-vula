@@ -1,0 +1,20 @@
+// UCT - additional style for gradebookng
+.#{$namespace}sakai-gradebookng {
+
+    .panel-heading > .panel-title > a {
+        text-decoration: none;
+    }
+
+    .row .pull-right {
+        a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 0.2em;
+            margin-right: 0.6em;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}

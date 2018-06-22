@@ -111,10 +111,14 @@
                 .commons-post-options {
                     font-size: smaller;
                     margin-top: 8px;
-                }
-                    .commons-post-options a {
+
+                    // UCT - spacing of option links
+                    a {
                         text-decoration: none !important;
+                        margin-right: 0.2em;
+                        padding: 0.2em;
                     }
+                }
                 .commons-post-edit-buttons {
                     display: none;
                 }

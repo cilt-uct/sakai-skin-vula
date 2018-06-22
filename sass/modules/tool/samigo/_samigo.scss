@@ -19,6 +19,15 @@
 		@extend .bs-callout-primary;
 		border-left-width: 1px;
 		margin-top: 0;
+		width: 40%; // UCT - define the size, bit smaller
+	}
+
+	#samigo-create-new-box {
+		margin-left: 20px; // UCT - move it in a bit
+	}
+
+	#samigo-create-or-box {
+		width: 8.3333333333%; // UCT - define the size, same size
 	}
 
 	.samigo-question-callout {
@@ -247,4 +256,22 @@
 		margin: 0px !important;
 	}
 
+	// UCT - samigo container
+	.samigo-container {
+
+		table tr:first-child td:first-child:empty {
+			display:none;
+		}
+
+		.ui-tabs .ui-tabs-nav {
+			background-color: inherit;
+			border-top-width: 0px;
+			border-left-width: 0px;
+			border-right-width: 0px;
+			.ui-state-active {
+				border-color: $color-secondary;
+				background-color: rgba($color-secondary, 0.3);
+			}
+		}
+	}
 }

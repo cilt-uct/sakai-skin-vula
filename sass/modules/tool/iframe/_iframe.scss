@@ -6,6 +6,10 @@
 		}
 	}
 
+	// UCT - width auto so that the drop down is displayed properly
+	.icons-selector .selector {
+		width: auto;
+	}	
 }
 
 .#{$namespace}toolBody--sakai-iframe-site{
