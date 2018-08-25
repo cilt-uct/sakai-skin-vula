@@ -562,6 +562,12 @@ body.is-logged-out{
 				margin-right: 0;
 			}
 		}
+                .textlink {
+                        line-height: 2.3em;
+                        display: inline-block;
+                        padding: 2px 0 0;
+                        vertical-align: top;
+                 }
 
 		// UCT - add border and some changes on hover
 		.#{$namespace}userNav__pic-changer{
