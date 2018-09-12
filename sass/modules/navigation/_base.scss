@@ -492,7 +492,8 @@ body.is-logged-out{
 
 		.#{$namespace}userNav__submenuitem--username, .#{$namespace}userNav__submenuitem--userid{
 			display: inline-block;
-			max-width: 100px;
+			min-width: 100px; // UCT - to fit in longer names
+			max-width: 160px;
 			overflow: hidden;
 			position: relative;
 			text-overflow: ellipsis;
