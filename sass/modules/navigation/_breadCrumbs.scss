@@ -83,6 +83,10 @@ body.is-logged-out{
 			.#{$namespace}breadcrumb--reset-icon{
 				display: none;
 			}
+
+			> span:last-child{
+				padding-left: 5px; // UCT - add spacing next to icon
+			}
 		}
 
 		.Mrphs-hierarchy--parent-sites{
@@ -110,7 +114,7 @@ body.is-logged-out{
 		.#{$namespace}hierarchy--siteName a:hover .#{$namespace}hierarchy--siteName-label {
 			text-decoration: none; // UCT - no underline
 		}
-		
+
 		a.#{$namespace}hierarchy--toolName{
 			display: none;
 		}
@@ -118,7 +122,7 @@ body.is-logged-out{
 			color: $breadcrumbs-tool-color;
 			//border-bottom: 1px solid $breadcrumbs-hover-color; UCT - no underline
 		}
-		
+
 		.#{$namespace}hierarchy--serviceName, .#{$namespace}hierarchy--serviceNameSeparator{
 			display: none;
 		}
