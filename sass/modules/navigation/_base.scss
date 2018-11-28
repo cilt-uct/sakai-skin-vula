@@ -1,9 +1,9 @@
 body.is-logged-out{
 	.#{$namespace}loginUser{
 		// UCT - login screen
-		> p > a { 
+		> p > a {
 			@extend .button;
-		}	
+		}
 		li{
 			a{
 				.login-Icon{
@@ -28,7 +28,7 @@ body.is-logged-out{
 
 	// UCT - Sites not shown when not logged in
 	li.#{$namespace}skipNav__menuitem--worksite {
-		display: none; 
+		display: none;
 	}
 }
 
@@ -42,7 +42,7 @@ body.is-logged-out{
 		padding: 0 1em;
 		height: $banner-height;
 		background: $top-header-background;
-		@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient 
+		@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient
 
 		text-align: center;
 		@include transition( width 0.5s linear 0s );
@@ -224,7 +224,7 @@ body.is-logged-out{
 
 .#{$namespace}topHeader{
 	background: $top-header-background;
-	@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient 
+	@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient
 	color: $background-color;
 	font-size: 1em;
 	height: auto;
@@ -491,14 +491,16 @@ body.is-logged-out{
 		position: relative;
 
 		.#{$namespace}userNav__submenuitem--username, .#{$namespace}userNav__submenuitem--userid{
-			display: inline-block;
-			min-width: 100px; // UCT - to fit in longer names
-			max-width: 160px;
-			overflow: hidden;
-			position: relative;
-			text-overflow: ellipsis;
 			text-decoration: none;
-			white-space: nowrap;
+
+			span.textlink {
+				display: inline-block;
+				max-width: 100px;
+				overflow: hidden;
+				position: relative;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
 		}
 	}
 
@@ -573,8 +575,8 @@ body.is-logged-out{
 		// UCT - add border and some changes on hover
 		.#{$namespace}userNav__pic-changer{
 			overflow: hidden;
-			background-color: $color-graylight; 
-			border: 1px solid $color-gray; 
+			background-color: $color-graylight;
+			border: 1px solid $color-gray;
 			&:hover, &:active
 			{
 				border-color: $sites-nav-menu-item-hover-border-color;
@@ -748,7 +750,7 @@ body.is-logged-out{
 	padding-right: 1em;
 	border-right: 1px solid $tool-border-color;
 	white-space: nowrap;
-	
+
 	// UCT - add opacity on bullhorns
 	> a {
 		padding: 0.4em;
@@ -1000,7 +1002,7 @@ body.is-logged-out{
 					> a {
 						border-bottom-right-radius: $main-border-radius;
 						border-bottom-left-radius: $main-border-radius;
-					}	
+					}
 				}
 
 				&.is-visible{
@@ -1091,7 +1093,7 @@ body.is-logged-out{
 
 				a{
 					// UCT - home icon spacing
-					> span:first-child { 
+					> span:first-child {
 						padding-right: 0.6rem;
 						padding-left: 0.4em;
 					}
@@ -1153,7 +1155,7 @@ body.is-logged-out{
 							display: block;
 							font-size: 0.82em;
 						}
-						
+
 						//> a:after {
 						//	font-family: FontAwesome;
 						//	content: '\f178';
