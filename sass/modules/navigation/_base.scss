@@ -500,6 +500,10 @@ body.is-logged-out{
 				position: relative;
 				text-overflow: ellipsis;
 				white-space: nowrap;
+				@media #{$phone}
+				{
+					display: none; // UCT - on mobile the name is hidden - avatar still visible
+				}
 			}
 		}
 	}
@@ -565,12 +569,12 @@ body.is-logged-out{
 				margin-right: 0;
 			}
 		}
-                .textlink {
-                        line-height: 2.3em;
-                        display: inline-block;
-                        padding: 2px 0 0;
-                        vertical-align: top;
-                 }
+		.textlink {
+			line-height: 2.3em;
+			display: inline-block;
+			padding: 2px 0 0;
+			vertical-align: top;
+		}
 
 		// UCT - add border and some changes on hover
 		.#{$namespace}userNav__pic-changer{
@@ -594,11 +598,13 @@ body.is-logged-out{
 				}
 			}
 		}
+		/* UCT - Display Avatar
 		.#{$namespace}userNav__submenuitem--username, .#{$namespace}userNav__submenuitem--userid{
 			@media #{$phone}{
 				display: none;
 			}
 		}
+		*/
 	}
 
 	.#{$namespace}loginUser{
