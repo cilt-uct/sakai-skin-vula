@@ -295,6 +295,7 @@ nav#subSites{
 	ul{
 		padding: 0;
 		margin:  0;
+		list-style-position: unset; // UCT - wiki fix VULA-3353
 		li{
 			border-bottom: 1px solid $tool-menu-item-separator-color;
 
