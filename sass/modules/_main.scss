@@ -18,134 +18,77 @@
 
 #pageBody{
 	@include align-items(stretch);
-	@include display-flex(flex);
+	@include display-flex;
 	@include flex-direction(row);
+
 	> .#{$namespace}pagebody{
+		@include display-flex;
+		@include flex-direction(column);
 		width: 100%;
 	}
 }
 
-#content, .#{$namespace}container--footer{
+#content {
+	@include display-flex();
+	@include flex-wrap(wrap);		// allows the site unpublished banner to be on its own line at 100%
 	margin: 0;
 	width: 100%;
 
-	@media #{$nonPhone} {
-		#col1of2, #col2of2{
-			margin: 0 0 0 1%;
-			vertical-align: top;
-	    display: inline-block;
-    }
-		#col1of2 {
-      width: $col1of2-width;
-    }
-    #col2of2 {
-      width: $col2of2-width;
-    }
-  }
+	@media #{$tablet} {
+		@include flex-direction(column);
+	}
+
+	@media #{$phone} {
+		margin: 0;
+		padding-top: $standard-spacing; // make way for the button container
+	}
+
+	#col1of2, #col2of2 {
+		@include flex-shorthand(1, 1, 0); 	// flex: 1 1 0; vs flex: 1; because of IE11 bug
+		display: inline-block;
+		margin: 0 0 $standard-spacing $standard-spacing;
+		vertical-align: top;
+
+		@media #{$tablet} {
+			display: block;
+			margin-right: $standard-spacing; 	// space on the right of the column view
+		}
+	}
+	#col1of2 {
+		min-width: $col1of2-width;
+	}
+	#col2of2 {
+		min-width: $col2of2-width;
+		margin-right: $standard-spacing;		// space on the end
+	}
 }
 
-.#{$namespace}mainContent{
+.#{$namespace}mainContent {
 	background: $main-content-background;
-	padding-top: 1em;
 }
 
-#content {
-	@media #{$phone}{
-		margin: 0;
-		padding-top: 2em; // make way for the button container
-	}
-}
-
-.#{$namespace}pageColumns--single, .#{$namespace}footer{
-	margin: 0 1em;
+.#{$namespace}pageColumns--single {
+	margin: 0;
 	clear: both;
+	width: 100%;
+
 	@media #{$phone}{
 		margin: 0;
 	}
+
+	.#{$namespace}container {
+		margin: 0 $standard-spacing;
+	}
 }
 
-.#{$namespace}container--footer{
+// Note: this is the footer container; see _footer.scss for the rest of the design of the footer
+.#{$namespace}container--footer {
+	margin-top: auto; 	// push the footer to the bottom of the page
 	background-color: $footer-background-color;
 	//border-top: $footer-border; moved down to ul first child
 }
 
-.#{$namespace}footer{
-	color: $footer-color;
-	padding: 0.8em;
-	font-size: 0.66em;
-	text-align: center;
-
-	ul {
-		margin: 0;
-		padding: 0;
-	}
-
-	ul > li {
-		display: inline-block;
-		list-style: none;
-	}
-
-	.#{$namespace}footer--nav__project--copyright {
-		display: none;
-	}
-
-	ul:first-child {
-		border-top: $footer-border; // border moved down to top of first child
-	}
-
-	a {
-		color: $footer-color;
-		text-decoration: none;
-
-		&:hover, &:active {
-			text-decoration: underline;
-		}
-	}
-
-	#footer-links{
-		list-style: none;
-		padding: 0.7em 1em 0.6em;
-
-		a {
-			font-size: 1.1em;
-			border-left: 1px solid shade( $footer-background-color, 20%);
-			padding: 0 0.6em 0 0.8em;
-		}
-
-		li{
-			display: inline-block;
-		}
-		li:first-child {
-			a {
-				border-left-width: 0px;
-			}
-		}
-	}
-
-	p {
-		margin: 0;
-		font-size: 0.9em;
-	}
-
-	ul.#{$namespace}footer--nav__build__list {
-		li:before {
-			content: " - ";
-		}
-		li:first-child::before {
-			content: "";
-		}
-	}
-
-	.#{$namespace}footer--nav__project {
-		display: none; // UCT - reduce footer
-	}
-	.#{$namespace}footer--nav__project--copyright {
-		display: none; // UCT - reduce footer
-	}
-}
-
-.#{$namespace}noJs.js-warn-no-js
-{
+.#{$namespace}noJs.js-warn-no-js {
 	position: fixed;
 	bottom: 0;
 	left: 10%;
