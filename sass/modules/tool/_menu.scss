@@ -1,5 +1,5 @@
 .navIntraTool{
-	margin: 0 -14px 0 -14px;
+	margin: 0;
 	border-bottom: 1px solid $tool-border-color;
 	padding: 0 1em 0 0;
 	//max-width: calc(100% - 170px);
@@ -34,7 +34,7 @@
 				text-transform: $tool-tab-text-transform;
 				letter-spacing: $tool-tab-text-letter-spacing;
 
-				&:hover{
+				&:hover, &:focus {
 					color: $tool-tab-hover-text-color;
 					background: $tool-tab-hover-background-color;
 					text-decoration: none;
@@ -49,7 +49,12 @@
 						right: -1px;
 						top: -1px;
 					}
-			  	}
+                }
+
+				&:focus {
+					position: relative;		// so the outline doesn't get hidden by adjacent tabs
+					outline-offset: -#{$focus-outline-width};	// to match the width of the default link focus to fit in the tool's link container
+				}
 			}
 			&.current{
 				color: $tool-tab-active-text-color;
@@ -94,7 +99,7 @@
 						background: transparent;
 						text-decoration: none;
 						position: inherit;
-	
+
 						&:before{
 							display:none;
 						}
@@ -129,9 +134,9 @@
 			padding: 0 2px 0 0;
 			margin: 0 3px 0 0;
 
-			&.current{ 
+			&.current{
 				padding: 0 12px 0 12px;
-				margin: 0 5px 0 0;	
+				margin: 0 5px 0 0;
 
 				a{
 					padding: 0px !important;

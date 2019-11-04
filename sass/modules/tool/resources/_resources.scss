@@ -60,6 +60,23 @@
 					}
 				}
 			}
+			&.inactive {
+				* {
+					color: #333 !important;
+				}
+				.resource-name, .resource-access, .resource-creator, .resource-modified, .resource-size {
+					font-style: italic;
+				}
+				.not-available {
+					font-size: initial;
+				}
+				button {
+					border:1px solid #ccc !important;
+				}
+				.dropdown-menu a {
+					color:#000 !important;
+				}
+			}
 		}
 
 		td.attach{
@@ -218,16 +235,6 @@
 	.breadCrumb #navigatePanel + button {
 		padding-left:10px;
 	}
-	.inactive button {
-		color: #fff !important;
-		border:1px solid #ccc !important;
-	}
-	.inactive button span {
-		color: #fff !important;
-	}
-	.inactive .dropdown-menu a {
-		color:#000 !important;
-	}
 
 	fieldset legend h4 {
 		margin: 0;
@@ -239,7 +246,7 @@
 	.instruction {
 		margin-top: 0;
 	}
-	
+
 	/* SAK-32289 : Overlapping texts when uploading a new resource too big */
 	.dz-error-message{
 		top: 150px !important;
@@ -265,7 +272,7 @@
 					color: $link-active-color;
 				}
 			}
-			
+
 			.dz-progress {
 				z-index: $z-10; // not over other items
 				width: 100px;
@@ -290,9 +297,9 @@
 	// UCT - change drop down radius
 	.btn-group > .btn.resources-dropdown:first-child:not(:last-child):not(.dropdown-toggle) {
 		border-bottom-right-radius: 3px;
-		border-top-right-radius: 3px;	
+		border-top-right-radius: 3px;
 	}
-	
+
 	/* SAK-33897 - Restore + symbols in folders */
 	a.nil.fa-folder {
 		position: static;
@@ -326,5 +333,30 @@
 				margin: 0.85em 0 0 -2.2em;
 			}
 		}
+	}
+
+	a.highlightlink {
+		text-decoration: none;
+
+		span.iconText {
+			margin-right: 0.1em;
+		}
+	}
+
+	.show {
+		display: block;
+	}
+
+	.hide {
+		display: none;
+	}
+
+	label.copyrightAlert {
+		width: 15.5em;
+	}
+
+	div.alertMessage {
+		display: none;
+		clear: both;
 	}
 }

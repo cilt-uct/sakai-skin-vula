@@ -9,12 +9,18 @@
         background: url(/library/image/sakai/new_item_back_inst.png) center left no-repeat;
     }
 
-    .form-group {
+    .form-group { // UCT - form group input sizing
 
         input[name=right], input[name=dbright], input[name=left], input[name=dbleft] {
             min-width: 3em;
             margin: 0.8em;
         }
+    }
+
+    // The alertMessage div is hidden by default and will be rendered by js if form validation warnings are to be shown
+    div.alertMessage {
+        display: none;
+        clear: both;
     }
 }
 

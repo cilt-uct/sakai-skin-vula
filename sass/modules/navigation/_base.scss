@@ -32,14 +32,14 @@ body.is-logged-out{
 	}
 }
 
-	.#{$namespace}mainHeader{
+	.#{$namespace}mainHeader {
 		box-shadow: $divider-shadow;
 		position: relative;
 
-	.#{$namespace}headerLogo{
+	.#{$namespace}headerLogo {
 		width: 100%;
 		overflow: hidden;
-		padding: 0 1em;
+		padding: 0 $standard-spacing;
 		height: $banner-height;
 		background: $top-header-background;
 		@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient
@@ -56,7 +56,7 @@ body.is-logged-out{
 	}
 
 	.#{$namespace}loginUser{
-		@include display-flex( inline-flex );
+		display: inline-flex;
 		flex-direction: row-reverse; // UCT - button reverse order
 		li{
 			display: inline-block;
@@ -156,15 +156,14 @@ body.is-logged-out{
 			text-decoration: none;
 			color: $link-color; //$primary-color-highContrast;
 			line-height: 1em;
-			&:focus, &:hover, &:active
-			{
+			&:focus, &:hover, &:active {
 				// UCT - no underline and different background color
 				text-decoration: none;
 				color: $link-hover-color;
 				background-color: $sites-nav-submenu-item-hover-background;
 			}
-			.toolMenuIcon{
-				@extend .fa-fw;
+			.toolMenuIcon {
+				@extend .fa-fw;			// standardize the width of all icons for proper text alignment
 				vertical-align: sub;
 				margin: 0 0.5em 0 0;
 			}
@@ -233,7 +232,7 @@ body.is-logged-out{
 
 	a
 	{
-		@include display-flex( flex );
+		@include display-flex;
 		@include align-items( center );
 
 		color: $topNav-text-color;
@@ -248,17 +247,18 @@ body.is-logged-out{
 		}
 	}
 	.#{$namespace}loginNav{
-		float: right;
 		height: $banner-height;
 		@include flex-shrink( 0 );
-		@include display-flex( flex );
+		@include display-flex;
 		@include align-items( center );
 		@include justify-content( flex-end );
 
 		#roleSwitch {
-			padding-right: 1em;
-			margin-right: 1em;
-			border-right: 1px solid #F0F0F0;
+			@include display-flex;
+			@include align-items( center );
+			padding-right: $standard-spacing;
+			margin-right: $standard-spacing;
+			border-right: 1px solid $topNav-alt-color;
 			white-space: nowrap;
 
 				@media #{$phone} {
@@ -293,7 +293,7 @@ body.is-logged-out{
 			#roleSwitchDropDown {
 				@media #{$phone} {
 					position: absolute;
-					left: -100000000;
+					left: -100000000px;
 					height: 1px;
 					width: 1px;
 					overflow: hidden;
@@ -318,6 +318,7 @@ body.is-logged-out{
 
 				@media #{$phone} {
 					&.open {
+                        top: calc((#{$banner-height} / 2) + #{$default-font-size} + 4px); 	// half of the height of the banner plus the height of the line plus half the height of the arrow tip border (because it is a triangle)
 						left: auto;
 						height: auto;
 						width: auto;
@@ -326,8 +327,6 @@ body.is-logged-out{
 						padding: 1em;
 						z-index: 50;
 						overflow: visible;
-						min-width: 180px;
-						margin-top: 4px;
 
 						&:after {
 							bottom: 100%;
@@ -353,7 +352,8 @@ body.is-logged-out{
 			}
 
 			#roleSwitchAnchor {
-				text-decoration: none;
+                text-decoration: none;
+                text-transform: capitalize; 	// standardizes the capitalization of the first letter of each word, regardless of role name (e.g. "access" becomes "Access")
 				@media #{$phone} {
 					color: $primary-color;
 				}
@@ -377,7 +377,7 @@ body.is-logged-out{
 	}
 
 	@media #{$phone}{
-		@include display-flex( flex );
+		@include display-flex;
 		position: fixed;
 		width: 100%;
 		top: 0;
@@ -405,7 +405,7 @@ body.is-logged-out{
 	//}
 
 	@media #{$phone}{
-		width: 70%; // UCT - bigger login for phone
+        width: calc(100% - #{$logo-width}); // width: 70%; // UCT - bigger login for phone
 	}
 
 	ul{
@@ -423,7 +423,7 @@ body.is-logged-out{
 
 	#loginForm{
 
-		@include display-flex( flex );
+		@include display-flex;
 		@include align-items( center );
 		@include justify-content( flex-end );
 
@@ -465,7 +465,7 @@ body.is-logged-out{
 	}
 
 	#loginUser{
-		@include display-flex( flex );
+		@include display-flex;
 		@include align-items( center );
 
 		&.has-avatar:hover .#{$namespace}userNav__submenuitem--profilepicture,
@@ -636,9 +636,11 @@ body.is-logged-out{
 
 	#loginLinks{
 		font-family: $header-font-family;
-		margin: 0; // UCT - remove margins
+		margin: 0;
 		list-style: none;
-		padding: 0 1em; // UCT - and padding
+        padding: 0 0 0 $standard-spacing;
+		@include display-flex;
+        @include align-items(center);
 
 		@media #{$phone}
 		{
@@ -741,7 +743,7 @@ body.is-logged-out{
 /* because #loginLinks appears on the Gateway page when two log-in links are available (e.g. for CAS), the following applies only when you are logged in: */
 .is-maximized #loginLinks
 {
-	border-left: 1px solid $tool-border-color;
+	border-left: 1px solid $topNav-alt-color;
 }
 
 .#{$namespace}sitesNav__menu{
@@ -753,8 +755,8 @@ body.is-logged-out{
 .portal-bullhorns-buttons{
 	position: relative;
 	display: inline-block;
-	padding-right: 1em;
-	border-right: 1px solid $tool-border-color;
+	padding-right: $standard-spacing;
+	border-right: 1px solid $topNav-alt-color;
 	white-space: nowrap;
 
 	// UCT - add opacity on bullhorns
@@ -784,7 +786,7 @@ body.is-logged-out{
 .view-all-sites-btn{
 	position: relative;
 	display: inline-block;
-	padding: 0 1em;
+	padding: 0 $standard-spacing;
 
 	@media #{$phone}{
 		display: none;
@@ -825,15 +827,15 @@ body.is-logged-out{
 		fontawesome.css which adjusts the size of our icon unless
 		we override it. */
 	font-size: 16pt !important;
-	padding-right: 4px;
+	padding-right: $standard-space;
 }
 #topnav_container
 {
-	@include display-flex(flex);
-	padding-left: 0.5em;
+	@include display-flex;
+	@include align-items(center);
 	background-color: $sites-nav-background;
-	min-height: 52px;
-	padding: 4px 8px;
+	min-height: $banner-height;
+	padding: 0 $standard-spacing;		// space on the sides; top and bottom spacing will be determined by children
 }
 
 #linkNav{
@@ -841,28 +843,51 @@ body.is-logged-out{
 		@include display-flex(flex);
 		@include flex-wrap( wrap );
 		font-family: $header-font-family;
-		margin: 0.5em 0 0 0;
-		padding: 0;
+		margin: $standard-spacing 0 0 0;
+        padding: 0;
+
 		li.#{$namespace}sitesNav__menuitem{
-			margin: 0 0.8em 0.5em 0; // uct - bit more spacing
+			@include display-flex;
+			@include align-items(center);
+			margin: 0 $standard-spacing $standard-spacing 0;	// space the items apart, and space vertically if wrapped
 			padding: 0;
-			position: relative;
-			border-top: $sites-nav-menu-item-border-top;
-			border-right: $sites-nav-menu-item-border-right;
-			border-bottom: $sites-nav-menu-item-border-bottom;
-			border-left: $sites-nav-menu-item-border-left;
-			background: $sites-nav-menu-item-background;
+            position: relative;
 
 			> a.link-container{
-				@include display-flex( flex );
+				@include display-flex;
 				@include align-items( center );
 
-				padding: 0.5em 36px 0.5em 0.5em;
+                border-top: $sites-nav-menu-item-border-top;
+                border-right: $sites-nav-menu-item-border-right;
+                border-bottom: $sites-nav-menu-item-border-bottom;
+                border-left: $sites-nav-menu-item-border-left;
+                background: $sites-nav-menu-item-background;
+                padding: ($standard-space * 2);
 				color: $sites-nav-menu-item-color;
 				text-decoration: none;
 
 				i.fa {
 					color: $sites-nav-menu-item-icon-color;
+				}
+
+				&:hover, &:focus {
+					border-top: $sites-nav-menu-item-hover-border-top;
+					border-right: $sites-nav-menu-item-hover-border-right;
+					border-bottom: $sites-nav-menu-item-hover-border-bottom;
+					border-left: $sites-nav-menu-item-hover-border-left;
+					background: $sites-nav-menu-item-hover-background;
+
+					~ .#{$namespace}sitesNav__drop, ~ .#{$namespace}sitesNav__dropdown {
+						border-left: $sites-nav-menu-item-hover-border-left; 		// so the right border of the .link-container will show through the overlapping box
+					}
+				}
+
+				&:focus {
+					outline-offset: -#{$focus-outline-width};	// to match the width of the default link focus to fit in the link container
+				}
+
+				&:active {
+					outline: 0 none;	// hiding on click
 				}
 			}
 
@@ -878,84 +903,84 @@ body.is-logged-out{
 				}
 			}
 
-			&.dropdown-is-visible, &:hover {
-				border-top: $sites-nav-menu-item-hover-border-top;
-				border-right: $sites-nav-menu-item-hover-border-right;
-				border-bottom: $sites-nav-menu-item-hover-border-bottom;
-				border-left: $sites-nav-menu-item-hover-border-left;
-				background: $sites-nav-menu-item-hover-background;
-			}
-
-			&.dropdown-is-visible {
+            &.dropdown-is-visible {
 				&:after {
-					border-bottom: 1px solid $sites-nav-submenu-topleft-border-color;
 					content: "";
-					width: 100%;
+					border-bottom: $sites-nav-menu-item-border-thickness solid $sites-nav-submenu-topleft-border-color;
+					width: 100%; // fallback for browsers who don't calculate nested equations
+					width: calc(100% - (2 * #{$sites-nav-menu-item-border-thickness}));	// width minus the left and right border widths
 					position: absolute;
-					bottom: -1px;
-					left: 0;
+					bottom: 0;
+					left: $sites-nav-menu-item-border-thickness;					// left border width
 					z-index: 100;
 				}
+
+				.link-container{
+					border-top: $sites-nav-menu-item-hover-border-top;
+					border-right: $sites-nav-menu-item-hover-border-right;
+					border-bottom: $sites-nav-menu-item-hover-border-bottom;
+					border-left: $sites-nav-menu-item-hover-border-left;
+					background: $sites-nav-menu-item-hover-background;
+				}
 			}
 
-			span
-			{
+			span {
 				line-height: 1;
 			}
-			.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown {
-				// UCT - fix the spacing and size of dropdown
-				outline: 0;
-                text-align: right;
-                padding: 0.26em 0.3em;
-                cursor: pointer;
-                display: inline-block;
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translate(0%,-50%);
-                text-decoration: none;
-                color: $sites-nav-menu-item-icon-color;
-                border: none;
+            .#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
+				text-align: center;
+				text-decoration: none;
+				color: $sites-nav-menu-item-icon-color;
+				margin-left: -#{$sites-nav-menu-item-border-thickness}; 					// to overlap the left border with the site title's border, so border thickness will remain 1px and hover will still work
+				padding: ($standard-space * 2);
+				width: $default-font-size; 			// to match the height
+				height: $default-font-size;			// to match the link text size
+				box-sizing: content-box;			// to allow width and height control the size to match the site title link text
+				border-top: $sites-nav-menu-item-border-top;
+				border-right: $sites-nav-menu-item-border-right;
+				border-bottom: $sites-nav-menu-item-border-bottom;
+				border-left: $sites-nav-menu-item-border-left;
+				background: $sites-nav-menu-item-background;
 
-				@include sakai-fa-icon($fa-var-angle-down, after, inline-block);
-                @extend .fa-lg;
-                //@extend .sitesNav__drop;
+				@extend .fa-angle-down;
+				@extend .fa;
+				@extend .fa-lg;
+				@extend .sitesNav__drop;
 
 				&.is-clicked{
-					// UCT - Transform is more stable than rotate
-					//@include transform( rotate(180deg) );
-					//top: 40%;
-					@include transform( scaleY(-1) );
-                    top: 0%;
+					@include transform( rotate(180deg) );
+					top: 40%;
+					border-right: $sites-nav-menu-item-hover-border-left;	// using the left variable because of the item rotation (right is left)
+					border-bottom: $sites-nav-menu-item-hover-border-top;	// using top variable because of the item rotation (bottom is top)
+					border-left: $sites-nav-menu-item-hover-border-right;	// using the right variable because of the item rotation (left is right)
+					background: $sites-nav-menu-item-hover-background;
 				}
 
-				&:hover {
+				&:hover, &:focus {
+					border-top: $sites-nav-menu-item-hover-border-top;
+					border-right: $sites-nav-menu-item-hover-border-right;
+					border-bottom: $sites-nav-menu-item-hover-border-bottom;
+					border-left: $sites-nav-menu-item-hover-border-left;
+					background: $sites-nav-menu-item-hover-background;
 					color: $sites-nav-menu-item-hover-icon-color;
-
-					// UCT - add hover on border too
-                    &:before {
-                        border-left-color: $sites-nav-menu-item-hover-border-color;
-                    }
 				}
 
-				// UCT - better line distinction
-				&:before {
-                    content: "";
-                    position: absolute;
-                    height: 74%;
-                    border-left: 1px solid tint($sites-nav-menu-item-border-color, 10%);
-                    top: 13%;
-                    margin-left: -0.3em;
-                }
+				&:focus {
+					outline-offset: -#{$focus-outline-width};	// to match the width of the default link focus to fit in the link container
+				}
+
+				&:active {
+					outline: 0 none;	// hiding on click
+				}
 			}
-			ul{
+			ul {
 				background: $sites-nav-menu-item-background;
 				display: none;
 				font-family: $header-font-family;
 				position: absolute;
-				border: 1px solid $sites-nav-submenu-border-color;
-				margin-top: 0;
-				margin-left: -1px;
+				border: $sites-nav-menu-item-border-thickness solid $sites-nav-submenu-border-color;
+				top: calc( #{$default-font-size} + ( #{$standard-space} * 2) - #{$sites-nav-menu-item-border-thickness});	// 1px for item border
+				left: 0;
 				width: 17em;
 				z-index: 99;
 
@@ -973,17 +998,18 @@ body.is-logged-out{
 					min-height: 15px;
 
 					a{
-						display: block;
-						padding: 0.5em 0.65em;
+						@include display-flex;
+						@include align-items(center);
+						padding: $standard-spacing;
 						text-decoration: none;
 						color: $sites-nav-submenu-item-color;
 						font-size: $sites-nav-submenu-item-text-size;
 						line-height: 1em;
-						&:hover, &:active
-						{
+						&:hover, &:active {
 							color: $sites-nav-submenu-item-color; /* to override default link hover color */
 						}
 						.toolMenuIcon{
+                            @extend .fa-fw;
 							vertical-align: sub;
 							margin: 0;
 						}
@@ -991,12 +1017,10 @@ body.is-logged-out{
 					.#{$namespace}sitesNav__submenuitem-icon {
 						display: inline-block;
 						vertical-align: middle;
-						padding: 0 10px;
+						padding: 0 $standard-spacing 0 0;
 					}
 					.#{$namespace}sitesNav__submenuitem-title {
-						margin-bottom: 2px;
 						display: inline-block;
-						width: 80%;
 					}
 				}
 
@@ -1014,28 +1038,39 @@ body.is-logged-out{
 				&.is-visible{
 					display: block;
 				}
-				&.is-hidden{
+				&.is-hidden {
 					display: none;
 				}
 
 			}
-			&.is-selected{
-				background: $sites-nav-menu-item-selected-background;
-				border-top: $sites-nav-menu-item-selected-border-top;
-				border-right: $sites-nav-menu-item-selected-border-right;
-				border-bottom: $sites-nav-menu-item-selected-border-bottom;
-				border-left: $sites-nav-menu-item-selected-border-left;
+			&.is-selected {
+                a.link-container {
+                    background: $sites-nav-menu-item-selected-background;
+                    border-top: $sites-nav-menu-item-selected-border-top;
+                    border-right: $sites-nav-menu-item-selected-border-right;
+                    border-bottom: $sites-nav-menu-item-selected-border-bottom;
+                    border-left: $sites-nav-menu-item-selected-border-left;
+                    color: $sites-nav-menu-item-selected-color;
 
-				a.link-container{
-					color: $sites-nav-menu-item-selected-color;
 					i.fa {
 						color: $sites-nav-menu-item-selected-icon-color;
 					}
 					// UCT - spacing on span in selected link
-					span
-					{
+					span {
 						line-height: 1;
 						padding-left: 0.4em;
+                    }
+
+					&:hover {
+						border-top: $sites-nav-menu-item-selected-hover-border-top;
+						border-right: $sites-nav-menu-item-selected-hover-border-right;
+						border-bottom: $sites-nav-menu-item-selected-hover-border-bottom;
+						border-left: $sites-nav-menu-item-selected-hover-border-left;
+						background: $sites-nav-menu-item-selected-hover-background;
+
+						~ .#{$namespace}sitesNav__drop, ~ .#{$namespace}sitesNav__dropdown {
+							border-left: $sites-nav-menu-item-selected-hover-border-left; 		// so the right border of the .link-container will show through the overlapping box
+						}
 					}
 				}
 				/* hover for sites when tool quick-menu isn't open */
@@ -1050,77 +1085,58 @@ body.is-logged-out{
 					}
 				}
 
-				&.dropdown-is-visible, &:hover {
-					border-top: $sites-nav-menu-item-selected-hover-border-top;
-					border-right: $sites-nav-menu-item-selected-hover-border-right;
-					border-bottom: $sites-nav-menu-item-selected-hover-border-bottom;
-					border-left: $sites-nav-menu-item-selected-hover-border-left;
-					background: $sites-nav-menu-item-selected-hover-background;
-				}
-
-				&.dropdown-is-visible {
-					&:after {
-						border-bottom: 1px solid $sites-nav-selected-submenu-topleft-border-color;
+                &.dropdown-is-visible {
+					&:after {	// the rest of the properties will inherit from the default case above
 						content: "";
-						width: 100%;
-						position: absolute;
-						bottom: -1px;
-						left: 0;
-						z-index: 100;
+						border-bottom: $sites-nav-menu-item-border-thickness solid $sites-nav-selected-submenu-topleft-border-color;
+					}
+
+					.link-container, .#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
+						border-top: $sites-nav-menu-item-selected-hover-border-top;
+						border-right: $sites-nav-menu-item-selected-hover-border-right;
+						border-bottom: $sites-nav-menu-item-selected-hover-border-bottom;
+						border-left: $sites-nav-menu-item-selected-hover-border-left;
+						background: $sites-nav-menu-item-selected-hover-background;
 					}
 				}
 
 				.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
-					color: $sites-nav-menu-item-selected-hover-icon-color;
-					&:hover {
-						color: $sites-nav-menu-item-selected-hover-icon-color;
+					background: $sites-nav-menu-item-selected-background;
+					border-top: $sites-nav-menu-item-selected-border-top;
+					border-right: $sites-nav-menu-item-selected-border-right;
+					border-bottom: $sites-nav-menu-item-selected-border-bottom;
+					border-left: $sites-nav-menu-item-selected-border-left;
+                    color: $sites-nav-menu-item-selected-icon-color;
 
-						// UCT - left border on drop down
-						&:before{
-							border-left-color: tint($sites-nav-menu-item-selected-hover-border-color, 15%);
-						}
-					}
-					// UCT - left border on drop down
-					&:before {
-						border-left: 1px solid tint($sites-nav-menu-item-selected-border-color, 15%);
+                    &:hover {
+						border-top: $sites-nav-menu-item-selected-hover-border-top;
+						border-right: $sites-nav-menu-item-selected-hover-border-right;
+						border-bottom: $sites-nav-menu-item-selected-hover-border-bottom;
+						border-left: $sites-nav-menu-item-selected-hover-border-left;
+						background: $sites-nav-menu-item-selected-hover-background;
+						color: $sites-nav-menu-item-selected-hover-icon-color;
 					}
 				}
 
-				ul{
+				ul {
 					border-color: $sites-nav-selected-submenu-border-color;
 				}
 			}
 
-			&.#{$namespace}sitesNav__menuitem--myworkspace{
-
-				.link-container{
-					padding-left: 0.5em;
-				}
-
-				a{
-					// UCT - home icon spacing
-					> span:first-child {
-						padding-right: 0.6rem;
-						padding-left: 0.4em;
-					}
-
-					i{
-						margin-top: 1px; /* to compensate for an issue with the icon */
-						margin-bottom: -1px; /* to compensate for an issue with the icon */
-						margin-right:0.35em;
-						font-size: 1em;
-					}
-				}
+			&.#{$namespace}sitesNav__menuitem--myworkspace .fa-home {
+				margin-right: $standard-space;
 			}
 
 			ul.#{$namespace}sitesNav__submenu{
 				background: $sites-nav-submenu-background;
 				li.#{$namespace}sitesNav__submenuitem{
 					a {
+                        position: relative;
 						// UCT - remove outline
 						outline: 0;
 						background: $sites-nav-submenu-item-background;
-						color: $sites-nav-submenu-item-color;
+                        color: $sites-nav-submenu-item-color;
+
 						.toolMenuIcon {
 							color: $sites-nav-submenu-item-icon-color;
 						}
@@ -1138,10 +1154,10 @@ body.is-logged-out{
 						//	left: 0;
 						//}
 
-						&:hover, &:active
-						{
+						&:hover, &:active, &:focus {
 							background: $sites-nav-submenu-item-hover-background;
-							color: $sites-nav-submenu-item-hover-color;
+                            color: $sites-nav-submenu-item-hover-color;
+
 							.toolMenuIcon {
 								color: $sites-nav-submenu-item-hover-icon-color;
 							}
@@ -1149,6 +1165,10 @@ body.is-logged-out{
 							//&:before{
 							//	border-left-color: $sites-nav-submenu-item-hover-left-border-color;
 							//}
+                        }
+
+						&:focus {
+							outline-offset: -#{$focus-outline-width};	// to match the width of the default link focus to fit in the tool's link container
 						}
 					}
 					&.#{$namespace}sitesNav__submenuitem__gotosite {
@@ -1258,22 +1278,36 @@ body.is-logged-out{
 }
 
 .#{$namespace}siteStatus{
+	@include display-flex;
+	@include align-items(center);
+	@include justify-content(center);
+	margin: $standard-spacing $standard-spacing 0 $standard-spacing;
+	padding: $standard-spacing;
+
+	&.is-softly-deleted{
+		color: $siteDelete-color;
+		background-color: $siteDelete-background;
+		border: $siteDelete-border;
+
+		p {
+			margin: 0;
+			padding: 0;
+		}
+	}
+
 	&.is-unpublished{
-		margin-left:0em;
-		width: 100%;
-		padding: 3px;
-		color :$background-color-secondary;
-		display:block;
-		text-align:center;
-		background-color: $warn-background-color;
-		border-bottom: 1px solid $warn-color;
+		color: $siteUnpublish-color;
+		background-color: $siteUnpublish-background;
+		border: $siteUnpublish-border;
+
 		h4{
-			padding: 3px;
 			display: inline-block;
-			vertical-align: top;
+			margin: 0;
+			padding: 0;
 		}
 		button{
 			@extend .button;
+			margin: 0 0 0 $standard-spacing;
 		}
 	}
 }
@@ -1357,4 +1391,19 @@ body.is-logged-out{
             }
         }
     }
+}
+
+.#{$namespace}siteHierarchy .manage-overview-link {
+	@include sakai_secondary_button();
+	position: absolute;
+	right: $standard-spacing;
+	margin-top: -4px;
+
+	> span {
+		margin-right: $standard-space;
+	}
+
+	@media #{$phone} {
+		visibility: hidden;
+	}
 }

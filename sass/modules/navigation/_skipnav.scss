@@ -72,6 +72,7 @@
 
 			// Tool row
 			&.#{$namespace}skipNav__menuitem.#{$namespace}skipNav__menuitem--tools {
+                @include display-flex;
 				background: $portal-background-color;
 				/*box-shadow: $divider-shadow; - UCT no shadow on phone */
 
@@ -90,11 +91,21 @@
 						border-right: 1px solid $tool-menu-item-separator-color;
 					}
 				}
-				
+
 				a.#{$namespace}skipNav--toolName {
 					color: $link-color;
-					&::after {
-						border-right: 0px none;
+				}
+				a.manage-overview-link-mobile {
+					display: inline-block;
+					margin-left: auto; 			// push this link to the far right
+					color: $link-color;
+
+					span {
+						padding-right: $standard-space;
+					}
+
+					&:after {
+						border-right: 0 none;
 					}
 				}
 			}
@@ -113,7 +124,7 @@
 				text-overflow: ellipsis;
 				height: $banner-height - 4;
 				line-height: $banner-height - 4;
-				
+
 				&:hover, &:active
 				{
 					text-decoration: none;

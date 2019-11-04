@@ -40,7 +40,7 @@
 				width: 100%;
 			}
 		}
-		
+
 		.radio_group{
 			@extend .checkbox_group;
 			width: 20%;
@@ -49,7 +49,7 @@
 			}
 		}
 	}
-	
+
 	.permissionPanel{
 		input[type="checkbox"]{
 			@media #{$nonPhone}{
@@ -105,6 +105,13 @@
 		}
 	}
 
+	div.specialLink{
+		max-width: calc(100% - 260px);
+		@media #{$phone} {
+			max-width: unset;
+		}
+	}
+
 	.allMessages{
 		border: 1px solid #ddd;
 		border-collapse: collapse;
@@ -118,7 +125,7 @@
 				border: 1px solid #ddd;
 				text-align: center;
 				&.header{
-					padding: 0.8em 0.4em;					
+					padding: 0.8em 0.4em;
 					text-align: left;
 				}
 			}
@@ -152,7 +159,7 @@
 			input[type="radio"]{
 				margin: 0 0.5em 0 0;
 			}
-			
+
 			&[for*=forum_assignments]{
 				margin-top: 0;
 			}
@@ -181,7 +188,7 @@
 				position: relative;
 			}
 			input[type="checkbox"]{
-				margin-left: 10px;
+				margin: 0 10px;
 				position: inherit;
 				+ label{
 					padding-left: 10px;
@@ -199,9 +206,6 @@
 				}
 			}
 		}
-		.act{
-			margin: 1em 0 0 0;
-		}
 		.permissionRow{
 			label{
 				margin: 0 0 0 0;
@@ -209,18 +213,20 @@
 		}
 		.messageInstruction{
 			@extend .bs-callout-danger;
-			display: inline;
+			display: inline-block;
+			margin: 0 $standard-spacing;
+			padding: 5px $standard-spacing;
 			@media #{$phone}{
 				display: inline-block;
 			    margin: 0 0 0 0;
 			    padding: 3px 0 3px 6px;
 			}
 		}
-		
+
 		&\:alert-delete{
 			margin: 2em 0 0 0;
 		}
-		
+
 		& #forum_grading{
 			margin-top: 2em;
 		}
@@ -252,7 +258,7 @@
 body > .portletBody, .portletBody {
 	.forumHeader, .topicBloc {
 
-		td { 
+		td {
 			a {
 				font-size: 0.86em;
 			}
@@ -290,12 +296,42 @@ body > .portletBody, .portletBody {
 		text-decoration: none;
 		position: relative;
 		top: 5px;
-		
+
 		&:after{
 			content: "X";
 			font-size: 14px;
 			font-weight: bold;
 			color: #333;
+		}
+	}
+
+	.openLinkBlock, .hideLinkBlock {
+		padding: 0;
+		margin: 0.5em 0;
+		&.display-none {
+			display: none;
+		}
+	}
+
+	.fullTopicDescription {
+		display: none;
+		&.display-block {
+			display: block;
+		}
+	}
+
+	.attachListTable {
+		font-size: 0.9em;
+		width: auto;
+		margin-left: 1em;
+	}
+
+	#revise p.anonTopic.checkbox {
+		@include display-flex;
+
+		input[type=checkbox] {
+			min-width: 16px;
+			align-self: center;
 		}
 	}
 }

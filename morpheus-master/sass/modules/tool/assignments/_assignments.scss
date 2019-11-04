@@ -472,4 +472,37 @@
 		@include align-items(center);
 		@include justify-content(center);
 	}
+
+	#groupTable, #filterByGroupDiv{
+		button.multiselect-clear-filter{
+			padding: 6px 12px;
+			font-size: 14px;
+			line-height: 1.42857143;
+			background-color: #eee;
+		}
+	}
+
+	.borderPanel {
+		border: 1px solid #aaa;
+		padding: 0.6em;
+	}
+
+	.sakai-asn-controlRow {
+		@include justify-content(space-between);
+		@include align-items(flex-end);
+		-webkit-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+
+	#honor-pledge-agreement {
+		h4 {
+			font-size: $jumbotron-heading-font-size;
+			margin: 0 0 0.5em 0;
+		}
+		margin-bottom: 0;
+	}
+
+  #submissionList sakai-rubric-student-button {
+    float: right;
+  }
 }

@@ -1,24 +1,16 @@
-.#{$namespace}sakai-iframe {
+.#{$namespace}toolBody--sakai-iframe-site, .#{$namespace}toolBody--sakai-iframe-service {
+	padding: $standard-spacing;
 
-	@media #{$desktop}{
-		.Mrphs-toolTitleNav__button_container{
-			top: -15px;
-		}
-	}
-
-	// UCT - width auto so that the drop down is displayed properly
-	.icons-selector .selector {
-		width: auto;
-	}	
-}
-
-.#{$namespace}toolBody--sakai-iframe-site{
 	img{
 		max-width: 100%;
 		height: auto;
 	}
 }
 
-.Mrphs-multipleTools .#{$namespace}sakai-iframe {
+.#{$namespace}multipleTools .#{$namespace}sakai-iframe {
 	margin: -1em 0 0 0;
+}
+
+.#{$namespace}toolBody--sakai-iframe-myworkspace iframe {
+	padding: $standard-spacing;
 }

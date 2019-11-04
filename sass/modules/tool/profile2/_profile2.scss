@@ -46,6 +46,17 @@
 		padding: 0.5em;
 		background: #F5F5F5;
 		position: relative;
+    }
+
+	.profileSayItActionBar {
+		@include display-flex;
+		@include justify-content(space-between);
+		@include align-items(center);
+		margin-top: $standard-space;
+
+		.act {
+			margin: 0;
+		}
 	}
 
 	.gallery-form{
@@ -55,9 +66,9 @@
 		.sakai-wicket-iconwithtooltip{
 			position: absolute;
 			margin-top: 0em;
-		} 
+		}
 		.addPictureLabel{
-			margin-right: 1.6em; 
+			margin-right: 1.6em;
 		}
 		.wicket-mfu-container{
 			margin: 1em 0 0 0;

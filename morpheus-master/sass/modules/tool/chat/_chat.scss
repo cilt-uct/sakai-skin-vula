@@ -1,5 +1,5 @@
 //////////////////////////////
-// MODULES: Styles that are layout independent 
+// MODULES: Styles that are layout independent
 //////////////////////////////
 @import "_chat_variables";
 .Mrphs-{
@@ -296,7 +296,7 @@
 				margin: 0 10px;
 			}
 		}
-		
+
 		#removemodal {
 			.modal-header {
 				.close {
@@ -444,7 +444,7 @@
 		    background-color: $footerApp__chat__background;
 		    position: fixed;
 		    bottom: 30px;
-		   
+
 		    /* Needs to be to the right of the expanded presence block. See presenceArea. */
 		    right: 21px;
 		    z-index: 2001;
@@ -453,11 +453,11 @@
 		    display: none;
 
 		    box-shadow: 0 -2px 2px rgba( $text-color, 0.5 );
-			
+
 			h5{
 				margin-bottom: 5px !important;
 			}
-			
+
 			/* First generic styles*/
 			&__list{
 				list-style: none;
@@ -474,7 +474,7 @@
 					border: 0px;
 				}
 			}
-			
+
 			&__title{
 				    font-weight: bold;
     				padding: 5px;
@@ -482,10 +482,10 @@
 				    color: $footerApp__chat__header__color;
 				    background-color: $footerApp__chat__header__background;
 			}
-			
+
 			&__container {
     			 clear: both;
-    			 
+
     			 h2{
     			 	background: none;
     			 	color: $footerApp__chat__color;
@@ -493,7 +493,7 @@
     			 	font-size: 1em;
     			 	margin: 0px 3px;
     			 }
-    			 
+
 			}
 			&__wrapper{
 				padding: 5px;
@@ -517,10 +517,12 @@
 				color: inherit;
 			}
 			&__siteusers,&__connections{
+				max-height: 130px;
+				overflow-y: scroll;
 				a{
-					
+
 				}
-				
+
 			}
 			&__user--link{
 				margin-left: 5px;
@@ -576,7 +578,7 @@
 			    background: -ms-linear-gradient(top, rgb(238, 238, 238), rgb(252, 198, 198));
 			    background: linear-gradient(top, rgb(238, 238, 238), rgb(252, 198, 198));
 			}
-			
+
 			/*Chat windows*/
 			&__chat--{
 				&window{
@@ -703,11 +705,11 @@
     				font-weight: bold;
     				font-size: 0.9em;
     				padding: 0 5% 5% 5%;
-    				text-align: center;    		
+    				text-align: center;
 	    		}
 	    		&displayname{
 					margin-left: -20px;
-    				margin-top: 3px;    		
+    				margin-top: 3px;
 	    		}
 				&messageheader{
 				  color: #555;
@@ -716,7 +718,7 @@
 				  top: 3px;
 				  font-size: 0.7em;
 	    		}
-	    		
+
 	    		&editorwrapper {
 				    padding: 5px 5px 0px 7px;
 				    background: #f3f3f3;
@@ -738,7 +740,7 @@
 				    height: 225px;
 				    overflow: auto;
 				    margin: 0;
-				    
+
 					li{
 						padding-left: 3px;
 						img{
@@ -755,17 +757,17 @@
 				    margin: 0;
 	    		}
 			}
-			
+
 			/*Videochat controls */
-			
+
 			&__videochat--{
-			
+
 				&bar{
 					font-size: 14px;
 					font-weight: bold;
 					color: $footerApp__chat__color;
 				}
-				
+
 				&ctrlbar{
 					font-size: 14px;
 					font-weight: bold;
@@ -786,7 +788,7 @@
 				}
 				&leftelement{
 					float: left;
-  					width: 25%;				
+  					width: 25%;
 				}
 				&rightelement{
 					font-size: 15px;
@@ -830,13 +832,13 @@
 					  	padding-top: 10px;
 					  }
 				}
-				
+
 				&videobutton{
 					height:16px;
 					margin-left: 5px;
 					text-decoration: none;
 					border : 0px;
-					cursor: hand; 
+					cursor: hand;
 					display:inline-block;
 					cursor: pointer;
 				}
@@ -848,7 +850,7 @@
 					height:192px;
 					margin-left:auto;
 					margin-right: auto;
-					
+
 					span{
 						display: inline-block;
 						vertical-align: middle;
@@ -866,7 +868,7 @@
 						-o-animation: Mrphs-portalChat__videochat--bubblingG 1.3s infinite alternate;
 						border-radius: 50px;
 						animation: Mrphs-portalChat__videochat--bubblingG 1.3s infinite alternate;
-						
+
 						&.Mrphs-portalChat__videochat--bubblingG_1 {
 							-moz-animation-delay: 0s;
 							-webkit-animation-delay: 0s;
@@ -889,8 +891,8 @@
 							animation-delay: 0.78s;
 						}
 					}
-				} 
-				
+				}
+
 				@-moz-keyframes &bubblingG {
 					0% {
 						width: 10px;
@@ -898,16 +900,16 @@
 						background-color:#FFFFFF;
 						-moz-transform: translateY(0);
 					}
-					
+
 					100% {
 						width: 24px;
 						height: 24px;
 						background-color:#4D4D4D;
 						-moz-transform: translateY(-21px);
 					}
-				
+
 				}
-				
+
 				@-webkit-keyframes Mrphs-portalChat__videochat--bubblingG {
 					0% {
 						width: 10px;
@@ -915,7 +917,7 @@
 						background-color:#FFFFFF;
 						-webkit-transform: translateY(0);
 					}
-					
+
 					100% {
 						width: 24px;
 						height: 24px;
@@ -923,7 +925,7 @@
 						-webkit-transform: translateY(-21px);
 					}
 				}
-				
+
 				@-ms-keyframes Mrphs-portalChat__videochat--bubblingG {
 					0% {
 						width: 10px;
@@ -931,7 +933,7 @@
 						background-color:#FFFFFF;
 						-ms-transform: translateY(0);
 					}
-					
+
 					100% {
 						width: 24px;
 						height: 24px;
@@ -939,7 +941,7 @@
 						-ms-transform: translateY(-21px);
 					}
 				}
-				
+
 				@-o-keyframes Mrphs-portalChat__videochat--bubblingG {
 					0% {
 						width: 10px;
@@ -947,7 +949,7 @@
 						background-color:#FFFFFF;
 						-o-transform: translateY(0);
 					}
-					
+
 					100% {
 						width: 24px;
 						height: 24px;
@@ -963,7 +965,7 @@
 						background-color:#FFFFFF;
 						transform: translateY(0);
 					}
-					
+
 					100% {
 						width: 24px;
 						height: 24px;
@@ -971,10 +973,10 @@
 						transform: translateY(-21px);
 					}
 				}
-				
+
 			}
-		
+
 	}
-	
+
 
 }

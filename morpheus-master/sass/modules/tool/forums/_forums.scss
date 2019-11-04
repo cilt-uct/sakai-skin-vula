@@ -105,6 +105,13 @@
 		}
 	}
 
+	div.specialLink{
+		max-width: calc(100% - 260px);
+		@media #{$phone} {
+			max-width: unset;
+		}
+	}
+
 	.allMessages{
 		border: 1px solid #ddd;
 		border-collapse: collapse;
@@ -150,7 +157,7 @@
 			font-weight: 400;
 			margin: 1em 0 0.25em 0;
 			input[type="radio"]{
-				margin: 0 0.5em 0 0;
+				margin: 0 0.5em 0 -2em;
 			}
 			
 			&[for*=forum_assignments]{
@@ -181,7 +188,7 @@
 				position: relative;
 			}
 			input[type="checkbox"]{
-				margin-left: 10px;
+				margin: 0 10px;
 				position: inherit;
 				+ label{
 					padding-left: 10px;
@@ -199,9 +206,6 @@
 				}
 			}
 		}
-		.act{
-			margin: 1em 0 0 0;
-		}
 		.permissionRow{
 			label{
 				margin: 0 0 0 0;
@@ -209,7 +213,9 @@
 		}
 		.messageInstruction{
 			@extend .bs-callout-danger;
-			display: inline;
+			display: inline-block;
+			margin: 0 $standard-spacing;
+			padding: 5px $standard-spacing;
 			@media #{$phone}{
 				display: inline-block;
 			    margin: 0 0 0 0;
@@ -242,5 +248,33 @@
 		}
 	}
 
+	.openLinkBlock, .hideLinkBlock {
+		padding: 0;
+		margin: 0.5em 0;
+		&.display-none {
+			display: none;
+		}
+	}
 
+	.fullTopicDescription {
+		display: none;
+		&.display-block {
+			display: block;
+		}
+	}
+
+	.attachListTable {
+		font-size: 0.9em;
+		width: auto;
+		margin-left: 1em;
+	}
+
+	#revise p.anonTopic.checkbox {
+		@include display-flex;
+
+		input[type=checkbox] {
+			min-width: 16px;
+			align-self: center;
+		}
+	}
 }

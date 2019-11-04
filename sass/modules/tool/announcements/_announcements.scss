@@ -6,7 +6,8 @@
 		.lightHighLightRow{
 			border-top: 3px solid #ddd;
 		}
-	}
+    }
+
 	.showHideDates{
 		margin: 0 0 1em 3em;
 		.form-group{
@@ -16,20 +17,11 @@
 			width: 95px;
 		}
 	}
-	form[name="optionsForm"]{
-		.act{
-			margin: 1em 0 0 0;
-		}
-	}
-	.act-outer{
-		background: #FFF;
-		padding: 0 1em 0.8em 1em;
-	}
 
 	.merge-list{
 		max-width: 1000px;
 	}
-	
+
 	#reorder-list-sortingToolBar, #reorder-list{
 		max-width: 1200px;
 	}
@@ -39,6 +31,6 @@
 		padding: 15px;
 		margin-bottom: 20px;
 		border: 1px solid darken( $tool-background-color, 10% );
-		border-radius: 4px;		
-	}	
+		border-radius: 4px;
+	}
 }
