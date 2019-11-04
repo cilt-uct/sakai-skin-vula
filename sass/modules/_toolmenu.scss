@@ -14,6 +14,14 @@ body.is-logged-out{
 	#toolMenuWrap {
 		min-height: 100vh;				// alternative for browswers who cannot do calculations
 		min-height: calc(100vh - #{$banner-height});	// viewport minus the top banner when logged out
+    }
+
+	.#{$namespace}mainHeader.is-maximized ~ #container #toolMenuWrap{
+		top: $header-size;
+	}
+
+    .#{$namespace}collapseTools{
+		display: none !important; // UCT - hide collapse button on gateway
 	}
 }
 

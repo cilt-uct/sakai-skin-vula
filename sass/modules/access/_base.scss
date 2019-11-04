@@ -136,7 +136,7 @@
 	> div {
 		padding: 2em 1em;
 		text-align: center;
-		@include display-flex( inline-flex );
+		@include display-flex;
 		flex-direction: row-reverse; // UCT - reverse order of the buttons
 		justify-content: center;
 	}

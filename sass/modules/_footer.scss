@@ -6,73 +6,115 @@
 	@include align-items(center);
 	@include flex-wrap(wrap);
 	padding: $standard-spacing;
-	font-size: 12px;
+	font-size: 0.66em; // UCT - slightly smaller font
 	color: $footer-color;
-	
+
 	@media #{$tablet} {
 		@include flex-direction(column);
 		text-align: center;
 	}
-	
-	#footer-links, ##{$namespace}footer--poweredBy {
+
+    ul {
 		margin: 0;
 		padding: 0;
+	}
+
+	ul > li {
+		display: inline-block;
+		list-style: none;
+    }
+
+    ul:first-child {
+		border-top: $footer-border; // border moved down to top of first child
+    }
+
+    a {
+		color: $footer-color;
+		text-decoration: none;
+
+		&:hover, &:active {
+			text-decoration: underline;
+		}
+    }
+
+	p {
+		margin: 0;
+		font-size: 0.9em;
+	}
+
+	#footer-links, ##{$namespace}footer--poweredBy {
+		margin: 0;
+		padding: 0.7em 1em 0.6em;
 		list-style: none;
 		line-height: 2;
-		
-		li{
+
+        a {
+			font-size: 1.1em;
+			border-left: 1px solid shade( $footer-background-color, 20%);
+			padding: 0 0.6em 0 0.8em;
+        }
+
+		li {
 			display: inline-block;
 			padding: 0 $standard-spacing;
 			border-right: 1px solid $footer-link-separator;
-			
+
 			&:first-child {
-				padding-left: 0;
+                padding-left: 0;
+                a {
+                    border-left-width: 0px;
+                }
 			}
-			
+
 			&:last-child {
 				border-right: 0 none;
 			}
-		}
+        }
 	}
-	
+
 	##{$namespace}footer--poweredBy {
 		li:last-child {
 			padding-right: 0;	// padding already provided by container
 		}
 	}
-	
+
+	.#{$namespace}footer--nav__project--copyright {
+		display: none; // UCT - reduce footer
+    }
+
 	.#{$namespace}footer--project {
+        display: none; // UCT - reduce footer
 		margin-left: auto;		// pushes this element to the right, especially during wrapping
-		
+
 		@media #{$tablet} {
 			margin-left: 0;		// margin not needed for stacked layout
 		}
 	}
-	
+
 	##{$namespace}footer--poweredBy, .#{$namespace}footer--copyright {
 		display: block;
 		margin: 0;
 		padding: 0;
 		text-align: right;
-		
+
 		@media #{$tablet} {
 			text-align: center;
 		}
 	}
-	
+
 	.#{$namespace}footer--details {
 		position: relative;				// to align the details panel to
-		
+
 		##{$namespace}footer--details__info {
 			padding: $standard-spacing;		// to increase the hit area
 			margin: -#{$standard-spacing};	// to compensate for the padding spacing
-			
+
 			&:link, &:visited, &:focus, &:hover, &:active {
 				text-decoration: none;		// no underline on the icon
 			}
 		}
 	}
-	
+
 	##{$namespace}footer--details__panel {
 		position: absolute;
 		right: -5px;			// half of width of the border set in the :after below
@@ -85,7 +127,7 @@
 		background: #fff;
 		white-space: nowrap;
 		z-index: 99;
-		
+
 		&:after {
 			content: "";
 			position: absolute;
@@ -97,11 +139,11 @@
 			border: 10px solid transparent;		// to create the arrow tip from the borders
 			border-top-color: $footer-details-border-color;
 		}
-				
+
 		&.#{$namespace}footer--details__panel-show {
 			display: block;
 		}
-		
+
 		.#{$namespace}footer--details__heading {
 			@include display-flex;
 			@include justify-content(space-between);
@@ -109,35 +151,35 @@
 			margin-bottom: $standard-spacing;
 			padding-bottom: $standard-spacing;
 			border-bottom: 1px solid $footer-details-border-color;
-		
+
 			p {
 				margin: 0;		// override default paragraph margin
 				line-height: 1.5em;		// to match the size of the close button below
 			}
-			
+
 			##{$namespace}footer--details__close {
 				margin-left: 10px;
 				font-size: 1.5em;
 				line-height: 1;
-				
+
 				&:link, &:visited, &:focus, &:hover, &:active {
 					outline: 1px dotted;
 					text-decoration: none;		// no underline on the close icon
 				}
 			}
 		}
-		
+
 		dl {
 			margin: 0;
 		}
-		
+
 		dt, dd {
 			display: block;
 		}
-		
+
 		dd {
 			margin-bottom: $standard-spacing;
-			
+
 			&:last-of-type {
 				margin-bottom: 0;
 			}

@@ -840,7 +840,7 @@ body.is-logged-out{
 
 #linkNav{
 	ul{
-		@include display-flex(flex);
+		@include display-flex;
 		@include flex-wrap( wrap );
 		font-family: $header-font-family;
 		margin: $standard-spacing 0 0 0;
@@ -925,7 +925,8 @@ body.is-logged-out{
 			}
 
 			span {
-				line-height: 1;
+                line-height: 1;
+                padding-right: $standard-space;
 			}
             .#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
 				text-align: center;
@@ -1054,11 +1055,6 @@ body.is-logged-out{
 
 					i.fa {
 						color: $sites-nav-menu-item-selected-icon-color;
-					}
-					// UCT - spacing on span in selected link
-					span {
-						line-height: 1;
-						padding-left: 0.4em;
                     }
 
 					&:hover {

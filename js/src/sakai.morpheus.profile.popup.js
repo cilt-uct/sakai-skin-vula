@@ -20,7 +20,8 @@ var profile = profile || {};
 
   profile.requestFriend = function (requestorId, friendId, callback) {
 
-    return new Promise((resolve, reject) => {
+    //return new Promise((resolve, reject) => {
+    return new Promise(function(resolve, reject) {
 
       $.ajax( {
         url: "/direct/profile/" + requestorId + "/requestFriend?friendId=" + friendId,
@@ -33,14 +34,15 @@ var profile = profile || {};
             if (callback) callback(friendId);
             resolve(true);
           })
-          .fail((jqXHR, textStatus, errorThrown) => reject());
+          //.fail((jqXHR, textStatus, errorThrown) => reject());
+          .fail(function(jqXHR, textStatus, errorThrown) { reject(); });
     });
   };
 
   profile.confirmFriendRequest = function (requestorId, friendId, callback) {
 
-    return new Promise((resolve, reject) => {
-
+    //return new Promise((resolve, reject) => {
+    return new Promise(function(resolve, reject) {
       $.ajax( {
         url : "/direct/profile/" + requestorId + "/confirmFriendRequest?friendId=" + friendId,
         dataType : "text",
@@ -52,13 +54,15 @@ var profile = profile || {};
             if (callback) callback(friendId);
             resolve(true);
           })
-          .fail((jqXHR, textStatus, errorThrown) => reject());
+          //.fail((jqXHR, textStatus, errorThrown) => reject());
+          .fail(function(jqXHR, textStatus, errorThrown) { reject(); });
     });
   };
 
   profile.removeFriend = function (removerId, friendId, callback, displayName) {
 
-    return new Promise((resolve, reject) => {
+    //return new Promise((resolve, reject) => {
+    return new Promise(function(resolve, reject) {
 
       $.ajax( {
         url : "/direct/profile/" + removerId + "/removeFriend?friendId=" + friendId,
@@ -71,13 +75,15 @@ var profile = profile || {};
             if (callback) callback(friendId);
             resolve(true);
           })
-          .fail((jqXHR, textStatus, errorThrown) => reject());
+          //.fail((jqXHR, textStatus, errorThrown) => reject());
+          .fail(function(jqXHR, textStatus, errorThrown) { reject(); });
     });
   };
 
   profile.ignoreFriendRequest = function (removerId, friendId, cancel, callback) {
 
-    return new Promise((resolve, reject) => {
+    //return new Promise((resolve, reject) => {
+    return  new Promise(function(resolve, reject) {
 
       $.ajax( {
         url : '/direct/profile/' + removerId + '/ignoreFriendRequest?friendId=' + friendId,
@@ -95,7 +101,8 @@ var profile = profile || {};
             }
             resolve(true);
           })
-          .fail((jqXHR, textStatus, errorThrown) => reject());
+          //.fail((jqXHR, textStatus, errorThrown) => reject());
+          .fail(function(jqXHR, textStatus, errorThrown) { reject(); });
     });
   };
 
@@ -141,7 +148,8 @@ var profile = profile || {};
       };
 
       if (options && options.container) {
-        position.container = $(`#${options.container}`);
+        // position.container = $(`#${options.container}`);
+        position.container = $('#'+ options.container);
       }
 
       $(this).qtip({
@@ -163,25 +171,35 @@ var profile = profile || {};
         events: {
           visible: function (event, api) {
 
-            $('#profile-popup-request-button-' + userId).off("click").on("click", (e) => {
+            // $('#profile-popup-request-button-' + userId).off("click").on("click", (e) => {
+            $('#profile-popup-request-button-' + userId).off("click").on("click", function(e) {
               profile.requestFriend(portal.user.id, userId, callbacks.connect)
-                .then(() => { if (hide) api.hide() });
+                // .then(() => { if (hide) api.hide() });
+                .then(function() { if (hide) api.hide() });
             });
-            $('#profile-popup-cancel-button-' + userId).off("click").on("click", (e) => {
+            // $('#profile-popup-cancel-button-' + userId).off("click").on("click", (e) => {
+            $('#profile-popup-cancel-button-' + userId).off("click").on("click", function(e) {
               profile.ignoreFriendRequest(userId, portal.user.id, true, callbacks.cancel)
-                .then(() => { if (hide) api.hide() });
+                // .then(() => { if (hide) api.hide() });
+                .then(function() { if (hide) api.hide() });
             });
-            $('#profile-popup-accept-button-' + userId).off("click").on("click", (e) => {
+            // $('#profile-popup-accept-button-' + userId).off("click").on("click", (e) => {
+            $('#profile-popup-accept-button-' + userId).off("click").on("click", function(e) {
               profile.confirmFriendRequest(portal.user.id, userId, callbacks.accept)
-                .then(() => { if (hide) api.hide() });
+                // .then(() => { if (hide) api.hide() });
+                .then(function() { if (hide) api.hide() });
             });
-            $('#profile-popup-ignore-button-' + userId).off("click").on("click", (e) => {
+            // $('#profile-popup-ignore-button-' + userId).off("click").on("click", (e) => {
+            $('#profile-popup-ignore-button-' + userId).off("click").on("click", function(e) {
               profile.ignoreFriendRequest(portal.user.id, userId, false, callbacks.ignore)
-                .then(() => { if (hide) api.hide() });
+                // .then(() => { if (hide) api.hide() });
+                .then(function() { if (hide) api.hide() });
             });
-            $('#profile-popup-remove-button-' + userId).off("click").on("click", (e) => {
+            // $('#profile-popup-remove-button-' + userId).off("click").on("click", (e) => {
+            $('#profile-popup-remove-button-' + userId).off("click").on("click", function(e) {
               profile.removeFriend(portal.user.id, userId, callbacks.remove)
-                .then(() => { if (hide) api.hide() });
+                // .then(() => { if (hide) api.hide() });
+                .then(function() { if (hide) api.hide() });
             });
           }
         }

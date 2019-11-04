@@ -50,9 +50,7 @@ module.exports = function (grunt) {
           annotation: 'tmp/' // ...to the specified directory
         },
         processors: [
-          require('autoprefixer')({
-            browsers: ['last 2 versions']
-          })
+          require('autoprefixer')
         ]
       },
       dist: {
@@ -100,7 +98,7 @@ module.exports = function (grunt) {
         files: (function() {
           var l = grunt.file.readJSON('config.json');
           var out = [];
-          l.local.dest.forEach(function(element, index) { 
+          l.local.dest.forEach(function(element, index) {
              out.push({
                  expand: true,
                  cwd: 'tmp/',
@@ -115,7 +113,8 @@ module.exports = function (grunt) {
 
     uglify: {
       options: {
-        mangle: false
+        mangle: false,
+        uglifyOptions: { ecma: 8 }
       },
       js: {
         files: {

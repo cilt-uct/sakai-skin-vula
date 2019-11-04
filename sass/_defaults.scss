@@ -77,9 +77,9 @@ $main-content-background: $background-color !default;
 $top-header-background: $background-color-secondary !default;
 $sites-nav-background: $tool-menu-background-color !default;
 
-$breadcrumbs-color:			$text-color !default;
-$breadcrumbs-tool-color:	$primary-color !default;
-$breadcrumbs-hover-color:	$primary-color !default;
+$breadcrumbs-color:			 $text-color !default;
+$breadcrumbs-tool-color:		 #265b81 !default; // $primary-color !default;
+$breadcrumbs-hover-color:		 #265b81 !default; //$primary-color !default;
 
 /* Link colors */
 $link-color: $primary-color !default;
@@ -213,7 +213,6 @@ $sites-nav-submenu-item-hover-icon-color:   #424242 !default;
 $sites-nav-submenu-item-hover-left-border-color: #7F7F7F !default;
 
 /* All Sites menu */
-$all-sites-mask-background:                               rgba(255,255,255,.8) !default;
 $all-sites-background-color:                              #FFFFFF !default;
 $all-sites-drop-shadow:                                   5px 0 50px 0px rgba(0,0,0,0.5) !default;
 $all-sites-tab-text-color:                                $tool-menu-color !default;
@@ -254,9 +253,9 @@ $all-sites-button-hover-background-color:                 #ECECEC !default;
 $all-sites-button-hover-border-color:                     #7F7F7F !default;
 $all-sites-button-hover-dropdown-color:                   #4C4C4C !default;
 $all-sites-button-hover-star-full-color:                  #EA9609 !default;
+$all-sites-button-hover-star-empty-color:                 #999999 !default;
 $all-sites-button-drag-icon-color:                        #AAAAAA !default;
 $all-sites-button-drag-icon-hover-color:                  #999999 !default;
-$all-sites-button-drag-icon-hover-color:                  #CECECE !default;
 $all-sites-tool-menu-divider-color:                       #E5E5E5 !default;
 $all-sites-tool-menu-background-color:                    #FFFFFF !default;
 $all-sites-tool-menu-text-color:                          #4C4C4C !default;
@@ -275,6 +274,7 @@ $all-sites-close-action-hover-color:                      #4C4C4C !default;
 
 /* Wide tool menu, icons on left */
 $tool-menu-icon-on-left: true !default;
+$tool-menu-width: 200px !default;
 $tool-menu-width-collapsed: 42px !default;
 $tool-menu-collapseButton-height: $tool-menu-width-collapsed !default;
 
@@ -295,22 +295,22 @@ $tool-menu-item-hover-text-color:                          #191919 !default;
 $tool-menu-item-hover-icon-color:                          #424242 !default;
 $tool-menu-item-hover-background-color:                    #ECECEC !default;
 $tool-menu-item-hover-border-left:                         4px solid #7F7F7F !default;
-$tool-menu-item-hidden-text-color:                         $tool-menu-item-text-color !default;
-$tool-menu-item-hidden-icon-color:                         $tool-menu-item-icon-color !default;
+$tool-menu-item-hidden-text-color:                         #9A9A9A !default; //$tool-menu-item-text-color !default;
+$tool-menu-item-hidden-icon-color:                         #A9A9A9 !default; //$tool-menu-item-icon-color !default;
 $tool-menu-item-hidden-background-color:                   $tool-menu-item-background-color !default;
 $tool-menu-item-hidden-border-left:                        $tool-menu-item-border-left !default;
-$tool-menu-item-hidden-hover-text-color:                   $tool-menu-item-hover-text-color !default;
-$tool-menu-item-hidden-hover-icon-color:                   $tool-menu-item-hover-icon-color !default;
-$tool-menu-item-hidden-hover-background-color:             $tool-menu-item-hover-background-color !default;
+$tool-menu-item-hidden-hover-text-color:                   #808080 !default; //$tool-menu-item-hover-text-color !default;
+$tool-menu-item-hidden-hover-icon-color:                   #929292 !default; //$tool-menu-item-hover-icon-color !default;
+$tool-menu-item-hidden-hover-background-color:             #ECECEC !default; //$tool-menu-item-hover-background-color !default;
 $tool-menu-item-hidden-hover-border-left:                  $tool-menu-item-hover-border-left !default;
-$tool-menu-item-selected-text-color:                       $primary-color !default;
-$tool-menu-item-selected-icon-color:                       $primary-color !default;
+$tool-menu-item-selected-text-color:                       #15597e !default; //$primary-color !default;
+$tool-menu-item-selected-icon-color:                       #15597e !default; //$primary-color !default;
 $tool-menu-item-selected-background-color:                 #FFFFFF !default;
-$tool-menu-item-selected-border-left:                      4px solid $primary-color !default;
-$tool-menu-item-selected-hover-text-color:                 $primary-color !default;
-$tool-menu-item-selected-hover-icon-color:                 $primary-color !default;
+$tool-menu-item-selected-border-left:                      4px solid #15597e !default; //4px solid $primary-color !default;
+$tool-menu-item-selected-hover-text-color:                 #15597e !default; //$primary-color !default;
+$tool-menu-item-selected-hover-icon-color:                 #15597e !default; //$primary-color !default;
 $tool-menu-item-selected-hover-background-color:           #FFFFFF !default;
-$tool-menu-item-selected-hover-border-left:                4px solid $primary-color !default;
+$tool-menu-item-selected-hover-border-left:                4px solid #15597e !default; //4px solid $primary-color !default;
 
 $tool-menu-collapse-text-color:                            $tool-menu-item-text-color !default;
 $tool-menu-collapse-icon-color:                            $tool-menu-item-text-color !default;
