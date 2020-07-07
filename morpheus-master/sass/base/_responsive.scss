@@ -6,7 +6,7 @@ body{
 			min-height: 100vh;										// alternative for browswers who cannot do calculations
 			min-height: calc(100vh - (#{$banner-height} * 3));		// viewport minus the three top banners
 		}
-
+		
 		&.toolsNav--displayed{
 			// hide the tool body
 			.#{$namespace}pagebody {
@@ -116,7 +116,7 @@ body{
 								}
 							}
 						}
-						.#{$namespace}toolsNav__category {
+						.#{$namespace}toolsNav__category {				
 							display: block;
 						}
 					}

@@ -6,8 +6,7 @@
 		.lightHighLightRow{
 			border-top: 3px solid #ddd;
 		}
-    }
-
+	}
 	.showHideDates{
 		margin: 0 0 1em 3em;
 		.form-group{
@@ -17,20 +16,25 @@
 			width: 95px;
 		}
 	}
-
 	.merge-list{
 		max-width: 1000px;
 	}
-
 	#reorder-list-sortingToolBar, #reorder-list{
 		max-width: 1200px;
 	}
-
 	.message-body{
 		background-color: darken( $tool-background-color, 5% );
 		padding: 15px;
 		margin-bottom: 20px;
 		border: 1px solid darken( $tool-background-color, 10% );
-		border-radius: 4px;
+		border-radius: 4px;		
+	}
+	#groupTable{
+		button.multiselect-clear-filter{
+			padding: 6px 12px;
+			font-size: 14px;
+			line-height: 1.42857143;
+			background-color: #eee;
+		}
 	}
 }

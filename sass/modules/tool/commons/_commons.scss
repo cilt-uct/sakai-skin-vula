@@ -135,61 +135,65 @@
     .commons-comments {
         margin-left: 47px;
     }
-        .commons-create-comment-link {
-            font-weight: bold;
-        }
-        .commons-comment-creator {
-            display: none;
-            padding: 10px 10px 0px 0px;
-        }
-        .commons-comment {
-            padding: 10px 0px 10px 0px;
-            overflow: auto;
-            white-space: nowrap;
-        }
-            .commons-comment-photo {
-                min-width: 26px;
-                max-width: 26px;
-                height: 26px;
-                background-position: 50%;
-                background-size: auto 100%;
-                border-radius: 50%;
-                display: inline-block;
-                vertical-align: top;
-            }
-            .commons-comment-body {
-                display: inline-block;
-                padding-left: 10px;
-                padding-right: 10px;
-                width: calc(100% - 36px);
-            }
-                .commons-comment-content {
-                    white-space: normal;
-                    font-size: smaller;
-                }
-                .commons-comment-options {
-                    font-size: smaller;
-                }
+    .commons-create-comment-link {
+        font-weight: bold;
+    }
+
+    .commons-comment-creator {
+        display: none;
+        padding: 10px 10px 0px 0px;
+    }
+
+    .commons-comment {
+        padding: 10px 0px 10px 0px;
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+    .commons-comment-photo {
+        min-width: 26px;
+        max-width: 26px;
+        height: 26px;
+        background-position: 50%;
+        background-size: auto 100%;
+        border-radius: 50%;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .commons-comment-body {
+        display: inline-block;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: calc(100% - 36px);
+    }
+
+    .commons-comment-content {
+        white-space: normal;
+        font-size: smaller;
+    }
+
+    .commons-comment-options {
+        font-size: smaller;
+    }
 
     .commons-comment-editor {
         border-top: solid #E0E0E0 1px;
         padding: 3px;
     }
-        .commons-comment-editor-text {
-            border: 1px #E0E0E0 solid;
-            background-color: #FFFFFF;
-            border-radius: 3px;
-        }
-            .commons-comment-textarea {
-                font-size: smaller;
-                border: 0px;
-                width: 100%;
-                height: 32px;
-                resize: none;
-            }
 
-    .commons-permissions-table th {
-        padding-right: 5px;
+    .commons-comment-editor-text {
+        border: 1px #E0E0E0 solid;
+        background-color: #FFFFFF;
+        border-radius: 3px;
+    }
+
+    .commons-comment-textarea {
+        font-size: smaller;
+        border: 0px;
+        width: 100%;
+        height: 32px;
+        resize: none;
     }
 
     #commons-permissions-not-set-message {

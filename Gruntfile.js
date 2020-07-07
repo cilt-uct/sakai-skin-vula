@@ -159,7 +159,7 @@ module.exports = function(grunt) {
     ,'sass'
     ,'postcss'
     //,'cssmin'
-    // ,'uglify'
+    ,'uglify'
     ,'copy:dist'
   ]);
 

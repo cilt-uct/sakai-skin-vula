@@ -6,72 +6,35 @@
 	@include align-items(center);
 	@include flex-wrap(wrap);
 	padding: $standard-spacing;
-	font-size: 0.66em; // UCT - slightly smaller font
+	font-size: $footer-font-size;
 	color: $footer-color;
-
+	
 	@media #{$tablet} {
 		@include flex-direction(column);
 		text-align: center;
 	}
-
-    ul {
-		margin: 0;
-		padding: 0;
-	}
-
-	ul > li {
-		display: inline-block;
-		list-style: none;
-    }
-
-    ul:first-child {
-		border-top: $footer-border; // border moved down to top of first child
-    }
-
-    a {
-		color: $footer-color;
-		text-decoration: none;
-
-		&:hover, &:active {
-			text-decoration: underline;
-		}
-    }
-
-	p {
-		margin: 0;
-		font-size: 0.9em;
-	}
-
+	
 	#footer-links, ##{$namespace}footer--poweredBy {
 		margin: 0;
-		padding: 0.7em 1em 0.6em;
+		padding: 0;
 		list-style: none;
 		line-height: 2;
-
-        a {
-			font-size: 1.1em;
-			border-left: 1px solid shade( $footer-background-color, 20%);
-			padding: 0 0.6em 0 0.8em;
-        }
-
-		li {
+		
+		li{
 			display: inline-block;
 			padding: 0 $standard-spacing;
 			border-right: 1px solid $footer-link-separator;
-
+			
 			&:first-child {
-                padding-left: 0;
-                a {
-                    border-left-width: 0px;
-                }
+				padding-left: 0;
 			}
-
+			
 			&:last-child {
 				border-right: 0 none;
 			}
-        }
+		}
 	}
-
+	
 	##{$namespace}footer--poweredBy {
 		li:last-child {
 			padding-right: 0;	// padding already provided by container
@@ -83,7 +46,7 @@
     }
 
 	.#{$namespace}footer--project {
-        display: none; // UCT - reduce footer
+		display: none; // UCT - reduce footer
 		margin-left: auto;		// pushes this element to the right, especially during wrapping
 
 		@media #{$tablet} {
@@ -113,62 +76,23 @@
 				text-decoration: none;		// no underline on the icon
 			}
 		}
+
+		.popover {
+			font-size: $footer-font-size;
+			min-width: 200px;
+		}
+		
+		.popover-title {
+			padding: $standard-spacing;
+			font-weight: normal;
+		}
+		
+		.popover-content {
+			padding: $standard-spacing;
+		}
 	}
-
-	##{$namespace}footer--details__panel {
-		position: absolute;
-		right: -5px;			// half of width of the border set in the :after below
-		bottom: 30px;
-		display: none;
-		margin: 0;
-		padding: $standard-spacing;
-		border: 1px solid $footer-details-border-color;
-		box-shadow: 0 0 4px rgba(0,0,0,0.5);
-		background: #fff;
-		white-space: nowrap;
-		z-index: 99;
-
-		&:after {
-			content: "";
-			position: absolute;
-			bottom: -20px;				// twice the size of the border set below
-			right: $standard-spacing;
-			width: 0;
-			height: 0;
-			pointer-events: none;
-			border: 10px solid transparent;		// to create the arrow tip from the borders
-			border-top-color: $footer-details-border-color;
-		}
-
-		&.#{$namespace}footer--details__panel-show {
-			display: block;
-		}
-
-		.#{$namespace}footer--details__heading {
-			@include display-flex;
-			@include justify-content(space-between);
-			@include align-items(center);
-			margin-bottom: $standard-spacing;
-			padding-bottom: $standard-spacing;
-			border-bottom: 1px solid $footer-details-border-color;
-
-			p {
-				margin: 0;		// override default paragraph margin
-				line-height: 1.5em;		// to match the size of the close button below
-			}
-
-			##{$namespace}footer--details__close {
-				margin-left: 10px;
-				font-size: 1.5em;
-				line-height: 1;
-
-				&:link, &:visited, &:focus, &:hover, &:active {
-					outline: 1px dotted;
-					text-decoration: none;		// no underline on the close icon
-				}
-			}
-		}
-
+	
+	.#{$namespace}footer--details__panel {
 		dl {
 			margin: 0;
 		}

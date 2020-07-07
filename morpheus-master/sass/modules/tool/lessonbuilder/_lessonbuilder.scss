@@ -12,7 +12,7 @@
 			}
 		}
 
-		.nexprev {
+		.nextprev {
 			 line-height: 1em;
 		}
 	}
@@ -26,12 +26,12 @@
 	}
 
 	label.checklistLabel.disabled:hover {
-		color: $swapped-view-text-color;
+		color: $text-color-disabled;
 		cursor: not-allowed;
 	}
 
 	label.checklistLabel.disabled {
-		color: $swapped-view-text-color;
+		color: $text-color-disabled;
 	}
 
 	.checklist-blur label.checklistLabel.disabled, .checklist-blur label.checklistLabel.disabled:hover {
@@ -53,7 +53,7 @@
 
 	.#{$namespace}toolTitleNav__button_container {
 		@media #{$phone} {
-			margin-top: -25px;
+			margin-top: -25px;	
 		}
 	}
 
@@ -61,7 +61,7 @@
 		margin-left: 10px;
 		margin-right: 10px;
 	}
-
+	
 	.sectionHeader {
 		@media #{$phone} {
 		       clear: both;
@@ -72,15 +72,51 @@
 	#content {
 			padding-top: 0;
 	}
-
+	.portletBody {
+		.column {
+			border: $lessons-column-border;
+		}
+		.mainList {
+			div:hover {
+				&.canEdit {
+					background-color: $lessons-item-hover-background;
+					box-shadow: $lessons-item-hover-shadow;
+				}
+			}
+			.canEdit {
+				border-top: $lessons-item-border-top;
+				border-right: $lessons-item-border-right;
+				border-bottom: $lessons-item-border-bottom;
+				border-left: $lessons-item-border-left;
+		
+			}
+			div.item,
+			div.textType,
+			div.multimediaType,
+			div.checklistType {
+				margin:0;
+				padding: calc(#{$standard-spacing} / 2) 0;
+			}
+			div.item:hover,
+			div.item:focus,
+			div.item:active {
+				.edit-col {
+					display: $lessons-item-edit-hover-display;
+				}	
+			}
+			.edit-col {
+				display: $lessons-item-edit-display;
+			}
+		}
+	}
 	.topaction {
 		position: absolute;
 		top: 0;
 		right: 0;
-
+		
 		@media #{$phone} {
-			top: 2em;
-		}
+			top: 2em;	
+		}	
 	}
 }
 
@@ -99,11 +135,11 @@ div#calendarEventDialog {
 		display: inline-block;
 		width: 30%;
 	}
-
+	
 	span#event-type {
 		padding-left: 10px;
 	}
-
+	
 	#event-description p {
 		display: inline-block;
 	}

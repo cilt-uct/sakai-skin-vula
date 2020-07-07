@@ -1,6 +1,7 @@
 @import "defaults";
 
 @import "base/bootstrap-defaults";
+@import "base/material-defaults";
 @import "base/extendables";
 @import "base/defaults";
 @import "base/responsive";
@@ -13,6 +14,7 @@
 @import "modules/navigation/breadCrumbs";
 @import "modules/toolmenu";
 @import "modules/tool/base";
+@import "modules/tool/elements";
 @import "modules/tool/menu";
 @import "modules/tool/table";
 
@@ -48,6 +50,7 @@
 @import "modules/tool/roster/roster";
 @import "modules/tool/tagservice/tagservice";
 @import "modules/tool/rubrics/rubrics";
+@import "modules/tool/authz/authz";
 
 @import "base/rtl";
 
@@ -61,8 +64,13 @@
 @import "modules/tutorial/base";
 @import "modules/profile-popup/base";
 @import "modules/reorderer/base";
+@import "modules/portal-search/base";
+@import "modules/pager/base";
 @import "modules/bullhorn-alerts/base";
 @import "modules/connection-manager/base";
 @import "modules/profile-popup/base";
 @import "modules/joinpage/base";
 @import "modules/editor/base";
+@import "modules/jumptotop/base";
+@import "modules/submission-messager/base";
+@import "modules/grader/base";

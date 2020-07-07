@@ -7,7 +7,7 @@
  	}
 
  	.nav_table{
- 		font-size: 0.9em;
+ 		font-size: 0.9em; 
  		margin: 0.5em 0;
  		img{
  			vertical-align: sub;
@@ -78,17 +78,15 @@
  			padding: 0 0 0.5em 0;
  		}
  	}
-
+ 	
  	#prefs_pvt_form{
- 		&\:pvtmsgs{
- 			max-width: 1200px;
-
+ 		&\:pvtmsgs, &\:threaded_pvtmsgs{
  			th{
  				min-width: 32px;
  			}
  			td.check{
  				width: 10%;
- 			}
+ 			} 		
  			td.attach{
  				width: 1%;
  			}
@@ -109,7 +107,7 @@
  			}
  		}
  	}
-
+ 	
  	table.table-inline{
  		display: block;
  		margin: 0 0 1.5em 0;
@@ -124,7 +122,7 @@
  			margin: 0 0.5em 5px 0;
  		}
  	}
-
+	
 	.composeForm {
 	    position: relative;
 	    width: 100%;
@@ -200,4 +198,5 @@
 			}
 		}
 	}
+
 }

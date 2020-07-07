@@ -1,20 +1,16 @@
 @if $swapped-view-enabled {
 	.#{$namespace}portalWrapper{
-		color: $swapped-view-text-color;
 		&.swapped-view{
-			.#{$namespace}topHeader{
+			.#{$namespace}topHeader, .#{$namespace}headerLogo {
 				background: $swapped-view-primary;
 			}
-			.#{$namespace}siteHierarchy{
-				background: $background-color-secondary;
-				color: $background-color;
-				a {
-					color: $background-color;
-				}
-			}
-			.#{$namespace}mainHeader.is-maximized .siteNavWrap{
-				background: $swapped-view-sites-nav-background;
-			}
 		}
+	}
+}
+
+// Admin Become User view
+body.Mrphs-become-user-enabled {
+	.#{$namespace}topHeader, .#{$namespace}headerLogo {
+		background: $become-user-primary;
 	}
 }

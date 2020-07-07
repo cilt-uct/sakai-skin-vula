@@ -56,7 +56,7 @@
 }
 @mixin transition($property: all, $duration: 0s, $timing: ease, $delay: 0s) {
     -webkit-transition: $property $duration $timing $delay; /* Safari 3.1 to 6.0 */
-    transition: $property $duration $timing $delay;
+    transition: $property $duration $timing $delay;	
 }
 @mixin transform($p: p) {
     -ms-transform: $p; /* IE 9 */

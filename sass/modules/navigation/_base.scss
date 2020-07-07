@@ -16,6 +16,13 @@ body.is-logged-out{
 		@media #{$phone}{
 			min-height: $header-size;
 		}
+		a {
+			&:focus, &:hover, &:active {
+				// UCT - no underline
+				text-decoration: none;
+				color: $text-color;
+			}
+		}
 	}
 	.userNav__subnav{
 		position: inherit;
@@ -32,9 +39,9 @@ body.is-logged-out{
 	}
 }
 
-	.#{$namespace}mainHeader {
-		box-shadow: $divider-shadow;
-		position: relative;
+.#{$namespace}mainHeader {
+	box-shadow: $divider-shadow;
+	position: relative;
 
 	.#{$namespace}headerLogo {
 		width: 100%;
@@ -49,7 +56,7 @@ body.is-logged-out{
 		.#{$namespace}headerLogo--institution{
 			background: url($logo) no-repeat center center;
 			width: $logo-width;
-			height: $logo-height;
+			height: $logo-height; //UCT - logo height
 			float: left;
 			background-size: $logo-background-size; //UCT - change logo size
 		}
@@ -83,7 +90,7 @@ body.is-logged-out{
 			}
 		}
 		p{
-			margin: 0;
+			margin: 0.05em 1.5em 0 0;
 		}
 	}
 
@@ -193,7 +200,9 @@ body.is-logged-out{
 		}
 
 		.#{$namespace}userNav__submenuitem--displayid{
+			margin-top: $standard-space;
 			font-weight: normal;
+			line-height: 1.2;
 			font-size: 70%; // UCT - smaller id text
 		}
 	}
@@ -286,7 +295,12 @@ body.is-logged-out{
 				&:hover {
 					text-decoration: none;
 					color: #FFF;
-					text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+					@if $top-header-as-material {
+						background: rgba(0,0,0,.2);
+						border-radius:50%;
+					} @else {
+						text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+					}
 				}
 			}
 
@@ -387,9 +401,6 @@ body.is-logged-out{
 
 		&.moving{
 			top: -4.2em;
-			#mastLogin #loginLinks ul.#{$namespace}userNav__subnav{
-				display: none;
-			}
 		}
 	}
 
@@ -471,8 +482,18 @@ body.is-logged-out{
 		&.has-avatar:hover .#{$namespace}userNav__submenuitem--profilepicture,
 			&.has-avatar:active .#{$namespace}userNav__submenuitem--profilepicture
 		{
-			box-shadow: 0px 0px 5px 1px rgba(165, 165, 165, 0.95);
+			@if $top-header-as-material {
+				box-shadow:inset 0 0 0 2px $top-header-profile-border-color-inner, 0 0 0 2px rgba(0,0,0,.2);
+			} @else {
+				box-shadow: 0px 0px 5px 1px rgba(165, 165, 165, 0.95);
+			}
 		}
+		@if $top-header-as-material {
+			&.has-avatar:active .#{$namespace}userNav__submenuitem--profilepicture {
+				box-shadow:inset 0 0 0 2px $top-header-profile-border-color-inner, 0 0 0 2px rgba(0,0,0,.6);
+			}
+		}
+		
 
 		&.has-avatar:hover .#{$namespace}userNav__submenuitem--username,
 			&.has-avatar:hover .has-avatar .#{$namespace}userNav__submenuitem--userid
@@ -558,11 +579,26 @@ body.is-logged-out{
 			background-position: 50%;
 			border-radius:50%;
 			margin: 0 4px 0 0;
+			border: $top-header-profile-border-thickness solid $top-header-profile-border-color-top;			
+			border-right-color: $top-header-profile-border-color-right;
+			border-bottom-color: $top-header-profile-border-color-bottom;
+			border-left-color: $top-header-profile-border-color-left;
+			border-radius: 50%;
+			box-shadow:inset 0 0 0 2px $top-header-profile-border-color-inner;
 			position: relative;
 
 			&:hover, &:active
 			{
-				box-shadow: 0px 0px 5px 1px rgba(165, 165, 165, 0.95);
+				@if $top-header-as-material {
+					box-shadow:inset 0 0 0 2px $top-header-profile-border-color-inner, 0 0 0 2px rgba(0,0,0,.2);
+				} @else {
+					box-shadow: 0px 0px 5px 1px rgba(165, 165, 165, 0.95);
+				}
+			}
+			@if $top-header-as-material {
+				&:active {
+					background:inset 0 0 0 2px $top-header-profile-border-color-inner, 0 0 0 2px rgba(0,0,0,.4);
+				}
 			}
 			@media #{$phone}
 			{
@@ -668,7 +704,11 @@ body.is-logged-out{
 			@extend .userNav__subnav;
 			&:after {
 				bottom: 100%;
-				left: 85%;
+				@if $top-header-text-display == "none" {
+					left: 90%;
+				} @else {
+					left: 85%;
+				}
 				border: solid transparent;
 				content: " ";
 				height: 0;
@@ -743,7 +783,7 @@ body.is-logged-out{
 /* because #loginLinks appears on the Gateway page when two log-in links are available (e.g. for CAS), the following applies only when you are logged in: */
 .is-maximized #loginLinks
 {
-	border-left: 1px solid $topNav-alt-color;
+	border-left: $top-header-separators-thickness solid $topNav-alt-color;
 }
 
 .#{$namespace}sitesNav__menu{
@@ -755,9 +795,10 @@ body.is-logged-out{
 .portal-bullhorns-buttons{
 	position: relative;
 	display: inline-block;
-	padding-right: $standard-spacing;
-	border-right: 1px solid $topNav-alt-color;
-	white-space: nowrap;
+	margin-left: $top-header-item-spacing;
+	padding-left: $top-header-item-spacing;
+	border-left: $top-header-separators-thickness solid $topNav-alt-color;
+    white-space: nowrap;
 
 	// UCT - add opacity on bullhorns
 	> a {
@@ -771,22 +812,37 @@ body.is-logged-out{
 	}
 }
 
-##{$namespace}academic-bullhorn,
-##{$namespace}social-bullhorn {
+##{$namespace}bullhorn {
 	display: inline-block; /* Sakai 11.1 makes it flex, which is wrong */
-
+	width: $top-header-icon-size;
+	height: $top-header-icon-size;
+	.icon-sakai--academic-bullhorn {
+		padding:0;
+	}
 	&:hover {
 		text-decoration: none;
 		color: $topNav-text-color;
-		text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+		@if $top-header-as-material {
+			background: rgba(0,0,0,.2);
+			border-radius:50%;
+		} @else {
+			text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+		}
+	&:active {
+		@if $top-header-as-material {
+			background: rgba(0,0,0,.4);
+		}
+	}
+		
 	}
 }
-
 
 .view-all-sites-btn{
 	position: relative;
 	display: inline-block;
-	padding: 0 $standard-spacing;
+	margin-left: $top-header-item-spacing;
+	padding-left: $top-header-item-spacing;
+	border-left: $top-header-separators-thickness solid $topNav-alt-color;
 
 	@media #{$phone}{
 		display: none;
@@ -800,13 +856,17 @@ body.is-logged-out{
 
 	&:hover, &:active
 	{
-		opacity: 1;
 		text-decoration: none;
 		color: $topNav-text-color;
 
 		i
 		{
-			text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+			@if $top-header-as-material {
+				background: rgba(0,0,0,.2);
+				border-radius:50%;
+			} @else {
+				text-shadow: 0 0 5px rgba(165, 165, 165, 0.95); /* same as profile picture hover */
+			}
 		}
 
 		span.all-sites-label
@@ -814,11 +874,19 @@ body.is-logged-out{
 			text-decoration: none; // UCT - no underlined text
 		}
 	}
+	@if $top-header-as-material {
+		&:active i {
+			background: rgba(0,0,0,.4);
+		}
+	}
 }
 
 .all-sites-icon, .all-sites-label{
-	display: inline-block;
 	vertical-align: middle;
+}
+.all-sites-label {
+	display: $top-header-text-display;
+	margin-left: $standard-space;
 }
 
 .all-sites-icon
@@ -826,8 +894,11 @@ body.is-logged-out{
 	/* Using !important here because CKEditor pulls in its own
 		fontawesome.css which adjusts the size of our icon unless
 		we override it. */
-	font-size: 16pt !important;
-	padding-right: $standard-space;
+		font-size: 16pt !important;
+		padding-top: $top-header-sites-padding-top;
+		display: inline-block;
+		width: $top-header-icon-size;
+		height: $top-header-icon-size;
 }
 #topnav_container
 {
@@ -844,69 +915,27 @@ body.is-logged-out{
 		@include flex-wrap( wrap );
 		font-family: $header-font-family;
 		margin: $standard-spacing 0 0 0;
-        padding: 0;
-
+		padding: 0;
+		
 		li.#{$namespace}sitesNav__menuitem{
 			@include display-flex;
 			@include align-items(center);
+			position: relative;
 			margin: 0 $standard-spacing $standard-spacing 0;	// space the items apart, and space vertically if wrapped
 			padding: 0;
-            position: relative;
-
-			> a.link-container{
+			border-radius: $sites-nav-menu-item-border-radius;
+			background: $sites-nav-menu-item-background;
+			.link-container{
 				@include display-flex;
 				@include align-items( center );
-
-                border-top: $sites-nav-menu-item-border-top;
-                border-right: $sites-nav-menu-item-border-right;
-                border-bottom: $sites-nav-menu-item-border-bottom;
-                border-left: $sites-nav-menu-item-border-left;
-                background: $sites-nav-menu-item-background;
-                padding: ($standard-space * 2);
-				color: $sites-nav-menu-item-color;
-				text-decoration: none;
-
-				i.fa {
-					color: $sites-nav-menu-item-icon-color;
-				}
-
-				&:hover, &:focus {
-					border-top: $sites-nav-menu-item-hover-border-top;
-					border-right: $sites-nav-menu-item-hover-border-right;
-					border-bottom: $sites-nav-menu-item-hover-border-bottom;
-					border-left: $sites-nav-menu-item-hover-border-left;
-					background: $sites-nav-menu-item-hover-background;
-
-					~ .#{$namespace}sitesNav__drop, ~ .#{$namespace}sitesNav__dropdown {
-						border-left: $sites-nav-menu-item-hover-border-left; 		// so the right border of the .link-container will show through the overlapping box
-					}
-				}
-
-				&:focus {
-					outline-offset: -#{$focus-outline-width};	// to match the width of the default link focus to fit in the link container
-				}
-
-				&:active {
-					outline: 0 none;	// hiding on click
-				}
+				@include sitesNavStyling();
 			}
 
-			/* hover for sites when tool quick-menu isn't open */
-			&:not(.dropdown-is-visible){
-				> .link-container:hover,
-				> .link-container:active {
-					color: $sites-nav-menu-item-hover-color;
-
-					i.fa {
-						color: $sites-nav-menu-item-hover-icon-color;
-					}
-				}
-			}
-
-            &.dropdown-is-visible {
+			&.dropdown-is-visible {
+				background: $sites-nav-menu-item-hover-background;
 				&:after {
 					content: "";
-					border-bottom: $sites-nav-menu-item-border-thickness solid $sites-nav-submenu-topleft-border-color;
+					border-bottom: $sites-nav-selected-submenu-border;
 					width: 100%; // fallback for browsers who don't calculate nested equations
 					width: calc(100% - (2 * #{$sites-nav-menu-item-border-thickness}));	// width minus the left and right border widths
 					position: absolute;
@@ -914,40 +943,33 @@ body.is-logged-out{
 					left: $sites-nav-menu-item-border-thickness;					// left border width
 					z-index: 100;
 				}
-
-				.link-container{
-					border-top: $sites-nav-menu-item-hover-border-top;
-					border-right: $sites-nav-menu-item-hover-border-right;
-					border-bottom: $sites-nav-menu-item-hover-border-bottom;
-					border-left: $sites-nav-menu-item-hover-border-left;
-					background: $sites-nav-menu-item-hover-background;
+				
+				.link-container, .#{$namespace}sitesNav__dropdown, .#{$namespace}sitesNav__favbtn {
+						border-top: $sites-nav-menu-item-hover-border-top;
+						border-right: $sites-nav-menu-item-hover-border-right;
+						border-bottom: $sites-nav-menu-item-hover-border-bottom;
+						border-left: $sites-nav-menu-item-hover-border-left;
+						background: $sites-nav-menu-item-hover-background;
 				}
 			}
 
 			span {
-                line-height: 1;
-                padding-right: $standard-space;
+				line-height: 1;
 			}
-            .#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
-				text-align: center;
-				text-decoration: none;
-				color: $sites-nav-menu-item-icon-color;
-				margin-left: -#{$sites-nav-menu-item-border-thickness}; 					// to overlap the left border with the site title's border, so border thickness will remain 1px and hover will still work
-				padding: ($standard-space * 2);
+			
+			.#{$namespace}sitesNav__dropdown, .#{$namespace}sitesNav__favbtn {
+				@include sitesNavStyling();
+				box-sizing: content-box;			// to allow width and height control the size to match the site title link text
 				width: $default-font-size; 			// to match the height
 				height: $default-font-size;			// to match the link text size
-				box-sizing: content-box;			// to allow width and height control the size to match the site title link text
-				border-top: $sites-nav-menu-item-border-top;
-				border-right: $sites-nav-menu-item-border-right;
-				border-bottom: $sites-nav-menu-item-border-bottom;
-				border-left: $sites-nav-menu-item-border-left;
-				background: $sites-nav-menu-item-background;
-
+			}
+			
+			.#{$namespace}sitesNav__dropdown{
 				@extend .fa-angle-down;
 				@extend .fa;
 				@extend .fa-lg;
-				@extend .sitesNav__drop;
-
+				margin-left: -#{$sites-nav-menu-item-border-thickness}; 					// to overlap the left border with the site title's border, so border thickness will remain 1px and hover will still work				
+				
 				&.is-clicked{
 					@include transform( rotate(180deg) );
 					top: 40%;
@@ -956,41 +978,33 @@ body.is-logged-out{
 					border-left: $sites-nav-menu-item-hover-border-right;	// using the right variable because of the item rotation (left is right)
 					background: $sites-nav-menu-item-hover-background;
 				}
+			}
+			
+			.#{$namespace}sitesNav__favbtn {
+				@extend .fa-star;
+				@extend .fa;
+				margin-right: -#{$sites-nav-menu-item-border-thickness}; 					// to overlap the right border with the site title's border, so border thickness will remain 1px and hover will still work				
 
-				&:hover, &:focus {
-					border-top: $sites-nav-menu-item-hover-border-top;
-					border-right: $sites-nav-menu-item-hover-border-right;
-					border-bottom: $sites-nav-menu-item-hover-border-bottom;
-					border-left: $sites-nav-menu-item-hover-border-left;
-					background: $sites-nav-menu-item-hover-background;
-					color: $sites-nav-menu-item-hover-icon-color;
-				}
-
-				&:focus {
-					outline-offset: -#{$focus-outline-width};	// to match the width of the default link focus to fit in the link container
-				}
-
-				&:active {
-					outline: 0 none;	// hiding on click
+				&.non-fav {
+					@extend .fa-star-o;
+					@extend .fa;
 				}
 			}
-			ul {
-				background: $sites-nav-menu-item-background;
-				display: none;
-				font-family: $header-font-family;
+			
+			.#{$namespace}sitesNav__submenu {
 				position: absolute;
-				border: $sites-nav-menu-item-border-thickness solid $sites-nav-submenu-border-color;
-				top: calc( #{$default-font-size} + ( #{$standard-space} * 2) - #{$sites-nav-menu-item-border-thickness});	// 1px for item border
+				padding: $sites-nav-submenu-padding;
+				top: $sites-nav-submenu-top;
 				left: 0;
-				width: 17em;
 				z-index: 99;
-
-				// UCT - change shadow to std and border radius
-				box-shadow: $std-shadow;
-				border-bottom-right-radius: $main-border-radius;
-				border-bottom-left-radius: $main-border-radius;
-
-				li{
+				display: none;
+				min-width: 100%;	// at minimum, the menu should be the width of the site title
+				width: max-content; // if the content is wider than the site title, expand to the longest tool name
+				border: $sites-nav-submenu-border;
+				box-shadow: $sites-nav-submenu-shadow;
+				background: $sites-nav-menu-item-background;
+				
+				.#{$namespace}sitesNav__submenuitem {
 					display: block;
 					border: 0px none;
 					@include border-radius( 0 );
@@ -998,10 +1012,10 @@ body.is-logged-out{
 					padding: 0 0 0 0;
 					min-height: 15px;
 
-					a{
+					.#{$namespace}sitesNav__submenuitem-link, a {
 						@include display-flex;
 						@include align-items(center);
-						padding: $standard-spacing;
+						padding: $sites-nav-submenu-item-padding;
 						text-decoration: none;
 						color: $sites-nav-submenu-item-color;
 						font-size: $sites-nav-submenu-item-text-size;
@@ -1010,7 +1024,7 @@ body.is-logged-out{
 							color: $sites-nav-submenu-item-color; /* to override default link hover color */
 						}
 						.toolMenuIcon{
-                            @extend .fa-fw;
+							@extend .fa-fw;
 							vertical-align: sub;
 							margin: 0;
 						}
@@ -1039,82 +1053,47 @@ body.is-logged-out{
 				&.is-visible{
 					display: block;
 				}
-				&.is-hidden {
+				&.is-hidden{
 					display: none;
 				}
-
 			}
+
+			// Current site is selected:
 			&.is-selected {
-                a.link-container {
-                    background: $sites-nav-menu-item-selected-background;
-                    border-top: $sites-nav-menu-item-selected-border-top;
-                    border-right: $sites-nav-menu-item-selected-border-right;
-                    border-bottom: $sites-nav-menu-item-selected-border-bottom;
-                    border-left: $sites-nav-menu-item-selected-border-left;
-                    color: $sites-nav-menu-item-selected-color;
-
-					i.fa {
-						color: $sites-nav-menu-item-selected-icon-color;
-                    }
-
-					&:hover {
-						border-top: $sites-nav-menu-item-selected-hover-border-top;
-						border-right: $sites-nav-menu-item-selected-hover-border-right;
-						border-bottom: $sites-nav-menu-item-selected-hover-border-bottom;
-						border-left: $sites-nav-menu-item-selected-hover-border-left;
-						background: $sites-nav-menu-item-selected-hover-background;
-
-						~ .#{$namespace}sitesNav__drop, ~ .#{$namespace}sitesNav__dropdown {
-							border-left: $sites-nav-menu-item-selected-hover-border-left; 		// so the right border of the .link-container will show through the overlapping box
-						}
-					}
-				}
-				/* hover for sites when tool quick-menu isn't open */
-				&:not(.dropdown-is-visible) {
-					> .link-container:hover,
-					> .link-container:active {
-						color: $sites-nav-menu-item-selected-hover-color;
-
-						i.fa {
-							color: $sites-nav-menu-item-selected-hover-icon-color;
-						}
-					}
-				}
-
-                &.dropdown-is-visible {
-					&:after {	// the rest of the properties will inherit from the default case above
-						content: "";
-						border-bottom: $sites-nav-menu-item-border-thickness solid $sites-nav-selected-submenu-topleft-border-color;
-					}
-
-					.link-container, .#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
-						border-top: $sites-nav-menu-item-selected-hover-border-top;
-						border-right: $sites-nav-menu-item-selected-hover-border-right;
-						border-bottom: $sites-nav-menu-item-selected-hover-border-bottom;
-						border-left: $sites-nav-menu-item-selected-hover-border-left;
-						background: $sites-nav-menu-item-selected-hover-background;
-					}
-				}
-
-				.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
+				background: $sites-nav-menu-item-selected-background;
+				.link-container, .#{$namespace}sitesNav__dropdown, .#{$namespace}sitesNav__favbtn {
 					background: $sites-nav-menu-item-selected-background;
 					border-top: $sites-nav-menu-item-selected-border-top;
 					border-right: $sites-nav-menu-item-selected-border-right;
 					border-bottom: $sites-nav-menu-item-selected-border-bottom;
 					border-left: $sites-nav-menu-item-selected-border-left;
-                    color: $sites-nav-menu-item-selected-icon-color;
-
-                    &:hover {
+					color: $sites-nav-menu-item-selected-color;
+					font-weight: $sites-nav-menu-item-selected-font-weight;
+					&:hover, &:focus {
 						border-top: $sites-nav-menu-item-selected-hover-border-top;
 						border-right: $sites-nav-menu-item-selected-hover-border-right;
 						border-bottom: $sites-nav-menu-item-selected-hover-border-bottom;
 						border-left: $sites-nav-menu-item-selected-hover-border-left;
 						background: $sites-nav-menu-item-selected-hover-background;
-						color: $sites-nav-menu-item-selected-hover-icon-color;
 					}
 				}
 
-				ul {
+				&.dropdown-is-visible {
+					&:after {	// the rest of the properties will inherit from the default case above
+						content: "";
+						border-bottom: $sites-nav-selected-submenu-border
+					}
+					
+					.link-container, .#{$namespace}sitesNav__dropdown, .#{$namespace}sitesNav__favbtn {
+						border-top: $sites-nav-menu-item-selected-hover-border-top;
+						border-right: $sites-nav-menu-item-selected-hover-border-right;
+						border-bottom: $sites-nav-menu-item-selected-hover-border-bottom;
+						border-left: $sites-nav-menu-item-selected-hover-border-left;
+						background: $sites-nav-menu-item-selected-hover-background;
+					}
+				}
+
+				.#{$namespace}sitesNav__submenu {
 					border-color: $sites-nav-selected-submenu-border-color;
 				}
 			}
@@ -1122,47 +1101,57 @@ body.is-logged-out{
 			&.#{$namespace}sitesNav__menuitem--myworkspace .fa-home {
 				margin-right: $standard-space;
 			}
+			
+			.#{$namespace}sitesNav__gateway {
+				@extend .fa-university;
+				@extend .fa;
+				
+				margin-right: $standard-space;
+			}
 
-			ul.#{$namespace}sitesNav__submenu{
+			.#{$namespace}sitesNav__submenu {
 				background: $sites-nav-submenu-background;
-				li.#{$namespace}sitesNav__submenuitem{
-					a {
-                        position: relative;
+				
+				.#{$namespace}sitesNav__submenuitem {
+					.#{$namespace}sitesNav__submenuitem-link, a {
+						position: relative;
 						// UCT - remove outline
 						outline: 0;
 						background: $sites-nav-submenu-item-background;
-                        color: $sites-nav-submenu-item-color;
-
+						color: $sites-nav-submenu-item-color;
+						
 						.toolMenuIcon {
 							color: $sites-nav-submenu-item-icon-color;
 						}
 
-						position: relative;
-
 						// UCT - no border on sub menu items
-						//&:before{
-						//	border-left: 4px solid $sites-nav-submenu-item-left-border-color;
-						//	content: '';
-						//	height: 100%;
-						//	display: inline-block;
-						//	position: absolute;
-						//	top: 0;
-						//	left: 0;
-						//}
+						/*
+						&:before {
+							content: '';
+							position: absolute;
+							top: 0;
+							left: 0;
+							display: inline-block;
+							height: 100%;
+							border-left: $sites-nav-submenu-item-left-border;
+						}
+						*/
 
 						&:hover, &:active, &:focus {
 							background: $sites-nav-submenu-item-hover-background;
-                            color: $sites-nav-submenu-item-hover-color;
-
+							color: $sites-nav-submenu-item-hover-color;
+							
 							.toolMenuIcon {
 								color: $sites-nav-submenu-item-hover-icon-color;
 							}
 							// UCT - no border
-							//&:before{
-							//	border-left-color: $sites-nav-submenu-item-hover-left-border-color;
-							//}
-                        }
-
+							/*
+							&:before{
+								border-left-color: $sites-nav-submenu-item-hover-left-border-color;
+							}
+							*/
+						}
+						
 						&:focus {
 							outline-offset: -#{$focus-outline-width};	// to match the width of the default link focus to fit in the tool's link container
 						}
@@ -1177,21 +1166,22 @@ body.is-logged-out{
 							display: block;
 							font-size: 0.82em;
 						}
+						/*
+						> a:after {
+							font-family: FontAwesome;
+							content: '\f178';
+							margin-left: 10px;
+							color: $sites-nav-submenu-item-icon-color;
+						}
 
-						//> a:after {
-						//	font-family: FontAwesome;
-						//	content: '\f178';
-						//	margin-left: 10px;
-						//	color: $sites-nav-submenu-item-icon-color;
-						//}
+						&:hover {
+							border-top: 1px solid $sites-nav-submenu-item-divider-color;
 
-						//&:hover {
-						//	border-top: 1px solid $sites-nav-submenu-item-divider-color;
-						//
-						//	> a:after {
-						//		color: $sites-nav-submenu-item-hover-icon-color;
-						//	}
-						//}
+							> a:after {
+								color: $sites-nav-submenu-item-hover-icon-color;
+							}
+						}
+						*/
 					}
 				}
 			}
@@ -1211,23 +1201,15 @@ body.is-logged-out{
 	}
 }
 
-.sitenav-dropdown-overlay{
-	height: 100%;
+.sitenav-dropdown-overlay {
 	position: fixed;
 	width: 100%;
+	height: 100%;
 	z-index: 20;
 }
 
-body.is-logged-out{
-	#linkNav{
-		ul{
-			li.#{$namespace}sitesNav__menuitem{
-				.#{$namespace}sitesNav__drop, .#{$namespace}sitesNav__dropdown{
-					display: none;
-				}
-			}
-		}
-	}
+body.is-logged-out #linkNav .#{$namespace}sitesNav__menuitem .#{$namespace}sitesNav__dropdown {
+	display: none;
 }
 
 #show-all-sites{

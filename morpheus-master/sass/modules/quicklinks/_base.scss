@@ -107,7 +107,7 @@
       list-style: none;
       background: darken( $background-color, 5% );
       margin: 0.3em 0;
-      a {
+      a{
         @include display-flex;
         @include align-items(center);
         color: $text-color;
@@ -120,11 +120,11 @@
           display: inline-block;
         }
       }
-      &.is-selected {
+      &.is-selected{
         border: 1px solid darken( $tool-border-color, 30% );
       }
 
-      #quicklink-icon {
+      #quicklink-icon{
         position: relative;
         display: inline-block;
         background-repeat: initial;

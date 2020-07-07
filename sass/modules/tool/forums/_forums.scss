@@ -66,7 +66,8 @@
 	#msgForum{
 		.itemNav{
 			position: absolute;
-			right: 5px;
+			right: 0; // right-aligned
+
 			@media #{$phone}{
 				position: inherit;
 				&:after{
@@ -74,7 +75,12 @@
 					clear: both;
 				}
 			}
+
+			> .button:first-child {
+				margin-right: $standard-space;	// space the buttons out
+			}
 		}
+
 		.specialLink{
 			h1{
 				font-size: 18px;
@@ -157,7 +163,7 @@
 			font-weight: 400;
 			margin: 1em 0 0.25em 0;
 			input[type="radio"]{
-				margin: 0 0.5em 0 0;
+				margin: 0 0.5em 0 -2em;
 			}
 
 			&[for*=forum_assignments]{
@@ -332,6 +338,19 @@ body > .portletBody, .portletBody {
 		input[type=checkbox] {
 			min-width: 16px;
 			align-self: center;
+		}
+	}
+	
+	.otherActions{
+		margin-left: $standard-space;	// space between previous group of buttons
+		white-space: nowrap;
+		
+		@media #{$phone} {
+			white-space: normal;
+		}
+		
+		& > a.button {
+			margin: 0 $standard-space $standard-space 0;
 		}
 	}
 }

@@ -1,5 +1,5 @@
-##{$namespace}xlogin {
-
+##{$namespace}xlogin{
+	
 	position: fixed;
 	top: calc(50% - 15em);
 	left: calc(50% - 15em);
@@ -8,7 +8,7 @@
 
 	background: $background-color;
 	box-shadow: 0 0 5px rgba( $text-color , 0.25 );
-	.logo {
+	.logo{
 		background: $top-header-background url($logo) no-repeat center center;
 		background-size: $logo-width $logo-height;
 		width: 100%;
@@ -17,20 +17,20 @@
 		overflow: hidden;
 		@include border-radius( 0px );
 	}
-	h1 {
+	h1{
 		padding: 0.6em;
   		font-size: 1.8em;
   		color: $primary-color;
   		text-align: center;
 	}
-	.alertMessage {
+	.alertMessage{
 		background: $error-background-color;
 		border: $error-color;
 		color: $error-color;
 		padding: 0.8em;
 		text-align: center;
 	}
-	fieldset {
+	fieldset{
 		padding: 1em;
 		label{
 			font-size: 1.2em;
@@ -52,11 +52,11 @@
 				width: 95%;
 			}
 		}
-		input[type="submit"] {
+		input[type="submit"]{
 			font-size: 1.1em;
 			margin: 0 0 1em 0;
 		}
-		p {
+		p{
 			text-align: right;
 			@media #{$phone}{
 				margin: 1em 0 0 0;
@@ -65,7 +65,7 @@
 	}
 
 	&.with-errors{
-		input[type="text"],input[type="password"]{
+		input[type="text"],input[type="password"]{			
 			border: 1px solid $error-color;
 			background: $error-background-color;
 		}
@@ -90,17 +90,17 @@
 
 }
 
-#Mrphs-xlogin-container {
+#Mrphs-xlogin-container{
 	opacity: 0;
 	@include transition(opacity 0.25s linear 0s);
-	&.loaded {
+	&.loaded{
 		opacity: 1;
 	}
 }
 
-#Mrphs-choice {
+#Mrphs-choice{
 	@extend #Mrphs-xlogin;
-	.msg {
+	.msg{
 		padding: 0.6em;
 		font-size: 1.4em;
 		font-weight: 700;
@@ -108,13 +108,13 @@
 		text-align: center;
 	}
 
-	.link {
+	.link{
 		width: 48%;
 		display: inline-block;
 		text-align: center;
 	}
 }
-#Mrphs-xlogin .xloginMessage {
+#Mrphs-xlogin .xloginMessage{
 	padding: 0.9em;
 	text-align: center;
 }

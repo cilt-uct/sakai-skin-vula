@@ -43,10 +43,11 @@
     sakai-home : ( extend : fa-list-ul ),
     sakai-iframe : ( extend : fa-globe ),
     sakai-iframe-site : ( extend : fa-list-ul ),
+    sakai-summary-calendar: ( extend : fa-list-ul),
     sakai-synoptic-announcement: ( extend : fa-list-ul),
     sakai-synoptic-chat: ( extend : fa-list-ul),
     sakai-synoptic-messagecenter: ( extend : fa-list-ul),
-    sakai-lessonbuildertool : ( extend : fa-leanpub ),
+    sakai-lessonbuildertool : ( extend : fa-file-text-o ),
     sakai-mailbox : ( extend : fa-envelope-o ),
     sakai-mailtool : ( extend : fa-envelope-o ),
     sakai-membership : ( extend : fa-users ),
@@ -90,6 +91,7 @@
     sakai-usermembership : ( extend : fa-user ),
     sakai-users : ( extend : fa-users ),
     sakai-web-168 : ( extend : fa-globe ),
+    sakai-acadtermmanage : ( extend : fa-calendar-plus-o ),
 
     // other tools
     kaltura-admin : ( extend : fa-gear ),

@@ -203,8 +203,10 @@ $logo-background-size: 72% !default;
 // ----------------------------------------
 $footer-background-color: $color-white !default;
 $footer-border-color: shade( $footer-background-color, 20%) !default;
+$footer-details-border-color: $footer-border-color;
 $footer-color: tint($text-color, 10%) !default;
 $footer-border: 1px solid $footer-border-color;
+$footer-font-size: 0.66em; // UCT - slightly smaller font
 
 // Layout
 // ----------------------------------------

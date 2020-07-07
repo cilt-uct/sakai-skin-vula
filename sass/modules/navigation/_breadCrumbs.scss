@@ -27,7 +27,7 @@ body.is-logged-out{
 
 	// Show the breadcrumbs on a separate row (when there are parent sites)
 	@media #{$nonPhone}{
-        @include display-flex;
+		@include display-flex;
 		@include flex-direction(column);		// so parent sites will appear above tool name
 		@include align-items(flex-start);
 		@include flex-wrap(wrap);
@@ -56,7 +56,7 @@ body.is-logged-out{
 		}
 
 		// Force a fixed width for these so we don't jump when switching between a narrow icon and the wider reset icon (or vice versa)
-        .#{$namespace}breadcrumb--icon{
+		.#{$namespace}breadcrumb--icon{
 			display: inline-block;
 			text-align: center;
 			width: 24px;
@@ -102,7 +102,7 @@ body.is-logged-out{
 	}
 
 	@media #{$phone}{
-        @include display-flex;	// flexing this so parent site/subsites breadcrumbs don't overlap for the first layer; more work needs to be done to improve this
+		@include display-flex;	// flexing this so parent site/subsites breadcrumbs don't overlap for the first layer; more work needs to be done to improve this
 		background-color: transparent;
 		box-shadow: none;
 		position: absolute;
@@ -148,8 +148,6 @@ body.is-logged-out{
 			top: -22.2em;
 		}
 	}
-
-
 
 }
 

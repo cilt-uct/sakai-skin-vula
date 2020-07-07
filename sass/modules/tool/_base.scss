@@ -3,10 +3,13 @@
 		@include display-flex;
 		@include align-items(center);
 		margin-top: -48px;			// position the buttons beside the tool title
-
+		
 		@media #{$phone} {	// position the buttons for mobile
 			margin-top: 0;
 			margin-bottom: -22px;
+			sakai-maximise-button {
+				display: none;
+			}
     }
       &.home {
 			top: 0px;
@@ -17,7 +20,8 @@
 .#{$namespace}multipleTools{
 	.#{$namespace}container {
 		// UCT - remove border and shadow from inside tools
-		// border: 1px solid $overview-portlet-border-color;
+		// border: $overview-portlet-border;
+		// border-radius: $overview-portlet-border-radius;
 		// box-shadow: $overview-portlet-shadow;
 		margin-bottom: $standard-spacing;
 
@@ -34,7 +38,7 @@
 			@include align-items(center);
 			@include justify-content(space-between);
 			background-color: $overview-portlet-title-background-color;
-			border-bottom: 1px solid $overview-portlet-border-color;
+			border-bottom: $overview-portlet-border;
 			padding: $standard-spacing;
 		}
 
@@ -44,29 +48,29 @@
     }
 
 	.#{$namespace}toolTitleNav__button_container {
-        @include display-flex;
+		@include display-flex;
 		@include align-items(center);
 		margin: 0;		// to override the single column if both single and multiple classes apply to the same element
 
 		@media #{$tablet}{
 			font-size: 1.2em;
 		}
-    }
+	}
 
-    .#{$namespace}toolTitleNav{
-        .#{$namespace}toolTitleNav__title{
-            display: inline-block;
-            font-size: 1em;
-            font-weight: 400;
-            color: $tool-nav-link-color;
-            margin: 0;
-            position: relative;
-
-            a{
-                margin-right: 0.25em;
-            }
-        }
-    }
+	.#{$namespace}toolTitleNav{
+		.#{$namespace}toolTitleNav__title{
+			display: inline-block;
+			font-size: 1em;
+			font-weight: 400;
+			color: $tool-nav-link-color;
+			margin: 0;
+			position: relative;
+			
+			a{
+				margin-right: 0.25em;
+			}
+		}
+	}
 }
 
 .#{$namespace}toolTitleNav{
@@ -128,11 +132,10 @@
 
 	.#{$namespace}toolTitleNav__link{
 		@include sakai_secondary_button();
-
-		margin-right: 0.25em;
-		padding: 0.4em 0.8em 0.45em 0.8em;
-		vertical-align: 0%;
-		line-height: 1em;
+		// override some button properties below:
+		@include display-flex;
+		@include align-items(center);
+		margin: 0 0 0 $standard-space;
 
 		&:before {
 			@extend .fa;
@@ -152,7 +155,7 @@
 				display: none;
 			}
 		}
-		&--help-popup{
+		--help-popup{
 			@extend .fa;
 			@extend .fa-question;
 			// UCT - no display
@@ -170,16 +173,21 @@
 			display: none;
 			font-size: 0.9em;
 			float: left;
-        }
+		}
 
 		.#{$namespace}itemTitle{
 			@media #{$tablet}{
 				display: none;
-            }
-            margin-left: $standard-space;	// space between text and icon
+			}
+			margin-left: $standard-space;	// space between text and icon
 		}
 	}
 
+	sakai-maximise-button {
+		color: $tool-nav-link-color;
+		font-size: 1.1em;
+	  }
+	  
 }
 
 .#{$namespace}toolBody{
@@ -217,7 +225,7 @@ body > .portletBody, .portletBody {
 
 		h1, h2, h3
 		{
-			margin: $standard-spacing 0 0 0; // vertical margins will collapse into one
+			margin: 0;
 			padding: 0;
 			line-height: 1;
 		}
@@ -300,7 +308,7 @@ body > .portletBody, .portletBody {
 			border: 1px solid #ddd;
 		}
 
-		a{
+		a {
 			text-decoration: none; // remove underlined links in table
 		}
 	}

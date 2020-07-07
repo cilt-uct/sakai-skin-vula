@@ -10,7 +10,7 @@ body.is-logged-out{
 	.#{$namespace}mainHeader.is-maximized ~ #container #toolMenuWrap{
 		top: $header-size;
 	}
-
+	
 	#toolMenuWrap {
 		min-height: 100vh;				// alternative for browswers who cannot do calculations
 		min-height: calc(100vh - #{$banner-height});	// viewport minus the top banner when logged out
@@ -32,8 +32,25 @@ body.is-logged-out{
 		text-align: right;
 	}
 
+	body.tool-maximised {
+
+		.#{$namespace}topHeader, ##{$namespace}sites-nav, #footer, #presenceToggle {
+			display: none;
+		}
+
+		#toolMenuWrap {
+			max-width: 0px;
+			min-width: 0px;
+			width: 0px;
+		}
+
+		#toolMenu, #subSites:not(.floating) {	// subsites menu, but not the floating one
+			display: none;
+		}
+  }
+
 	// LHS tool menu collapsed to show icons only and not tool titles.
-	body.#{$namespace}toolMenu-collapsed{
+	body.#{$namespace}toolMenu-collapsed:not(.tool-maximised) {
 		#toolMenuWrap{
 			max-width: #{ $tool-menu-width-collapsed };
 			min-width: #{ $tool-menu-width-collapsed };
@@ -46,11 +63,14 @@ body.is-logged-out{
 			ul{
 				li{
 					.Mrphs-toolsNav__menuitem--icon {
-						padding: 0;
+						padding: 0;	
 					}
-					.Mrphs-toolsNav__menuitem--link {
+					.Mrphs-toolsNav__menuitem--link{
 						min-height: 1.7em;
 						text-align: center;
+						border-radius: $tool-menu-item-collapsed-border-radius;
+						margin: $tool-menu-item-collapsed-margin; 
+						padding: $tool-menu-item-collapsed-padding;
 						&:hover, &:focus {
 							position: relative;
 							.#{$namespace}toolsNav__menuitem--title{
@@ -58,15 +78,18 @@ body.is-logged-out{
 								position: absolute;
 								top: -1px;
 								bottom: -1px;
-								left: $tool-menu-width-collapsed;
+								left: calc(#{$tool-menu-width-collapsed} - 1px);
 								z-index: 100;
 								width: auto;
 								border-radius: 0 5px 5px 0;
+								
 								line-height: 40px;
 								background: $tool-menu-item-hover-background-color;
 								border-top: 1px solid $tool-menu-item-separator-color;
 								border-right: 1px solid $tool-menu-item-separator-color;
 								border-bottom: 1px solid $tool-menu-item-separator-color;
+								border-radius: $tool-menu-item-border-radius;
+								border-left-color: $tool-menu-item-hover-background-color;
 								padding: 0 10px;
 								margin: 0;
 							}
@@ -76,17 +99,17 @@ body.is-logged-out{
 								display: none;
 							}
 							&:hover, &:focus {
-								.#{$namespace}toolsNav__menuitem--title {
+								.#{$namespace}toolsNav__menuitem--title{
 									background: $tool-menu-item-hidden-hover-background-color;
 								}
 							}
 						}
-						span.#{$namespace}toolsNav__menuitem--title {
+						span.#{$namespace}toolsNav__menuitem--title{
 							white-space: pre;
 						}
 					}
-					&.is-current {
-						.Mrphs-toolsNav__menuitem--link {
+					&.is-current{
+						.Mrphs-toolsNav__menuitem--link{
 							&:hover, &:focus {
 								.#{$namespace}toolsNav__menuitem--title{
 									background: $tool-menu-item-selected-hover-background-color;
@@ -111,7 +134,7 @@ body.is-logged-out{
 							padding: 0;
 							text-align: center;
 						}
-
+						
 						.fa{
 							@include transform( scaleX(-1) ); // flip horizontally
 						}
@@ -177,10 +200,10 @@ body.is-logged-out{
 	display: block;
 	min-width: $tool-menu-width;
 	width: $tool-menu-width;
-	min-height: 100vh;									// alternative for browswers who cannot do calculations
+	min-height: 100vh;											// alternative for browswers who cannot do calculations
 	min-height: calc(100vh - (#{$banner-height} * 2));	// viewport minus the two top banners
 	@include flex-basis( $tool-menu-width );
-	padding: 6px 0 0 0;
+	padding: $tool-menu-padding;
 	text-align: center;
 	border-right: 1px solid $tool-border-color;
 	@include transition( left 0.25s linear 0s );
@@ -262,7 +285,7 @@ nav#subSites{
 		}
 		border-left: 1px solid $tool-menu-item-separator-color;
 		border-right: 1px solid $tool-menu-item-separator-color;
-
+		
 		&.ontop{
 			ul{
 				max-height: 240px;
@@ -281,7 +304,7 @@ nav#subSites{
 			border-color: transparent;
 			border-right-color: $tool-menu-item-separator-color;
 			border-width: 7px;
-		}
+		}		
 		ul li a .#{$namespace}toolsNav__menuitem--icon {
 			overflow: hidden;
 		}
@@ -293,13 +316,12 @@ nav#subSites{
 		padding: 0;
 		margin:  0;
 		list-style: none;
-
+		
 		@media #{$nonPhone}	{
 			margin-bottom: calc(#{$tool-menu-collapseButton-height} + 1em); // space at the bottom of the list to avoid the collapse button overlapping tools
 		}
-
-
-		li {
+		
+		li{
 			border-bottom: 1px solid $tool-menu-item-separator-color;
 
 			&.#{$namespace}collapseTools
@@ -321,18 +343,21 @@ nav#subSites{
 				background-color: $tool-menu-collapse-background-color;
 				box-shadow: $tool-menu-collapse-shadow;
 
-				&:hover, &:focus {
+				&:hover, &:focus
+				{
 					color: $tool-menu-collapse-hover-text-color;
 					border-top: $tool-menu-collapse-hover-border-top;
 					background-color: $tool-menu-collapse-hover-background-color;
 					box-shadow: $tool-menu-collapse-hover-shadow;
 				}
-
-				&:active {
+			
+				&:active 
+				{
 					box-shadow: none;	// to override default button styles
 				}
-
-				&.min {
+			
+				&.min
+				{
 					justify-content:center; /* center the arrows when collapsed */
 					width: calc(#{$tool-menu-width-collapsed} - 1px); /* width of sidebar minus border edge */
 					color: $tool-menu-collapse-min-text-color;
@@ -340,41 +365,49 @@ nav#subSites{
 					background-color: $tool-menu-collapse-min-background-color;
 					box-shadow: $tool-menu-collapse-min-shadow;
 
-					&:hover, &:focus {
+					&:hover, &:focus
+					{
 						color: $tool-menu-collapse-min-hover-text-color;
 						border-top: $tool-menu-collapse-min-hover-border-top;
 						background-color: $tool-menu-collapse-min-hover-background-color;
 						box-shadow: $tool-menu-collapse-min-hover-shadow;
 					}
-
-					&:active {
+			
+					&:active 
+					{
 						box-shadow: none;	// to override default button styles
 					}
 				}
 
-				button {
+				button
+				{
 					border-radius: 0;
-					span.fa-angle-double-left {
+					
+					span.fa-angle-double-left
+					{
 						color: $tool-menu-collapse-icon-color;
 					}
-					&:focus	{
+					
+					&:focus 
+					{
 						outline-offset: -#{$focus-outline-width};	// to match the width of the default link focus to fit in the link container
 					}
 				}
 
-				span.fa-angle-double-left {
+				span.fa-angle-double-left
+				{
 					@include transition( transform, 0.25s, ease-out, 0s ); /* animate the arrow direction change */
 				}
-				@media #{$phone} {
+				@media #{$phone}{
 					display: none !important;
 				}
 			}
-
+	
 			// add a top border to the first tool to prevent jitter on hover when collapsed
 			&:first-of-type a {
 				border-top: 1px solid $tool-menu-item-separator-color;
 			}
-
+	
 			.Mrphs-toolsNav__menuitem--link{
 				position: relative;
 				@include display-flex;
@@ -383,23 +416,25 @@ nav#subSites{
 					@include flex-direction(column);
 				}
 				background-color: $tool-menu-item-background-color;
-				font-size: 0.9em;
+				font-size: 1em;
 				line-height: 1.5;
 				font-weight: $tool-menu-item-text-weight;
 				text-decoration: none;
 				color: $tool-menu-item-text-color;
-
+				
 				@if $tool-menu-icon-on-left {
 					text-align: left;
-					padding: $standard-spacing;
+					border-radius: $tool-menu-item-border-radius;
+					margin-right: $tool-menu-item-margin-right; 
+					padding: $tool-menu-item-padding;
 				} @else {
 					text-align: center;
 					padding: 0.5em 0.25em;
 					min-height: 3em;
 					line-height: 1.25;
 				}
-
-				&:before {
+				
+				&:before{
 					content: '';
 					height: 100%;
 					display: inline-block;
@@ -421,12 +456,12 @@ nav#subSites{
 						color: $tool-menu-item-hover-icon-color;
 					}
 				}
-
+				
 				&:focus {
 					outline-offset: -#{$focus-outline-width};	// to match the width of the default link focus to fit in the tool's link container
 				}
-
-				@media #{$phone} {
+				
+				@media #{$phone}{
 					@if $tool-menu-icon-on-left {
 						border: none;
 						font-size: 0.9em;
@@ -441,11 +476,11 @@ nav#subSites{
 					}
 					overflow: hidden;
 				}
-
+				
 				.#{$namespace}toolsNav__menuitem--icon{
 					@extend .fa-fw;
 					color: $tool-menu-item-icon-color;
-
+					
 					@if $tool-menu-icon-on-left {
 						display: inline-block;
 						height: 100%;
@@ -457,14 +492,13 @@ nav#subSites{
 						}
 					}
 				}
-
-				.#{$namespace}toolsNav__menuitem--title {
+				
+				.#{$namespace}toolsNav__menuitem--title{
 					@if $tool-menu-icon-on-left {
 						display: inline-block;
-						width: 75%;
+						width: calc(#{$tool-menu-width} - #{$tool-menu-width-collapsed} - #{$standard-spacing});
 						vertical-align: middle;
 						margin-left: $standard-spacing;
-
 						@media #{$phone}{
 							width: 90%;
 						}
@@ -482,7 +516,7 @@ nav#subSites{
 					color: $tool-menu-item-hidden-text-color;
 					background: $tool-menu-item-hidden-background-color;
 
-					&:before {
+					&:before{
 						border-left: $tool-menu-item-hidden-border-left;
 					}
 
@@ -500,7 +534,7 @@ nav#subSites{
 						}
 					}
 
-					&:hover {
+					&:hover{
 						color: $tool-menu-item-hidden-hover-text-color;
 						background: $tool-menu-item-hidden-hover-background-color;
 
@@ -512,7 +546,7 @@ nav#subSites{
 							color: $tool-menu-item-hidden-hover-icon-color;
 						}
 					}
-
+					
 					.#{$namespace}toolsNav__menuitem--icon{
 						color: $tool-menu-item-hidden-icon-color;
 					}
@@ -620,6 +654,7 @@ body {
 				.#{$namespace}toolsNav__menuitem--icon {
 					&:before {
 						content: '\f0da';
+						width:20px;
 					}
 				}
 			}
@@ -633,29 +668,29 @@ body {
 					}
 
 					&:hover {
-						background-color: $tool-menu-item-hover-background-color !important;
+						background-color: $tool-menu-item-hover-background-color;
 					}
 				}
 
 				.lessons-top-level-placeholder {
 					@include flex-direction(row);	// always make the flex-direction row, including when "$tool-menu-icon-on-left: false"
 					padding: 0;		// move the padding from the span to the link below
-
+					
 					.lessons-expand-collapse-icon {
-						padding: $standard-spacing;
+						padding: $tool-lessons-toplevel-menu-icon-padding;
 						padding-right: 0;	// remove space from icon to text
 						text-decoration: none;	// remove underline from linked icon
-
 						.Mrphs-toolsNav__menuitem--icon {
 							position: relative;
+							width:20px;
 						}
 					}
 
 					.lessons-goto-top-page {
 						@include flex-grow(1);	// to make sure the text takes up the needed space
-						padding: $standard-spacing;
+						padding: $tool-lessons-toplevel-menu-text-padding;
 						padding-left: 0; 	// remove space from text to icon
-
+						width: calc(#{$tool-menu-width} - calc(#{$standard-spacing} * 2));
 						.Mrphs-toolsNav__menuitem--title {
 							color: $tool-menu-item-text-color;
 						}
@@ -668,11 +703,16 @@ body {
 
 					&:hover {
 						.lessons-goto-top-page {
+							
 							.Mrphs-toolsNav__menuitem--title {
+								text-overflow: clip;
+								width: calc(#{$tool-menu-width} - #{$tool-menu-width-collapsed} - calc(#{$standard-spacing} * 1.5));
 								&:after {
 									font-family: 'FontAwesome';
 									content: '\f0a9';
 									padding-left: 4px;
+									position: absolute;
+									left: calc(#{$tool-menu-width} - (#{$standard-spacing} * 1.5))
 								}
 							}
 						}
@@ -692,10 +732,18 @@ body {
 			}
 
 			&.expanded {
-				background-color: $tool-menu-item-selected-background-color;
-
+				background-color: $tool-lessons-toplevel-menu-expanded-background-color;
+				&.is-current {
+					> .Mrphs-toolsNav__menuitem--link {
+						background-color: $tool-lessons-toplevel-menu-expanded-selected-background-color;
+						&:hover {
+							background-color: $tool-menu-item-selected-hover-background-color;
+						}
+					}
+				}
 				&.is-parent-of-current {
 					> .Mrphs-toolsNav__menuitem--link {
+						background-color: $tool-lessons-subpage-menu-selected-parent-background-color;
 						.#{$namespace}toolsNav__menuitem--icon {
 							color: $tool-menu-item-icon-color !important;
 						}
@@ -717,10 +765,9 @@ body {
 				}
 
 				> .Mrphs-toolsNav__menuitem--link {
-					background-color: $tool-menu-item-selected-background-color;
-
+					background-color: $tool-lessons-subpage-menu-expanded-background-color;
 					&:hover {
-						background-color: $tool-menu-item-selected-hover-background-color !important;
+						background-color: darken($tool-lessons-toplevel-menu-expanded-background-color, 10%);
 					}
 
 					.#{$namespace}toolsNav__menuitem--icon {
@@ -736,8 +783,7 @@ body {
 			}
 
 			&.sliding-down {
-					background-color: $tool-menu-item-selected-background-color !important;
-
+					background-color: $tool-lessons-toplevel-menu-sliding-background-color;
 					.Mrphs-toolsNav__menuitem--link {
 							.#{$namespace}toolsNav__menuitem--icon {
 									-webkit-transition-duration: 0.5s;
@@ -754,10 +800,9 @@ body {
 									-webkit-transform: rotate(90deg);
 									transform: rotate(90deg);
 							}
-							background-color: $tool-menu-item-selected-background-color !important;
-
+							background-color: $tool-lessons-toplevel-menu-sliding-background-color;
 							&:hover {
-									background-color: $tool-menu-item-selected-background-color !important;
+									background-color: $tool-lessons-toplevel-menu-sliding-background-color;
 							}
 					}
 			}
@@ -802,17 +847,21 @@ body {
 						max-height: 100px;
 						overflow:hidden;
 						border-left: $tool-menu-item-border-left !important;
+						line-height: 1.5;
 						@if $tool-menu-icon-on-left {
-							padding: 3.5px 3.5px 3.5px 40px;
+							padding: $tool-lessons-subpage-menu-text-padding;
 							text-align: left;
+							border-radius: $tool-lessons-subpage-menu-border-radius;
+							margin-right: $tool-menu-item-margin-right;
 						}
 						@else {
 							@include justify-content(center);
 							padding: 3.5px;
 							text-align: center;
 						}
-						font-size: 12px !important;
+						font-size: $tool-lessons-subpage-menu-fontsize;
 						text-overflow: ellipsis;
+						white-space: nowrap;
 						color: $tool-menu-item-text-color !important;
 						text-decoration: none;
 
@@ -872,14 +921,14 @@ body {
 						}
 					}
 					&.is-current {
-						margin-right: 0;
+						margin-right: $tool-menu-item-margin-right;
 
 						a {
 							font-weight: bold !important;
 							color: $tool-menu-item-selected-text-color !important;
 							border-left: $tool-menu-item-selected-border-left !important;
 							margin-right: 0;
-
+							background: $tool-lessons-subpage-menu-selected-background-color;
 							&:hover {
 								color: $tool-menu-item-selected-hover-text-color !important;
 								border-left: $tool-menu-item-selected-hover-border-left !important;
@@ -891,6 +940,11 @@ body {
 			}
 
 			&.is-current {
+				> .Mrphs-toolsNav__menuitem--link {
+					&:hover {
+						background-color: $tool-menu-item-selected-hover-background-color;
+					}
+				}
 				.lessons-goto-top-page {
 					.Mrphs-toolsNav__menuitem--title {
 						color: $tool-menu-item-selected-text-color !important;
@@ -937,11 +991,11 @@ body {
 						-webkit-transform: rotate(0deg) !important;
 						transform: rotate(0deg) !important;
 						&:before {
-							content: '\f212';
+							content: '\f15c';
 						}
 					}
 					&.expanded:not(.is-current) .#{$namespace}toolsNav__menuitem--link {
-							background-color: $tool-menu-item-background-color;		// when tool menu is collapsed and Lessons isn't the current tool
+						background-color: $tool-menu-item-background-color;		// when tool menu is collapsed and Lessons isn't the current tool
 					}
 					&.is-parent-of-current, &.expanded.is-parent-of-current {
 						.#{$namespace}toolsNav__menuitem--link {

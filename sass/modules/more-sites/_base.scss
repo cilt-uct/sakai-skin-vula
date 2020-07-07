@@ -1,46 +1,45 @@
 body.active-more-sites{
-  overflow: hidden;
+	overflow: hidden;
 
-  @media #{$phone} {
-    overflow: auto;
+	@media #{$phone} {
+		overflow: auto;
 
-    // hide the tool body
-    .#{$namespace}pagebody {
-      #content {
-        display: none;
-      }
-    }
+		// hide the tool body
+		.#{$namespace}pagebody {
+			#content {
+				display: none;
+			}
+		}
 
-    // make the banner stick to the top on scroll when the tool menu is visible
-    .#{$namespace}mainHeader {
-      position: absolute;
-      top: -$banner-height;
+		// make the banner stick to the top on scroll when the tool menu is visible
+		.#{$namespace}mainHeader {
+			position: absolute;
+			top: -$banner-height;
 
-      .#{$namespace}topHeader {
-        position: relative;
-        padding-top: 0 !important;
+			.#{$namespace}topHeader {
+				position: relative;
+				padding-top: 0 !important;
 
-        .#{$namespace}headerLogo {
-          position: relative;
-        }
-      }
-    }
+				.#{$namespace}headerLogo {
+					position: relative;
+				}
+			}
+		}
 
+		#selectSiteModal {
+			width: 100% !important;
+			right: 0 !important;
+			top: ($banner-height - 4) !important;
+			height: auto !important;
+			min-height: 100% !important;
+			max-height: none !important;
+			position: absolute !important;
 
-    #selectSiteModal {
-      width: 100% !important;
-      right: 0 !important;
-      top: ($banner-height - 4) !important;
-      height: auto !important;
-      min-height: 100% !important;
-      max-height: none !important;
-      position: absolute !important;
-
-      .tab-pane {
-        height: auto !important;
-      }
-    }
-  }
+			.tab-pane {
+				height: auto !important;
+			}
+		}
+	}
 }
 
 #portalMask{
@@ -99,7 +98,7 @@ body.active-more-sites{
 		}
 	}
 	&:after{
-	        bottom: 100%;
+		bottom: 100%;
 		left: 95%;
 		border: solid transparent;
 		content: " ";
@@ -142,7 +141,7 @@ body.active-more-sites{
 		line-height: $tool-tab-height;
 		border: 1px solid $all-sites-tab-border-color;
 		border-bottom:  0;
-		margin: 0 8px 0 0;
+		margin: 0 8px 0 0; // uct bit more spacing
 		color: $all-sites-tab-text-color;
 		background-color: $all-sites-tab-background-color;
 	}
@@ -279,7 +278,6 @@ ul#otherSitesMenu{
 	}
 }
 
-
 #otherSitesCategorWrap{
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -289,7 +287,7 @@ ul#otherSitesMenu{
 	}
 
 	.moresites-left-col{
- 		display: inline-block;
+		display: inline-block;
 		width: 49%;
 		float: left;
 		margin-right: 1%;
@@ -476,7 +474,7 @@ ul.favoriteSiteList{
 .otherSiteToolIcon{
 	padding-right: 0.5em;
 }
-
+  
 ul#otherSiteTools{
 	list-style: none;
 	padding-left: 0;
@@ -556,26 +554,26 @@ ul.favoriteSiteList{
 	}
 }
 
-	div.fav-title-myworkspace {
-		width: 276px;
+div.fav-title-myworkspace {
+	width: 276px;
 
-		a {
-			width: 100%;
+	a {
+		width: 100%;
 
-			.fa-home {
-				font-size: 1.33333em;
-				padding: 0 0.5em 0 10px;
-			}
+		.fa-home {
+			font-size: 1.33333em;
+			padding: 0 0.5em 0 10px;
+		}
 
-			&:hover {
-				text-decoration: none;
-			}
-			.fa-home, .fullTitle {
-				height: $all-sites-button-height;
-				line-height: $all-sites-button-height;
-			}
+		&:hover {
+			text-decoration: none;
+		}
+		.fa-home, .fullTitle {
+			height: $all-sites-button-height;
+			line-height: $all-sites-button-height;
 		}
 	}
+}
 
 .fav-title{
 	width: 240px;
@@ -660,7 +658,6 @@ ul.favoriteSiteList{
 	}
 }
 
-
 li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 	font-weight: bold;
 	color: #de8e07;
@@ -700,7 +697,6 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 
 }
 
-
 #organizeFavoritesPurgatoryList{
 	.fav-drag-handle{
 		display: none;
@@ -730,7 +726,6 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 	@extend .fa-home;
 	color: #000;
 }
-
 
 .site-favorite-icon{
 	font-size: 1.3em;
@@ -764,6 +759,7 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 
 .favorites-help-text {
 	margin-top: 1em;
+	// UCT - chnage help text
 	font-size: 0.9em;
 	color: $color-gray;
 }
@@ -854,11 +850,11 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 	button {
 		color: $text-color !important;
 		background: $background-color;
-		border-color: $color-gray; //$button-primary-border-color;
+		border-color: $color-gray; //$button-primary-border-color; UCT 
 		border-radius: $button-radius;
 		padding: 0.6em;
 
-		&[aria-checked="true"] :first-child, &[aria-checked="false"] :last-child {
+		&[aria-checked="true"] :last-child, &[aria-checked="false"] :first-child {
 			background: $button-primary-hover-background;
 			color: $button-primary-text-color;
 		}

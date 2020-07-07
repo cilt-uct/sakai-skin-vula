@@ -74,7 +74,8 @@
 			&.#{$namespace}skipNav__menuitem.#{$namespace}skipNav__menuitem--tools {
 				@include display-flex;
 				background: $portal-background-color;
-				box-shadow: $divider-shadow;
+				box-shadow: $divider-shadow-fixed;
+				
 
 				a {
 					float: left;
@@ -91,7 +92,7 @@
 						border-right: 1px solid $tool-menu-item-separator-color;
 					}
 				}
-
+				
 				a.#{$namespace}skipNav--toolName {
 					color: $link-color;
 				}
@@ -124,7 +125,7 @@
 				text-overflow: ellipsis;
 				height: $banner-height - 4;
 				line-height: $banner-height - 4;
-
+				
 				&:hover, &:active
 				{
 					text-decoration: none;

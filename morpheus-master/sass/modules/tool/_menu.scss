@@ -48,7 +48,7 @@
 						top: -1px;
 					}
 				}
-
+				
 				&:focus {
 					position: relative;		// so the outline doesn't get hidden by adjacent tabs
 					outline-offset: -#{$focus-outline-width};	// to match the width of the default link focus to fit in the tool's link container
@@ -111,7 +111,8 @@
 }
 
 .instruction{
-	@include bs-callout($instruction-color, $instruction-background-color);
+	font-size: $instruction-size;
+	color: $instruction-color;
 }
 
 .listNav{

@@ -2,10 +2,6 @@
 
 	ul, ol {
 		padding-top: 0;
-
-		&.breadcrumb {
-			padding: 8px 15px;
-		}
 	}
 
 	input, textarea{
@@ -76,7 +72,7 @@
 				.dropdown-menu a {
 					color:#000 !important;
 				}
-			}
+			} 
 		}
 
 		td.attach{
@@ -246,60 +242,19 @@
 	.instruction {
 		margin-top: 0;
 	}
-
+	
 	/* SAK-32289 : Overlapping texts when uploading a new resource too big */
 	.dz-error-message{
 		top: 150px !important;
 	}
-
-	// UCT - redefine the drop down preview
-	.dropzone {
-		.dz-preview, .dz-preview.dz-file-preview {
-			.dz-image {
-				border-radius: $main-border-radius;
-			}
-
-			.dz-remove {
-				text-decoration: none;
-				font-size: 0.9em;
-				color: $link-color;
-
-				&:hover {
-					color: $link-hover-color;
-				}
-
-				&:active {
-					color: $link-active-color;
-				}
-			}
-
-			.dz-progress {
-				z-index: $z-10; // not over other items
-				width: 100px;
-				left: 42%;
-				border-radius: $main-border-radius;
-			}
-		}
-
-		.dz-preview:not(.dz-processing) .dz-progress {
-			animation: none;
-		}
-	}
-
+	
 	/* SAK-32371 : Resources doesnt use font awesome icons */
-	// UCT - only do this for inside links
-	.portletBody .fa {
+	.fa {
 		display : inline;
 		color : $primary-color;
 		text-decoration: none;
 	}
-
-	// UCT - change drop down radius
-	.btn-group > .btn.resources-dropdown:first-child:not(:last-child):not(.dropdown-toggle) {
-		border-bottom-right-radius: 3px;
-		border-top-right-radius: 3px;
-	}
-
+	
 	/* SAK-33897 - Restore + symbols in folders */
 	a.nil.fa-folder {
 		position: static;
@@ -359,4 +314,62 @@
 		display: none;
 		clear: both;
 	}
+}
+
+/* this belongs to resources but it is accessed out of its namespace */
+.googlethumbnail {
+	float: right;
+	width: 5%;
+	border: 1.0px dashed;
+	border-color: #9c9c9c;
+	border-radius: 5px;
+}
+
+.googlethumbnailbig {
+	width: 15%;
+}
+
+.googlethumbnailsmall {
+	width: 5%;
+}
+
+.jstree-container-ul.jstree-children{
+	li{
+		.fa-link{
+			margin: 0 10px 0 10px;
+		}
+		.fa-files-o{
+			margin-left: 10px;
+		}
+	}
+}
+
+.jstree-node {
+	&:not(.jstree-leaf) > .fa {
+		display: none;
+	}
+}
+
+.jstree-closed{
+	.fa-files-o, .fa-link{
+		display: none !important;
+	}
+}
+
+.no-attach 	> .fa-files-o{
+	display: none !important;
+}
+
+.is-folder {
+	> .fa-files-o, > .fa-link{
+		display: none;
+	}
+}
+
+.no-attach,.fa-files-o{
+	cursor:pointer;
+}
+
+.jstree-node a[href]:focus{
+	outline: 1px solid #5b9dd9;
 }

@@ -72,7 +72,7 @@
 
 			// Tool row
 			&.#{$namespace}skipNav__menuitem.#{$namespace}skipNav__menuitem--tools {
-                @include display-flex;
+				@include display-flex;
 				background: $portal-background-color;
 				/*box-shadow: $divider-shadow; - UCT no shadow on phone */
 

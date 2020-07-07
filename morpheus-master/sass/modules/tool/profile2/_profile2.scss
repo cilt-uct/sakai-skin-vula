@@ -14,7 +14,36 @@
 		font-size: 110%;
 		padding: 0 0 0 0;
 		line-height: 2.3em;
-		font-weight: 700;
+		&:not(.notBold) {
+			font-weight: 700;
+		}
+	}
+
+	.recordButton {
+		border-radius: 17px;
+		padding: 7px 30px;
+		background: #D10029;
+		color: white;
+		border-color: #D10029;
+		box-shadow: 0 0 5px 0 rgba(0,0,0,0.25);
+		margin-bottom: 10px;
+		@include display-flex;
+		@include flex-direction(row);
+		@include align-items(center);
+
+		&:active, &:hover, &:focus {
+			background: #b50024;
+			border-color: #b50024;
+			color: white;
+		}
+	}
+
+	#prev-audio-player audio, .audioPlayer audio {
+		max-width: 100%;
+	}
+
+	.content {
+		font-size: 14px;
 	}
 
 	.navIntraTool {
@@ -46,14 +75,13 @@
 		padding: 0.5em;
 		background: #F5F5F5;
 		position: relative;
-    }
-
+	}
 	.profileSayItActionBar {
 		@include display-flex;
 		@include justify-content(space-between);
 		@include align-items(center);
 		margin-top: $standard-space;
-
+		
 		.act {
 			margin: 0;
 		}
@@ -66,9 +94,9 @@
 		.sakai-wicket-iconwithtooltip{
 			position: absolute;
 			margin-top: 0em;
-		}
+		} 
 		.addPictureLabel{
-			margin-right: 1.6em;
+			margin-right: 1.6em; 
 		}
 		.wicket-mfu-container{
 			margin: 1em 0 0 0;
@@ -109,7 +137,6 @@
 	}
 
 	.profileContent {
-	    margin-right: 20px;
 	    max-width: 65em;
 	}
 

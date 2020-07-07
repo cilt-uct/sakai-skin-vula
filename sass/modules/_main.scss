@@ -85,7 +85,7 @@
 .#{$namespace}container--footer {
 	margin-top: auto; 	// push the footer to the bottom of the page
 	background-color: $footer-background-color;
-	//border-top: $footer-border; moved down to ul first child
+	border-top: 1px solid $footer-border-color;
 }
 
 .#{$namespace}noJs.js-warn-no-js {

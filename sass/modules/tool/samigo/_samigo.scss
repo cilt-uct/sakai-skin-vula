@@ -154,7 +154,7 @@
 		margin-left: 2em;
 	}
 
-	//This is for jsf labels and checkboxes
+	//This is for jsf labels and checkboxes	
 	#itemForm\:chooseAnswerTypeForMC input[type="radio"]{
 		@media #{$phone}{
 			float:left;
@@ -256,6 +256,9 @@
 		}
 	}
 
+	.navIntraTool {
+		margin: 0px !important;
+	}
 
 	.ui-autocomplete-input {
 		@extend .form-control;

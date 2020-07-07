@@ -1,4 +1,10 @@
+@import "_assignments_variables.scss";
+
 .#{$namespace}sakai-assignment-grades {
+
+  .checkbox-label {
+    margin-left: 20px;
+  }
 	#req-new_assignment_grade_points{
 		color: $error-color;
 	    margin: 9px 0 0 -13px;
@@ -55,10 +61,19 @@
 		margin-left: 20px;
 	}
 
+	a#infoImg{
+		color: lightblue;
+		font-size: 1.2em;
+		margin-right: 5px;
+		vertical-align: middle;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
 	#sendFeedbackPanel, #allowResubmissionPanel{
 		.discTria{
 			font-weight: bold;
-			background-color: #cef;
+			background-color: $assignments-disclosure-bg;
 		}
 	}
 
@@ -115,8 +130,8 @@
 	}
 
 	.toggleAnchor {
-	  border: 1px solid #cef;
-	  background: #cef  !important;
+	  border: 1px solid $assignments-disclosure-bg;
+	  background: $assignments-disclosure-bg  !important;
 	  padding: 5px !important;
 	  cursor: pointer;
 	  margin-bottom: 0;
@@ -129,8 +144,8 @@
 	  &:hover {
 	    border: 1px solid #9cf;
 	  }
-	  border: 1px solid #cef;
-	  background: #cef !important;
+	  border: 1px solid $assignments-disclosure-bg;
+	  background: $assignments-disclosure-bg !important;
 	  padding: 5px !important;
 	  cursor: pointer;
 	}
@@ -151,7 +166,7 @@
 
 	.toggledContent {
 	  margin: 0;
-	  border: 2px solid #cef;
+	  border: 2px solid $assignments-disclosure-bg;
 	  border-top: none;
 	  padding: 1em;
 	  h4 {
@@ -191,6 +206,7 @@
 	.reportIcon {
 	  display: inline-block;
 	  width: 20px;
+	  text-align: center;
 	}
 
 	.disclosureTriangle {
@@ -349,7 +365,7 @@
 	.userList {
 	  margin-left: 36px !important;
 	  .selectedItem {
-	    background: #def;
+	    background-color: #def;
 	    color: #000;
 	    font-weight: bold;
 	  }
@@ -380,6 +396,10 @@
 	  a:link {
 	    border: 1px solid transparent;
 	  }
+	}
+
+	.contentReviewColumn {
+		width: 320px;
 	}
 
 	.contentReviewIcon {
@@ -465,6 +485,40 @@
 		color: #9E9E9E;
 	}
 
+	.contentReviewDisclosure {
+		position: relative;
+		display: flex;
+		margin-right: $standard-space;
+		align-items: baseline;
+	}
+
+	.contentReviewDisclosure:focus {
+		outline-offset: -1px;
+	}
+
+	.contentReviewMessage {
+		background-color:#fff;
+		position: relative;
+		border: 1px solid;
+		border-radius: 5px;
+		margin: 7px 24px 4px 24px;
+		padding: 4px 8px;
+		background-color: $assignments-disclosure-bg;
+		border-color: $assignments-disclosure-bg;
+		color: $primary-color;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: -14px; // -2 x the border
+			left: 5px;
+			width: $standard-spacing;
+			height: $standard-spacing;
+			border: 7px solid transparent;
+			border-bottom-color: $primary-color;
+		}
+	}
+
 	div#pagingHeader {
 		height: 20px;
 		padding: 15px;
@@ -492,6 +546,7 @@
 		@include align-items(flex-end);
 		-webkit-flex-wrap: wrap;
 		flex-wrap: wrap;
+		grader-toggle { margin-left: 20px; }
 	}
 
 	#honor-pledge-agreement {
@@ -502,7 +557,91 @@
 		margin-bottom: 0;
 	}
 
+	.progress-container {
+		position: relative;
+
+		.progress-cols {
+			position: absolute;
+			width: 100%;
+			background: no-repeat;
+		}
+
+		.progress-bar-empty {
+			background-color: transparent;
+			color: $text-color;
+		}
+
+		.progress-bar-active {
+			color: #ffffff;
+		}
+	}
+
+	.student-picture {
+		background-position: center center;
+		background-size: cover;
+		border-radius: 80px;
+		border: 1px solid $background-color-secondary;
+		float: left;
+		height: 80px;
+		padding: 5px 0px;
+		margin: 0.8em $standard-spacing 0 0;
+		width: 80px;
+	}
+
   #submissionList sakai-rubric-student-button {
     float: right;
+  }
+
+  #msgNoMembersInCommonError {
+	  max-height: 300px;
+	  overflow-y: auto;
+  }
+
+  #checkNowButton {
+	  margin-top: $standard-spacing;
+  }
+
+  #groupTableContainer .multiselect-native-select::after
+  {
+	  content: "*";
+	  color: #990000;
+	  position: relative;
+	  top: 3px;
+	  margin-left: 4px;
+  }
+
+  #categoryList label {
+	  margin-bottom: 0; /* kill off bootstrap margin to reduce jitter during animation transitions */
+  }
+
+  #assignmentGradingPointsPanel label {
+	  font-weight: normal;
+  }
+
+  #assignmentGradingPointsPanel .radio, #assignmentGradingPointsPanel .checkbox {
+	  margin-top: 0;
+	  margin-bottom: 0;
+  }
+
+  #assignmentGradingPointsPanel sakai-rubric-association {
+	  display: block;
+  }
+
+  #assignmentGradingPointsPanel sakai-rubric-association h4 {
+	  display: none;
+  }
+
+  #assignmentGradingPointsPanel sakai-rubric-association .rubrics-list {
+	  margin-left: 3em; /* match indnt3 */
+	  padding-left: 0;
+  }
+
+  #msgNoMembersInCommon.is-hidden,
+  #msgNoMembersInCommonSuccess.is-hidden,
+  #msgNoMembersInCommonError.is-hidden,
+  #checkGroupsError.is-hidden,
+  #checkGroupFailed.is-hidden,
+  #checkGroupsErrorReport.is-hidden {
+	  display: none;
   }
 }

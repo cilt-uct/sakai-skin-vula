@@ -27,12 +27,12 @@
 		min-height: initial;
 		margin: 0;
 		padding: $standard-spacing;
-
+		
 		.#{$namespace}hierarchy--sites {
 			@include display-flex;
 			@include flex-wrap(wrap);
 		}
-
+		
 		.#{$namespace}hierarchy--siteName, .#{$namespace}hierarchy--siteNameSeparator{
 			display: none;		// hide the site name in the breadcrumbs
 		}
@@ -43,7 +43,7 @@
 			font-size: 0.9em;
 			font-weight: 200;
 		}
-
+		
 		.#{$namespace}hierarchy--1 a{
 			margin-left: 0;		// remove spacing from first site
 		}
@@ -108,7 +108,7 @@
 		.#{$namespace}hierarchy--siteName a:hover .#{$namespace}hierarchy--siteName-label {
 			text-decoration: underline;
 		}
-
+		
 		a.#{$namespace}hierarchy--toolName{
 			display: none;
 		}
@@ -116,7 +116,7 @@
 			color: $breadcrumbs-tool-color;
 			border-bottom: 1px solid $breadcrumbs-hover-color;
 		}
-
+		
 		.#{$namespace}hierarchy--serviceName, .#{$namespace}hierarchy--serviceNameSeparator{
 			display: none;
 		}

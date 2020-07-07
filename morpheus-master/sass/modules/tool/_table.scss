@@ -152,7 +152,7 @@ table{
 			width: 100%;
 		}
 		
-		input[type=button], input[type=submit]
+		input[type=button], input[type=submit], button
 		{
 			margin: $standard-space;
 		}
@@ -166,6 +166,11 @@ table{
 		{
 			margin-right: $standard-space;
 		}
+		
+		&.act 
+		{
+			margin: 0;	// remove margins added with .act
+		}
 	}
 
 	.sakai-table-searchFilterControls
@@ -176,6 +181,11 @@ table{
 		input:last-of-type, button:last-of-type
 		{
 			margin-right: 0;
+		}
+		
+		&.act 
+		{
+			margin: 0;	// remove margins added with .act
 		}
 	}
 
@@ -190,6 +200,11 @@ table{
 
 		input[type=button], input[type=submit], button {
 			margin: 0 calc(#{$standard-spacing} / 2) $standard-spacing 0 !important;
+		}
+		
+		&.act 
+		{
+			margin: 0;	// remove margins added with .act
 		}
 	}
 
@@ -218,7 +233,7 @@ table{
 	}
 
 	/* specific breakpoint based on width of pager controls, allows them to stack when there isn't enough room */
-	@media all and (max-width: 400px)
+	@media #{$smallPhone}
 	{
 		.sakai-table-pagerControls
 		{
@@ -259,6 +274,7 @@ table{
 .sakai-table-toolBar.sakai-table-toolBar-bottom
 {
 	@include align-items(flex-start);
+	margin-bottom: $standard-spacing;
 
 	.sakai-table-filterContainer
 	{

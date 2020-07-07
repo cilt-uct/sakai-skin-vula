@@ -10,3 +10,4 @@ sass copy
 scratch.scss
 npm-audit.log
 package-lock.json
+sass_2/*
