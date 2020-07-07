@@ -8,3 +8,5 @@ tool2.css
 tool.css
 sass copy
 scratch.scss
+npm-audit.log
+package-lock.json

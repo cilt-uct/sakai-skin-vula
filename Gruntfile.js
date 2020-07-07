@@ -1,10 +1,5 @@
 'use strict';
-
-// Load Grunt
-module.exports = function (grunt) {
-
-  // Time how long tasks take. Can help when optimizing build times
-  require('time-grunt')(grunt);
+module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -13,7 +8,6 @@ module.exports = function (grunt) {
         bootstrap: 'bootstrap-sass/assets',
         fontawesome: 'font-awesome-sass/assets'
     },
-
     // Tasks
     clean: { // Empties folders to start fresh
       build: {
@@ -25,8 +19,17 @@ module.exports = function (grunt) {
           ]
         }]
       }
-    },
-
+    },    
+    // jshint: {
+    //   options: {
+    //     jshintrc: '.jshintrc'
+    //   },
+    //   all: [
+    //     'Gruntfile.js',
+    //     'assets/js/**/*.js',
+    //     '!assets/build/app.min.js'
+    //   ]
+    // },
     sass: { // Begin Sass Plugin
       skin: {
         options: {
@@ -42,7 +45,6 @@ module.exports = function (grunt) {
         }]
       }
     },
-
     postcss: { // Begin Post CSS Plugin
       options: {
         map: {
@@ -56,20 +58,7 @@ module.exports = function (grunt) {
       dist: {
         src: 'tmp/*.css'
       }
-    },
-
-    cssmin: { // Begin CSS Minify Plugin
-      target: {
-        files: [{
-          expand: true,
-          cwd: 'tmp',
-          src: ['*.css', '!*.min.css'],
-          dest: 'tmp',
-          ext: '.min.css'
-        }]
-      }
-    },
-
+    },    
     watch: { // Compile everything into one task with Watch Plugin
       sass: {
         files: '**/*.scss',
@@ -83,7 +72,6 @@ module.exports = function (grunt) {
         },
       },
     },
-
     copy: { // Copy files from src folder to appropriate dest
       dist: {
         files: [
@@ -110,7 +98,6 @@ module.exports = function (grunt) {
         })()
       }
     },
-
     uglify: {
       options: {
         mangle: false,
@@ -123,7 +110,6 @@ module.exports = function (grunt) {
         }
       }
     },
-
     sftp: { // Move newly created CSS files to server
       dist: {
         files: {
@@ -139,46 +125,32 @@ module.exports = function (grunt) {
             "createDirectories": true
         }
       }
-    },
-
+    },            
     if: { // If statements to determine where to deploy the files (local/remote)
-        local: {
-            options: {
-                config: 'app.local.do'
-            },
-            ifTrue: ['copy:local']
-        },
-        remote: {
-            options: {
-                config: 'app.remote.do'
-            },
-            ifTrue: ['sftp']
-        }
+      local: {
+          options: {
+              config: 'app.local.do'
+          },
+          ifTrue: ['copy:local']
+      },
+      remote: {
+          options: {
+              config: 'app.remote.do'
+          },
+          ifTrue: ['sftp']
+      }
     }
   });
 
-  if ((grunt.config.get("app").local.do) && (grunt.config.get("app").remote.do)) {
-
-    grunt.log.writeln('Update');
-
-    if (grunt.config.get("app").local.do) {
-      grunt.log.writeln('    local: '+ grunt.config.get("app").local.dest);
-    }
-
-    if (grunt.config.get("app").remote.do) {
-      grunt.log.writeln('    remote: '+ grunt.config.get("app").remote.dest +':'+ grunt.config.get("app").remote.path);
-    }
-  }
-
-  // Load Grunt plugins
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  // Load tasks
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  // grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-ssh');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  // grunt.loadNpmTasks('grunt-ssh');
   grunt.loadNpmTasks('grunt-if');
 
   // Register Grunt tasks
@@ -187,7 +159,7 @@ module.exports = function (grunt) {
     ,'sass'
     ,'postcss'
     //,'cssmin'
-    ,'uglify'
+    // ,'uglify'
     ,'copy:dist'
   ]);
 
