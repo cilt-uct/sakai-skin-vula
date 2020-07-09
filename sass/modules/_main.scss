@@ -20,7 +20,7 @@
 	@include align-items(stretch);
 	@include display-flex;
 	@include flex-direction(row);
-
+	
 	> .#{$namespace}pagebody{
 		@include display-flex;
 		@include flex-direction(column);
@@ -37,13 +37,13 @@
 	@media #{$tablet} {
 		@include flex-direction(column);
 	}
-
-	@media #{$phone} {
+	
+	@media #{$phone}{
 		margin: 0;
 		padding-top: $standard-spacing; // make way for the button container
 	}
 
-	#col1of2, #col2of2 {
+	#col1of2, #col2of2{
 		@include flex-shorthand(1, 1, 0); 	// flex: 1 1 0; vs flex: 1; because of IE11 bug
 		display: inline-block;
 		margin: 0 0 $standard-spacing $standard-spacing;
@@ -63,7 +63,7 @@
 	}
 }
 
-.#{$namespace}mainContent {
+.#{$namespace}mainContent{
 	background: $main-content-background;
 }
 
@@ -71,11 +71,11 @@
 	margin: 0;
 	clear: both;
 	width: 100%;
-
+	
 	@media #{$phone}{
 		margin: 0;
 	}
-
+			
 	.#{$namespace}container {
 		margin: 0 $standard-spacing;
 	}

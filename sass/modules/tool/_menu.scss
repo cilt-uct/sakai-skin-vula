@@ -14,9 +14,7 @@
 		font-size: $default-font-size;
 		margin: 0 -1px 0 0;
 		span{
-			display: inline-block;
-			border-width: 0px;
-			padding: 0 5px 0 3px;
+			display: inline;
 			a{
 				background: $tool-tab-background-color;
 				border-top: 1px solid $tool-tab-border-color;
@@ -27,7 +25,7 @@
 				font-weight: $tool-tab-text-weight;
 				display: block;
 				margin: 0;
-				padding: 0 12px !important;
+				padding: 0 0.6em;
 				line-height: $tool-tab-height;
 				height: $tool-tab-height;
 				text-decoration: none;
@@ -49,8 +47,8 @@
 						right: -1px;
 						top: -1px;
 					}
-                }
-
+				}
+				
 				&:focus {
 					position: relative;		// so the outline doesn't get hidden by adjacent tabs
 					outline-offset: -#{$focus-outline-width};	// to match the width of the default link focus to fit in the tool's link container
@@ -64,13 +62,12 @@
 				border-left: 1px solid $tool-tab-border-color;
 				border-right: 1px solid $tool-tab-border-color;
 				position: relative;
-				margin: 0 5px 0 3px;
-				padding: 0 12px 0 12px;
+				margin: 0;
+				padding: 0 0.6em;
 				line-height: $tool-tab-height;
 				height: $tool-tab-height;
 				display: block;
 				margin-bottom: -1px;
-				bottom: -1px;
 
 				&:before {
 					border-top: 4px solid $tool-tab-active-highlight-color;
@@ -91,63 +88,31 @@
 					bottom: -1px;
 				}
 				a{
-					background-color: $tool-tab-active-background-color;
 				    border: 0px none;
-					padding: 0px !important;
-					&:hover{
-						color: $tool-tab-hover-text-color;
-						background: transparent;
-						text-decoration: none;
-						position: inherit;
-
-						&:before{
-							display:none;
-						}
-					  }
+				    font-size: 1em;
+				    margin: 0;
+				    padding: 0;
+				    top: 1px;
 				}
 			}
 			&.inactive{
 				border-left: 0px none;
 			}
 		}
-		// a{
-
-		//  	&.current{
-		//  	}
-		//  }
-
-		// UCT - reposition search fields
-		.inlineForm {
-			position: relative;
-		}
-		.searchField{
-			padding: 0.14em 0.12em;
-			margin-left: 1.4em;
-			height: 2.4em;
-			position: relative;
-			top: 1px;
-			right: -8px;
-		 }
-	}
-	li:first-child {
-		span{
-			padding: 0 2px 0 0;
-			margin: 0 3px 0 0;
+		a{
 
 			&.current{
-				padding: 0 12px 0 12px;
-				margin: 0 5px 0 0;
-
-				a{
-					padding: 0px !important;
-				}
 			}
+		}
+		.searchField{
+
 		}
 	}
 }
 
 .instruction{
-	@include bs-callout($instruction-color, $instruction-background-color, $instruction-text-color);
+	font-size: $instruction-size;
+	color: $instruction-color;
 }
 
 .listNav{
@@ -191,11 +156,5 @@
 
 	.floatRight {
 		float: right;
-	}
-
-	// UCT - search field style
-	input.searchField {
-		border: 1px solid #ccc;
-		padding: 3px 3px 4px;
 	}
 }

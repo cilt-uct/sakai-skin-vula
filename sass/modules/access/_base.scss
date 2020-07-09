@@ -1,5 +1,5 @@
-##{$namespace}xlogin {
-
+##{$namespace}xlogin{
+	
 	position: fixed;
 	top: calc(50% - 15em);
 	left: calc(50% - 15em);
@@ -8,86 +8,64 @@
 
 	background: $background-color;
 	box-shadow: 0 0 5px rgba( $text-color , 0.25 );
-	.logo {
+	.logo{
 		background: $top-header-background url($logo) no-repeat center center;
-		//background-size: $logo-width $logo-height; UCT not using standard logo size
+		background-size: $logo-width $logo-height;
 		width: 100%;
 		height: 64px;
 		margin: 0 auto;
 		overflow: hidden;
 		@include border-radius( 0px );
 	}
-	h1 {
+	h1{
 		padding: 0.6em;
   		font-size: 1.8em;
   		color: $primary-color;
   		text-align: center;
 	}
-	.alertMessage {
+	.alertMessage{
 		background: $error-background-color;
 		border: $error-color;
 		color: $error-color;
 		padding: 0.8em;
 		text-align: center;
 	}
-	fieldset {
+	fieldset{
 		padding: 1em;
-		label { // UCT - Size and spacing for label
-			font-size: 1em;
+		label{
+			font-size: 1.2em;
 			display: inline-block;
-			min-width: 30%;
-			min-height: 2.2em;
-			text-align: right;
-    		padding-right: 0.4em;
-			font-weight: normal;
-			text-transform: capitalize;
-			@media #{$phone} {
-				text-align: left;
+			min-width: 38%;
+			min-height: 3em;
+			@media #{$phone}{
 				display: block;
 				min-height: 0.5em;
-				min-width: 100%;
-				margin: 0;
 			}
 		}
-		input { // UCT - Spacing for input
-			margin: 0 0 1em 0;
-        }
-		input[type="text"], input[type="password"] {
+		input[type="text"],input[type="password"]{
 			display: inline-block;
-			// UCT - make input slighlty bigger, better shaddow and border radius
-			min-width: 66%;
-			border: 1px solid $color-gray; 
-			@include border-radius($small-border-radius);
-			box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1) inset;
-    		box-sizing: border-box;
-
+			min-width: 56%;
+			border: 1px solid darken($background-color-secondary, 15%);
 			padding: 0.3em;
-
-			@media #{$phone} {
+			@media #{$phone}{
 				display: block;
 				width: 95%;
 			}
 		}
-		input[type="submit"] {
+		input[type="submit"]{
 			font-size: 1.1em;
 			margin: 0 0 1em 0;
 		}
-		p {
+		p{
 			text-align: right;
-			// @media #{$phone} { // UCT - ignore margin
-			// 	margin: 1em 0 0 0;
-			// }
-		}
-		p:last-child {
-			padding-right: 0.8em; // UCT - Forgot password link at the bottom
-			a {
-				font-size:0.9em;
+			@media #{$phone}{
+				margin: 1em 0 0 0;
 			}
 		}
 	}
 
-	&.with-errors {
-		input[type="text"],input[type="password"]{
+	&.with-errors{
+		input[type="text"],input[type="password"]{			
 			border: 1px solid $error-color;
 			background: $error-background-color;
 		}
@@ -112,20 +90,17 @@
 
 }
 
-##{$namespace}xlogin-container {
+#Mrphs-xlogin-container{
 	opacity: 0;
 	@include transition(opacity 0.25s linear 0s);
-	&.loaded {
+	&.loaded{
 		opacity: 1;
 	}
 }
 
-##{$namespace}choice {
+#Mrphs-choice{
 	@extend #Mrphs-xlogin;
-
-	$login-choice-image-size: 80px;
-
-	.msg {
+	.msg{
 		padding: 0.6em;
 		font-size: 1.4em;
 		font-weight: 700;
@@ -133,48 +108,13 @@
 		text-align: center;
 	}
 
-	> div {
-		padding: 2em 1em;
-		text-align: center;
-		@include display-flex;
-		flex-direction: row-reverse; // UCT - reverse order of the buttons
-		justify-content: center;
-	}
-
-	a.link { // UCT - more specific
-		color: $text-color;
-		text-decoration: none;
-
-		text-align: center;
+	.link{
+		width: 48%;
 		display: inline-block;
-		width: 40%;
-
-		> img { // UCT - define for an image
-			background-position: 50% center;
-			background-size: auto 100%;
-			@include border-radius(50%);
-			display: block;
-			margin: auto;
-
-			width: $login-choice-image-size;
-			height: $login-choice-image-size;
-			@include opacity(.6);
-		}
-
-		> span {
-			display: block;
-		}
-
-		&:hover, &:active {
-			color: $primary-color;
-
-			> img {
-				@include opacity(1);
-			}
-		}
+		text-align: center;
 	}
 }
-##{$namespace}xlogin .xloginMessage {
+#Mrphs-xlogin .xloginMessage{
 	padding: 0.9em;
 	text-align: center;
 }
@@ -191,29 +131,4 @@
 
 .capsLockOnDisplay {
 	background: $background-color url("images/capsLock.png") no-repeat right;
-}
-
-// UCT - change login form inputs
-.login-password-form {
-
-	input[type="text"], input[type="password"] {
-		display: inline-block;
-		min-width: 45%;
-
-		border: 1px solid $color-gray;
-		@include border-radius($small-border-radius);
-		box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1) inset;
-		box-sizing: border-box;
-
-		padding: 0.3em;
-
-		@media #{$phone} {
-			display: block;
-			width: 100%;
-		}
-	}
-
-	input[type="submit"] {
-		padding: 0.5em 1.2em;
-	}
 }

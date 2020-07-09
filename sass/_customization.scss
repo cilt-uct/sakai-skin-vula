@@ -56,11 +56,11 @@ $header-font-weight:  700 !default;										// 400 or 700 as you wish
 // ----------------------------------------
 
 // Primary
-$color-primary: #0099ff;
-$color-secondary: #005c99;
-$color-success: #52a536;
-$color-warning: #efc777;
-$color-alert: #91353a;
+$color-primary:   #15597e; //#0099ff;
+$color-secondary: #42AAE0;
+$color-success:   #52a536;
+$color-warning:   #efc777;
+$color-alert:     #91353a;
 
 // Grays
 $color-black: #000000;
@@ -71,8 +71,9 @@ $color-graylight: #e3e4e5;
 $color-graylighter: #f9fafb;
 $color-white: #ffffff;
 
-$primary-color: $color-primary !default;
-$text-color:    $color-gray-dark !default;
+$primary-color:   $color-primary !default;
+$secondary-color: $color-secondary !default;
+$text-color:      $color-gray-dark !default;
 
 // Link colors
 $link-color: shade($primary-color, 12%) !default;
@@ -82,11 +83,13 @@ $link-background-color: transparent !default;
 $link-active-background-color: transparent !default;
 $link-hover-background-color: transparent !default;
 
-$background-color: 			 $color-white !default;
+$background-color: 			     $color-white !default;
 $background-color-secondary: $color-gray-darker !default;
 
-$tool-background-color: $color-white !default;
-$tool-menu-color: $color-gray-darker !default;
+$tool-background-color:      $color-white !default;
+$tool-border-color:        #E5E5E5 !default;
+$tool-menu-color:            $color-gray-darker !default;
+$tool-menu-background-color: #FAFAFA !default;
 
 $okcolor: $color-success !default;
 $errorcolor: $color-alert !default;
@@ -97,7 +100,12 @@ $warncolor: $color-warning !default;
 //   @include gradient-vertical($start-color: darken($color-primary, 25%), $end-color: darken($color-primary, 15%) ); //UCT - %head-gradient
 //   @include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient 
 // }
+//@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); // UCT - %head-gradient
+$head-gradient: linear-gradient(to right bottom, #15597e, #156089, #146895, #136fa0, #1377ac, #1377ac, #1377ac, #1377ac, #136fa0, #146895, #156089, #15597e);
 
+/* The standard spacing for items in Sakai */
+$standard-spacing: 10px !default;
+$standard-space: 4px !default; 		// the width of a keyboard space
 
 // Favorites 
 // ----------------------------------------
@@ -233,8 +241,73 @@ $max-z:                         2147483647 - 100;
 // ----------------------------------------
 
 $main-border-radius:           0.4em; // +- 4px
-$small-border-radius:           0.2em; // +- 2px
+$small-border-radius:          0.2em; // +- 2px
 
 // Border
 // ----------------------------------------
 $std-shadow: 0 3px 2px rgba( $text-color, 0.35);
+
+// Material
+// ----------------------------------------
+/* Enable Google Material Design inspired theme elements */
+/* by setting the variables below to true. */
+/* Added in SAK-42889 */
+$standard-spacing-as-material: true !default;
+$sites-nav-as-material: false !default;
+$portal-as-material: false !default; // override colors
+$tool-menu-as-material: false !default;
+$buttons-as-material: true !default;
+$top-header-as-material: true !default;
+$cards-as-material: true !default;
+$lessons-as-material: true !default;
+
+// Incorporate some of the Material design elements
+$material-menu-padding: calc( #{$standard-spacing} / 2) 0 !default;
+$material-menu-item-padding: calc(#{$standard-spacing} / 2) $standard-spacing !default;
+
+// @if $sites-nav-as-material {
+  $divider-shadow-fixed: 0 1px 0 $tool-border-color;
+  $sites-nav-menu-item-border-thickness: 1px;
+  $sites-nav-menu-item-border-radius: $main-border-radius;
+  
+  $sites-nav-menu-item-background: hsla(0, 0%, 92%, 1);
+  $sites-nav-menu-item-color: hsla(0, 0%, 25%, 1);
+  $sites-nav-menu-item-border-color: $sites-nav-menu-item-background;
+  $sites-nav-menu-item-border-top:            $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-border-color;
+  $sites-nav-menu-item-border-right:          $sites-nav-menu-item-border-top;
+  $sites-nav-menu-item-border-bottom:         $sites-nav-menu-item-border-top;
+  $sites-nav-menu-item-border-left:           $sites-nav-menu-item-border-top;
+  
+  $sites-nav-menu-item-hover-background: hsla(0, 0%, 82%, 1);
+  $sites-nav-menu-item-hover-color: rgba(0,0,0,1);
+  $sites-nav-menu-item-hover-border-color:      $sites-nav-menu-item-hover-background;
+  $sites-nav-menu-item-hover-border-top:      $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-hover-border-color;
+  $sites-nav-menu-item-hover-border-right:    $sites-nav-menu-item-hover-border-top;
+  $sites-nav-menu-item-hover-border-bottom:   $sites-nav-menu-item-hover-border-top;
+  $sites-nav-menu-item-hover-border-left:     $sites-nav-menu-item-hover-border-top;
+  
+  $sites-nav-menu-item-selected-background: hsla(200, 31%, 84%,1);
+  $sites-nav-menu-item-selected-color: hsl(201, 71%, 20%);
+  $sites-nav-menu-item-selected-border-color: $sites-nav-menu-item-selected-background;
+  $sites-nav-menu-item-selected-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-border-color;
+  $sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top;
+  $sites-nav-menu-item-selected-border-left:  $sites-nav-menu-item-selected-border-top;
+  $sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top;
+  
+  $sites-nav-menu-item-selected-hover-background:   hsla(200, 31%, 76%,1);
+  $sites-nav-menu-item-selected-hover-color: hsl(201, 71%, 20%);
+  $sites-nav-menu-item-selected-hover-border-color: $sites-nav-menu-item-selected-hover-background;
+  $sites-nav-menu-item-selected-hover-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-hover-border-color;
+  $sites-nav-menu-item-selected-hover-border-right: $sites-nav-menu-item-selected-hover-border-top;
+  $sites-nav-menu-item-selected-hover-border-bottom:$sites-nav-menu-item-selected-hover-border-top;
+  $sites-nav-menu-item-selected-hover-border-left:  $sites-nav-menu-item-selected-hover-border-top;
+  
+  $sites-nav-selected-submenu-border-color: #fff;
+  $sites-nav-selected-submenu-border-color: transparent;
+  $sites-nav-selected-submenu-border: none; 
+  $sites-nav-submenu-border: none;
+  $sites-nav-submenu-item-left-border: none;
+  $sites-nav-submenu-item-padding: $material-menu-item-padding;
+  $sites-nav-submenu-padding: $material-menu-padding;
+  $sites-nav-submenu-shadow: $std-shadow; //$material-elevation-8dp;
+  $sites-nav-submenu-top: -#{$standard-spacing}; //fallback to calc( #{$default-font-size} + #{$sites-nav-menu-item-border-thickness})

@@ -1,5 +1,5 @@
 //////////////////////////////
-// MODULES: Styles that are layout independent
+// MODULES: Styles that are layout independent 
 //////////////////////////////
 @import "_chat_variables";
 .Mrphs-{
@@ -317,26 +317,6 @@
 					margin-bottom: 0.5em;
 				}
 			}
-		}
-
-		// UCT - added space to end of label
-		.chat-date-label {
-			padding-right: 5px;
-		}
-
-		// UCT - resize title label
-		#editRoomForm\:titleLabel {
-			width: 5em;
-		}
-
-		// UCT - resize title input
-		#editRoomForm\:title {
-			width: 31em;
-		}
-
-		// UCT - add spacing to inline input fields
-		#editRoomForm\:filterParam_last, #editRoomForm\:filterParam_past {
-			margin: 0 6px
 		}
 	}
 	&footerApp{

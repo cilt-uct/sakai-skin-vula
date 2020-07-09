@@ -1,10 +1,3 @@
-body.is-logged-out{
-	// UCT - Don't display breadcrumbs on gateway
-	.#{$namespace}siteHierarchy{
-		display: none;
-	}
-}
-
 .#{$namespace}siteHierarchy{
 	background: $tool-background-color;
 	min-height: $hierarchy-size;
@@ -34,12 +27,12 @@ body.is-logged-out{
 		min-height: initial;
 		margin: 0;
 		padding: $standard-spacing;
-
+		
 		.#{$namespace}hierarchy--sites {
 			@include display-flex;
 			@include flex-wrap(wrap);
 		}
-
+		
 		.#{$namespace}hierarchy--siteName, .#{$namespace}hierarchy--siteNameSeparator{
 			display: none;		// hide the site name in the breadcrumbs
 		}
@@ -50,7 +43,7 @@ body.is-logged-out{
 			font-size: 0.9em;
 			font-weight: 200;
 		}
-
+		
 		.#{$namespace}hierarchy--1 a{
 			margin-left: 0;		// remove spacing from first site
 		}
@@ -94,10 +87,6 @@ body.is-logged-out{
 			.#{$namespace}breadcrumb--reset-icon{
 				display: none;
 			}
-
-			> span:last-child{
-				padding-left: 5px; // UCT - add spacing next to icon
-			}
 		}
 	}
 
@@ -117,17 +106,17 @@ body.is-logged-out{
 		}
 
 		.#{$namespace}hierarchy--siteName a:hover .#{$namespace}hierarchy--siteName-label {
-			text-decoration: none; // UCT - no underline
+			text-decoration: underline;
 		}
-
+		
 		a.#{$namespace}hierarchy--toolName{
 			display: none;
 		}
 		a.#{$namespace}hierarchy--toolName:hover{
 			color: $breadcrumbs-tool-color;
-			//border-bottom: 1px solid $breadcrumbs-hover-color; UCT - no underline
+			border-bottom: 1px solid $breadcrumbs-hover-color;
 		}
-
+		
 		.#{$namespace}hierarchy--serviceName, .#{$namespace}hierarchy--serviceNameSeparator{
 			display: none;
 		}
@@ -148,6 +137,8 @@ body.is-logged-out{
 			top: -22.2em;
 		}
 	}
+
+
 
 }
 

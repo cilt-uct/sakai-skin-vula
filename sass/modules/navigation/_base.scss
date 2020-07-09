@@ -1,3 +1,5 @@
+@import "_navigation_mixins";
+
 body.is-logged-out{
 	.#{$namespace}loginUser{
 		// UCT - login screen
@@ -39,8 +41,8 @@ body.is-logged-out{
 	}
 }
 
-.#{$namespace}mainHeader {
-	box-shadow: $divider-shadow;
+.#{$namespace}mainHeader{
+	box-shadow: $divider-shadow-fixed;
 	position: relative;
 
 	.#{$namespace}headerLogo {
@@ -49,7 +51,7 @@ body.is-logged-out{
 		padding: 0 $standard-spacing;
 		height: $banner-height;
 		background: $top-header-background;
-		@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient
+		background-image: $head-gradient;
 
 		text-align: center;
 		@include transition( width 0.5s linear 0s );
@@ -147,7 +149,7 @@ body.is-logged-out{
 	right: 0em;
 	width: 20em;
 	z-index: 99;
-	box-shadow: $std-shadow; //0 0 4px rgba( $text-color ,0.35);
+	box-shadow: $std-shadow; //0 0 4px rgba( $text-color ,0.35); [UCT]
 	list-style: none;
 	padding: 0 0 0 0;
 	li{
@@ -161,15 +163,16 @@ body.is-logged-out{
 			display: block;
 			padding: 0.65em;
 			text-decoration: none;
-			color: $link-color; //$primary-color-highContrast;
+			color: $link-color; //$primary-color-highContrast; [UCT]
 			line-height: 1em;
-			&:focus, &:hover, &:active {
-				// UCT - no underline and different background color
+			&:focus, &:hover, &:active
+			{
+				// [UCT] - no underline and different background color
 				text-decoration: none;
 				color: $link-hover-color;
 				background-color: $sites-nav-submenu-item-hover-background;
 			}
-			.toolMenuIcon {
+			.toolMenuIcon{
 				@extend .fa-fw;			// standardize the width of all icons for proper text alignment
 				vertical-align: sub;
 				margin: 0 0.5em 0 0;
@@ -187,7 +190,7 @@ body.is-logged-out{
 		padding-top: 1em;
 		color: $text-color;
 		display: inline-block;
-		margin-bottom: 11px; // UCT - bit more spacing
+		margin-bottom: 11px; // [UCT] - bit more spacing
 		width: 10em;
 		word-wrap: break-word;
 		vertical-align: top;
@@ -203,7 +206,7 @@ body.is-logged-out{
 			margin-top: $standard-space;
 			font-weight: normal;
 			line-height: 1.2;
-			font-size: 70%; // UCT - smaller id text
+			font-size: 70%; // [UCT] - smaller id text
 		}
 	}
 	.#{$namespace}userData{
@@ -232,12 +235,12 @@ body.is-logged-out{
 
 .#{$namespace}topHeader{
 	background: $top-header-background;
-	@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient
+	background-image: $head-gradient;
 	color: $background-color;
 	font-size: 1em;
 	height: auto;
 	width: 100%;
-	box-shadow: $std-shadow; // $divider-shadow; UCT
+	box-shadow: $std-shadow; // $divider-shadow; [UCT]
 
 	a
 	{
@@ -265,9 +268,9 @@ body.is-logged-out{
 		#roleSwitch {
 			@include display-flex;
 			@include align-items( center );
-			padding-right: $standard-spacing;
-			margin-right: $standard-spacing;
-			border-right: 1px solid $topNav-alt-color;
+			margin-left: $top-header-item-spacing;
+			padding-left: $top-header-item-spacing;
+			border-left: $top-header-separators-thickness solid $topNav-alt-color;
 			white-space: nowrap;
 
 				@media #{$phone} {
@@ -332,7 +335,7 @@ body.is-logged-out{
 
 				@media #{$phone} {
 					&.open {
-                        top: calc((#{$banner-height} / 2) + #{$default-font-size} + 4px); 	// half of the height of the banner plus the height of the line plus half the height of the arrow tip border (because it is a triangle)
+						top: calc((#{$banner-height} / 2) + #{$default-font-size} + 4px); 	// half of the height of the banner plus the height of the line plus half the height of the arrow tip border (because it is a triangle)
 						left: auto;
 						height: auto;
 						width: auto;
@@ -366,8 +369,8 @@ body.is-logged-out{
 			}
 
 			#roleSwitchAnchor {
-                text-decoration: none;
-                text-transform: capitalize; 	// standardizes the capitalization of the first letter of each word, regardless of role name (e.g. "access" becomes "Access")
+				text-decoration: none;
+				text-transform: capitalize; 	// standardizes the capitalization of the first letter of each word, regardless of role name (e.g. "access" becomes "Access")
 				@media #{$phone} {
 					color: $primary-color;
 				}
@@ -410,13 +413,15 @@ body.is-logged-out{
 
 	// make it so the separator lines are a consistent height
 	// UCT - different spacing
-	//> * {
-	//	height: 2.3em;
-	//	line-height: 2.3em;
-	//}
+	/*
+	> * {
+		height: 2.3em;
+		line-height: 2.3em;
+	}
+	*/
 
 	@media #{$phone}{
-        width: calc(100% - #{$logo-width}); // width: 70%; // UCT - bigger login for phone
+		width: calc(100% - #{$logo-width}); // width: 70%; // UCT - bigger login for phone
 	}
 
 	ul{
@@ -515,7 +520,7 @@ body.is-logged-out{
 			text-decoration: none;
 
 			span.textlink {
-				display: inline-block;
+				display: $top-header-text-display;
 				max-width: 100px;
 				overflow: hidden;
 				position: relative;
@@ -524,7 +529,7 @@ body.is-logged-out{
 				@media #{$phone}
 				{
 					display: none; // UCT - on mobile the name is hidden - avatar still visible
-				}
+				}				
 			}
 		}
 	}
@@ -610,7 +615,7 @@ body.is-logged-out{
 			display: inline-block;
 			padding: 2px 0 0;
 			vertical-align: top;
-		}
+		}		
 
 		// UCT - add border and some changes on hover
 		.#{$namespace}userNav__pic-changer{
@@ -672,11 +677,13 @@ body.is-logged-out{
 
 	#loginLinks{
 		font-family: $header-font-family;
-		margin: 0;
 		list-style: none;
-        padding: 0 0 0 $standard-spacing;
+		margin-left: $top-header-item-spacing;
+		padding: 0;
+		padding-left: $top-header-item-spacing;
+		border-left: $top-header-separators-thickness solid $topNav-alt-color;
 		@include display-flex;
-        @include align-items(center);
+		@include align-items(center);
 
 		@media #{$phone}
 		{
@@ -798,9 +805,9 @@ body.is-logged-out{
 	margin-left: $top-header-item-spacing;
 	padding-left: $top-header-item-spacing;
 	border-left: $top-header-separators-thickness solid $topNav-alt-color;
-    white-space: nowrap;
-
-	// UCT - add opacity on bullhorns
+	white-space: nowrap;
+	
+	// [UCT] - add opacity on bullhorns
 	> a {
 		padding: 0.4em;
 		opacity: 0.8;
@@ -851,7 +858,7 @@ body.is-logged-out{
 
 .view-all-sites-btn a{
 	text-decoration: none;
-	opacity: 0.9; // UCT - opacity on other sites btn
+	opacity: 0.9; // UCT - opacity on other sites btn and slight transition
 	@include transition(opacity 0.25s linear 0s);
 
 	&:hover, &:active
@@ -888,17 +895,16 @@ body.is-logged-out{
 	display: $top-header-text-display;
 	margin-left: $standard-space;
 }
-
 .all-sites-icon
 {
 	/* Using !important here because CKEditor pulls in its own
 		fontawesome.css which adjusts the size of our icon unless
 		we override it. */
-		font-size: 16pt !important;
-		padding-top: $top-header-sites-padding-top;
-		display: inline-block;
-		width: $top-header-icon-size;
-		height: $top-header-icon-size;
+	font-size: 16pt !important;
+	padding-top: $top-header-sites-padding-top;
+	display: inline-block;
+	width: $top-header-icon-size;
+	height: $top-header-icon-size;
 }
 #topnav_container
 {
@@ -951,6 +957,14 @@ body.is-logged-out{
 						border-left: $sites-nav-menu-item-hover-border-left;
 						background: $sites-nav-menu-item-hover-background;
 				}
+				
+				// [UCT] -remove border radius from menu item 
+				.link-container, .#{$namespace}sitesNav__favbtn {
+					border-bottom-left-radius: 0px;
+				}
+				.#{$namespace}sitesNav__dropdown {
+					border-top-left-radius: 0px; // because of transformation
+				}
 			}
 
 			span {
@@ -993,7 +1007,7 @@ body.is-logged-out{
 			
 			.#{$namespace}sitesNav__submenu {
 				position: absolute;
-				padding: $sites-nav-submenu-padding;
+				padding-top: $sites-nav-submenu-padding; // [UCT] set to padding top
 				top: $sites-nav-submenu-top;
 				left: 0;
 				z-index: 99;
@@ -1003,6 +1017,8 @@ body.is-logged-out{
 				border: $sites-nav-submenu-border;
 				box-shadow: $sites-nav-submenu-shadow;
 				background: $sites-nav-menu-item-background;
+				border-bottom-right-radius: $main-border-radius; // [UCT] add border radius to bottom
+				border-bottom-left-radius: $main-border-radius;				
 				
 				.#{$namespace}sitesNav__submenuitem {
 					display: block;
@@ -1038,7 +1054,6 @@ body.is-logged-out{
 						display: inline-block;
 					}
 				}
-
 				// UCT - last link borders
 				li:last-child {
 					border-bottom-right-radius: $main-border-radius;
@@ -1057,7 +1072,7 @@ body.is-logged-out{
 					display: none;
 				}
 			}
-
+			
 			// Current site is selected:
 			&.is-selected {
 				background: $sites-nav-menu-item-selected-background;
@@ -1079,6 +1094,8 @@ body.is-logged-out{
 				}
 
 				&.dropdown-is-visible {
+					background: $sites-nav-menu-item-selected-hover-background; // [UCT] set background of selected to same color
+
 					&:after {	// the rest of the properties will inherit from the default case above
 						content: "";
 						border-bottom: $sites-nav-selected-submenu-border
@@ -1099,7 +1116,8 @@ body.is-logged-out{
 			}
 
 			&.#{$namespace}sitesNav__menuitem--myworkspace .fa-home {
-				margin-right: $standard-space;
+				//margin-right: $standard-space;
+				padding-right: 0.8rem; // [UCT] change spacing for home
 			}
 			
 			.#{$namespace}sitesNav__gateway {
@@ -1115,8 +1133,7 @@ body.is-logged-out{
 				.#{$namespace}sitesNav__submenuitem {
 					.#{$namespace}sitesNav__submenuitem-link, a {
 						position: relative;
-						// UCT - remove outline
-						outline: 0;
+						outline: 0; // [UCT] - remove outline
 						background: $sites-nav-submenu-item-background;
 						color: $sites-nav-submenu-item-color;
 						
@@ -1124,7 +1141,7 @@ body.is-logged-out{
 							color: $sites-nav-submenu-item-icon-color;
 						}
 
-						// UCT - no border on sub menu items
+						// [UCT] - no border on sub menu items
 						/*
 						&:before {
 							content: '';
@@ -1144,7 +1161,7 @@ body.is-logged-out{
 							.toolMenuIcon {
 								color: $sites-nav-submenu-item-hover-icon-color;
 							}
-							// UCT - no border
+							// [UCT] - no border
 							/*
 							&:before{
 								border-left-color: $sites-nav-submenu-item-hover-left-border-color;
@@ -1159,10 +1176,14 @@ body.is-logged-out{
 					&.#{$namespace}sitesNav__submenuitem__gotosite {
 						border-top: 1px solid $sites-nav-submenu-item-divider-color;
 
-						// UCT - go site
+						// [UCT] - go site
+						> span {
+							display: none;
+						}
+
 						> a {
 							text-align: center;
-							padding: 0.7em;
+							padding: 0.7em 2em;
 							display: block;
 							font-size: 0.82em;
 						}
@@ -1261,23 +1282,23 @@ body.is-logged-out #linkNav .#{$namespace}sitesNav__menuitem .#{$namespace}sites
 	@include justify-content(center);
 	margin: $standard-spacing $standard-spacing 0 $standard-spacing;
 	padding: $standard-spacing;
-
+	
 	&.is-softly-deleted{
 		color: $siteDelete-color;
 		background-color: $siteDelete-background;
 		border: $siteDelete-border;
-
+		
 		p {
 			margin: 0;
 			padding: 0;
 		}
 	}
-
+	
 	&.is-unpublished{
 		color: $siteUnpublish-color;
 		background-color: $siteUnpublish-background;
 		border: $siteUnpublish-border;
-
+		
 		h4{
 			display: inline-block;
 			margin: 0;
@@ -1376,11 +1397,11 @@ body.is-logged-out #linkNav .#{$namespace}sitesNav__menuitem .#{$namespace}sites
 	position: absolute;
 	right: $standard-spacing;
 	margin-top: -4px;
-
+	
 	> span {
 		margin-right: $standard-space;
 	}
-
+	
 	@media #{$phone} {
 		visibility: hidden;
 	}

@@ -10,14 +10,15 @@ body.is-logged-out{
 	.#{$namespace}mainHeader.is-maximized ~ #container #toolMenuWrap{
 		top: $header-size;
 	}
-
+	
 	#toolMenuWrap {
-		min-height: 100vh;				// alternative for browswers who cannot do calculations
+		min-height: 100vh;								// alternative for browswers who cannot do calculations
 		min-height: calc(100vh - #{$banner-height});	// viewport minus the top banner when logged out
 	}
 
-	.#{$namespace}collapseTools{
-		display: none !important; // UCT - hide collapse button on gateway
+	// UCT - not logged in don't show collapse
+	#toolMenu ul li.#{$namespace}collapseTools {
+		display: none;
 	}
 }
 
@@ -204,10 +205,10 @@ body.is-logged-out{
 	display: block;
 	min-width: $tool-menu-width;
 	width: $tool-menu-width;
-	min-height: 100vh;									// alternative for browswers who cannot do calculations
+	min-height: 100vh;    								// alternative for browswers who cannot do calculations
 	min-height: calc(100vh - (#{$banner-height} * 2));	// viewport minus the two top banners
 	@include flex-basis( $tool-menu-width );
-	padding: $tool-menu-padding;
+	padding: 0; //$tool-menu-padding; UCT - no padding so it aligns at the top
 	text-align: center;
 	border-right: 1px solid $tool-border-color;
 	@include transition( left 0.25s linear 0s );
@@ -325,7 +326,6 @@ nav#subSites{
 			margin-bottom: calc(#{$tool-menu-collapseButton-height} + 1em); // space at the bottom of the list to avoid the collapse button overlapping tools
 		}
 		
-		list-style-position: unset; // UCT - wiki fix VULA-3353
 		li{
 			border-bottom: 1px solid $tool-menu-item-separator-color;
 
@@ -1020,13 +1020,6 @@ body {
 					}
 				}
 			}
-		}
-	}
-
-	// UCT - add border to top element to stop it wiggling up and down on collapsed
-	#toolsNav-toggle-li + li {
-		a {
-			border-top: 1px solid $tool-sub-menu-background-color;
 		}
 	}
 }

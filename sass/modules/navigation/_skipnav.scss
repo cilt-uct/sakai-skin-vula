@@ -31,7 +31,7 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		margin:  0 0 0.4em 0; // UCT - a bit more spacing on phones
+		margin:  0 0 0 0;
 
 		box-shadow: inset 0 0 5px rgba(0,0,0,0.25);
 		@include transition( top 0.25s linear 0s );
@@ -74,7 +74,8 @@
 			&.#{$namespace}skipNav__menuitem.#{$namespace}skipNav__menuitem--tools {
 				@include display-flex;
 				background: $portal-background-color;
-				/*box-shadow: $divider-shadow; - UCT no shadow on phone */
+				box-shadow: $divider-shadow-fixed;
+				
 
 				a {
 					float: left;
@@ -91,7 +92,7 @@
 						border-right: 1px solid $tool-menu-item-separator-color;
 					}
 				}
-
+				
 				a.#{$namespace}skipNav--toolName {
 					color: $link-color;
 				}
@@ -124,7 +125,7 @@
 				text-overflow: ellipsis;
 				height: $banner-height - 4;
 				line-height: $banner-height - 4;
-
+				
 				&:hover, &:active
 				{
 					text-decoration: none;

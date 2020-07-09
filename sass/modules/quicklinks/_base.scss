@@ -1,9 +1,9 @@
 .#{$namespace}quickLinksNav__popup {
-    @extend .view-all-sites-btn;
-    @include display-flex;
-    @include align-items(center);
-    height: 100%;
-    border-right: 1px solid $topNav-alt-color;
+  @extend .view-all-sites-btn;
+  @include display-flex;
+  @include align-items(center);
+  height: 100%;
+  border-right: 1px solid $topNav-alt-color;
 
   .fa-external-link-square{
     @extend .all-sites-icon;
@@ -68,89 +68,89 @@
     }
 
     #quickLinks-header{
-        @include display-flex;
-        @include align-items(center);
-        border: none;
-        border-bottom: 1px solid $tool-border-color;
-        padding: 0 0 $standard-spacing 0;
-        margin: 0 0 $standard-spacing 0;
-        background-color: $tool-menu-background-color;
-        line-height: normal;
+      @include display-flex;
+      @include align-items(center);
+      border: none;
+      border-bottom: 1px solid $tool-border-color;
+      padding: 0 0 $standard-spacing 0;
+      margin: 0 0 $standard-spacing 0;
+      background-color: $tool-menu-background-color;
+      line-height: normal;
 
-        .#{$namespace}quickLinks-header--info {
-            padding-right: 1em;
+      .#{$namespace}quickLinks-header--info {
+        padding-right: 1em;
+      }
+      #quickLinks-close {
+        font-size: 1.5em;
+        font-family: $header-font-family;
+        color: $all-sites-close-action-color;
+        padding: 0;
+        margin-left: auto;
+        &:hover {
+          color: $all-sites-close-action-hover-color;
         }
-        #quickLinks-close {
-            font-size: 1.5em;
-            font-family: $header-font-family;
-            color: $all-sites-close-action-color;
-            padding: 0;
-            margin-left: auto;
-            &:hover {
-                color: $all-sites-close-action-hover-color;
-            }
-        }
+      }
     }
     .tab-box {
-        list-style: none;
-        padding: 0;
-        background-color: transparent;
-        margin: 0;
+      list-style: none;
+      padding: 0;
+      background-color: transparent;
+      margin: 0;
     }
 
     .#{$namespace}quickLinksNav__submenuitem {
-        display: block;
-        border: 1px solid $tool-border-color;
-        white-space: nowrap;
-        overflow: hidden;
-        padding: 0.3em 0.7em;
-        list-style: none;
-        background: darken( $background-color, 5% );
-        margin: 0.3em 0;
-        a {
-            display: inline-block;
-            color: $text-color;
-            font-family: $header-font-family;
-            font-size: 0.9em;
-            font-weight: $header-font-weight;
-            padding: 0 0.5em 0 0;
-            text-decoration: none;
-            &.toolMenus{
-            display: inline-block;
-            }
+      display: block;
+      border: 1px solid $tool-border-color;
+      white-space: nowrap;
+      overflow: hidden;
+      padding: 0.3em 0.7em;
+      list-style: none;
+      background: darken( $background-color, 5% );
+      margin: 0.3em 0;
+      a{
+        @include display-flex;
+        @include align-items(center);
+        color: $text-color;
+        font-family: $header-font-family;
+        font-size: 0.9em;
+        font-weight: $header-font-weight;
+        padding: 0 0.5em 0 0;
+        text-decoration: none;
+        &.toolMenus{
+          display: inline-block;
         }
+      }
+      &.is-selected{
+        border: 1px solid darken( $tool-border-color, 30% );
+      }
 
-        &.is-selected {
-            border: 1px solid darken( $tool-border-color, 30% );
-        }
+      #quicklink-icon{
+        position: relative;
+        display: inline-block;
+        background-repeat: initial;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+      }
 
-        #quicklink-icon {
-            position: relative;
-            display: inline-block;
-            background-repeat: initial;
-            background-position: center;
-            width: 20px;
-            height: 20px;
-            line-height: 20px;
-            text-align: center;
+      .#{$namespace}quickLinks__submenuitem--title {
+        &:hover {
+          text-decoration: underline;
         }
-
-        .#{$namespace}quickLinks__submenuitem--title {
-            &:hover {
-                text-decoration: underline;
-            }
-            padding-left: 0.7em;
-        }
+        padding-left: 0.7em;
+      }
     }
     @media #{$phone}{
-        margin: 3.3em 0 0 -9.8em;
-        position: fixed;
-        top: 0.3em;
-        right: 0;
-        z-index: 61;
-        min-width: initial;
-        max-width: 100%;
-      }
+      margin: 3.3em 0 0 -9.8em;
+      position: fixed;
+      top: 0.3em;
+      right: 0;
+      z-index: 61;
+      min-width: initial;
+      max-width: 100%;
+    }
   }
 }
 
