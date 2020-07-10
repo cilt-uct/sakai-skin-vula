@@ -14,9 +14,10 @@ body.is-logged-out{
 	#toolMenuWrap {
 		min-height: 100vh;								// alternative for browswers who cannot do calculations
 		min-height: calc(100vh - #{$banner-height});	// viewport minus the top banner when logged out
+		padding-top: 6px; // [UCT] a little spacing at the top not logged in
 	}
 
-	// UCT - not logged in don't show collapse
+	// [UCT] - not logged in don't show collapse
 	#toolMenu ul li.#{$namespace}collapseTools {
 		display: none;
 	}

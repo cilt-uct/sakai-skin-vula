@@ -479,7 +479,7 @@ ul.favoriteSiteList{
 ul#otherSiteTools{
 	list-style: none;
 	padding-left: 0;
-	padding-bottom: 5px;
+	//padding-bottom: 5px; [UCT] no padding
 	background: $all-sites-tool-menu-background-color;
 
 	li{
@@ -495,7 +495,7 @@ ul#otherSiteTools{
 			background: $all-sites-tool-menu-background-color;
 			text-decoration: none;
 			font-weight: $all-sites-tool-menu-text-weight;
-			border-left: $all-sites-tool-menu-left-border;
+			// border-left: $all-sites-tool-menu-left-border; [UCT] no border left
 
 			.otherSiteToolIcon{
 				display: inline-block;
@@ -505,7 +505,7 @@ ul#otherSiteTools{
 			&:hover {
 				background: $all-sites-tool-menu-hover-background-color;
 				color: $all-sites-tool-menu-hover-text-color;
-				border-left: $all-sites-tool-menu-hover-left-border;
+				// border-left: $all-sites-tool-menu-left-border; [UCT] no border left
 
 				.otherSiteToolIcon{
 					color: $all-sites-tool-menu-hover-icon-color;
@@ -517,13 +517,19 @@ ul#otherSiteTools{
 			border-top: 1px solid $all-sites-tool-menu-divider-color;
 
 			a {
+				text-align: center;
+
+				> span {
+					display: none;
+				}
+				/*
 				&:after {
 					color: $all-sites-tool-menu-icon-color;
 					font-family: FontAwesome;
 					content: '\f178';
 					margin-left: 10px;
 				}
-
+				*/
 				&:hover {
 					&:after {
 						color: $all-sites-tool-menu-hover-icon-color;

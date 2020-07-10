@@ -28,9 +28,10 @@ body.is-logged-out{
 
 .#{$namespace}multipleTools{
 	.#{$namespace}container {
-		border: $overview-portlet-border;
-		border-radius: $overview-portlet-border-radius;
-		box-shadow: $overview-portlet-shadow;
+		// [UCT] - remove border and shadow from inside tools
+		// border: $overview-portlet-border;
+		// border-radius: $overview-portlet-border-radius;
+		// box-shadow: $overview-portlet-shadow;
 		margin-bottom: $standard-spacing;
 
 		&.#{$namespace}toolTitleNav.#{$namespace}container.#{$namespace}container--toolTitleNav {
@@ -143,7 +144,12 @@ body.is-logged-out{
 		// override some button properties below:
 		@include display-flex;
 		@include align-items(center);
-		margin: 0 0 0 $standard-space;
+		margin: 0 0 0 6px;
+		
+		// [UCT] uniformity in buttons
+		padding: 0px 10px;
+		min-width: 30px;
+    	height: 30px;
 
 		&:before {
 			@extend .fa;

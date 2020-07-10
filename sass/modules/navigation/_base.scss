@@ -1177,15 +1177,15 @@ body.is-logged-out{
 						border-top: 1px solid $sites-nav-submenu-item-divider-color;
 
 						// [UCT] - go site
-						> span {
-							display: none;
-						}
-
 						> a {
 							text-align: center;
 							padding: 0.7em 2em;
 							display: block;
 							font-size: 0.82em;
+
+							> span {
+								display: none;
+							}
 						}
 						/*
 						> a:after {
