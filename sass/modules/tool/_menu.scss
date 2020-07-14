@@ -105,7 +105,16 @@
 			}
 		}
 		.searchField{
-
+			// [UCT] searchfield
+			line-height: 29px; //2.95rem;
+			margin-left: 10px;
+			border: 1px solid $tool-border-color;
+			border-bottom: 0px;
+			min-width: 200px;
+			@media #{$phone} {
+				width: 100%;
+				min-width: 100%;
+			}
 		}
 	}
 }

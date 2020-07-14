@@ -175,6 +175,8 @@
 	padding: 0.3em 2.2em 0.3em 0.5em;
 	text-align: left;
 	max-width: 100%;
+	line-height: 24px; // [UCT] spacing
+	border-color: $tool-border-color; // [UCT] colour
 	@include appearance(none);
 	@include border-radius(3px);
 	&::-ms-expand {
@@ -186,7 +188,7 @@
 	}
 	
 	&:focus {
-		box-shadow: 0px 0px $focus-outline-width $focus-outline-width $focus-outline-color;
+		box-shadow: $std-shadow; //[UCT] shadow - 0px 0px $focus-outline-width $focus-outline-width $focus-outline-color;
 	}
 	
 	&[disabled="disabled"],&[disabled],&[disabled="true"] {
