@@ -1,7 +1,20 @@
 .#{$namespace}sakai-resources {
 
+	.page-header {
+		display: none; // [UCT] let's see how it goes without a header - breadcrumbs should show stuff right?
+	}
+
 	ul, ol {
 		padding-top: 0;
+	}
+
+	// [UCT] - redo some spacing 
+	ol.breadcrumb {
+		padding: 8px 15px;
+	}
+
+	.container-fluid .act {
+		margin: 0px;
 	}
 
 	input, textarea{
@@ -157,10 +170,18 @@
 		}
 	}
 	/* move this one to tool-base.css as it goes along*/
-	.table th h3, .table th h4, .table th h5, .table th h6, .table td h3, .table td h4, .table td h5, .table td h6 {
-		display: inline;
-		font-size:1em;
+	.table th, .table td {
+		
+		h3,  h4,  h5,  h6 {
+			display: inline;
+			font-size: 1em;
+		}
+		
+		a {
+			text-decoration: none; // no underline for links
+		}
 	}
+
 	td.actions2 .dropdown-toggle {
 		padding: 2px 6px !important;
 	}
@@ -249,6 +270,7 @@
 	}
 	
 	/* SAK-32371 : Resources doesnt use font awesome icons */
+	
 	.fa {
 		display : inline;
 		color : $primary-color;
@@ -372,4 +394,25 @@
 
 .jstree-node a[href]:focus{
 	outline: 1px solid #5b9dd9;
+}
+
+table.resourcesList {
+	// [UCT] - set folder colours
+	// NOTE: this generates a lot of noisy css selectors
+	span.fa, a.fa {
+		margin-right: 4px;
+
+		&.fa-folder-o, &.fa-folder-open {
+			&:before {
+				color: #E7C146;
+			}
+		}
+	}
+
+	// [UCT] - set file colours
+	span[class*="fa-file-"], a[class*="fa-file-"] {
+		&:before {
+			color: $secondary-color;
+		}
+	}
 }

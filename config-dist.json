@@ -2,6 +2,7 @@
     "local": {
       "do": false
       ,"dest": ["/local/tomcat/webapps/library/skin/vula","/another/local/folder"]
+      ,"ckeditor": ["/some-path-to-sakai/webapps/library/editor/ckextraplugins/templates"]
     },
     "remote": {
       "do": false

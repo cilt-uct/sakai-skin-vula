@@ -24,10 +24,51 @@
 		overflow-wrap: break-word;
 	}
 
-	.shorttext .reqStar + label {
-		min-width: 9.4em;
-		@media #{$phone}{
-			min-width: 96%;
+	// [UCT] label
+	.shorttext {
+
+		label { 
+			text-align: right;
+			padding-right: $standard-space;
+
+			@media #{$phone}{
+				text-align: left;
+			}
+		}
+
+		input, textarea {
+			line-height: 2; 		// to match the date picker buttons' height
+			@extend .default-input;
+		}
+	
+		.reqStar {
+			display: none; // [UCT] regStar 
+		}
+
+		.reqStar + label {
+			position: relative;
+
+			&:before {
+				content: "*";
+				position: relative;
+				color: $color-alert;
+				left: -4px;
+				@media #{$phone}{
+					display: none;
+				}			
+			}
+
+			// min-width: 9.4em;
+			@media #{$phone}{
+				// min-width: 96%;
+
+				&:after {
+					content: "*";
+					position: relative;
+					color: $color-alert;
+					right: -4px;
+				}
+			}
 		}
 	}
 
@@ -53,6 +94,23 @@
 		border-bottom: 1px solid $page-header-border-color;
 	}
 	
+	// [UCT] Datepicker is adjasent and 
+	.datepicker,
+	.shorttext .datepicker{
+		line-height: 30px; 		// to match the date picker buttons' height
+		@extend .default-input;
+		border-top-right-radius: 0px;
+		border-bottom-right-radius: 0px;
+		border-right-width: 0px;
+	}
+	
+	.datepicker + button.ui-datepicker-trigger,
+	.shorttext .datepicker + button.ui-datepicker-trigger {
+		margin-left: 0px;
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 0px;
+	}
+
 	.sakai-table-viewFilter {
 		input[type="submit"] {
 			margin-top: 0;
@@ -67,11 +125,11 @@
 			margin-left: $standard-space;
 		}
 		
+		// [UCT] moved style up and out ^
 		.datepicker {
 			width: 100%;
-			line-height: 2; 		// to match the date picker buttons' height
 		}
-		
+
 		@media #{$smallPhone}{
 			@include flex-direction(row);	// override tables default
 			@include align-items(center);	// override tables default
@@ -95,7 +153,7 @@
 			margin-top: $standard-spacing;
 			
 			label {
-				min-width: max-content;
+				min-width: 45px;//max-content; [UCT] to line up with other labels in page
 				text-align: right;
 			}
 		}
@@ -611,6 +669,7 @@
 			border: 1px solid $calendar-day-border-color;
 			background-color: $calendar-day-header-background-color;
 			text-align: center;
+			font-size: 1.6rem; // [UCT] little smaller font
 		}
 		
 		.calendarLegend {
@@ -625,8 +684,9 @@
 				@include display-flex;
 				@include align-items(center);
 				width: 200px;
-				min-height: 2em;				// accommodates line wrapping within individual list items
-				margin: $standard-spacing;
+				min-height: 2em;						// accommodates line wrapping within individual list items
+				margin: 0px 0px 0px $standard-spacing;  // [UCT] Change spacing a bit
+				font-size: 1.2rem; 						// [UCT] little smaller font
 				line-height: 1;
 			}
 			span.icon {

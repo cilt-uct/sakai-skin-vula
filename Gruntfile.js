@@ -82,6 +82,21 @@ module.exports = function(grunt) {
           {expand: true, src: ['images/**'], dest: 'tmp/'},
         ]
       },
+      local_template: {
+        files: (function() {
+          var l = grunt.file.readJSON('config.json');
+          var out = [];
+          l.local.ckeditor.forEach(function(element, index) {
+             out.push({
+                 expand: true,
+                 cwd: 'editor/ckextraplugins/templates',
+                 src: ['**'],
+                 dest: element
+             });
+          });
+          return out;
+        })()
+      },
       local: {
         files: (function() {
           var l = grunt.file.readJSON('config.json');
@@ -131,7 +146,7 @@ module.exports = function(grunt) {
           options: {
               config: 'app.local.do'
           },
-          ifTrue: ['copy:local']
+          ifTrue: ['copy:local','copy:local_template']
       },
       remote: {
           options: {

@@ -64,9 +64,12 @@ table{
 		margin: 0 auto 10px 0;
 		padding-right: 10px;
 
-		label
+		label 
 		{
-			margin: 0 4px 0 0;
+			// [UCT] little bit of spacing
+			margin: 0 $standard-space 0 0;
+			min-width: 40px; 
+			text-align: right;
 		}
 	}
 	.sakai-table-viewFilter, .sakai-table-searchFilter
