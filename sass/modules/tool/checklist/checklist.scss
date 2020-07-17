@@ -1,0 +1,237 @@
+// changing the background of the checklist [UCT]-TJ
+
+.column {
+    .checklistDiv {
+      background-color: transparent; //rgba(0,152,219,0.2);
+        border-radius: 1px;
+        border: 1vmin solid hsl(209, 62%, 60%);
+    border-image-slice: 1;
+    border-image-source: conic-gradient(hsl(209, 62%, 60%),hsl(200, 100%, 60%),hsl(208, 56%, 46%) );
+    }
+}
+
+// changing the background of the student comment [UCT]-TJ
+.column {
+    .commentDiv {
+        background-color: rgba(114,128,138,0.1);
+
+    }
+}
+
+// changing background of white block behind person's name on comments
+.commentDiv {
+    .personalComment {
+             background-color: transparent !important;
+}
+}
+
+
+// student comments tool button, looks like standard Vula button but does not pop enough[UCT]-TJ
+.add-comment-button {
+    .ui-button {
+
+            border: 1px solid #15597e;
+            border-radius: 4px;
+            background: #ffffff;
+            font-family: "Open Sans", sans-serif;
+            font-size: 1em;
+            line-height: 18px;
+            text-decoration: none;
+            text-transform: none;
+            cursor: pointer;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            box-shadow: none;
+            align-items: center;
+            margin: 0 0 0 6px;
+            min-width: 30px;
+            height: 30px;
+                }       
+}
+.add-comment-button {
+    .ui-button:hover {
+            color: #15597e;
+            text-decoration: none;
+            background: #F7F9FA !important;
+            border-color: #15597e;
+            box-shadow: none;
+}
+}
+.add-comment-button span{
+    color: #15597e !important;
+    font-weight: 600 !important;
+}
+
+//changing left insight to UCT blue 
+.left-insight p {
+    background-color: rgba(0,152,219,0.2)!important;
+}
+
+//change the content link style 
+.link-div {
+font-weight: 600; //making it bolder to be more visible 
+
+}
+
+// custom lessons dark blue header 
+
+    .header {
+    padding: 12px;
+    text-align: center;
+    background: #005590;
+    color: white;
+    border-radius: 1px;
+    }
+
+    .header .headerfont {
+        font-size: 30px;
+    }
+    
+//Vula main login header
+    .Mrphs-mainHeader {
+        .Mrphs-headerLogo {
+            background: #005590;
+            background-image:
+            linear-gradient(45deg,
+                #001231, #005590, #cc318e);
+      animation: gradient 15s ease infinite;
+        background-size: 400% 400%;
+                             }
+    }
+
+   @keyframes gradient {
+         0% {
+            background-position: 0% 50%;
+        }
+        50% {
+           background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    } 
+
+//QUESTION Tool background change
+
+.column .questionDiv .contentCol {
+    background-color: rgba(0,152,219,0.2);
+    border-radius: 1px;
+  }
+
+// changing buttons of the QUESTION TOOL, ugly as I have to override eveyrthing with important
+.multipleChoiceForm
+    input[type="submit"] {
+    // .question-submit {
+            border: 1px solid #15597e !important;
+            border-radius: 4px;
+            background: #ffffff !important;
+            font-family: "Open Sans", sans-serif;
+            font-size: 1em;
+            line-height: 18px;
+            text-decoration: none;
+            text-transform: none;
+            cursor: pointer;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            box-shadow: none;
+            align-items: center;
+            min-width: 30px;
+            height: 30px;
+            color: #15597e !important;
+            font-weight: 600 !important;
+                }       
+            
+
+
+.multipleChoiceForm
+         input[type="submit"]:hover { 
+            color: #15597e !important;
+            text-decoration: none;
+            background: #F7F9FA !important;
+            border-color: #15597e;
+            box-shadow: none;
+}
+
+
+// updating font for h2
+
+h2 {
+            color:#001231;
+            background-color: rgba(114,128,138,0.1);
+            padding:10px;
+
+}
+
+    // subpage button - applied manually //
+
+.subpagestyle > .link-div {
+    position: relative;
+    color: white !important;
+  }
+  
+  .subpagestyle > .link-div:hover,
+  .subpagestyle > .link-div:active {
+    color: black !important;
+  }
+  
+  .subpagestyle > .link-div .fa-item-text {
+    position: absolute;
+    left: 18px;
+    top: 0px;
+  }
+  
+  .subpagestyle > a[href],
+  .subpagestyle > .link-div .link-div-head a,
+  .subpagestyle > .link-div > span > a  {
+    display: inline-block;
+    text-decoration: none;
+    color: white !important;
+  
+    margin: 8px;
+    padding: 15px 32px;
+    background-color: rgba(0, 97, 149, 0.9);
+    color:white;
+  
+    -webkit-box-shadow: 4px 2px 4px -2px rgba(0,0,0,0.5);
+    -moz-box-shadow: 4px 2px 4px -2px rgba(0,0,0,0.5);
+    box-shadow: 4px 2px 4px -2px rgba(0,0,0,0.5);
+  }
+  
+  .subpagestyle > .link-div .link-div-head a,
+  .subpagestyle > .link-div > span > a {
+    padding: 15px 15px 15px 32px;
+    text-decoration: none;
+    color: white !important;
+  }
+  
+  .subpagestyle > .link-div > span > a {
+    padding: 15px;
+    min-width: 200px;
+   // border-color: rgba(0, 97, 149, 1);
+  }
+  
+  .subpagestyle > a[href]:hover,
+  .subpagestyle > a[href]:active,
+  .subpagestyle > .link-div .link-div-head a:hover,
+  .subpagestyle > .link-div .link-div-head a:active,
+  .subpagestyle > .link-div > span > a:hover,
+  .subpagestyle > .link-div > span > a:active {
+    text-decoration: none;
+    color: black !important;
+    background-color: rgba(168, 207, 228, 0.9);
+  }
+  
+  .subpagestyle > a[href]:active,
+  .subpagestyle > .link-div .link-div-head a:active,
+  .subpagestyle > .link-div > span > a:active {
+    -webkit-box-shadow: 0px 0px 4px -2px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 4px -2px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 4px -2px rgba(0,0,0,0.5);
+  }
+  
+  .subpagestyle > .link-div > span > a:hover,
+  .subpagestyle> .link-div > span > a:active {
+    border-color: rgba(168, 207, 228, 1);
+  }
+
+
