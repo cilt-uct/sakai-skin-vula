@@ -133,3 +133,15 @@
 		}
 	}
 }
+
+// [UCT]
+.#{$namespace}presence__area {
+
+	.#{$namespace}presence__area--iframe-div {
+		padding: 4px;
+
+		.presenceList > .listUser {
+			margin-bottom: 5px;
+		}
+	}
+}

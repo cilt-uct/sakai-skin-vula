@@ -530,20 +530,23 @@ nav#subSites{
 						@extend .fa-lg;
 						@extend .fa;
 						content: '\f070';
-						color: $tool-menu-item-hidden-icon-after-color; // [UCT]
+						color: $tool-menu-item-hidden-icon-after-color; // [UCT] color and spacing
 						position: absolute;
-						top: 2px;
+						top: 4px;
 						right: 4px;
 						opacity: 0.8;
+						font-size: 1.2em;
 
+						/* [UCT]
 						@if $tool-menu-icon-on-left {
-							margin-right: $standard-spacing;
+							//margin-right: $standard-spacing; 
 						}
 						@else {
 							position: absolute;
 							top: 4px;
 							right: 4px;
 						}
+						*/
 					}
 
 					&:hover{
