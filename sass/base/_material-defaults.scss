@@ -202,5 +202,5 @@ $material-elevation-8dp: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,
     $lessons-item-border-top: 1px solid $sites-nav-menu-item-background;
     $lessons-item-hover-background: #fff;
     $lessons-item-hover-shadow: $material-elevation-4dp;
-    $lessons-item-edit-display: none;
+    $lessons-item-edit-display: none !default; // [UCT] customization
 }

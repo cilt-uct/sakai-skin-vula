@@ -530,7 +530,7 @@ nav#subSites{
 						@extend .fa-lg;
 						@extend .fa;
 						content: '\f070';
-						color: $tool-menu-item-hidden-icon-color; // [UCT]
+						color: $tool-menu-item-hidden-icon-after-color; // [UCT]
 						position: absolute;
 						top: 2px;
 						right: 4px;
