@@ -178,6 +178,6 @@ module.exports = function(grunt) {
     ,'copy:dist'
   ]);
 
-  grunt.registerTask('default', ['build', 'watch']);
+  grunt.registerTask('default', ['build', 'if', 'watch']);
   grunt.registerTask('deploy', ['build', 'if']);
 };

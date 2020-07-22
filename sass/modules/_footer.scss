@@ -5,7 +5,7 @@
 	@include justify-content(space-between);
 	@include align-items(center);
 	@include flex-wrap(wrap);
-	padding: $standard-spacing;
+	padding: 11px 16px; //$standard-spacing; [UCT] -change padding
 	font-size: $footer-font-size;
 	color: $footer-color;
 	
@@ -19,10 +19,10 @@
 		padding: 0;
 		list-style: none;
 		line-height: 2;
-		
+
 		li{
 			display: inline-block;
-			padding: 0 $standard-spacing;
+			padding: 0 10px; //$standard-spacing; [UCT] spacing
 			border-right: 1px solid $footer-link-separator;
 			
 			&:first-child {
@@ -32,21 +32,50 @@
 			&:last-child {
 				border-right: 0 none;
 			}
+
+			a {
+				color: #54595b;
+				text-decoration: none;
+				
+				&:hover, &:active {
+					color: $primary-color;
+					text-decoration: underline;
+				}
+			}
 		}
 	}
 	
+	// [UCT] change to footer
+	p {
+		color: #54595b;
+		margin: 5px 0 0;
+	}
+
 	##{$namespace}footer--poweredBy {
-		li:last-child {
-			padding-right: 0;	// padding already provided by container
+
+		// [UCT] change powered by image size
+		li {
+			img {
+				width: 88%;
+			}
+
+			&:last-child {
+				padding-right: 0;	// padding already provided by container
+			}
 		}
 	}
 	
 	.#{$namespace}footer--project {
-		margin-left: auto;		// pushes this element to the right, especially during wrapping
+		//margin-left: auto;		// pushes this element to the right, especially during wrapping [UCT] - flex spacing
 		
 		@media #{$tablet} {
 			margin-left: 0;		// margin not needed for stacked layout
 		}
+	}
+
+	// [UCT] - hide copyright
+	.#{$namespace}footer--copyright {
+		display: none;
 	}
 	
 	##{$namespace}footer--poweredBy, .#{$namespace}footer--copyright {
@@ -54,7 +83,9 @@
 		margin: 0;
 		padding: 0;
 		text-align: right;
-		
+		color: #54595b; // [UCT] change color
+		font-size: 0.8em; //       size change 
+
 		@media #{$tablet} {
 			text-align: center;
 		}

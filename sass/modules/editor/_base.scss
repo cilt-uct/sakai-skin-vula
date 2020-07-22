@@ -32,6 +32,14 @@
 }
 .cke_dialog_contents_body .cke_tpl_list {
 	height: 430px !important;
+
+	a {
+		text-decoration: none;
+		
+		&:hover, &:active {
+			text-decoration: none;
+		}
+	}
 }
 .cke_tpl_preview .cke_tpl_preview_img {
 	width: 50px !important;
@@ -49,4 +57,8 @@
 
 .cke_dialog_container {
 	z-index: 100010 !important;
+
+	.cke_dialog_ui_checkbox .cke_dialog_ui_checkbox_input {
+		margin-top: 0px;
+	}
 }

@@ -5,6 +5,10 @@ body.is-logged-out{
 	.#{$namespace}multipleTools .#{$namespace}toolTitleNav__button_container {
 		display: none;
 	}
+		
+	.#{$namespace}toolBody {
+		border-bottom: none;
+	}	
 }
 
 .#{$namespace}pageColumns--single {
@@ -19,8 +23,8 @@ body.is-logged-out{
 			sakai-maximise-button {
 				display: none;
 			}
-    }
-      &.home {
+    	}
+      	&.home {
 			top: 0px;
 		}
 	}

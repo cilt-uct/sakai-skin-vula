@@ -79,9 +79,10 @@
 					display: inline-block;
 					margin-right: $standard-space;		// space between icon and text
 				}
-				.#{$namespace}breadcrumb--toolNameText{
-					text-decoration: underline;		// removed from the link above and only applied to the text here
-				}
+				// [UCT] - no underline on hover
+				// .#{$namespace}breadcrumb--toolNameText{
+				// 	text-decoration: underline;		// removed from the link above and only applied to the text here
+				// }
 			}
 
 			.#{$namespace}breadcrumb--reset-icon{
