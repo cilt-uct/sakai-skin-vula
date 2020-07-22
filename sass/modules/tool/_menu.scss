@@ -119,9 +119,20 @@
 	}
 }
 
-.instruction{
+.instruction {
 	font-size: $instruction-size;
 	color: $instruction-color;
+
+	// [UCT]
+	display: block;
+	margin: 10px 0;
+    padding: 0.8em;
+    border: 1px solid;
+    border-left-width: 5px;
+    border-color: white;
+    border-left-color: #A5D1FF;
+    background-color: #F3FAFF;
+    font-size: 0.9em;
 }
 
 .listNav{

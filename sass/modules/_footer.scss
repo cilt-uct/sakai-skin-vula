@@ -34,7 +34,7 @@
 			}
 
 			a {
-				color: #54595b;
+				color: $footer-color; // [UCT]
 				text-decoration: none;
 				
 				&:hover, &:active {
@@ -47,7 +47,6 @@
 	
 	// [UCT] change to footer
 	p {
-		color: #54595b;
 		margin: 5px 0 0;
 	}
 
@@ -78,13 +77,11 @@
 		display: none;
 	}
 	
-	##{$namespace}footer--poweredBy, .#{$namespace}footer--copyright {
+	##{$namespace}footer--poweredBy { //, .#{$namespace}footer--copyright {
 		display: block;
 		margin: 0;
 		padding: 0;
 		text-align: right;
-		color: #54595b; // [UCT] change color
-		font-size: 0.8em; //       size change 
 
 		@media #{$tablet} {
 			text-align: center;

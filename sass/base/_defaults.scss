@@ -194,6 +194,7 @@ legend {
 	margin-bottom: 0;
 	padding: 0.5em;
 	border: 0 none;
+	font-size: 1em; // [UCT]
 }
 
 .formButtonDisabled, .formButtonDisabled:hover, .formButtonDisabled:active {
@@ -224,3 +225,23 @@ span.marker {
     margin: 0;
   }
 }
+
+// [UCT] - change some form styles
+.form-horizontal {
+
+	.control-label {
+		font-size: $default-font-size;
+	}
+
+	input.form-control[type="checkbox"] {
+		margin-top: 0px;
+		position: relative;
+		top: -2px;
+		margin-right: 5px;
+	}
+
+	#user-create_edit label, #useredit label {
+		text-align: right;
+	}
+}
+	

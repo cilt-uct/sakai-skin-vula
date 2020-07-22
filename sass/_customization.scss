@@ -48,7 +48,9 @@ $weight-bold:         700;
 $weight-extrabold:    800;
 
 $default-font-size:   14px !default;
+$default-font-size-small: 12px !default;
 $default-font-weight: 400 !default;										// 400 or 700 as you wish
+$default-line-height: 1.42857 !default;										// 20px / 14px = 1.42857
 $header-font-family:  $font-family;
 $header-font-weight:  700 !default;										// 400 or 700 as you wish
 
@@ -90,6 +92,9 @@ $tool-background-color:      $color-white !default;
 $tool-border-color:        #E5E5E5 !default;
 $tool-menu-color:            $color-gray-darker !default;
 $tool-menu-background-color: #FAFAFA !default;
+
+$tool-menu-item-hidden-text-color: #A9A9A9 !default;
+$tool-menu-item-hidden-icon-color: #52a536 !default;
 
 $okcolor: $color-success !default;
 $errorcolor: $color-alert !default;
@@ -214,6 +219,7 @@ $footer-details-border-color: $footer-border-color !default;
 $footer-color: tint($text-color, 10%) !default;
 $footer-border: 1px solid $footer-border-color !default;
 $footer-font-size: 10px !default; // UCT - slightly smaller font
+$footer-color: #54595b !default;
 
 // Layout
 // ----------------------------------------
@@ -263,6 +269,11 @@ $lessons-as-material: true !default;
 // Incorporate some of the Material design elements
 $material-menu-padding: calc( #{$standard-spacing} / 2) 0 !default;
 $material-menu-item-padding: calc(#{$standard-spacing} / 2) $standard-spacing !default;
+
+$top-header-text-display: inline-block !default;
+
+$instruction-size:          $default-font-size-small !default;
+$instruction-color:        #1f2123 !default;
 
 // @if $sites-nav-as-material {
   $divider-shadow-fixed: 0 1px 0 $tool-border-color;

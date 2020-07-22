@@ -530,6 +530,12 @@ nav#subSites{
 						@extend .fa-lg;
 						@extend .fa;
 						content: '\f070';
+						color: $tool-menu-item-hidden-icon-color; // [UCT]
+						position: absolute;
+						top: 2px;
+						right: 4px;
+						opacity: 0.8;
+
 						@if $tool-menu-icon-on-left {
 							margin-right: $standard-spacing;
 						}
