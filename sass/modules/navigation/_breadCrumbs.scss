@@ -31,6 +31,7 @@
 		.#{$namespace}hierarchy--sites {
 			@include display-flex;
 			@include flex-wrap(wrap);
+			margin-bottom: 10px; // [UCT] spacing
 		}
 		
 		.#{$namespace}hierarchy--siteName, .#{$namespace}hierarchy--siteNameSeparator{

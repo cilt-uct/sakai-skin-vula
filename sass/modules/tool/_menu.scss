@@ -121,7 +121,7 @@
 
 .instruction {
 	font-size: $instruction-size;
-	color: $instruction-color;
+	color: $instruction-text-color;
 
 	// [UCT]
 	display: block;
@@ -130,8 +130,8 @@
     border: 1px solid;
     border-left-width: 5px;
     border-color: white;
-    border-left-color: #A5D1FF;
-    background-color: #F3FAFF;
+    border-left-color: $instruction-color;
+    background-color: $instruction-background-color;
     font-size: 0.9em;
 }
 
