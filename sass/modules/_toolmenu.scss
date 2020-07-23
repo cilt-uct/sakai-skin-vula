@@ -42,7 +42,7 @@ body.is-logged-out{
 
 		.#{$namespace}topHeader, ##{$namespace}sites-nav, #footer, #presenceToggle, 
 		.#{$namespace}footerApp__presence, .#{$namespace}presence__area { // [UCT] presence not shown if fullscreen
-			display: none;
+			display: none !important;
 		}
 
 		#toolMenuWrap {

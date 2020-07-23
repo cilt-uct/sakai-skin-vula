@@ -322,6 +322,11 @@
       > li {
         padding: $standard-spacing 0;
         border-top: $manageTools-panel-border;  
+
+        input[type=checkbox] { // [UCT] remove spacing - reduce line height
+          margin-top: 0px;
+        }
+
         &:first-of-type {
           border-top: 0 none; 
         }
@@ -331,7 +336,7 @@
         }
 	    div {
           &.toolListDesc {
-            padding: 0 0 0 20px;	// to align with tool name
+            padding: 0 0 0 25px;	// to align with tool name [UCT]
           }
           &.toolListControl label {
               margin: 0;

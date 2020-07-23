@@ -84,8 +84,12 @@ table{
 		margin-top: 10px;
 	}
 
+	// [UCT] Custom button width - Edge fix
 	.sakai-table-viewFilter {
-		#termview-top + .button {
+		#termview-top ~ .button {
+			min-width: 176px;
+		}
+		#timeFilterOption ~ input[type=submit] {
 			min-width: 176px;
 		}
 	}
