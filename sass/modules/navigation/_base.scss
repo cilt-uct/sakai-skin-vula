@@ -921,14 +921,14 @@ body.is-logged-out{
 		@include display-flex;
 		@include flex-wrap( wrap );
 		font-family: $header-font-family;
-		margin: $standard-spacing 0 0 0;
+		margin: $standard-spacing-alt 0 0 0;
 		padding: 0;
 		
 		li.#{$namespace}sitesNav__menuitem{
 			@include display-flex;
 			@include align-items(center);
 			position: relative;
-			margin: 0 $standard-spacing $standard-spacing 0;	// space the items apart, and space vertically if wrapped
+			margin: 0 $standard-spacing $standard-spacing-alt 0;	// space the items apart, and space vertically if wrapped
 			padding: 0;
 			border-radius: $sites-nav-menu-item-border-radius;
 			background: $sites-nav-menu-item-background;

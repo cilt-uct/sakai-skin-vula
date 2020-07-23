@@ -47,10 +47,10 @@ $weight-semibold:     600;
 $weight-bold:         700;
 $weight-extrabold:    800;
 
-$default-font-size:   14px !default;
+$default-font-size:   13px !default;
 $default-font-size-small: 12px !default;
 $default-font-weight: 400 !default;										// 400 or 700 as you wish
-$default-line-height: 1.42857 !default;										// 20px / 14px = 1.42857
+$default-line-height: 1.32857 !default;								// 20px / 14px = 1.42857
 $header-font-family:  $font-family;
 $header-font-weight:  700 !default;										// 400 or 700 as you wish
 
@@ -108,10 +108,6 @@ $warncolor: $color-warning !default;
 // }
 //@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); // UCT - %head-gradient
 $head-gradient: linear-gradient(to right bottom, #15597e, #156089, #146895, #136fa0, #1377ac, #1377ac, #1377ac, #1377ac, #136fa0, #146895, #156089, #15597e);
-
-/* The standard spacing for items in Sakai */
-$standard-spacing: 10px !default;
-$standard-space: 4px !default; 		// the width of a keyboard space
 
 // Favorites 
 // ----------------------------------------
@@ -258,7 +254,7 @@ $std-shadow: 0 3px 2px rgba( $text-color, 0.35);
 /* Enable Google Material Design inspired theme elements */
 /* by setting the variables below to true. */
 /* Added in SAK-42889 */
-$standard-spacing-as-material: true !default;
+$standard-spacing-as-material: false !default;
 $sites-nav-as-material: false !default;
 $portal-as-material: false !default; // override colors
 $tool-menu-as-material: false !default;
@@ -266,6 +262,19 @@ $buttons-as-material: true !default;
 $top-header-as-material: true !default;
 $cards-as-material: true !default;
 $lessons-as-material: true !default;
+
+/*    Standard Spacing Large    */
+// Increases the standard spacing all over Sakai
+// to feel more open and modern.
+/* The standard spacing for items in Sakai */
+
+  $standard-spacing: 16px;
+  $sites-nav-submenu-top: $standard-spacing;
+  $tool-menu-padding: calc(#{$standard-spacing} / 2) 0 0 0;
+
+  $standard-spacing-alt: 12px;
+  $standard-space: 4px !default; 		// the width of a keyboard space
+
 
 // Incorporate some of the Material design elements
 $material-menu-padding: calc( #{$standard-spacing} / 2) 0 !default;

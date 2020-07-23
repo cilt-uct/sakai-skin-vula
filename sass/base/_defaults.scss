@@ -247,23 +247,28 @@ span.marker {
 
 // [UCT] change some labels and checkboxes
 .portletBody {
-	.radio,
-	.checkbox {
+	.radio, .radio-inline,
+	.checkbox, .checkbox-inline {
 
 		label {
-			&:hover, &:active {
-			color: $secondary-color; 
 
 			input[type="radio"], input[type="checkbox"] {
-				border-color: $secondary-color;
+				position: relative;
 			}
+			&:hover, &:active {
+				color: $secondary-color; 
+
+				input[type="radio"], input[type="checkbox"] {
+					border-color: $secondary-color;
+				}
 			}
 		}
 	}
 
-
 	input[type="radio"],
 	input[type="checkbox"] {
-		margin: 4px 4px 0 0;
+		margin-top: 4px;   
+		margin-right: 4px;
+		margin-left: 0px;
 	}
 }
