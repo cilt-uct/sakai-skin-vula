@@ -14,6 +14,25 @@
 		}
 		.checkbox{
 			width: 95px;
+
+			label {
+				margin-top: 3px; // [UCT] Spacing
+			}
+		}
+
+		// [UCT] Datepicker text
+		input.hasDatepicker {
+			line-height: 30px; 		// to match the date picker buttons' height
+			@extend .default-input;
+			border-top-right-radius: 0px;
+			border-bottom-right-radius: 0px;
+			border-right-width: 0px;
+		}
+		
+		button.ui-datepicker-trigger {
+			margin-left: 0px;
+			border-top-left-radius: 0px;
+			border-bottom-left-radius: 0px;
 		}
 	}
 	.merge-list{

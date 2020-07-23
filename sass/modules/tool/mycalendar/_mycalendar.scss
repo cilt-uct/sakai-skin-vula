@@ -7,7 +7,27 @@
         font-weight: 500;
         font-size: 16px;
         margin: 0 0 !important;
+
+        // [UCT] spacing and border-radius
+        .ui-datepicker-month {
+            padding: 0px 22px 0px 7px; 
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+        // [UCT] border-radius
+        .ui-datepicker-year {
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-left-width: 0px;
+        }        
     }
+    // [UCT] spacing
+    .ui-datepicker-header {
+        .ui-datepicker-prev, .ui-datepicker-next {
+            margin-top: 3px;
+        }
+    }
+
     .mycalendar-event-heading {
         display: flex;
         justify-content: center;
@@ -199,5 +219,15 @@
         .ui-datepicker td {
             width:80px;
         }
+    }
+}
+
+// [UCT] calendar link
+table.ui-datepicker-calendar td a {
+    text-decoration: none;
+    text-align: center;
+
+    &:hover, &:active {
+        text-decoration: none;
     }
 }

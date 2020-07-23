@@ -40,7 +40,8 @@ body.is-logged-out{
 
 	body.tool-maximised {
 
-		.#{$namespace}topHeader, ##{$namespace}sites-nav, #footer, #presenceToggle {
+		.#{$namespace}topHeader, ##{$namespace}sites-nav, #footer, #presenceToggle, 
+		.#{$namespace}footerApp__presence, .#{$namespace}presence__area { // [UCT] presence not shown if fullscreen
 			display: none;
 		}
 

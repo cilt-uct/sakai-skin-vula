@@ -72,15 +72,24 @@ table{
 			text-align: right;
 		}
 	}
+
 	.sakai-table-viewFilter, .sakai-table-searchFilter
 	{
 		@include display-flex();
 		@include align-items(center);
 	}
+
 	.sakai-table-viewFilter ~ .sakai-table-searchFilter
 	{
 		margin-top: 10px;
 	}
+
+	.sakai-table-viewFilter {
+		#termview-top + .button {
+			min-width: 176px;
+		}
+	}
+
 	.sakai-table-searchFilter
 	{
 		@include flex-grow(1);
