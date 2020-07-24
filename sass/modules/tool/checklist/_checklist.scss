@@ -1,0 +1,11 @@
+// changing the background of the checklist [UCT]-TJ
+.column {
+    .checklistDiv {
+        background-color: transparent;
+        border-radius: 1px;
+        border: 1px solid $color-graylight;
+        background-color: $color-white;
+        box-shadow: $std-shadow;
+    }
+}
+

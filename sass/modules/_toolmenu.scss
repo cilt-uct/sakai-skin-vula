@@ -54,7 +54,7 @@ body.is-logged-out{
 		#toolMenu, #subSites:not(.floating) {	// subsites menu, but not the floating one
 			display: none;
 		}
-  }
+    }
 
 	// LHS tool menu collapsed to show icons only and not tool titles.
 	body.#{$namespace}toolMenu-collapsed:not(.tool-maximised) {
@@ -423,7 +423,7 @@ nav#subSites{
 					@include flex-direction(column);
 				}
 				background-color: $tool-menu-item-background-color;
-				font-size: 1em;
+				font-size: 0.94em; // [UCT] menu's slighly smaller text - 1em;
 				line-height: 1.5;
 				font-weight: $tool-menu-item-text-weight;
 				text-decoration: none;

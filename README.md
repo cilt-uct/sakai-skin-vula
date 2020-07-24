@@ -38,6 +38,25 @@
 NOTE:
 [How to get the skin to compile and deploy on SLE 11 SP4](./SLE11_SP4.md)
 
+## Install Node and Sass (Ubuntu 16.04)
+
+Ref for node install: https://github.com/nodesource/distributions
+
+```
+curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
+bash nodesource_setup.sh
+apt-get install gcc g++ make
+apt-get install build-essential
+apt-get install nodejs
+
+nodejs --version
+npm --version
+
+apt install ruby-full rubygems autogen autoconf libtool make
+gem install sass
+sass -v (Ruby Sass 3.7.4)
+```
+
 ## Morpheus for Sakai
 
 Morpheus (Mobile Optimized Responsive Portal for Higher Education Using Sass) is the new responsive design portal (the primary UI) for Sakai (from 11 onwards).

@@ -1013,7 +1013,7 @@ body.is-logged-out{
 				left: 0;
 				z-index: 99;
 				display: none;
-				min-width: 100%;	// at minimum, the menu should be the width of the site title
+				min-width: 186px; // [UCT] accomodate some tool titles; 100%;	// at minimum, the menu should be the width of the site title
 				width: max-content; // if the content is wider than the site title, expand to the longest tool name
 				border: $sites-nav-submenu-border;
 				box-shadow: $sites-nav-submenu-shadow;

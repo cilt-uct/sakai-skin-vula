@@ -47,10 +47,10 @@ $weight-semibold:     600;
 $weight-bold:         700;
 $weight-extrabold:    800;
 
-$default-font-size:   13px !default;
+$default-font-size:   14px !default;
 $default-font-size-small: 12px !default;
 $default-font-weight: 400 !default;										// 400 or 700 as you wish
-$default-line-height: 1.32857 !default;								// 20px / 14px = 1.42857
+$default-line-height: 1.42857 !default;								// 20px / 14px = 1.42857
 $header-font-family:  $font-family;
 $header-font-weight:  700 !default;										// 400 or 700 as you wish
 
@@ -70,7 +70,7 @@ $color-gray-darker: #1f2123;
 $color-gray-dark: #414649;
 $color-gray: #979a9b;
 $color-graylight: #e3e4e5;
-$color-graylighter: #f9fafb;
+$color-graylighter: #f9fafb; 
 $color-white: #ffffff;
 
 $primary-color:   $color-primary !default;
@@ -263,29 +263,25 @@ $top-header-as-material: true !default;
 $cards-as-material: true !default;
 $lessons-as-material: true !default;
 
-/*    Standard Spacing Large    */
-// Increases the standard spacing all over Sakai
-// to feel more open and modern.
-/* The standard spacing for items in Sakai */
-
+// Spacing
+// ----------------------------------------/
   $standard-spacing: 16px;
-  $sites-nav-submenu-top: $standard-spacing;
   $tool-menu-padding: calc(#{$standard-spacing} / 2) 0 0 0;
 
   $standard-spacing-alt: 12px;
   $standard-space: 4px !default; 		// the width of a keyboard space
 
+  // Incorporate some of the Material design elements
+  $material-menu-padding: calc( #{$standard-spacing-alt} / 2) 0 !default;
+  $material-menu-item-padding: calc(#{$standard-spacing-alt} / 2) $standard-spacing-alt !default;
 
-// Incorporate some of the Material design elements
-$material-menu-padding: calc( #{$standard-spacing} / 2) 0 !default;
-$material-menu-item-padding: calc(#{$standard-spacing} / 2) $standard-spacing !default;
+// Tool-Menu
+// ----------------------------------------
+  $tool-menu-item-padding:           $standard-spacing-alt !default; // slightly sp=maller than standard
+  $tool-menu-item-collapsed-padding: $standard-spacing-alt !default;
 
-$top-header-text-display: inline-block !default;
-
-$instruction-size:          $default-font-size-small !default;
-$instruction-color:        #1f2123 !default;
-
-// @if $sites-nav-as-material {
+// Site Nav Menu - Material - $sites-nav-as-material
+// ---------------------------------------- 
   $divider-shadow-fixed: 0 1px 0 $tool-border-color;
   $sites-nav-menu-item-border-thickness: 1px;
   $sites-nav-menu-item-border-radius: $main-border-radius;
@@ -330,4 +326,12 @@ $instruction-color:        #1f2123 !default;
   $sites-nav-submenu-item-padding: $material-menu-item-padding;
   $sites-nav-submenu-padding: $material-menu-padding;
   $sites-nav-submenu-shadow: $std-shadow; //$material-elevation-8dp;
-  $sites-nav-submenu-top: -#{$standard-spacing}; //fallback to calc( #{$default-font-size} + #{$sites-nav-menu-item-border-thickness})
+  //$sites-nav-submenu-top: -#{$standard-spacing}; //fallback to calc( #{$default-font-size} + #{$sites-nav-menu-item-border-thickness})
+  $sites-nav-submenu-top: calc( #{$default-font-size} + ( #{$standard-space} * 2) - #{$sites-nav-menu-item-border-thickness} - 1px) !default;
+
+// Misc
+// ----------------------------------------
+  $top-header-text-display: inline-block !default; // overrides $top-header-as-material
+
+  $instruction-size:          $default-font-size-small !default;
+  $instruction-color:        #1f2123 !default;
