@@ -168,7 +168,7 @@ module.exports = function(grunt) {
   // grunt.loadNpmTasks('grunt-ssh');
   grunt.loadNpmTasks('grunt-if');
 
-  // Register Grunt tasks
+  //Register Grunt tasks
   grunt.registerTask('build', [
     'clean:build'
     ,'sass'
@@ -178,6 +178,6 @@ module.exports = function(grunt) {
     ,'copy:dist'
   ]);
 
-  grunt.registerTask('default', ['build', 'watch']);
+  grunt.registerTask('default', ['build', 'if', 'watch']);
   grunt.registerTask('deploy', ['build', 'if']);
 };

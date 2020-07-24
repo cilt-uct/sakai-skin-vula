@@ -4,9 +4,12 @@
     .checklistDiv {
       background-color: transparent; //rgba(0,152,219,0.2);
         border-radius: 1px;
-        border: 1vmin solid hsl(209, 62%, 60%);
-    border-image-slice: 1;
-    border-image-source: conic-gradient(hsl(209, 62%, 60%),hsl(200, 100%, 60%),hsl(208, 56%, 46%) );
+     //   border: 1vmin solid hsl(209, 62%, 60%);
+   // border-image-slice: 1;
+   // border-image-source: conic-gradient(hsl(209, 62%, 60%),hsl(200, 100%, 60%),hsl(208, 56%, 46%) );
+   box-shadow: 0 0 3px 0 rgba(46, 60, 73, 0.2);
+   border: 1px solid #dbe2e8;
+   background-color: #fff;
     }
 }
 
@@ -62,9 +65,21 @@
     font-weight: 600 !important;
 }
 
-//changing left insight to UCT blue 
+//changing left insight ckeditor template colour
 .left-insight p {
     background-color: rgba(0,152,219,0.2)!important;
+}
+
+//changing right insight ckeditor template colour
+.right-insight p {
+  background-color: rgba(219, 81, 0, 0.2)!important;
+}
+
+// changing ckeditor panel template colour to darker blue 
+.panel-primary > .panel-heading
+{
+  background-color: #005590;
+  border-color: #005590;
 }
 
 //change the content link style 
@@ -76,11 +91,14 @@ font-weight: 600; //making it bolder to be more visible
 // custom lessons dark blue header 
 
     .header {
-    padding: 12px;
-    text-align: center;
-    background: #005590;
-    color: white;
-    border-radius: 1px;
+      text-align: left;
+            color: #005590;
+    
+      //padding: 12px;
+    //text-align: center;
+    //background: #005590;
+    // color: white;
+    //border-radius: 1px;
     }
 
     .header .headerfont {
@@ -93,7 +111,7 @@ font-weight: 600; //making it bolder to be more visible
             background: #005590;
             background-image:
             linear-gradient(45deg,
-                #001231, #005590, #cc318e);
+                #001231, #005590, #337ab7);
       animation: gradient 15s ease infinite;
         background-size: 400% 400%;
                              }
@@ -114,8 +132,34 @@ font-weight: 600; //making it bolder to be more visible
 //QUESTION Tool background change
 
 .column .questionDiv .contentCol {
-    background-color: rgba(0,152,219,0.2);
+   // background-color: rgba(0,152,219,0.2);
     border-radius: 1px;
+    background-color: #eaf2f5;
+    box-shadow: 0 0 3px 0 rgba(46,60,73,0.2);
+    border: 1px solid #dbe2e8;
+    background-color: #fff; }
+    
+    .mainList div.question .multipleChoiceAnswer {
+    padding: 10px 10px;
+     &:hover  {
+      background-color: rgba(0, 152, 219, 0.1);
+    } }
+
+  .questionText {
+    color: #005590;
+    border-bottom: 1px solid #dcdcdc;
+}
+  
+//Changing radio buttons
+
+.input[type="radio"] {
+  border-radius: 0px;}
+
+  .input[type="radio"]:checked {
+    background: #0f9aec;
+  &:focus  {
+      box-shadow: 0px 0px 2px 2px #5b9dd9; 
+    }
   }
 
 // changing buttons of the QUESTION TOOL, ugly as I have to override eveyrthing with important
@@ -142,7 +186,6 @@ font-weight: 600; //making it bolder to be more visible
                 }       
             
 
-
 .multipleChoiceForm
          input[type="submit"]:hover { 
             color: #15597e !important;
@@ -152,13 +195,35 @@ font-weight: 600; //making it bolder to be more visible
             box-shadow: none;
 }
 
+.linkCell .addStudentContent
+{
+  display: inline-block;
+  margin: 0;
+  padding: 7px 16px;
+  border: 1px solid #15597e;
+  border-radius: 4px;
+  background: #15597e;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 18px;
+  color: #fff !important;
+  text-decoration: none;
+  cursor: pointer; 
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  &:hover { 
+  color: #15597e !important;
+  }
 
-// updating font for h2
+}
+
+
+// updating font for h2 - not sure about changing this due to global impact
 
 h2 {
             color:#001231;
-            background-color: rgba(114,128,138,0.1);
-            padding:10px;
+           // background-color: rgba(114,128,138,0.1);
+            //padding:10px;
 
 }
 
@@ -235,3 +300,52 @@ h2 {
   }
 
 
+// dark menu updates
+
+//left hand navigation colour update
+
+#toolMenuWrap {
+  background: #005590; }
+
+  #toolMenu ul li .Mrphs-toolsNav__menuitem--link {
+
+
+    background-color: #005590;
+    color: #ffffff;
+
+    .Mrphs-toolsNav__menuitem--icon {
+
+      color: #ffffff;
+
+    }
+  }
+
+  #toolMenu ul li {
+  border-bottom: 0px;   }
+  
+
+  // bottom buttons for subpage navigation
+
+  // DOES NOT WORK - this div displays on ALL pages,even with those without subpages!!!! 
+  // bottom light background to highlight navigation 
+  // .bottomButtons {
+
+   // background: rgba(21, 89, 126, 0.06);
+   // padding: 10px;
+    //border-radius: 5px;}
+
+  // actual previous next buttons for the bottom
+
+  .Mrphs-sakai-lessonbuildertool .navIntraTool .nextprev
+ {
+    background: #15597e;
+    color: #FFF;
+   
+  }
+
+  // actual previous next buttons for the top banner
+  .Mrphs-sakai-lessonbuildertool .Mrphs-toolTitleNav .menuitem {
+
+    background: #15597e;
+    color: #FFF;
+  }

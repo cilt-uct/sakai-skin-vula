@@ -42,5 +42,8 @@
     "grunt-sass": "^3.1.0",
     "grunt-ssh": "^0.12.9",
     "time-grunt": "^2.0.0"
+  },
+  "dependencies": {
+    "-": "0.0.1"
   }
 }
