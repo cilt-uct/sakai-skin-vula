@@ -77,10 +77,15 @@ $primary-color:   $color-primary !default;
 $secondary-color: $color-secondary !default;
 $text-color:      $color-gray-dark !default;
 
+// some more blue colours to play with
+$primary-desaturate: desaturate($primary-color, 20%);
+$primary-shade: shade($primary-color, 20%);
+
 // Link colors
-$link-color: shade($primary-color, 12%) !default;
-$link-active-color: $primary-color !default;
-$link-hover-color: $primary-color !default;
+$link-color: $primary-color !default;
+$link-active-color: shade($secondary-color, 10%) !default;
+$link-hover-color: shade($secondary-color, 10%) !default;
+
 $link-background-color: transparent !default;
 $link-active-background-color: transparent !default;
 $link-hover-background-color: transparent !default;
