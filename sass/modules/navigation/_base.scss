@@ -38,7 +38,11 @@ body.is-logged-out{
 	// UCT - Sites not shown when not logged in
 	li.#{$namespace}skipNav__menuitem--worksite {
 		display: none;
-	}
+    }
+    
+    .#{$namespace}siteHierarchy {
+        display: none; 
+    }
 }
 
 .#{$namespace}mainHeader{

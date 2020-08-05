@@ -4,6 +4,11 @@
       ,"dest": ["/local/tomcat/webapps/library/skin/vula","/another/local/folder"]
       ,"ckeditor": ["/some-path-to-sakai/webapps/library/editor/ckextraplugins/templates"]
     },
+    "tar": {
+        "do": false
+        ,"skin": "/location/to/store/build/vula-latest-skin.tar.gz"
+        ,"editor": "/location/to/store/build/vula-latest-templates.tar.gz"
+    },    
     "remote": {
       "do": false
       ,"dest" : "HostName"

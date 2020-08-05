@@ -212,5 +212,5 @@ module.exports = function(grunt) {
   ]);
   
   grunt.registerTask('default', ['build', 'if', 'watch']);
-  grunt.registerTask('deploy', ['build', 'if', 'compress']);
+  grunt.registerTask('deploy', ['build', 'if']);
 };
