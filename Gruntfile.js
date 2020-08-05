@@ -140,13 +140,45 @@ module.exports = function(grunt) {
             "createDirectories": true
         }
       }
-    },            
+    },
+    compress: {
+        main: {
+          options: {
+            mode: 'tgz',
+            archive: (function() {
+                var l = grunt.file.readJSON('config.json');
+                return l.tar.skin;
+            })()
+          },
+          files: [
+            {expand: true, cwd: 'tmp/', src: ['**/*'], dest: '/'}, // makes all src relative to cwd
+          ]
+        },
+        editor: {
+            options: {
+                mode: 'tgz',
+                archive: (function() {
+                    var l = grunt.file.readJSON('config.json');
+                    return l.tar.editor;
+                })()
+            },
+            files: [
+              {expand: true, cwd: 'editor/ckextraplugins/templates', src: ['**/*'], dest: '/'}, // makes all src relative to cwd
+            ]
+        }        
+    },     
     if: { // If statements to determine where to deploy the files (local/remote)
       local: {
           options: {
               config: 'app.local.do'
           },
           ifTrue: ['copy:local','copy:local_template']
+      },
+      tar: {
+        options: {
+            config: 'app.compress.do'
+        },
+        ifTrue: ['compress:main','compress:editor']
       },
       remote: {
           options: {
@@ -167,6 +199,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   // grunt.loadNpmTasks('grunt-ssh');
   grunt.loadNpmTasks('grunt-if');
+  grunt.loadNpmTasks('grunt-contrib-compress');
 
   // Register Grunt tasks
   grunt.registerTask('build', [
@@ -177,7 +210,7 @@ module.exports = function(grunt) {
     ,'uglify'
     ,'copy:dist'
   ]);
-
+  
   grunt.registerTask('default', ['build', 'if', 'watch']);
-  grunt.registerTask('deploy', ['build', 'if']);
+  grunt.registerTask('deploy', ['build', 'if', 'compress']);
 };

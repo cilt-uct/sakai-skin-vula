@@ -40,12 +40,12 @@ function updatePresence(){
       var chatUrl = $PBJQ('.nav-selected .icon-sakai-chat').attr('href');
 
       $PBJQ('#presenceIframe .presenceList div.inChat span').wrap('<a href="' + chatUrl + '"></a>')
-      sakaiLastPresenceTimeOut = setTimeout('updatePresence()', 30000);
+      sakaiLastPresenceTimeOut = setTimeout('updatePresence()', 60000);
     },
 
     // If we get an error, wait 60 seconds before retry
     error: function(request, strError){
-      sakaiLastPresenceTimeOut = setTimeout('updatePresence()', 60000);
+      sakaiLastPresenceTimeOut = setTimeout('updatePresence()', 120000);
     }
   });
 }

@@ -21,6 +21,53 @@
             }
         }
     }
+
+    .tool_list {
+        li.editable_item {
+            width: 100%;
+            margin: 0px;
+            padding: 4px;
+            border: 1px solid $secondary-color;
+        }
+
+        li.editable_item ~ .editable_item {
+            margin-top: 5px;
+        }
+
+        .item_edit_box {
+            margin-top: 10px;
+            padding: 10px;
+            border-top: 1px dotted #DDD;
+            
+            label {
+                text-align: right;
+                min-width: 44px;
+                margin-right: 5px;
+            }
+            input {
+                @extend .form-control;
+                padding: 6px;
+                display: inline-block;
+                width: calc(100% - 65px);
+            }
+
+            > a {
+                border-radius: $main-border-radius;
+                margin-left: 50px;
+                padding: 0px 4px 4px;
+                position: relative;
+                top: 5px;
+
+                &:hover, &:active {
+                    background-color: darken( $tool-menu-background-color, 10% );
+                }
+
+                &:last-child {
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
 }
 
 body.#{$namespace}portalBody{
