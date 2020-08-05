@@ -246,7 +246,13 @@ ul#otherSitesMenu{
 		text-align: right;
 	}
 	@media #{$phone}{
-		margin-left: 5px;
+        margin: 10px 5px; // [UCT] schange some spacing
+        
+        li:not(.otherSitesMenuClose) > a { 
+            // [UCT] make the buttons slightly smaller - using !important otherwise need to change entire path
+            padding: 4px 6px !important;
+            font-size: 0.9em !important;
+        }
 	}
 	display: inline-block;
 	li:not(.otherSitesMenuClose){
