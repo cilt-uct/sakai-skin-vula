@@ -89,10 +89,12 @@ function updatePresence() {
             var chatUrl = $PBJQ('.nav-selected .icon-sakai-chat').attr('href');
             $PBJQ('#presenceIframe .presenceList div.inChat span').wrap('<a href="' + chatUrl + '"></a>');
             updatePresenceTimeout(60000, true); // 60 seconds
+            // console.log(" > "+ new Date().toLocaleTimeString());
         },
         error: function(request, strError){
             // If we get an error, wait 120 seconds before retry
             updatePresenceTimeout(120000, true);
+            // console.log(" > "+ new Date().toLocaleTimeString());
         }
     });
 }
