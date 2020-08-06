@@ -59,6 +59,8 @@
 
 @import "templates/_templates.scss";   // UCT - additional style for ckeditor templates (Tasneem Jaffer)
 
+@import "modules/tool/src_msgcntr/_src_msgcntr.scss";   // UCT - src imports
+
 @import "base/rtl";
 
 @import "modules/access/base";

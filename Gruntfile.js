@@ -176,7 +176,7 @@ module.exports = function(grunt) {
       },
       tar: {
         options: {
-            config: 'app.compress.do'
+            config: 'app.tar.do'
         },
         ifTrue: ['compress:main','compress:editor']
       },
