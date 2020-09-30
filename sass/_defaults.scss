@@ -26,16 +26,16 @@ $more-sites-single-column: "only screen and (max-width : #{$break-more-sites-sin
 /* Typography*/
 
 //Google family Fonts URL
-$font-family-url: "https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" !default;
+$font-family-url: "https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" !default;
 @import url(#{$font-family-url});
 
 //Typography variables
 $font-family: "Open Sans",sans-serif;
 $default-font-size: 14px !default;
-$default-font-size-small: 12px !default;
+$default-font-size-small: 12px;
 $default-font-weight: 400 !default;										// 400 or 700 as you wish
-$default-line-height: 1.42857 !default;										// 20px / 14px = 1.42857
-$header-font-family: $font-family !default;;
+$default-line-height: 1.42857;											// 20px / 14px = 1.42857
+$header-font-family: $font-family;
 $header-font-weight: 700 !default;										// 400 or 700 as you wish
 
 /* Color palette */
@@ -58,7 +58,7 @@ $portal-mask-background:  rgba(0,0,0,0.5) !default;
 
 /* Tool tabs */
 $tool-background-color:		 $background-color !default;
-$tool-menu-background-color: $body-background-color !default;
+$tool-menu-background-color:			 $body-background-color !default;
 $tool-menu-color: 			 #424242 !default;
 $tool-border-color:			 #E5E5E5 !default;
 
@@ -98,8 +98,8 @@ $top-header-profile-border-color-inner: $top-header-background !default;
 $sites-nav-background: $tool-menu-background-color !default;
 
 $breadcrumbs-color:			$text-color !default;
-$breadcrumbs-tool-color:		 #265b81 !default; // $primary-color !default;
-$breadcrumbs-hover-color:		 #265b81 !default; //$primary-color !default;
+$breadcrumbs-tool-color:		 #265b81 !default; // $primary-color !default; [UCT]
+$breadcrumbs-hover-color:		 #265b81 !default; //$primary-color !default; [UCT]
 
 /* Link colors */
 $link-color: $primary-color !default;
@@ -167,9 +167,8 @@ $warn-background-color:     #F6ECB7 !default;
 $warn-color:                darken($warn-background-color, 35%) !default;
 $error-background-color:    #f2dede !default;
 $error-color:               darken($error-background-color, 30%) !default;
-
-$instruction-size:          $default-font-size-small !default;
-$instruction-color:         #555 !default;
+$instruction-size:          $default-font-size-small;
+$instruction-color:         #555;
 
 /* Sakai Banners */
 // Information (info) banner
@@ -204,7 +203,7 @@ $swapped-view-text-color:	 #414141 !default; /* USED? */
 $swapped-view-sites-nav-background: $swapped-view-primary !default;  /* USED? */
 
 /* Admin Become User view */
-$become-user-primary: #52b387 !default;
+$become-user-primary: hsl(147, 93%, 22%) !default;
 
 /* This is the gradient in the header of the page */
 $header-gradient-a: #fafafa !default;
@@ -485,15 +484,14 @@ $siteDelete-border: 1px solid $info-color !default;
 //$sakai-custom-icons : ( sakai-message-bundle-manager : ( extend : fa-edit ) );
 
 /* Footer */
-$footer-background-color: $tool-menu-background-color !default;;
-$footer-border-color: $tool-border-color !default;;
+$footer-background-color: $tool-menu-background-color !default;
+$footer-border-color: $tool-border-color !default;
 $footer-font-size: 12px !default;
-$footer-color: $text-color !default;;
-$footer-link-separator: #ccc !default;;
+$footer-color: $text-color !default;
+$footer-link-separator: #ccc !default;
 
 // Overview page column widths. Total to add up to 96% as the columns have a margin.
 $col1of2-width: 48% !default;
-$col2of2-width: 48% !default;
 
 /* From NYU 11 Skin */
 $divider-shadow: 0 1px 5px rgba(0,0,0,.3) !default;
