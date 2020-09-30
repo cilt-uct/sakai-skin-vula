@@ -246,7 +246,7 @@ ul#otherSitesMenu{
 		text-align: right;
 	}
 	@media #{$phone}{
-        margin: 10px 5px; // [UCT] schange some spacing
+        margin: 10px 5px; // [UCT] change some spacing
         
         li:not(.otherSitesMenuClose) > a { 
             // [UCT] make the buttons slightly smaller - using !important otherwise need to change entire path
