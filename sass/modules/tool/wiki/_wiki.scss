@@ -13,6 +13,6 @@
     }
 
     .editToolBarContainer, .previewToolBarContainer, .autosaveToolBarContainer {
-        height: auto;
+        height: auto !important; // [UCT] autocalc height
     }
 }
