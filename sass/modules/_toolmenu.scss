@@ -514,67 +514,31 @@ nav#subSites{
                 }
                 
 				.#{$namespace}toolsNav__menuitem--status-block {
-					margin-right: 10px;
-					margin-left: 4px;
-					display: flex;
+                    // margin-right: 10px; // [UCT]
+                    margin-left: 4px;
+                    display: flex;
+                    position: relative; // [UCT]
+                    right: -14px;		// [UCT]
 					div {
 						margin-right: 10px;
 						&.tool-status-icon {
-							font-size: 16px;
+                            font-size: 1em; // [UCT] size (16px);
+                            opacity: 0.8;   // [UCT] opacity
+                        }
+                        &.fa-eye-slash {
+							color: $tool-menu-item-hidden-icon-after-color; // [UCT] color
 						}
 					}
                 }
                 
 				&.is-invisible {
-					// position: relative;
 					font-style: italic;
 					color: $tool-menu-item-hidden-text-color;
 					background: $tool-menu-item-hidden-background-color;
 
 					&:before{
 						border-left: $tool-menu-item-hidden-border-left;
-                    }
-                    
-                    &:after {
-						@extend .fa-lg;
-						@extend .fa;
-                        content: '\f070';
-                        color: $tool-menu-item-hidden-icon-after-color; // [UCT] color
-                        opacity: 0.8;                                   // [UCT] opacity
-                        font-size: 1.2em;                               // [UCT] size
-
-						@if $tool-menu-icon-on-left {
-							margin-right: $standard-spacing;
-						}
-						@else {
-							position: absolute;
-							top: 4px;
-							right: 4px;
-						}
 					}
-
-					// &:after {
-					// 	@extend .fa-lg;
-					// 	@extend .fa;
-					// 	content: '\f070';
-					// 	color: $tool-menu-item-hidden-icon-after-color; // [UCT] color and spacing
-					// 	position: absolute;
-					// 	top: 4px;
-					// 	right: 4px;
-					// 	opacity: 0.8;
-					// 	font-size: 1.2em;
-
-					// 	/* [UCT]
-					// 	@if $tool-menu-icon-on-left {
-					// 		//margin-right: $standard-spacing; 
-					// 	}
-					// 	@else {
-					// 		position: absolute;
-					// 		top: 4px;
-					// 		right: 4px;
-					// 	}
-					// 	*/
-					// }
 
 					&:hover{
 						color: $tool-menu-item-hidden-hover-text-color;
