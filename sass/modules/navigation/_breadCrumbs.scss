@@ -99,13 +99,25 @@
 		position: absolute;
 		top: 0;
 		height: $banner-height - 4;
-		line-height: $banner-height - 4;
+		line-height: $banner-height + 10; // [UCT] to get the spacing right for the parent site
 		white-space: nowrap;
 		left: 0;
 
-		h1{
+		h1 {
 			color: $breadcrumbs-tool-color;
 		}
+
+        // [UCT]
+        .#{$namespace}hierarchy--parent-sites {
+            font-size: 0.7em;
+            position: absolute;
+            top: -33%;
+        }
+
+        // [UCT]
+        .#{$namespace}hierarchy--sites > span:nth-last-child(2) {
+            display: inline;
+        }
 
 		.#{$namespace}hierarchy--siteName a:hover .#{$namespace}hierarchy--siteName-label {
 			text-decoration: underline;
