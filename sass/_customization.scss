@@ -73,6 +73,11 @@ $color-graylight: #e3e4e5;
 $color-graylighter: #f9fafb; 
 $color-white: #ffffff;
 
+// [UCT] Lighter Blue for the background color of some lessons tools - NM
+$color-blue: #b4d5e7;
+$dark-blue-border: darken($color-blue, 20%) !default;
+$blue-opacity: rgba($color-blue, 0.5) !default;
+
 $primary-color:   $color-primary !default;
 $secondary-color: $color-secondary !default;
 $text-color:      $color-gray-dark !default;
