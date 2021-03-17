@@ -998,3 +998,16 @@
     }
 }
 
+.column {
+    .commentsCell {
+        .replaceWithComments {
+            .commentDiv {
+                .commentBody div {
+                    background-color: tint($blue-opacity, 50%);
+                }
+            }
+        }
+    }
+}
+
+
