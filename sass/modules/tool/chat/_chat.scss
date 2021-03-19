@@ -980,3 +980,34 @@
 	
 
 }
+
+// [UCT] changing the background color of the chat/comments tool - NM
+.column {
+    .commentsCell {
+        .commentsDiv {
+            .replaceWithComments {
+                .commentDiv {
+                    background-color: transparent;
+                    border-radius: 1px;
+                    border: 1px solid $dark-blue-border;
+                    background-color: $blue-opacity;
+                    box-shadow: $std-shadow;
+                }
+            }
+        }
+    }
+}
+
+.column {
+    .commentsCell {
+        .replaceWithComments {
+            .commentDiv {
+                .commentBody div {
+                    background-color: tint($blue-opacity, 50%);
+                }
+            }
+        }
+    }
+}
+
+
