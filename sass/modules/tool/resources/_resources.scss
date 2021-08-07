@@ -166,7 +166,7 @@
 		}
 	}
 	/* move this one to tool-base.css as it goes along*/
-	.table th, .table td {
+    .table th, .table td {
 		
 		h3,  h4,  h5,  h6 {
 			display: inline;
@@ -174,12 +174,11 @@
 		}
 		
 		a {
-			text-decoration: none; // no underline for links
+			text-decoration: none; // [UCT] no underline for links
 		}
 	}
-
 	td.actions2 .dropdown-toggle {
-		padding: 2px 6px !important;
+		padding: 2px 6px;
 	}
 	td.actions2 .dropdown-header {
 		padding: 0 21px;
@@ -266,7 +265,6 @@
 	}
 	
 	/* SAK-32371 : Resources doesnt use font awesome icons */
-	
 	.fa {
 		display : inline;
 		color : $primary-color;
