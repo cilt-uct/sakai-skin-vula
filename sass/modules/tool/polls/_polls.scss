@@ -146,3 +146,16 @@
 	 	}
 	 }
 }
+
+// [UCT] changing the background color of the polls tool - NM
+.column {
+    .questionDiv {
+        .contentCol {
+            background-color: transparent;
+            border-radius: 1px;
+            border: 1px solid $dark-blue-border;
+            background-color: $blue-opacity;
+            box-shadow: $std-shadow;
+        }
+    }
+}
