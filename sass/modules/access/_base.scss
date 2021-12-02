@@ -6,10 +6,10 @@
 	width: 29em;
 	min-height: 14em;
 
-	background: $background-color;
-	box-shadow: 0 0 5px rgba( $text-color , 0.25 );
+	background: var(--sakai-background-color-1);
+	box-shadow: var(--elevation-4dp);
 	.logo{
-		background: $color-primary url($logo) no-repeat center center;
+		background: var(--top-header-background) var(--logo) no-repeat center center;
 		//background-size: $logo-width $logo-height; [UCT] not using standard logo size
 		width: 100%;
 		height: 64px;
@@ -20,56 +20,48 @@
 	h1{
 		padding: 0.6em;
   		font-size: 1.8em;
+  		// color: var(--sakai-primary-color-1);
   		color: $secondary-color; // [UCT] Flip the colours
   		text-align: center;
 	}
 	.alertMessage{
-		background: $error-background-color;
-		border: $error-color;
-		color: $error-color;
+		background: var(--errorBanner-bgcolor);
+		border: var(--errorBanner-bordercolor);
+		color: var(--errorBanner-color);
 		padding: 0.8em;
 		text-align: center;
 	}
-	fieldset {
+	fieldset{
 		padding: 1em;
-		label { // UCT - Size and spacing for label
-			font-size: 1em;
+		label{
+			font-size: 1.2em;
 			display: inline-block;
-			min-width: 30%;
-			min-height: 2.2em;
-			text-align: right;
-    		padding-right: 0.4em;
-			font-weight: normal;
-			text-transform: capitalize;
-			@media #{$phone} {
-				text-align: left;
+			min-width: 38%;
+			min-height: 3em;
+			@media #{$phone}{
 				display: block;
 				min-height: 0.5em;
-				min-width: 100%;
-				margin: 0;
 			}
 		}
 		input { // UCT - Spacing for input
 			margin: 0 0 1em 0;
-        }
-		input[type="text"], input[type="password"] {
+        }        
+		input[type="text"],input[type="password"]{
 			display: inline-block;
 			// UCT - make input slighlty bigger, better shaddow and border radius
 			min-width: 66%;
-			@extend .default-input;
-
+			border: 1px solid var(--sakai-border-color);
 			padding: 0.3em;
-
-			@media #{$phone} {
+			@media #{$phone}{
 				display: block;
 				width: 95%;
 			}
 		}
-		input[type="submit"] {
+		input[type="submit"]{
 			font-size: 1.1em;
 			margin: 0 0 1em 0;
 		}
-		p {
+		p{
 			text-align: right;
 			// @media #{$phone} { // UCT - ignore margin
 			// 	margin: 1em 0 0 0;
@@ -80,23 +72,23 @@
 			a {
 				font-size:0.9em;
 			}
-		}
+		}        
 	}
 
 	&.with-errors{
 		input[type="text"],input[type="password"]{			
-			border: 1px solid $error-color;
-			background: $error-background-color;
+			border: 1px solid var(--errorBanner-bordercolor);
+			background: var(--errorBanner-bgcolor);
 		}
 
 		input[type="password"].capsLockOnDisplay {
-			background: $error-background-color url("images/capsLock.png") no-repeat right;
+			background: var(--errorBanner-bgcolor) url(#{$skin-path}images/capsLock.png) no-repeat right;
 		}
 	}
 
 	&.loadedByAjax{
 		z-index: 1010;
-		box-shadow: 0 0 15px rgba( $text-color , 0.25 );
+		box-shadow: var(--elevation-8dp);
 	}
 
 	@media #{$phone}{
@@ -109,7 +101,7 @@
 
 }
 
-##{$namespace}xlogin-container {
+#Mrphs-xlogin-container{
 	opacity: 0;
 	@include transition(opacity 0.25s linear 0s);
 	&.loaded{
@@ -117,16 +109,13 @@
 	}
 }
 
-##{$namespace}choice {
+#Mrphs-choice{
 	@extend #Mrphs-xlogin;
-
-	$login-choice-image-size: 80px;
-
-	.msg {
+	.msg{
 		padding: 0.6em;
 		font-size: 1.4em;
 		font-weight: 700;
-		color: $primary-color;
+		color: var(--sakai-primary-color-1);
 		text-align: center;
 	}
 
@@ -140,14 +129,10 @@
 	}
 
 	a.link { // UCT - more specific
-		color: $text-color;
-		text-decoration: none;
-
-		text-align: center;
+		width: 48%;
 		display: inline-block;
-		width: 40%;
-
-		> img { // UCT - define for an image
+		text-align: center;
+        > img { // UCT - define for an image
 			background-position: 50% center;
 			background-size: auto 100%;
 			@include border-radius(50%);
@@ -159,7 +144,7 @@
 			@include opacity(.6);
 		}
 
-		> span {
+        > span {
 			display: block;
 		}
 
@@ -172,14 +157,13 @@
 		}
 	}
 }
-
-##{$namespace}xlogin .xloginMessage {
+#Mrphs-xlogin .xloginMessage{
 	padding: 0.9em;
 	text-align: center;
 }
 
 #loginPortalMask{
-	background: $portal-mask-background;
+	background: var(--portal-mask-background);
 	position: fixed;
 	height: 100%;
 	width:  100%;
@@ -189,7 +173,7 @@
 }
 
 .capsLockOnDisplay {
-	background: $background-color url("images/capsLock.png") no-repeat right;
+	background: var(--sakai-background-color-1) url(#{$skin-path}images/capsLock.png) no-repeat right;
 }
 
 // UCT - change login form inputs

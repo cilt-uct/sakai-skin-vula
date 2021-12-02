@@ -35,7 +35,6 @@ body.active-more-sites{
       min-height: 100% !important;
       max-height: none !important;
       position: absolute !important;
-
       .tab-pane {
         height: auto !important;
       }
@@ -44,7 +43,7 @@ body.active-more-sites{
 }
 
 #portalMask{
-	background: $portal-mask-background;
+	background: var(--portal-mask-background);
 	position: fixed;
 }
 
@@ -55,13 +54,14 @@ body.active-more-sites{
 	outline: none;
 	@include transition( left 0.4s linear 0s );
 	&.dhtml_more_tabs{
-		background: $all-sites-background-color;
+		background: var(--all-sites-background-color);
 		display: block;
 		position: fixed;
 		width: 60% ;
 		max-height: 100%;
 		padding: 0 1em 1em 1em;
-		box-shadow: $all-sites-drop-shadow;
+		box-shadow: var(--all-sites-drop-shadow);
+		border-radius: $button-radius;
 		@media #{$phone}{
 			width: 100%;
 			height: 100%;
@@ -82,8 +82,7 @@ body.active-more-sites{
 				width: 0;
 				position: absolute;
 				pointer-events: none;
-				border-color: rgba(255, 255, 255, 0);
-				border-bottom-color: $tool-menu-background-color;
+				border-bottom-color: var(--tool-menu-background-color);
 				border-width: 7px;
 				margin-left: -7px;
 				outline: 0;
@@ -99,16 +98,15 @@ body.active-more-sites{
 		}
 	}
 	&:after{
-	        bottom: 100%;
-		left: 95%;
+		bottom: 100%;
+		right: calc(#{$standard-spacing} / 2);
 		border: solid transparent;
 		content: " ";
 		height: 0;
 		width: 0;
 		position: absolute;
 		pointer-events: none;
-		border-color: rgba(255, 255, 255, 0);
-		border-bottom-color: $tool-menu-background-color;
+		border-bottom-color: var(--tool-menu-background-color);
 		border-width: 7px;
 		margin-left: -7px;
 		outline: 0;
@@ -124,14 +122,14 @@ body.active-more-sites{
 	.tab-box{
 		padding: 5px 5px 5px 1em;
 		height: 100%;
-		background-color: $all-sites-tab-active-background-color;
+		background-color: var(--all-sites-background-color);
 		margin: 0 1px 0 0;
 	}
 
 	.tab-bar{
 		list-style: none;
 		padding: 0 0 0 0;
-		border-bottom: 1px solid $all-sites-tab-border-color;
+		border-bottom: 1px solid var(--all-sites-tab-border-color);
 	}
 
 	.tab-bar .tab-btn{
@@ -140,19 +138,19 @@ body.active-more-sites{
 		padding: 0 2em;
 		height: $tool-tab-height;
 		line-height: $tool-tab-height;
-		border: 1px solid $all-sites-tab-border-color;
+		border: 1px solid var(--all-sites-tab-border-color);
 		border-bottom:  0;
-		margin: 0 8px 0 0; // [UCT] bit more spacing
-		color: $all-sites-tab-text-color;
-		background-color: $all-sites-tab-background-color;
+		margin: 0;
+		color: var(--all-sites-tab-text-color);
+		background-color: var(--all-sites-tab-background-color);
 	}
 
 	.tab-bar .tab-btn:hover{
 		cursor: pointer;
-		color: $all-sites-tab-hover-text-color;
-		background-color: $all-sites-tab-hover-background-color;
+		color: var(--all-sites-tab-hover-text-color);
+		background-color: var(--all-sites-tab-hover-background-color);
 		&:before {
-			border-top: 4px solid $all-sites-tab-hover-highlight;
+			border-top: 4px solid var(--all-sites-tab-hover-highlight);
 			content: '';
 			display: block;
 			position: absolute;
@@ -164,10 +162,10 @@ body.active-more-sites{
 
 	.tab-bar .tab-btn.active{
 		cursor: default;
-		color: $all-sites-tab-active-text-color;
-		background: $all-sites-tab-active-background-color;
+		color: var(--all-sites-tab-active-text-color);
+		background: var(--all-sites-tab-active-background-color);
 		&:before {
-			border-top: 4px solid $all-sites-tab-active-highlight-color;
+			border-top: 4px solid var(--all-sites-tab-active-highlight-color);
 			content: '';
 			display: block;
 			position: absolute;
@@ -176,7 +174,7 @@ body.active-more-sites{
 			top: -1px;
 		}
 		&:after{
-			border-bottom: 1px solid $tool-tab-active-background-color;
+			border-bottom: 1px solid var(--tool-tab-active-background-color);
 			content: '';
 			display: block;
 			position: absolute;
@@ -187,7 +185,7 @@ body.active-more-sites{
 	}
 
 	.tab-bar .tab-btn.tab-disabled{
-		color: lighten( $text-color, 50% );
+		color: var(--sakai-text-color-disabled);
 	}
 
 	.tab-bar .tab-btn.tab-disabled:hover{
@@ -229,7 +227,7 @@ body.active-more-sites{
 	}
 
 	.favorites-term-header {
-		color: $all-sites-title-text-color;
+		color: var(--all-sites-title-text-color);
 		font-size: $all-sites-title-text-size;
 		font-weight: $all-sites-title-text-weight;
 		margin: 1.5em 0 0.6em 0;
@@ -246,7 +244,7 @@ ul#otherSitesMenu{
 		text-align: right;
 	}
 	@media #{$phone}{
-        margin: 10px 5px; // [UCT] change some spacing
+		margin: 10px 5px; // [UCT] change some spacing
         
         li:not(.otherSitesMenuClose) > a { 
             // [UCT] make the buttons slightly smaller - using !important otherwise need to change entire path
@@ -268,13 +266,13 @@ ul#otherSitesMenu{
 	li.otherSitesMenuClose{
 		display: inline-block;
 		font-size: 1.5em;
-		margin-left: $standard-spacing; // [UCT] a little bit of spacing
+        margin-left: $standard-spacing; // [UCT] a little bit of spacing
 
 		a {
-			color: $all-sites-close-action-color;
+			color: var(--all-sites-close-action-color);
 
 			&:hover {
-				color: $all-sites-close-action-hover-color;
+				color: var(--all-sites-close-action-hover-color);
 			}
 		}
 
@@ -285,6 +283,7 @@ ul#otherSitesMenu{
 		}
 	}
 }
+
 
 #otherSitesCategorWrap{
 	overflow-y: auto;
@@ -322,6 +321,8 @@ ul#otherSitesMenu{
 	}
 }
 
+
+
 ul.otherSitesCategorList,
 ul.favoriteSiteList{
 	clear: both;
@@ -330,19 +331,19 @@ ul.favoriteSiteList{
 	li{
 		display: inline-block;
 		font-size: $all-sites-button-text-size;
-		background: $all-sites-button-background-color;
-		border: 1px solid $all-sites-button-border-color;
+		background: var(--all-sites-button-background-color);
+		border: 1px solid var(--all-sites-button-border-color);
 		@include border-radius( $all-sites-button-border-radius );
 		margin: 0.3em;
 		padding: 0;
 		position: relative;
 
 		a{
-			color: $all-sites-button-text-color;
+			color: var(--all-sites-button-text-color);
 			font-weight: $all-sites-button-text-weight;
 
 			&:hover {
-				color: $all-sites-button-hover-text-color;
+				color: var(--all-sites-button-hover-text-color);
 			}
 		}
 
@@ -352,16 +353,16 @@ ul.favoriteSiteList{
 			display: inline-block;
 
 			.site-nonfavorite {
-				color: $all-sites-button-star-empty-color;
+				color: var(--all-sites-button-star-empty-color);
 			}
 			.site-favorite {
-				color: $all-sites-button-star-full-color;
+				color: var(--all-sites-button-star-full-color);
 			}
 		}
 
 		.toolMenus {
 			display: inline-block;
-			color: $all-sites-button-dropdown-color;
+			color: var(--all-sites-button-text-color);
 			padding: 0 1em 0 0;
 			height: $all-sites-button-height;
 			line-height: $all-sites-button-height;
@@ -374,104 +375,94 @@ ul.favoriteSiteList{
 		}
 
 		&.is-selected{
-			color: $all-sites-button-selected-text-color;
+			color: var(--all-sites-button-selected-text-color);
 			font-size: $all-sites-button-selected-text-size;
 			font-weight: $all-sites-button-selected-text-weight;
-			background: $all-sites-button-selected-background-color;
-			border-color: $all-sites-button-selected-border-color;
+			background: var(--all-sites-button-selected-background-color);
+			border-color: var(--all-sites-button-selected-border-color);
 			border-radius: $all-sites-button-selected-border-radius;
 
 			.toolMenus {
-				color: $all-sites-button-selected-dropdown-color;
+				color: var(--all-sites-button-selected-dropdown-color);
 			}
 
 			.site-favorite-btn {
 				.site-nonfavorite {
-					color: $all-sites-button-selected-star-empty-color;
+					color: var(--all-sites-button-selected-star-empty-color);
 				}
 				.site-favorite {
-					color: $all-sites-button-selected-star-full-color;
+					color: var(--all-sites-button-selected-star-full-color);
 				}
 			}
 		}
 
 		&:hover {
-			color: $all-sites-button-hover-text-color;
+			color: var(--all-sites-button-hover-text-color);
 			font-size: $all-sites-button-hover-text-size;
 			font-weight: $all-sites-button-hover-text-weight;
-			background: $all-sites-button-hover-background-color;
-			border: 1px solid $all-sites-button-hover-border-color;
+			background: var(--all-sites-button-hover-background-color);
+			border: 1px solid var(--all-sites-button-hover-border-color);
 
 			.toolMenus {
-				color: $all-sites-button-hover-dropdown-color;
+				color: var(--all-sites-button-hover-dropdown-color);
 			}
 
 			.site-favorite-btn {
 				.site-nonfavorite {
-					color: $all-sites-button-hover-star-empty-color;
+					color: var(--all-sites-button-hover-star-empty-color);
 				}
 				.site-favorite {
-					color: $all-sites-button-hover-star-full-color;
+					color: var(--all-sites-button-hover-star-full-color);
 				}
 			}
 		}
 	}
 }
 
-// [UCT] change the search input field
 #otherSiteSearch{
 	display: block;
-	margin: 1em 1em 1em 0;
+    margin: 1em 1em 1em 0; // [UCT] change the search input field
 
 	@media #{$more-sites-single-column}{
 		text-align: left;
 		margin-bottom: 1em;
 	}
 
-	label {
-		color: $text-color;
+	label{
+		color: var(--sakai-text-color-1);
 	}
 
-	#txtSearch {
-		width: 21em;
+	margin: 1em 1em 1em 0;
+
+	#txtSearch{
+		width: 18em;
 		min-height: 2em;
 
-		padding: 0.3em;
-		@extend .default-input;
-
-		@media #{$phone}{
-			width: 95%;
-		}
-
-		&:focus {
-			outline: none;
-		}
+		padding: 0 5px 0 5px;
+		border-radius: 50px !important;
+		border: 1px solid var(--sakai-border-color);
 	}
 
-	.other-site-search-clear{
+	#txtSearch:focus {
+		outline: none;
+	}
+
+        .other-site-search-clear{
 		position: relative;
 		text-decoration: none;
 		font-family: 'FontAwesome';
+	}
 
-		&:before{
-			position: absolute;
-			top: -8px;
-			right: 0;
-			content: '\f057';
-			font-family: 'FontAwesome';
-			color: $color-gray;
-			font-size: 1.2em;
-			line-height: 1.5em;
-			text-align: center;
-			padding: 0.12em 0.1em 0.1em 0.1em;
-			width: 30px;
-		}
-
-		&:focus, &:hover, &:active {
-			&:before{
-				color: $color-gray-dark;
-			}
-		}
+	.other-site-search-clear:before{
+		position: absolute;
+		top: -5px;
+		right: 14px;
+		content: '\f057';
+		font-family: 'FontAwesome';
+		color: var(--sakai-text-color-2);
+		font-size: 1.2em;
+		line-height: 1.5em;
+		text-align: right;
 	}
 }
 
@@ -483,7 +474,7 @@ ul#otherSiteTools{
 	list-style: none;
 	padding-left: 0;
 	//padding-bottom: 5px; [UCT] no padding
-	background: $all-sites-tool-menu-background-color;
+	background: var(--all-sites-tool-menu-background-color);
 
 	li{
 		border: 0;
@@ -493,49 +484,44 @@ ul#otherSiteTools{
 		a{
 			display: block;
 			padding: 5px 6px;
-			color: $all-sites-tool-menu-text-color;
+			color: var(--all-sites-tool-menu-text-color);
 			font-size: $all-sites-tool-menu-text-size;
-			background: $all-sites-tool-menu-background-color;
+			background: var(--all-sites-tool-menu-background-color);
 			text-decoration: none;
 			font-weight: $all-sites-tool-menu-text-weight;
 			// border-left: $all-sites-tool-menu-left-border; [UCT] no border left
+			border-color:var(--all-sites-tool-menu-left-border-color);
 
 			.otherSiteToolIcon{
 				display: inline-block;
-				color: $all-sites-tool-menu-icon-color;
+				color: var(--all-sites-tool-menu-icon-color);
 			}
 
 			&:hover {
-				background: $all-sites-tool-menu-hover-background-color;
-				color: $all-sites-tool-menu-hover-text-color;
+				background: var(--all-sites-tool-menu-hover-background-color);
+				color: var(--all-sites-tool-menu-hover-text-color);
 				// border-left: $all-sites-tool-menu-left-border; [UCT] no border left
-
+				border-color: var(--all-sites-tool-menu-hover-left-border-color);
 				.otherSiteToolIcon{
-					color: $all-sites-tool-menu-hover-icon-color;
+					color: var(--all-sites-tool-menu-hover-icon-color);
 				}
 			}
 		}
 
 		&.gotosite {
-			border-top: 1px solid $all-sites-tool-menu-divider-color;
+			border-top: 1px solid var(--all-sites-tool-menu-divider-color);
 
 			a {
-				text-align: center;
-
-				> span {
-					display: none;
-				}
-				/*
 				&:after {
-					color: $all-sites-tool-menu-icon-color;
+					color: var(--all-sites-tool-menu-icon-color);
 					font-family: FontAwesome;
 					content: '\f178';
 					margin-left: 10px;
 				}
-				*/
+
 				&:hover {
 					&:after {
-						color: $all-sites-tool-menu-hover-icon-color;
+						color: var(--all-sites-tool-menu-hover-icon-color);
 					}
 				}
 			}
@@ -553,8 +539,8 @@ ul.favoriteSiteList{
 	> li{
 		display: block;
 		font-size: $all-sites-button-text-size;
-		background: $all-sites-button-background-color;
-		border: 1px solid $all-sites-button-border-color;
+		background: var(--all-sites-button-background-color);
+		border: 1px solid var(--all-sites-button-border-color);
 		@include border-radius( $all-sites-button-border-radius );
 		width: 305px;
 		white-space: nowrap;
@@ -637,20 +623,20 @@ ul.favoriteSiteList{
 		display: inline-block;
 		position: relative;
 		right: 2px;
-		padding: 0 6px;
+		padding: 0 calc( #{$standard-spacing} / 2 );
 		height: $tool-tab-height;
 		line-height: $tool-tab-height;
-		color: $all-sites-button-drag-icon-color;
+		color: var(--all-sites-button-drag-icon-color);
 		cursor: move; /* fallback if grab cursor is unsupported */
 		cursor: grab;
 		cursor: -moz-grab;
 		cursor: -webkit-grab;
-		border-left: 1px dotted $all-sites-button-border-color;
+		border-left: 1px solid var(--all-sites-button-border-color);
 	}
 	> li {
 		&:hover {
 			.fav-drag-handle {
-				color: $all-sites-button-drag-icon-hover-color;
+				color: var(--all-sites-button-drag-icon-hover-color);
 			}
 		}
 	}
@@ -671,7 +657,7 @@ ul.favoriteSiteList{
 
 li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 	font-weight: bold;
-	color: #de8e07;
+	color: var(--all-sites-button-star-full-color);
 }
 
 /* If we've hit max favorites, show a warning icon */
@@ -694,15 +680,15 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 	width: 95%;
 	border: 0;
 	background: transparent !important;
-	border-top: rgb(229, 229, 229) 2px dashed;
+	border-top: var(--sakai-border-color) 2px dashed;
 	padding-left: 12px !important;
 	&:hover {
-		border-top: rgb(229, 229, 229) 2px dashed;
+		border-top: var(--sakai-border-color) 2px dashed;
 		background: transparent !important;
 	}
 
 	.warning-icon {
-		color: #de8e07;
+		color: var(--warnBanner-color);
 		padding-right: 8px;
 	}
 
@@ -714,9 +700,9 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 		display: none;
 	}
 	a{
-		color: darken($background-color-secondary, 10%);
+		color: var(--sakai-secondary-color-2);
 		.fullTitle{
-			color: darken($background-color-secondary, 10%);
+			color: var(--sakai-secondary-color-2);
 		}
 	}
 }
@@ -724,19 +710,19 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 .site-favorite-icon.site-favorite:before{
 	@extend .fa;
 	@extend .fa-star;
-	color: #F49D08;
+	color: var(--all-sites-button-star-full-color);
 }
 
 .site-favorite-icon.site-nonfavorite:before{
 	@extend .fa;
 	@extend .fa-star-o;
-	color: #CDCDCD;
+	color: var(--all-sites-button-star-empty-color);
 }
 
 .site-favorite-icon.site-workspace:before{
 	@extend .fa;
 	@extend .fa-home;
-	color: #000;
+	color: var(--sakai-text-color-1);
 }
 
 
@@ -757,10 +743,10 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 
     &:hover {
         .site-favorite-icon:before {
-            color: $all-sites-button-star-empty-color;
+            color: var(--all-sites-button-star-empty-color);
         }
         .site-favorite-icon.site-favorite:before {
-            color: $all-sites-button-star-full-color;
+            color: var(--all-sites-button-star-full-color);
         }
     }
 
@@ -771,17 +757,18 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 }
 
 .favorites-help-text {
-	margin-top: 1em;
-	// [UCT] - change help text
+    margin-top: 1em;
+    // [UCT] - change help text
 	font-size: 0.9em;
 	color: $color-gray;
 }
+
 .site-favorite-icon.site-favorite:hover{
-	text-shadow: -1px 0 #F49D08, 0 1px #F49D08, 1px 0 #F49D08, 0 -1px #F49D08;
+	text-shadow: -1px 0 var(--all-sites-button-star-full-color), 0 1px var(--all-sites-button-star-full-color), 1px 0 var(--all-sites-button-star-full-color), 0 -1px var(--all-sites-button-star-full-color);
 }
 
 .site-favorite-icon.site-nonfavorite:hover:before{
-	color: #999;
+	color: var(--all-sites-button-star-empty-color);
 }
 
 
@@ -790,10 +777,10 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 	left: 50%;
 	transform: translateX(-50%);
 	top: 13px;
-	border: 1px solid #EAC276;
+	border: 1px solid var(--warnBanner-bordercolor);
 	z-index: 1000;
 	display: inline-block;
-	box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+	box-shadow: var(--elevation-4dp);
 
 	-webkit-transition: background-color 0.2s, color 0.2s;
 	-moz-transition: background-color 0.2s, color 0.2s;
@@ -801,8 +788,8 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 	-o-transition: background-color 0.2s, color 0.2s;
 	transition: background-color 0.2s, color 0.2s;
 
-	background-color: #F9EDBE;
-	color: #000 !important;
+	background-color: var(--warnBanner-bgcolor);
+	color: var(--warnBanner-color) !important;
 	text-align: center;
 	padding: 0 8px;
 	text-decoration: none;
@@ -810,7 +797,7 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 	a
 	{
 		display: inline-block; // to override flex on login links
-		color: #191919;
+		color: var(--sakai-text-color-2);
 		text-decoration: underline !important;
 	}
 
@@ -836,11 +823,11 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 	}	
 
 	#favoritesToShow {
-		margin: 1em 0em 1.75em;
+		margin-top: 1em;
 
 		.fa-bars {
 			margin: 0 4px;
-			color: #777777;
+			color: var(--all-sites-button-drag-icon-color);
 		}
 	}
 }
@@ -863,29 +850,22 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 
 	// [UCT] change the button to make it look nicer
 	button {
-		color: $text-color !important;
-		background: $background-color;
-		border-color: $color-gray; //$button-primary-border-color;
+		color: var(--sakai-text-color-1) !important;
+		background: var(--sakai-background-color-1);
+		border-color: var(--button-primary-border-color);
 		border-radius: $button-radius;
-		padding: 0.6em;
 		padding: 0.8em 0.4em;
 		margin-top: 10px;
 		font-size: 18px;
 		font-weight: normal;
 
 		&[aria-checked="true"] :last-child, &[aria-checked="false"] :first-child {
-			background: $button-primary-hover-background;
-			color: $button-primary-text-color;
-		}
-
-		&[aria-checked="false"] :last-child, &[aria-checked="true"] :first-child {
-			&:hover {
-				background-color: $color-graylighter;
-			}
+			background: var(--button-primary-hover-background);
+			color: var(--button-primary-text-color);
 		}
 
 		span {
-			padding: 0.2em 0.8em;
+			padding: 0.2em 0.6em;
 			border-radius: $button-radius;
 		}
 	}
@@ -897,7 +877,7 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 			float: none;
 			width: 100%;
 			border-right: none;
-			border-bottom: 1px solid $all-sites-tab-border-color;
+			border-bottom: 1px solid var(--all-sites-tab-border-color);
 		}
 		#favorite-settings-pane {
 			float: none;

@@ -2,7 +2,7 @@
 .cke {
 	.cke_button__sakaipreview {
 		.cke_button__sakaipreview_icon {
-			background: url(/library/webjars/ckeditor/4.13.1/full/skins/moono-lisa/icons_hidpi.png) no-repeat 0 -1632px !important;
+			background: url(/library/webjars/ckeditor/4.14.0/full/skins/moono-lisa/icons_hidpi.png) no-repeat 0 -1632px !important;
 			background-size: 16px !important;
 		}
 	}
@@ -11,6 +11,11 @@
 	.modal-dialog {
 		width: 94%;
 		max-width: 1200px;
+	}
+
+	.modal-content {
+		color: var(--sakai-text-color-1);
+		background: var(--sakai-background-color-1);
 	}
 
 	.sakaipreview-print {
@@ -32,6 +37,25 @@
 }
 .cke_dialog_contents_body .cke_tpl_list {
 	height: 430px !important;
+	background: var(--sakai-background-color-1);
+	border-color: var(--sakai-border-color);
+
+	.cke_tpl_item {
+		border-color: var(--sakai-border-color);
+		color: var(--sakai-text-color-1);
+	}
+
+	a:focus,
+	a:hover,
+	a:active {
+		.cke_tpl_item {
+			border-color: var(--sakai-border-color);
+			background: var(--sakai-background-color-2);
+		}
+	}
+}
+.cke_dialog_body .cke_dialog_close_button {
+	filter: var(--sakai-image-invert);
 }
 .cke_tpl_preview .cke_tpl_preview_img {
 	width: 50px !important;
@@ -46,7 +70,6 @@
 		text-align: center;
 	}
 }
-
 .cke_dialog_container {
 	z-index: 100010 !important;
 }

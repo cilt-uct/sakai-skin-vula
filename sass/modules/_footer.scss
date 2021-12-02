@@ -7,7 +7,7 @@
 	@include flex-wrap(wrap);
 	padding: 11px 16px; //$standard-spacing; [UCT] -change padding
 	font-size: $footer-font-size;
-	color: $footer-color;
+	color: var(--footer-color);
 	
 	@media #{$tablet} {
 		@include flex-direction(column);
@@ -19,11 +19,11 @@
 		padding: 0;
 		list-style: none;
 		line-height: 2;
-
+		
 		li{
 			display: inline-block;
 			padding: 0 10px; //$standard-spacing; [UCT] spacing
-			border-right: 1px solid $footer-link-separator;
+			border-right: 1px solid var(--footer-link-separator);
 			
 			&:first-child {
 				padding-left: 0;
@@ -32,7 +32,7 @@
 			&:last-child {
 				border-right: 0 none;
 			}
-
+            
 			a {
 				color: $footer-color; // [UCT]
 				text-decoration: none;
@@ -49,8 +49,11 @@
 	p {
 		margin: 5px 0 0;
 	}
-
 	##{$namespace}footer--poweredBy {
+		a {
+			background-color: var(--footer-PoweredBy-bg);
+			padding: $standard-space;
+		}
 
 		// [UCT] change powered by image size
 		li {
@@ -65,24 +68,25 @@
 	}
 	
 	.#{$namespace}footer--project {
-		//margin-left: auto;		// pushes this element to the right, especially during wrapping [UCT] - flex spacing
+		// [UCT] - flex spacing
+        //margin-left: auto;		// pushes this element to the right, especially during wrapping
 		
 		@media #{$tablet} {
 			margin-left: 0;		// margin not needed for stacked layout
 		}
 	}
-
+	
 	// [UCT] - hide copyright
 	.#{$namespace}footer--copyright {
 		display: none;
 	}
-	
-	##{$namespace}footer--poweredBy { //, .#{$namespace}footer--copyright {
+
+	##{$namespace}footer--poweredBy, .#{$namespace}footer--copyright {
 		display: block;
 		margin: 0;
 		padding: 0;
 		text-align: right;
-
+		
 		@media #{$tablet} {
 			text-align: center;
 		}

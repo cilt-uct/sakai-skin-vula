@@ -28,9 +28,9 @@ $gray-lighter:           lighten($gray-base, 93.5%); // #eee
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-// $body-bg:               #fff
+$body-bg:               var(--sakai-background-color-1);
 //** Global text color on `<body>`.
-// $text-color:            $gray-dark
+$text-color:            var(--sakai-text-color-1);
 
 //** Global textual link color.
 // $link-color:            $brand-primary
@@ -208,14 +208,14 @@ $icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../" + $skin-na
 //##
 
 //** `<input>` background color
-// $input-bg:                       #fff
+$input-bg:                       var(--sakai-background-color-1);
 //** `<input disabled>` background color
-// $input-bg-disabled:              $gray-lighter
+$input-bg-disabled:              var(--sakai-background-color-4);
 
 //** Text color for `<input>`s
- $input-color:                    $text-color ;
+$input-color:                    var(--sakai-text-color-1);
 //** `<input>` border color
-// $input-border:                   #ccc
+$input-border:                   var(--sakai-border-color);
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -242,11 +242,11 @@ $icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../" + $skin-na
 //** `.form-group` margin
 // $form-group-margin-bottom:       15px
 
-// $legend-color:                   $gray-dark
+$legend-color:                   var(--sakai-text-color-2);
 // $legend-border-color:            #e5e5e5
 
 //** Background color for textual input addons
-// $input-group-addon-bg:           $gray-lighter
+$input-group-addon-bg:           var(--sakai-background-color-2);
 //** Border color for textual input addons
 // $input-group-addon-border-color: $input-border
 
@@ -259,7 +259,7 @@ $icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../" + $skin-na
 //## Dropdown menu container and contents.
 
 //** Background for the dropdown menu.
-// $dropdown-bg:                    #fff
+$dropdown-bg:                    var(--sakai-background-color-1);
 //** Dropdown menu `border-color`.
 // $dropdown-border:                rgba(0,0,0,.15)
 //** Dropdown menu `border-color` **for IE8**.
@@ -268,25 +268,25 @@ $icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../" + $skin-na
 // $dropdown-divider-bg:            #e5e5e5
 
 //** Dropdown link text color.
-// $dropdown-link-color:            $gray-dark
+$dropdown-link-color:            var(--button-text-color);
 //** Hover color for dropdown links.
-// $dropdown-link-hover-color:      darken($gray-dark, 5%)
+$dropdown-link-hover-color:      var(--button-hover-text-color);
 //** Hover background for dropdown links.
-// $dropdown-link-hover-bg:         #f5f5f5
+$dropdown-link-hover-bg:         var(--button-hover-background);
 
 //** Active dropdown menu item text color.
-// $dropdown-link-active-color:     $component-active-color
+$dropdown-link-active-color:     var(--button-active-text-color);
 //** Active dropdown menu item background color.
-// $dropdown-link-active-bg:        $component-active-bg
+$dropdown-link-active-bg:        var(--button-active-background);
 
 //** Disabled dropdown menu item background color.
-// $dropdown-link-disabled-color:   $gray-light
+$dropdown-link-disabled-color:   var(--button-disabled-text-color);
 
 //** Text color for headers within dropdown menus.
-// $dropdown-header-color:          $gray-light
+$dropdown-header-color:          var(--button-text-color);
 
 //** Deprecated `$dropdown-caret-color` as of v3.1.0
-// $dropdown-caret-color:           #000
+$dropdown-caret-color:           var(--button-text-color);
 
 
 //-- Z-index master list
@@ -453,13 +453,13 @@ $icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../" + $skin-na
 // $nav-disabled-link-hover-color:             $gray-light
 
 //== Tabs
-$nav-tabs-border-color:                     darken( $tool-border-color, 10% );
+$nav-tabs-border-color:                     var(--sakai-border-color);
 
-$nav-tabs-link-hover-border-color:          darken( $tool-border-color, 10% );
+$nav-tabs-link-hover-border-color:          var(--sakai-border-color);
 
-$nav-tabs-active-link-hover-bg:             darken( $tool-tab-background-color, 10% );
-$nav-tabs-active-link-hover-color:          $primary-color;
-$nav-tabs-active-link-hover-border-color:   $tool-tab-background-color;
+$nav-tabs-active-link-hover-bg:             var(--sakai-background-color-2);
+$nav-tabs-active-link-hover-color:          var(--sakai-primary-color-1);
+$nav-tabs-active-link-hover-border-color:   var(--tool-tab-background-color);
 
 // $nav-tabs-justified-link-border-color:            #ddd
 // $nav-tabs-justified-active-link-border-color:     $body-bg
@@ -474,11 +474,11 @@ $nav-tabs-active-link-hover-border-color:   $tool-tab-background-color;
 //
 //##
 
-// $pagination-color:                     $link-color
+// $pagination-color:                     var(--link-color)
 // $pagination-bg:                        #fff
 // $pagination-border:                    #ddd
 
-// $pagination-hover-color:               $link-hover-color
+// $pagination-hover-color:               var(--link-hover-color)
 // $pagination-hover-bg:                  $gray-lighter
 // $pagination-hover-border:              #ddd
 
@@ -563,7 +563,7 @@ $jumbotron-heading-font-size:       $font-size-h4;
 //##
 
 //** Popover body background color
-// $popover-bg:                          #fff
+$popover-bg:                          var(--sakai-popover-background);
 //** Popover maximum width
 // $popover-max-width:                   276px
 //** Popover border color
@@ -572,7 +572,7 @@ $jumbotron-heading-font-size:       $font-size-h4;
 // $popover-fallback-border-color:       #ccc
 
 //** Popover title background color
-// $popover-title-bg:                    darken($popover-bg, 3%)
+$popover-title-bg:                   var(--sakai-popover-title-background);
 
 //** Popover arrow width
 // $popover-arrow-width:                 10px
@@ -623,9 +623,9 @@ $jumbotron-heading-font-size:       $font-size-h4;
 // $modal-title-line-height:     $line-height-base
 
 //** Background color of modal content area
-// $modal-content-bg:                             #fff
+$modal-content-bg:                             var(--sakai-background-color-1);
 //** Modal content border color
-// $modal-content-border-color:                   rgba(0,0,0,.2)
+$modal-content-border-color:                   var(--sakai-border-color);
 //** Modal content border color **for IE8**
 // $modal-content-fallback-border-color:          #999
 
@@ -634,9 +634,9 @@ $jumbotron-heading-font-size:       $font-size-h4;
 //** Modal backdrop opacity
 // $modal-backdrop-opacity:      .5
 //** Modal header border color
-// $modal-header-border-color:   #e5e5e5
+$modal-header-border-color:   var(--sakai-border-color);
 //** Modal footer border color
-// $modal-footer-border-color:   $modal-header-border-color
+$modal-footer-border-color:   $modal-header-border-color;
 
 // $modal-lg:                    900px
 // $modal-md:                    600px
@@ -673,14 +673,14 @@ $jumbotron-heading-font-size:       $font-size-h4;
 //##
 
 //** Background color of the whole progress component
-// $progress-bg:                 #f5f5f5
+$progress-bg:                 var(--sakai-background-color-4);
 //** Progress bar text color
-// $progress-bar-color:          #fff
+$progress-bar-color:          var(--sakai-text-color-1);
 //** Variable for setting rounded corners on progress bar.
 // $progress-border-radius:      $border-radius-base
 
 //** Default progress bar color
-// $progress-bar-bg:             $brand-primary
+$progress-bar-bg:             var(--progress-bar-bg);
 //** Success progress bar color
 // $progress-bar-success-bg:     $brand-success
 //** Warning progress bar color
@@ -696,27 +696,27 @@ $jumbotron-heading-font-size:       $font-size-h4;
 //##
 
 //** Background color on `.list-group-item`
-// $list-group-bg:                 #fff
+$list-group-bg:                 var(--sakai-background-color-1);
 //** `.list-group-item` border color
-// $list-group-border:             #ddd
+$list-group-border:             var(--sakai-border-color);
 //** List group border radius
 // $list-group-border-radius:      $border-radius-base
 
 //** Background color of single list items on hover
-// $list-group-hover-bg:           #f5f5f5
+$list-group-hover-bg:           var(--sakai-background-color-2);
 //** Text color of active list items
-// $list-group-active-color:       $component-active-color
+$list-group-active-color:       var(--sakai-text-color-3);
 //** Background color of active list items
-// $list-group-active-bg:          $component-active-bg
+$list-group-active-bg:          var(--sakai-active-color-1);
 //** Border color of active list elements
-// $list-group-active-border:      $list-group-active-bg
+$list-group-active-border:      var(--sakai-active-color-3);
 //** Text color for content within active list items
-// $list-group-active-text-color:  lighten($list-group-active-bg, 40%)
+$list-group-active-text-color:  var(--sakai-text-color-3);
 
 //** Text color of disabled list items
-// $list-group-disabled-color:      $gray-light
+$list-group-disabled-color:      var(--sakai-text-color-disabled);
 //** Background color of disabled list items
-// $list-group-disabled-bg:         $gray-lighter
+$list-group-disabled-bg:         var(--sakai-background-color-4);
 //** Text color for content within disabled list items
 // $list-group-disabled-text-color: $list-group-disabled-color
 
@@ -729,21 +729,21 @@ $jumbotron-heading-font-size:       $font-size-h4;
 //
 //##
 
-// $panel-bg:                    #fff
+$panel-bg:                    var(--sakai-background-color-1);
 // $panel-body-padding:          15px
 // $panel-heading-padding:       10px 15px
 // $panel-footer-padding:        $panel-heading-padding
 // $panel-border-radius:         $border-radius-base
 
 //** Border color for elements within panels
-// $panel-inner-border:          #ddd
-// $panel-footer-bg:             #f5f5f5
+$panel-inner-border:          var(--sakai-border-color);
+$panel-footer-bg:             var(--sakai-background-color-2);
 
-// $panel-default-text:          $gray-dark
-// $panel-default-border:        #ddd
-// $panel-default-heading-bg:    #f5f5f5
+$panel-default-text:          var(--sakai-text-color-1);
+$panel-default-border:        var(--sakai-border-color);
+$panel-default-heading-bg:    var(--sakai-background-color-2);
 
-// $panel-primary-text:          #fff
+$panel-primary-text:          var(--sakai-text-color-1);
 // $panel-primary-border:        $brand-primary
 // $panel-primary-heading-bg:    $brand-primary
 
@@ -759,10 +759,9 @@ $jumbotron-heading-font-size:       $font-size-h4;
 // $panel-warning-border:        $state-warning-border
 // $panel-warning-heading-bg:    $state-warning-bg
 
-// $panel-danger-text:           $state-danger-text
-// $panel-danger-border:         $state-danger-border
-// $panel-danger-heading-bg:     $state-danger-bg
-
+$panel-danger-text:           var(--errorBanner-color);
+$panel-danger-border:         var(--errorBanner-bordercolor);
+$panel-danger-heading-bg:     var(--errorBanner-bgcolor);
 
 //== Thumbnails
 //
@@ -778,7 +777,7 @@ $jumbotron-heading-font-size:       $font-size-h4;
 // $thumbnail-border-radius:     $border-radius-base
 
 //** Custom text color for thumbnail captions
-// $thumbnail-caption-color:     $text-color
+// $thumbnail-caption-color:     var(--sakai-text-color-1)
 //** Padding around the thumbnail caption
 // $thumbnail-caption-padding:   9px
 
@@ -787,8 +786,8 @@ $jumbotron-heading-font-size:       $font-size-h4;
 //
 //##
 
-// $well-bg:                     #f5f5f5
-// $well-border:                 darken($well-bg, 7%)
+$well-bg:                     var(--sakai-background-color-2);
+$well-border:                 var(--sakai-border-color);
 
 
 //== Badges
@@ -801,7 +800,7 @@ $jumbotron-heading-font-size:       $font-size-h4;
 // $badge-bg:                    $gray-light
 
 //** Badge text color in active nav link
-// $badge-active-color:          $link-color
+// $badge-active-color:          var(--link-color)
 //** Badge background color in active nav link
 // $badge-active-bg:             #fff
 
@@ -817,11 +816,11 @@ $jumbotron-heading-font-size:       $font-size-h4;
 // $breadcrumb-padding-vertical:   8px
 // $breadcrumb-padding-horizontal: 15px
 //** Breadcrumb background color
-// $breadcrumb-bg:                 #f5f5f5
+$breadcrumb-bg:                 var(--sakai-background-color-2);
 //** Breadcrumb text color
-// $breadcrumb-color:              #ccc
+$breadcrumb-color:              var(--sakai-text-color-1);
 //** Text color of current page in the breadcrumb
-// $breadcrumb-active-color:       $gray-light
+$breadcrumb-active-color:       var(--sakai-text-color-3);
 //** Textual separator for between breadcrumb elements
 // $breadcrumb-separator:          "/"
 
@@ -848,8 +847,8 @@ $jumbotron-heading-font-size:       $font-size-h4;
 //##
 
 // $close-font-weight:           bold
-// $close-color:                 #000
-// $close-text-shadow:           0 1px 0 #fff
+$close-color:                 var(--button-text-color);
+$close-text-shadow:           none;
 
 
 //== Code
@@ -875,13 +874,13 @@ $jumbotron-heading-font-size:       $font-size-h4;
 //** Horizontal offset for forms and lists.
 // $component-offset-horizontal: 180px
 //** Text muted color
-// $text-muted:                  $gray-light
+$text-muted:                  var(--sakai-text-color-dimmed);
 //** Abbreviations and acronyms border color
 // $abbr-border-color:           $gray-light
 //** Headings small color
-// $headings-small-color:        $gray-light
+$headings-small-color:        var(--sakai-text-color-dimmed);
 //** Blockquote small color
-// $blockquote-small-color:      $gray-light
+$blockquote-small-color:      var(--sakai-text-color-dimmed);
 //** Blockquote font size
 // $blockquote-font-size:        ($font-size-base * 1.25)
 //** Blockquote border color
@@ -895,5 +894,3 @@ $jumbotron-heading-font-size:       $font-size-h4;
 
 
    @import "bootstrap";
-
-

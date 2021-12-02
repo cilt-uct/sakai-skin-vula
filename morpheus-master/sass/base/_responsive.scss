@@ -34,32 +34,18 @@ body{
 				display: block;			// restore the tool menu that was removed when hidden to reduce the height of the page when it isn't visible
 				width: 100%;
 				min-height: auto; 		// to allow the bottom of the tool menu to appear when doesn't have too many tools
-				box-shadow: 0px 0em 1em rgba(0,0,0,0.5);
+				box-shadow: var(--elevation-4dp);
 				left: 0;
 				z-index: 1001;
 
 				@if $tool-menu-icon-on-left {
-					background-color: $tool-background-color;
+					background-color: var(--tool-background-color);
 				}
 				#toolSubsitesContainer{
 					overflow-y:auto;
 					height:100%;
 				}
-				&:after {
-					bottom: 100%;
-					left: 30px;
-					border: solid transparent;
-					content: " ";
-					height: 0;
-					width: 0;
-					position: absolute;
-					pointer-events: none;
-					border-color: rgba(255, 255, 255, 0);
-					border-bottom-color: $tool-menu-background-color;
-					border-width: $standard-spacing;
-					outline: 0;
-					margin-bottom: -1px; // to overlap the top ul border for the illusion
-				}
+
 				.Mrphs-toolsNav__menuitem--title{
 					display: inline-block;
 					letter-spacing: 0px;
@@ -77,15 +63,15 @@ body{
 					line-height: 1.05;
 					font-size: 1em;
 					font-weight: 300;
-					background: $tool-background-color;
+					background: var(--tool-background-color);
 					margin: 0;
-					border-bottom:  1px solid darken( $tool-menu-background-color, 5% );
+					border-bottom:  1px solid var(--sakai-border-color);
 					position: relative;
 				}
 			}
 			#toolMenu, #subSites{
 				@if $tool-menu-icon-on-left {
-					background-color: $tool-background-color;
+					background-color: var(--sites-nav-menu-item-background);
 				}
 				ul{
 					list-style: none;
@@ -93,17 +79,36 @@ body{
 					li{
 						@if $tool-menu-icon-on-left {
 							display: block;
-							border-bottom: 1px solid $tool-menu-item-separator-color;
+							border-bottom: 1px solid var(--tool-menu-item-separator-color);
 							width: 100%;
 							white-space: nowrap;
 							overflow: hidden;
+
+							&.is-current {
+	
+								.#{$namespace}toolsNav__menuitem--link {
+									background: var(--sites-nav-menu-item-active-background);
+								}
+							}
+
+							.#{$namespace}toolsNav__menuitem--link {
+								background-color: var(--sites-nav-menu-item-background);
+
+								&:hover,
+								&:focus,
+								&:active {
+									background-color: var(--sites-nav-menu-item-active-background);
+								}
+							}
+
 						}
 						@else {
-							border-left: 2px solid darken( $tool-menu-background-color, 10% );
+							border-left: 2px var(--sakai-background-color-2);
 							display: inline-block;
 							margin: -4px -4px 0px 0; //FIX for inline-block extra space.
 							width: calc( 25% - 1px );
 						}
+						
 						&.#{$namespace}collapseTools{
 							display: none;
 						}
@@ -131,13 +136,13 @@ body{
 			.Mrphs-mainHeader{
 				&.is-maximized{
 					.siteNavWrap{
-						background: $primary-color;
+						background: var(--sakai-primary-color-1);
 						margin-top: -3em;
 						min-height: 100%;
 						padding-top: 3em;
 						position: fixed;
 						width: 85%;
-						box-shadow: 0 0 20em rgba( 0,0,0,0.8 );
+						box-shadow: var(--elevation-8dp);
 					}
 				}
 			}
@@ -157,18 +162,18 @@ body{
 						margin: 1.5em;
 						&.is-selected{
 							a{
-								background: $background-color;
+								background: var(--sakai-background-color-1);
 							}
 						}
 						a{
-							background: darken( $background-color-secondary, 5% );
+							background: var(--sakai-background-color-2);
 							border-right: 0px none;
 						}
 						&.#{$namespace}sitesNav__menuitem--myworkspace{
-							background: $primary-color;
+							background: var(--sakai-primary-color-1);
 							margin: 0 0 0 0;
 							a{
-								background: $primary-color;
+								background: var(--sakai-primary-color-1);
 							}
 						}
 					}
