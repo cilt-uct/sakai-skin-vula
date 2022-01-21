@@ -1,3 +1,10 @@
+// [UCT] Spacing on Alert icon
+##{$namespace}bullhorn {
+    .icon-sakai--alerts {
+        padding-right: 0px
+    }
+}
+
 #bullhorn-counter {
     color: var(--sakai-text-color-1);
     font-weight: bold;

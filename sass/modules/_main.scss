@@ -66,10 +66,10 @@
 
 .#{$namespace}mainContent{
 	background: var(--sakai-background-color-1);
-	transition:var(--sak-theme-switch-ease);
+	transition: var(--sak-theme-switch-ease);
 }
 
-//Allow theme switching to work in iframes
+// Allow theme switching to work in iframes
 body.#{$namespace}container {
 	background:var(--tool-background-color);
 }

@@ -263,7 +263,7 @@
 	}
 
 	.infoIcon {
-		@extend .fa.fa-info-circle;
+		@extend .fa, .fa-info-circle;
 	}
 	
 	/* sideLink styles */

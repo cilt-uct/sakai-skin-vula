@@ -140,7 +140,7 @@ body.active-more-sites{
 		line-height: $tool-tab-height;
 		border: 1px solid var(--all-sites-tab-border-color);
 		border-bottom:  0;
-		margin: 0;
+		margin: 0 5px 0 0; // [UCT] Tab spacing
 		color: var(--all-sites-tab-text-color);
 		background-color: var(--all-sites-tab-background-color);
 	}
@@ -432,37 +432,48 @@ ul.favoriteSiteList{
 		color: var(--sakai-text-color-1);
 	}
 
-	margin: 1em 1em 1em 0;
-
-	#txtSearch{
-		width: 18em;
+    // [UCT] change structure
+	#txtSearch {
+		width: 21em;
 		min-height: 2em;
 
-		padding: 0 5px 0 5px;
-		border-radius: 50px !important;
-		border: 1px solid var(--sakai-border-color);
+		padding: 0.3em;
+		@extend .default-input;
+
+		@media #{$phone}{
+			width: 95%;
+		}
+
+		&:focus {
+			outline: none;
+		}
 	}
 
-	#txtSearch:focus {
-		outline: none;
-	}
-
-        .other-site-search-clear{
+    // [UCT] change structure
+    .other-site-search-clear{
 		position: relative;
 		text-decoration: none;
 		font-family: 'FontAwesome';
-	}
 
-	.other-site-search-clear:before{
-		position: absolute;
-		top: -5px;
-		right: 14px;
-		content: '\f057';
-		font-family: 'FontAwesome';
-		color: var(--sakai-text-color-2);
-		font-size: 1.2em;
-		line-height: 1.5em;
-		text-align: right;
+		&:before{
+			position: absolute;
+			top: -8px;
+			right: 0;
+			content: '\f057';
+			font-family: 'FontAwesome';
+			color: var(--sakai-text-color-2);
+			font-size: 1.2em;
+			line-height: 1.5em;
+			text-align: center;
+			padding: 0.12em 0.1em 0.1em 0.1em;
+			width: 30px;
+		}
+
+		&:focus, &:hover, &:active {
+			&:before{
+				color: var(--sakai-text-color-2);
+			}
+		}
 	}
 }
 

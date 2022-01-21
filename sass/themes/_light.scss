@@ -31,7 +31,9 @@
     // predefined with gray, blue, teal, gold, green, orange,
     // purple, and red palettes available for you to use.
     // More info about defineColorHSL in sass/themes/_base.scss
-    @include defineColorHSL(--sakai-brand, 203, 76%, 25%);
+    //@include defineColorHSL(--sakai-brand, 203, 76%, 25%);
+    @include defineColorHSL(--sakai-brand, 201, 71%, 29%);
+    
     /////////////////////////////////////////////////////////////
 
     /////////////////////////////////////////////////////////////
@@ -42,9 +44,9 @@
     /////////////////////////////////////////////////////////////
 
     // Logo
-    --logo: url(#{$skin-path}images/logo-jewel.png);
-    --logo-height: 36px;
-    --logo-width: 126px;
+    --logo: url(#{$skin-path}images/logo.svg); // [UCT] Logo
+    --logo-height: 56px; // [UCT] Size
+    --logo-width: 56px;  // [UCT] Size
     --logo-opacity: 1;
 
     // Primary branding color. 
@@ -171,6 +173,7 @@
     --tool-menu-hover-background-color: var(--sakai-background-color-2);
     --tool-menu-color: var(--sakai-text-color-1);
     --tool-border-color: var(--sakai-border-color);
+    --tool-border-side-color: var(--sakai-color-gray--lighter-7); //[UCT] added
     --tool-tab-text-color: var(--tool-menu-color);
     --tool-tab-background-color: var(--tool-menu-background-color);
     --tool-tab-border-color: var(--sakai-border-color);
@@ -289,9 +292,9 @@
     --sites-nav-menu-item-active-icon-border-color: var(--sites-nav-menu-item-active-background);
     // Tool menu dropdown
     --sites-nav-submenu-border-color: transparent;
-    --sites-nav-submenu-background: var(--sites-nav-menu-item-background);
+    --sites-nav-submenu-background: var(--sakai-color-gray--lighter-7); // [UCT] ligher background for submenu var(--sites-nav-menu-item-background);
     --sites-nav-submenu-item-color: var(--sites-nav-menu-item-color);
-    --sites-nav-submenu-item-divider-color: var(--sites-nav-submenu-item-color);
+    --sites-nav-submenu-item-divider-color: var(--sakai-color-gray--lighter-5); // [UCT] var(--sites-nav-submenu-item-color);
     // Hover
     --sites-nav-submenu-item-hover-background: var(--sites-nav-menu-item-hover-background);
     --sites-nav-submenu-item-hover-color: var(--sites-nav-menu-item-hover-color);
@@ -300,7 +303,7 @@
     --sites-nav-submenu-item-active-background: var(--sites-nav-menu-item-active-background);
     /* End Default state */
     /* Active/Current site */
-    --sites-nav-menu-item-selected-background: var(--sakai-active-color-1);
+    --sites-nav-menu-item-selected-background: var(--sakai-active-color-1); //[UCT] lighter submenu and borders
     --sites-nav-menu-item-selected-color: var(--sakai-text-color-3);
     --sites-nav-menu-item-selected-border-color: var(--sites-nav-menu-item-selected-background);
     // Hover
@@ -316,8 +319,8 @@
     --sites-nav-menu-item-selected-active-icon-border-color: var(--sites-nav-menu-item-selected-active-background);
     // Tool menu dropdown
     --sites-nav-submenu-selected-border-color: transparent;
-    --sites-nav-submenu-selected-background: var(--sites-nav-menu-item-selected-background);
-    --sites-nav-submenu-item-selected-divider-color: var(--sites-nav-menu-item-selected-color);
+    --sites-nav-submenu-selected-background: var(--sakai-brand--lighter-7); // [UCT] ligher background for submenu var(--sites-nav-menu-item-selected-background);
+    --sites-nav-submenu-item-selected-divider-color: var(--sakai-brand--lighter-5); // [UCT] var(--sites-nav-menu-item-selected-color);
     // Hover
     --sites-nav-submenu-item-selected-hover-background: var(--sites-nav-menu-item-selected-hover-background);
     --sites-nav-submenu-item-selected-hover-color: var(--sites-nav-menu-item-selected-hover-color);
@@ -497,7 +500,7 @@
     --divider-shadow-fixed: 0 1px 0 var(--tool-border-color);
 
     --overview-portlet-shadow: var(--elevation-2dp);
-    --overview-portlet-title-background-color: var(--tool-tab-background-color);
+    --overview-portlet-title-background-color: var(--sakai-color-gray--lighter-7);// [UCT] var(--tool-tab-background-color);
 
     --focus-outline-color: var(--sakai-color-blue--lighter-3);
 

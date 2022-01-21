@@ -36,7 +36,7 @@
 			@include display-flex;
 			@include align-items(center);
 			@include justify-content(space-between);
-			background-color: var(--overview-portlet-title-background-color);
+			background-color: $overview-portlet-title-background-color; //var(--overview-portlet-title-background-color);
 			border-bottom: $overview-portlet-border;
 			padding: $standard-spacing;
 		}

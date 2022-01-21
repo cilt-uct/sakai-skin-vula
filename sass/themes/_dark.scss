@@ -181,4 +181,21 @@
 
     --progress-bar-bg: var(--infoBanner-bgcolor);
     --footer-PoweredBy-bg: var(--sakai-color-gray--darker-1);
+
+    /* Tool tabs */
+    --tool-border-side-color: var(--sakai-color-gray--darker-7); //[UCT] added
+
+    --overview-portlet-title-background-color: var(--sakai-color-gray--darker-7);// [UCT] var(--tool-tab-background-color);
+
+    // Tool menu dropdown
+    // --sites-nav-menu-item-background: var(--sakai-passive-color-1);
+    --sites-nav-submenu-background: var(--sakai-color-gray--darker-7); // [UCT] ligher background for submenu var(--sites-nav-menu-item-background);
+    --sites-nav-submenu-item-divider-color: var(--sakai-color-gray--lighter-5); // [UCT] var(--sites-nav-submenu-item-color);
+    /* Active/Current site */
+    --sites-nav-menu-item-selected-background: var(--sakai-active-color-1); //[UCT] lighter submenu and borders
+    // Tool menu dropdown
+    --sites-nav-submenu-selected-background: var(--sakai-brand--lighter-1); // [UCT] ligher background for submenu var(--sites-nav-menu-item-selected-background);
+    --sites-nav-submenu-item-selected-divider-color: var(--sakai-brand--lighter-5); // [UCT] var(--sites-nav-menu-item-selected-color);
+
+    --overview-portlet-title-background-color: var(--sakai-color-gray--darker-7);// [UCT] var(--tool-tab-background-color);
 }

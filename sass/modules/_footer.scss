@@ -34,7 +34,7 @@
 			}
             
 			a {
-				color: $footer-color; // [UCT]
+				color: var(--footer-color); // [UCT]
 				text-decoration: none;
 				
 				&:hover, &:active {
@@ -42,6 +42,19 @@
 					text-decoration: underline;
 				}
 			}
+
+			a {
+				color: var(--footer-color); // [UCT]
+				text-decoration: none;
+				
+				&:focus, &:hover, &:active {
+                    text-decoration: none; // [UCT] - no underline and different background color
+                    color: var(--link-hover-color);
+                }
+                &:active {
+                    color: var(--link-active-color);
+                }
+			}            
 		}
 	}
 	
@@ -51,14 +64,14 @@
 	}
 	##{$namespace}footer--poweredBy {
 		a {
-			background-color: var(--footer-PoweredBy-bg);
+			//background-color: var(--footer-PoweredBy-bg); [UCT] no background color needed
 			padding: $standard-space;
 		}
 
 		// [UCT] change powered by image size
 		li {
 			img {
-				width: 88%;
+				width: 80%;
 			}
 
 			&:last-child {
@@ -76,11 +89,6 @@
 		}
 	}
 	
-	// [UCT] - hide copyright
-	.#{$namespace}footer--copyright {
-		display: none;
-	}
-
 	##{$namespace}footer--poweredBy, .#{$namespace}footer--copyright {
 		display: block;
 		margin: 0;
@@ -91,7 +99,12 @@
 			text-align: center;
 		}
 	}
-	
+
+    // [UCT] - hide copyright
+	.#{$namespace}footer--copyright {
+		display: none;
+	}
+
 	.#{$namespace}footer--details {
 		position: relative;				// to align the details panel to
 		

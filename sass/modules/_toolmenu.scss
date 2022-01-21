@@ -212,7 +212,7 @@ body.is-logged-out{
 	@include flex-basis( $tool-menu-width );
 	padding: 0; //$tool-menu-padding; [UCT] - no padding so it aligns at the top
 	text-align: center;
-	border-right: 1px solid var(--tool-border-color);
+	border-right: 1px solid var(--tool-border-side-color); // [UCT] in light mode a bit lighter border
 	@include transition( left 0.25s linear 0s );
 	
 	@media #{$phone}{
@@ -427,7 +427,7 @@ nav#subSites{
 					@include flex-direction(column);
 				}
 				background-color: var(--tool-menu-item-background-color);
-				font-size: 1em;
+				font-size: 0.94em; // [UCT] Slightly smaller text
 				line-height: 1.5;
 				font-weight: $tool-menu-item-text-weight;
 				text-decoration: none;
@@ -435,7 +435,7 @@ nav#subSites{
 				
 				@if $tool-menu-icon-on-left {
 					text-align: left;
-					border-radius: $tool-menu-item-border-radius;
+					border-radius: 0; // [UCT] No border radius $tool-menu-item-border-radius;
 					margin-right: $tool-menu-item-margin-right;
 					margin-bottom: 2px; //prevent clipping from elevation change
 					padding: $tool-menu-item-padding;

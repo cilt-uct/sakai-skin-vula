@@ -54,6 +54,9 @@ $default-line-height: 1.42857 !default;								// 20px / 14px = 1.42857
 $header-font-family:  $font-family;
 $header-font-weight:  700 !default;										// 400 or 700 as you wish
 
+$skin-name : "morpheus-default" !default; // This is used for bootstrap font behaviour.
+$skin-path: "/library/skin/vula/" !default;
+
 // Vula Colour Palette
 // ----------------------------------------
 
@@ -106,6 +109,9 @@ $tool-menu-background-color: #FAFAFA !default;
 $tool-menu-item-hidden-text-color: #A9A9A9 !default;
 $tool-menu-item-hidden-icon-color: $tool-menu-item-hidden-text-color !default;
 $tool-menu-item-hidden-icon-after-color: #52a536 !default;
+
+//$tool-menu-width-collapsed: 52px !default;
+$tool-menu-collapseButton-height: 42px !default; //$tool-menu-width-collapsed !default;
 
 $okcolor: $color-success !default;
 $errorcolor: $color-alert !default;

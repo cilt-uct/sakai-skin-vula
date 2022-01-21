@@ -2,7 +2,7 @@
 
 body.is-logged-out{
 	.#{$namespace}loginUser{
-        // UCT - login screen
+        // [UCT] - login screen
 		> p > a {
 			@extend .button;
 		}
@@ -26,14 +26,19 @@ body.is-logged-out{
 			}
 		}
 	}
-    	// UCT - Link / help not shown if not logged in
+    	// [UCT] - Link / help not shown if not logged in
 	.#{$namespace}toolTitleNav {
 		display: none;
 	}
 
-	// UCT - Sites not shown when not logged in
+	// [UCT] - Sites not shown when not logged in
 	li.#{$namespace}skipNav__menuitem--worksite {
 		display: none;
+    }
+    
+    // [UCT] - Breadcrumbs not shown if not logged in
+    .#{$namespace}siteHierarchy {
+        display: none; 
     }
 }
 
@@ -46,6 +51,7 @@ body.is-logged-out{
 		padding: 0 $standard-spacing;
 		height: $banner-height;
 		background: var(--top-header-background);
+        background-image: $head-gradient; // [UCT] gradient header
 		text-align: center;
 		@include transition( width 0.5s linear 0s );
 
@@ -54,14 +60,14 @@ body.is-logged-out{
 			width: var(--logo-width);
 			height: 100%; // align vertically center
 			float: left;
-			background-size: var(--logo-width) var(--logo-height);
+			background-size: 72%; // [UCT] var(--logo-width) var(--logo-height);
 			opacity: var(--logo-opacity);
 		}
 	}
 
 	.#{$namespace}loginUser{
 		display: inline-flex;
-        flex-direction: row-reverse; // UCT - button reverse order
+        flex-direction: row-reverse; // [UCT] - button reverse order
 		li{
 			display: inline-block;
 			margin: 0 0.8em 0 0;
@@ -87,7 +93,7 @@ body.is-logged-out{
 			}
 		}
 		p{
-			margin: 0.05em 1.5em 0 0;
+			margin: 0 0 0.05em 0; // [UCT] - slight spacing change to logout button on menu
 		}
 	}
 
@@ -149,7 +155,7 @@ body.is-logged-out{
 	list-style: none;
 	padding: 0 0 0 0;
 	li{
-		display: flex;
+		display: block; // [UCT] change from flex > block to use full size
 		border: 0px none;
 		@include border-radius( 0 );
 		margin: 0 0 0 0;
@@ -162,8 +168,9 @@ body.is-logged-out{
 			color: var(--link-color);
 			line-height: 1em;
 			&:focus, &:hover{
-				text-decoration: underline;
+				text-decoration: none; // [UCT] - no underline and different background color
 				color: var(--link-hover-color);
+				background-color: var(--sites-nav-submenu-item-hover-background);
 			}
 			&:active
 			{
@@ -234,6 +241,7 @@ body.is-logged-out{
 
 .#{$namespace}topHeader{
 	background: var(--top-header-background);
+    background-image: $head-gradient; // [UCT] gradient header
 	color: var(--sakai-text-color-inverted);
 	font-size: 1em;
 	height: auto;
@@ -588,7 +596,7 @@ body.is-logged-out{
 				margin-right: 0;
 			}
 		}
-		// UCT - add border and some changes on hover
+		// [UCT] - add border and some changes on hover
         .#{$namespace}userNav__pic-changer{
 			overflow: hidden;
 			&:hover, &:active
@@ -607,7 +615,7 @@ body.is-logged-out{
 				}
 			}
 		}
-		/* UCT - Display Avatar
+		/* [UCT] - Display Avatar
 		.#{$namespace}userNav__submenuitem--username span.textlink, .#{$namespace}userNav__submenuitem--userid span.textlink {
 			@media #{$phone}{
 				display: none;
@@ -883,14 +891,15 @@ body.is-logged-out{
 		@include display-flex;
 		@include flex-wrap( wrap );
 		font-family: $header-font-family;
-		margin: $standard-spacing 0 0 0;
+		margin: 12px 0 0 0; // [UCT] adjust spacing - $standard-spacing 0 0 0;
 		padding: 0;
 
 		li.#{$namespace}sitesNav__menuitem{
 			@include display-flex;
 			@include align-items(center);
 			position: relative;
-			margin: 0 $standard-spacing $standard-spacing 0;	// space the items apart, and space vertically if wrapped
+			//margin: 0 $standard-spacing $standard-spacing 0;	// space the items apart, and space vertically if wrapped
+            margin: 0 $standard-spacing 12px 0;	// [UCT] adjust spacing
 			padding: 0;
 			border-radius: $sites-nav-menu-item-border-radius;
 			background: var(--sites-nav-menu-item-background);
@@ -999,8 +1008,7 @@ body.is-logged-out{
 			
 			.#{$namespace}sitesNav__submenu {
 				position: absolute;
-				padding: $standard-spacing 0;
-                //padding-top: $sites-nav-submenu-padding; // [UCT] set to padding top
+				padding: 0; // [UCT] set to padding to none
 				top: $sites-nav-submenu-top;
 				left: 0;
 				z-index: 99;
@@ -1012,9 +1020,9 @@ body.is-logged-out{
 				border-color: var(--sites-nav-submenu-border-color);
 				background: var(--sites-nav-menu-item-background);
 				box-shadow: 0 5px 5px -3px rgba(0,0,0,.6);
-				border-radius: 0 $sites-nav-menu-item-border-radius $sites-nav-menu-item-border-radius $sites-nav-menu-item-border-radius;
-                //border-bottom-right-radius: $main-border-radius; // [UCT] add border radius to bottom
-				//border-bottom-left-radius: $main-border-radius;	
+				//border-radius: 0 $sites-nav-menu-item-border-radius $sites-nav-menu-item-border-radius $sites-nav-menu-item-border-radius;
+                border-bottom-right-radius: $sites-nav-menu-item-border-radius; // [UCT] add border radius to bottom
+				border-bottom-left-radius: $sites-nav-menu-item-border-radius;	
 				.#{$namespace}sitesNav__submenuitem {
 					display: block;
 					// border: 0px none;
@@ -1059,16 +1067,25 @@ body.is-logged-out{
 					}
 					&.#{$namespace}sitesNav__submenuitem__gotosite {
 						border-top: 1px solid var(--sites-nav-submenu-item-divider-color);
-						a {
-							padding-left:0;
-						}
+                        // [UCT] - Go to the site to view all
+                        > a {
+                            text-align: center;
+                            padding: 0.7em 2em;
+                            display: block;
+                            font-size: 0.82em;
+
+                            > span {
+                                display: none;
+                            }
+                        }
+                        /* [UCT] No icon
 						> a:after {
 							font-family: FontAwesome;	
 							content: '\f178';	
 							margin-left: 10px;	
 							color: var(--sites-nav-submenu-item-icon-color);	
 						}	
-	
+                        
 						&:hover {	
 							border-top: 1px solid var(--sites-nav-submenu-item-divider-color);	
 	
@@ -1076,17 +1093,25 @@ body.is-logged-out{
 								color: var(--sites-nav-submenu-item-hover-icon-color);	
 							}	
 						}
+                        */
 					}
 				}
 
                 // UCT - last link borders
 				li:last-child {
-					border-bottom-right-radius: $main-border-radius;
-					border-bottom-left-radius: $main-border-radius;
+					border-bottom-right-radius: $sites-nav-menu-item-border-radius;
+					border-bottom-left-radius: $sites-nav-menu-item-border-radius;
 
 					> a {
-						border-bottom-right-radius: $main-border-radius;
-						border-bottom-left-radius: $main-border-radius;
+						border-bottom-right-radius: $sites-nav-menu-item-border-radius;
+						border-bottom-left-radius: $sites-nav-menu-item-border-radius;
+
+                        // [UCT] Remove icon from go to all sites link
+                        .icon-sakai--see-all-tools {
+                            &:after {
+                                content: '';
+                            }
+                        }
 					}
 				}
 
@@ -1174,11 +1199,6 @@ body.is-logged-out{
 					}
 				}
 
-                &.#{$namespace}sitesNav__menuitem--myworkspace .fa-home {
-                    //margin-right: $standard-space;
-                    padding-right: 0.8rem; // [UCT] change spacing for home
-                }
-
 				.#{$namespace}sitesNav__submenu {
 					border: $sites-nav-submenu-border;
 					border-color: var(--sites-nav-submenu-selected-border-color);
@@ -1187,7 +1207,7 @@ body.is-logged-out{
 						.#{$namespace}sitesNav__submenuitem-link, a {
 							position: relative;
                             outline: 0; // [UCT] - remove outline
-							background: var(--sites-nav-menu-item-selected-background);
+							background: var(--sites-nav-submenu-selected-background); //[UCT] Fix color naming
 							color: var(--sites-nav-menu-item-selected-color);
 							.toolMenuIcon {
 								color: var(--sites-nav-menu-item-selected-color);
@@ -1207,42 +1227,16 @@ body.is-logged-out{
 						}
 						&.#{$namespace}sitesNav__submenuitem__gotosite {
 							border-top: 1px solid var(--sites-nav-submenu-item-selected-divider-color);
-							// [UCT] - go site
-						> a {
-							text-align: center;
-							padding: 0.7em 2em;
-							display: block;
-							font-size: 0.82em;
-
-							> span {
-								display: none;
-							}
-						}
-						/*
-						> a:after {
-							font-family: FontAwesome;
-							content: '\f178';
-							margin-left: 10px;
-							color: $sites-nav-submenu-item-icon-color;
-						}
-
-						&:hover {
-							border-top: 1px solid $sites-nav-submenu-item-divider-color;
-
-							> a:after {
-								color: $sites-nav-submenu-item-hover-icon-color;
-							}
-						}
-						*/
 						}
 					}
 				}
 			}
 
-			&.#{$namespace}sitesNav__menuitem--myworkspace .fa-home {
-				margin-right: $standard-space-4x;
-			}
-			
+            &.#{$namespace}sitesNav__menuitem--myworkspace .fa-home {
+                margin-right: 0; // [UCT] $standard-space;
+                padding-right: 0.8rem; // [UCT] change spacing for home
+            }
+           
 			.#{$namespace}sitesNav__gateway {
 				@extend .fa-university;
 				@extend .fa;
