@@ -188,7 +188,7 @@ input::placeholder {
 	text-align: left;
 	max-width: 100%;
 	line-height: 24px; // [UCT] spacing
-	border-color: $color-gray; // [UCT] colour
+	border-color: var(----tool-border-color); // $color-gray; // [UCT] colour
 	@include appearance(none);
 	@include border-radius(3px);
 	border: 1px solid var(--sakai-border-color);

@@ -1,14 +1,15 @@
 .#{$namespace}siteHierarchy{
-	background: $tool-background-color;
+	background: var(--tool-background-color);
 	min-height: $hierarchy-size;
+	transition:var(--sak-theme-switch-ease);
 
 	h1{
-		color: $background-color;
+		color: var(--sakai-background-color-1);
 		font-weight: 300;
 		margin: 0;
 	}
 	a{
-		color: $breadcrumbs-color;
+		color: var(--breadcrumbs-color);
 		margin: 0 $standard-spacing;
 		padding: 0;
 		text-decoration: none;
@@ -31,7 +32,7 @@
 		.#{$namespace}hierarchy--sites {
 			@include display-flex;
 			@include flex-wrap(wrap);
-			margin-bottom: 10px; // [UCT] spacing
+            margin-bottom: 10px; // [UCT] spacing
 		}
 		
 		.#{$namespace}hierarchy--siteName, .#{$namespace}hierarchy--siteNameSeparator{
@@ -61,7 +62,7 @@
 		a.#{$namespace}hierarchy--toolName{
 			@include display-flex;
 			@include align-items(center);
-			color: $breadcrumbs-tool-color;
+			color: var(--breadcrumbs-tool-color);
 			text-transform: uppercase;
 			font-size: 1.25em;
 			font-weight: bold;
@@ -99,14 +100,13 @@
 		position: absolute;
 		top: 0;
 		height: $banner-height - 4;
-		line-height: $banner-height + 10; // [UCT] to get the spacing right for the parent site
+		line-height: $banner-height -+ 10; // [UCT] to get the spacing right for the parent site
 		white-space: nowrap;
 		left: 0;
 
-		h1 {
-			color: $breadcrumbs-tool-color;
+		h1{
+			color: var(--breadcrumbs-tool-color);
 		}
-
         // [UCT]
         .#{$namespace}hierarchy--parent-sites {
             font-size: 0.7em;
@@ -127,8 +127,8 @@
 			display: none;
 		}
 		a.#{$namespace}hierarchy--toolName:hover{
-			color: $breadcrumbs-tool-color;
-			border-bottom: 1px solid $breadcrumbs-hover-color;
+			color: var(--breadcrumbs-tool-color);
+			border-bottom: 1px solid var(--breadcrumbs-hover-color);
 		}
 		
 		.#{$namespace}hierarchy--serviceName, .#{$namespace}hierarchy--serviceNameSeparator{
@@ -140,7 +140,7 @@
 		}
 
 		.#{$namespace}hierarchy-item {
-			color: $breadcrumbs-tool-color;
+			color: var(--breadcrumbs-tool-color);
 		}
 
 		.#{$namespace}hierarchy--siteNameSeparator {

@@ -6,7 +6,7 @@
 		li {
 			min-height: 4em;
 			&:nth-child(odd){
-				background: darken( $tool-background-color, 5% );
+				background: var(--sakai-color-gray--lighter-7);
 			}
 		}
 	}
@@ -78,7 +78,7 @@
 
 			td {
 				&.ajax-error {
-					background-color: $errorBanner-bgcolor;
+					background-color: var(--errorBanner-bgcolor);
 				}
 
 				> div {
@@ -127,20 +127,20 @@
 
   /*Start of Site Group Manager*/
   .wizard-step-active {
-    background-color: $primary-color;
-    color: $button-primary-text-color;
+    background-color: var(--sakai-primary-color-1);
+    color: var(--button-primary-text-color);
   }
 
   .optGroupSelect {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    background: none repeat scroll 0 0 #EEEEEE;
+    background: none repeat scroll 0 0 var(--sakai-background-color-2);
     padding: 0.5em;
   }
 
   .optGroupSelectSelected {
-    background: none repeat scroll 0 0 #ccc;
+    background: none repeat scroll 0 0 var(--sakai-active-color-1);
   }
 
   .group-locked-info.collapsed::before {

@@ -1,6 +1,6 @@
 /* Light Theme */
 
-@import "defaults";
+@import "../defaults";
 
 :root{
     /////////////////////////////////////////////////////////////
@@ -242,6 +242,7 @@
     --button-primary-active-shadow: var(--elevation-4dp);
 
     --instruction-color: var(--sakai-text-color-disabled);
+    --instruction-background-color: var(--sakai-background-color-1);
 
     // Information (info) banner
     --infoBanner-bordercolor: var(--sakai-color-blue--lighter-2);

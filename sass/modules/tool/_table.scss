@@ -4,17 +4,18 @@ table{
 	}
 	&.listHier{
 		font-size: $default-font-size;
-		border: 1px solid darken($tool-background-color, 10%);
-		background-color: $tool-background-color;
-    	margin: 1em 0;
+		border: 1px solid var(--sakai-border-color);
+		background-color: var(--tool-background-color);
+		margin: 1em 0;
 		@media #{$phone}{
 			display: block;
-    		margin: 3em 0;
-    		overflow: auto;
+			margin: 3em 0;
+			overflow: auto;
+			width: fit-content;
 		}
 		tr{
 			td {
-				border-right: 1px solid darken($tool-background-color, 10%);
+				border-right: 1px solid var(--sakai-border-color);
 				padding: 0.25em;
 				font-family: $font-family;
 				font-size:   $default-font-size;
@@ -28,20 +29,28 @@ table{
 				}
 			}
 			&:nth-child(odd){
-				background: darken($tool-background-color, 5%);
+				background: var(--sakai-background-color-2);
 				td{
-					border-right: 1px solid darken($tool-background-color, 15%);
+					border-right: 1px solid var(--sakai-border-color);
 				}
 			}
 		}
 	}
 }
 
+.table-hover > tbody > tr:hover {
+	background-color: var(--sakai-background-color-2);
+
+	&:nth-child(odd){
+		background: var(--sakai-background-color-3);
+	}
+}
+
 .sakai-table-noResultsMessage {
-	border: 1px solid #ddd;
+	border: 1px solid var(--sakai-border-color);
 	border-top: 0 none;
 	padding: $standard-spacing;
-	color: #414141;
+	color: var(--sakai-text-color-2);
 	line-height: 3;
 }
 
@@ -64,7 +73,7 @@ table{
 		margin: 0 auto 10px 0;
 		padding-right: 10px;
 
-		label 
+		label
 		{
 			// [UCT] little bit of spacing
 			margin: 0 $standard-space 0 0;
@@ -72,19 +81,17 @@ table{
 			text-align: right;
 		}
 	}
-
 	.sakai-table-viewFilter, .sakai-table-searchFilter
 	{
 		@include display-flex();
 		@include align-items(center);
 	}
-
 	.sakai-table-viewFilter ~ .sakai-table-searchFilter
 	{
 		margin-top: 10px;
 	}
 
-	// [UCT] Custom button width - Edge fix
+    // [UCT] Custom button width - Edge fix
 	.sakai-table-viewFilter {
 		#termview-top ~ .button {
 			min-width: 176px;
@@ -93,7 +100,6 @@ table{
 			min-width: 136px;
 		}
 	}
-
 	.sakai-table-searchFilter
 	{
 		@include flex-grow(1);
@@ -103,7 +109,7 @@ table{
 			margin-right: 4px;
 			width: 200px;
 			@include flex-grow(1);
-			border: 1px solid $tool-border-color; // [UCT] colour
+            border: 1px solid var(--tool-border-color); // [UCT] colour
 		}
 
 		input[type=button], input[type=submit],
@@ -125,7 +131,7 @@ table{
 	{
 		padding: 0 5px 3px 5px;
 		font-size: 12px;
-		color: #505050;
+		color: var(--sakai-text-color-2);
 		text-align: center;
 	}
 	.sakai-table-pagerControls
@@ -152,7 +158,7 @@ table{
 
 		input, select, button
 		{
-			margin: 0 0 0 $standard-space;;
+			margin: 0 0 0 $standard-space;
 		}
 
 	}
@@ -329,4 +335,116 @@ table{
 			margin-left: 0;
 		}
 	}
+}
+
+.#{$namespace}html .tablesorter {
+	font: #{$font-size-base} $font-family;
+}
+
+.#{$namespace}html .tablesorter,
+.#{$namespace}html .tablesorter th,
+.#{$namespace}html .tablesorter thead td,
+.#{$namespace}html .tablesorter td,
+.#{$namespace}html .tablesorter tr.even>td {
+	background-color: var(--sakai-background-color-1);
+	color: var(--sakai-text-color-1);
+}
+
+.#{$namespace}html .tablesorter td,
+.#{$namespace}html .tablesorter .tablesorter-filter-row td {
+	border-bottom: 1px solid var(--sakai-border-color);
+}
+
+.#{$namespace}html .tablesorter th,
+.#{$namespace}html .tablesorter thead td {
+	border-bottom: 2px solid var(--sakai-border-color);
+}
+
+.#{$namespace}html .tablesorter .header,
+.#{$namespace}html .tablesorter .tablesorter-header {
+	background-image: none;
+}
+
+.#{$namespace}html .tablesorter thead .headerSortUp,
+.#{$namespace}html .tablesorter thead .tablesorter-headerAsc,
+.#{$namespace}html .tablesorter thead .tablesorter-headerSortUp
+.#{$namespace}html .tablesorter thead .headerSortDown,
+.#{$namespace}html .tablesorter thead .tablesorter-headerDesc,
+.#{$namespace}html .tablesorter thead .tablesorter-headerSortDown,
+.#{$namespace}html .tablesorter tfoot .tablesorter-headerAsc,
+.#{$namespace}html .tablesorter tfoot .tablesorter-headerDesc,
+.#{$namespace}html .tablesorter tfoot .tablesorter-headerSortDown,
+.#{$namespace}html .tablesorter tfoot .tablesorter-headerSortUp {
+	border-bottom-color: var(--sakai-text-color-1);
+	background-image: none;
+}
+
+.#{$namespace}html .tablesorter .header::before,
+.#{$namespace}html .tablesorter .tablesorter-header::before,
+.#{$namespace}html .tablesorter .headerSortUp::before,
+.#{$namespace}html .tablesorter .tablesorter-headerAsc::before,
+.#{$namespace}html .tablesorter .tablesorter-headerSortUp::before,
+.#{$namespace}html .tablesorter .tablesorter-headerDesc::before,
+.#{$namespace}html .tablesorter .tablesorter-headerSortDown::before,
+.#{$namespace}html .tablesorter .tablesorter-headerSortUp::before {
+	@extend .fa;
+	@extend .fa-arrows-v;
+	float:right;
+}
+
+.#{$namespace}html .tablesorter .headerSortUp::before,
+.#{$namespace}html .tablesorter .tablesorter-headerAsc::before,
+.#{$namespace}html .tablesorter .tablesorter-headerSortUp::before {
+	@extend .fa-caret-up;
+}
+
+.#{$namespace}html .tablesorter .headerSortDown::before,
+.#{$namespace}html .tablesorter .tablesorter-headerDesc::before,
+.#{$namespace}html .tablesorter .tablesorter-headerSortDown::before {
+	@extend .fa-caret-down;
+}
+
+.#{$namespace}html .tablesorter tr.odd>td,
+.#{$namespace}html .tablesorter .tablesorter-filter-row,
+.#{$namespace}html .tablesorter .tablesorter-filter-row td {
+	background-color: var(--sakai-background-color-2);
+	color: var(--sakai-text-color-1);
+}
+
+.#{$namespace}html .tablesorter tbody>tr.even:hover>td,
+.#{$namespace}html .tablesorter tbody>tr.hover>td,
+.#{$namespace}html .tablesorter tbody>tr.odd:hover>td,
+.#{$namespace}html .tablesorter tbody>tr:hover>td,
+.#{$namespace}html .tablesorter tbody>tr:hover tbody td {
+	background-color: var(--sakai-background-color-3);
+	color: var(--sakai-text-color-1);
+}
+
+.#{$namespace}html .tablesorter thead>tr:hover td {
+	background-color: var(--sakai-background-color-1);
+}
+
+.#{$namespace}html .tablesorter tbody tbody td,
+.#{$namespace}html .tablesorter thead tbody td {
+	border-bottom: none;
+}
+
+.#{$namespace}html .tablesorter input .tablesorter-filter,
+.#{$namespace}html .tablesorter select .tablesorter-filter {
+	background-color: var(--sakai-background-color-1);
+	border: 1px solid var(--sakai-border-color);
+	color: var(--sakai-text-color-1);
+}
+.#{$namespace}html .tablesorter .tablesorter-errorRow td {
+	background-color: var(--warnBanner-bgcolor);
+	border-color: var(--warnBanner-bordercolor);
+	color: var(--warnBanner-color);
+}
+.#{$namespace}html .tablesorter-bootstrap i.tablesorter-icon {
+	display: none;
+}
+
+.#{$namespace}html table img[src*="sortascending.gif"],
+.#{$namespace}html table img[src*="sortdescending.gif"] {
+	filter: var(--sakai-image-invert);
 }

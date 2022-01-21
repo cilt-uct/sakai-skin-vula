@@ -111,6 +111,9 @@
 
 #Mrphs-choice{
 	@extend #Mrphs-xlogin;
+
+    $login-choice-image-size: 80px; // [UCT] - logo size
+
 	.msg{
 		padding: 0.6em;
 		font-size: 1.4em;

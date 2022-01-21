@@ -24,7 +24,7 @@
 		overflow-wrap: break-word;
 	}
 
-	// [UCT] label
+    // [UCT] label
 	.shorttext {
 
 		label { 
@@ -72,6 +72,14 @@
 		}
 	}
 
+    /*
+	.shorttext .reqStar + label {
+		min-width: 9.4em;
+		@media #{$phone}{
+			min-width: 96%;
+		}
+	}*/
+
 	.itemSummary {
 		textarea {
 			width: 100%;
@@ -93,8 +101,8 @@
 	.sakai-table-toolBar {
 		border-bottom: 1px solid $page-header-border-color;
 	}
-	
-	// [UCT] Datepicker is adjacent and 
+
+    // [UCT] Datepicker is adjacent and 
 	.datepicker,
 	.shorttext .datepicker{
 		line-height: 30px; 		// to match the date picker buttons' height
@@ -110,7 +118,7 @@
 		border-top-left-radius: 0px;
 		border-bottom-left-radius: 0px;
 	}
-
+	
 	.sakai-table-viewFilter {
 		input[type="submit"] {
 			margin-top: 0;
@@ -125,11 +133,11 @@
 			margin-left: $standard-space;
 		}
 		
-		// [UCT] moved style up and out ^
 		.datepicker {
 			width: 100%;
+			line-height: 2; 		// to match the date picker buttons' height
 		}
-
+		
 		@media #{$smallPhone}{
 			@include flex-direction(row);	// override tables default
 			@include align-items(center);	// override tables default
@@ -153,7 +161,8 @@
 			margin-top: $standard-spacing;
 			
 			label {
-				min-width: 45px;//max-content; [UCT] to line up with other labels in page
+				min-width: max-content;
+                // min-width: 45px;//max-content; [UCT] to line up with other labels in page
 				text-align: right;
 			}
 		}
@@ -338,6 +347,10 @@
 			border-right: 1px double $calendar-day-today-border-color;
 			border-top: 1px double $calendar-day-today-border-color;
 			background-color: $calendar-day-today-background-color;
+
+			a {
+				color: $calendar-day-today-text-color;
+			}
 		}
 
 		.borderTodayWithActivity {
@@ -372,15 +385,15 @@
 		}
 
 		.borderWhiteYear {
-			border: 1px solid #fff;
+			border: 1px solid var(--sakai-background-color-1);
 			text-align: center;
 		}
 
 		.borderWhite {
 			border-bottom: none;
-			border-left: 1px solid #fff;
-			border-right: 1px solid #fff;
-			border-top: 1px solid #fff;
+			border-left: 1px solid var(--sakai-background-color-1);
+			border-right: 1px solid var(--sakai-background-color-1);
+			border-top: 1px solid var(--sakai-background-color-1);
 		}
 
 		.borderGrayTodayCenter, .borderOnlyLeftTodayCenter {
@@ -606,14 +619,16 @@
 		right: 0;
 		overflow-x: hidden;
 		overflow-y: auto;
-		border: 1px solid #fff;
+		color: $calendar-event-color;
+		border: 1px solid $calendar-event-background-color;
 		background-color: $calendar-event-background-color;
 		font-size: $default-font-size-small;
 		line-height: 1.4;
 		text-align: left;
 		
 		&:hover {
-			border: 1px solid $link-color;
+			background-color: $calendar-event-hover-background-color;
+			border-color: $calendar-event-border-color;
 		}
 
 		a {
@@ -624,7 +639,8 @@
 			left: 0;
 			padding: 2px;
 			text-decoration: none;
-			
+			color: $calendar-event-color;
+
 			&:focus {
 				outline-offset: -#{$focus-outline-width};	// to provide enough space for the outline to appear with overflow:hidden
 			}
@@ -645,7 +661,7 @@
 		
 		@media #{$miniCalendarSize} {
 			&:hover, &:focus {
-				border: 1px solid $link-color;
+				border: 1px solid var(--link-color);
 			}
 		}
 	}
@@ -655,7 +671,7 @@
 			border-color: transparent;		// to distinguish current month days from non-current month days
 			
 			&:hover, &:focus {
-				border: 1px solid $link-color;
+				border: 1px solid var(--link-color);
 			}
 		}
 	}
@@ -669,7 +685,7 @@
 			border: 1px solid $calendar-day-border-color;
 			background-color: $calendar-day-header-background-color;
 			text-align: center;
-			font-size: 1.6rem; // [UCT] little smaller font
+            font-size: 1.6rem; // [UCT] little smaller font
 		}
 		
 		.calendarLegend {
@@ -684,7 +700,7 @@
 				@include display-flex;
 				@include align-items(center);
 				width: 200px;
-				min-height: 2em;						// accommodates line wrapping within individual list items
+				min-height: 2em;				// accommodates line wrapping within individual list items
 				margin: 0px 0px 0px $standard-spacing;  // [UCT] Change spacing a bit
 				font-size: 1.2rem; 						// [UCT] little smaller font
 				line-height: 1;

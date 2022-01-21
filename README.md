@@ -6,7 +6,7 @@
 
 - Before setting up the local server ensure that your npm is up-to-date (this might require sudo on certain systems):
 
-  `npm update -g npm`
+  `npm install -g npm`
 
 - Install project dependencies.
 
@@ -35,19 +35,10 @@
 4. Update `./images` and `./js` with versions from `./morpheus-master/images` and `./morpheus-master/js`.
 5. Copy `./morpheus-master/sass` to `./sass` and review the changes.
 
-NOTE:
-[How to get the skin to compile and deploy on SLE 11 SP4](./SLE11_SP4.md)
-
-## Install Node and Sass (Ubuntu 16.04)
-
-Ref for node install: https://github.com/nodesource/distributions
+## Install Node and Sass (Ubuntu)
 
 ```
-curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
-bash nodesource_setup.sh
-apt-get install gcc g++ make
-apt-get install build-essential
-apt-get install nodejs
+sudo apt update && sudo apt install nodejs npm
 
 nodejs --version
 npm --version
@@ -55,6 +46,13 @@ npm --version
 apt install ruby-full rubygems autogen autoconf libtool make
 gem install sass
 sass -v (Ruby Sass 3.7.4)
+```
+
+## UCT Specific Files
+```
+sass\_specific.scss
+sass\mixins\_mixins.scss
+sass\templates\_templates.scss
 ```
 
 ## Morpheus for Sakai

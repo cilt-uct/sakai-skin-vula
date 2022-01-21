@@ -23,8 +23,8 @@ body.is-logged-out{
 			sakai-maximise-button {
 				display: none;
 			}
-    	}
-      	&.home {
+    }
+      &.home {
 			top: 0px;
 		}
 	}
@@ -32,10 +32,10 @@ body.is-logged-out{
 
 .#{$namespace}multipleTools{
 	.#{$namespace}container {
-		// [UCT] - remove border and shadow from inside tools
+        // [UCT] - remove border and shadow from inside tools
 		// border: $overview-portlet-border;
 		// border-radius: $overview-portlet-border-radius;
-		// box-shadow: $overview-portlet-shadow;
+		// box-shadow: var(--overview-portlet-shadow);
 		margin-bottom: $standard-spacing;
 
 		&.#{$namespace}toolTitleNav.#{$namespace}container.#{$namespace}container--toolTitleNav {
@@ -50,7 +50,7 @@ body.is-logged-out{
 			@include display-flex;
 			@include align-items(center);
 			@include justify-content(space-between);
-			background-color: $overview-portlet-title-background-color;
+			background-color: var(--overview-portlet-title-background-color);
 			border-bottom: $overview-portlet-border;
 			padding: $standard-spacing;
 		}
@@ -75,7 +75,7 @@ body.is-logged-out{
 			display: inline-block;
 			font-size: 1em;
 			font-weight: 400;
-			color: $tool-nav-link-color;
+			color: var(--button-text-color);
 			margin: 0;
 			position: relative;
 			
@@ -96,24 +96,26 @@ body.is-logged-out{
 		& ~ .#{$namespace}toolTitleNav__button_container > .#{$namespace}directUrl__dropDown{
 			display: none;
 			.dropDown_close{
-				color: #952525;
+				@include sakai_secondary_button();
 				cursor: pointer;
 				float: right;
 				font-size: 1.5em;
-				
 				@media #{$phone}{
 					font-size: 1.4em;
+				}
+				&:before {
+					@extend .fa;
 				}
 			}
 			&.active{
 				padding: $standard-spacing;
 				position:   absolute;
 				display:    block;
-				background: $background-color;
+				background: var(--sakai-background-color-1);
 				width: 250px;
 				margin: 10px 0 0 -250px;
 				z-index: 2;
-				box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+				box-shadow: var(--elevation-3dp);
 				
 				label{
 					font-size: $default-font-size;
@@ -147,16 +149,16 @@ body.is-logged-out{
 		// override some button properties below:
 		@include display-flex;
 		@include align-items(center);
-		margin: 0 0 0 6px;
-		
-		// [UCT] uniformity in buttons
+		margin: 0 0 0 $standard-space;
+        
+        // [UCT] uniformity in buttons
 		padding: 0px 10px;
 		min-width: 30px;
     	height: 30px;
 
 		&:before {
 			@extend .fa;
-			text-align: center; // [UCT] - change alignment
+            text-align: center; // [UCT] - change alignment
 		}
 
 		@media #{$tablet}{
@@ -167,14 +169,14 @@ body.is-logged-out{
 			@extend .fa-link;
 			/*position: absolute;
 			right: #{$icon-size * 1.5};*/
-			span {
+            span {
 				display: none; // [UCT] no text
 			}
 		}
 		&--help-popup{
 			@extend .fa;
 			@extend .fa-question;
-			span {
+            span {
 				display: none; // [UCT] no text
 			}
 		}
@@ -199,15 +201,15 @@ body.is-logged-out{
 	}
 
   sakai-maximise-button {
-    color: $tool-nav-link-color;
+    color: var(--button-text-color);
     font-size: 1.1em;
   }
 
 }
 
 .#{$namespace}toolBody{
-	background: $tool-background-color;
-	border-bottom: 1px solid $tool-border-color;
+	background: var(--tool-background-color);
+	border-bottom: 1px solid var(--tool-border-color);
 	.portletMainIframe{
 		padding: $standard-spacing;
 		margin: 0 0 0 0;
@@ -217,7 +219,6 @@ body.is-logged-out{
 
 .portletBody
 {
-	background: $tool-background-color;
 	padding: 0;
 	@media #{$phone}{
 		margin: 2.3em 0 0 0;
@@ -232,7 +233,7 @@ body.is-logged-out{
 	{
 		margin: calc(#{$standard-spacing} + 5px) 0; // additional 5px for equallying the header text descenders
 		padding: 0 0 $standard-spacing 0;
-		border-bottom: 1px solid $tool-border-color;
+		border-bottom: 1px solid var(--tool-border-color);
 
 		h1, h2, h3
 		{

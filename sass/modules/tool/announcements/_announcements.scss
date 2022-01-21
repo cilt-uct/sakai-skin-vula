@@ -4,7 +4,7 @@
 			margin: 0.1em 0 0 0em;
 		}
 		.lightHighLightRow{
-			border-top: 3px solid #ddd;
+			border-top: 3px solid var(--sakai-border-color);
 		}
 	}
 	.showHideDates{
@@ -14,12 +14,12 @@
 		}
 		.checkbox{
 			width: 95px;
-
+            
 			label {
 				margin-top: 3px; // [UCT] Spacing
 			}
 		}
-
+        
 		// [UCT] Datepicker text
 		input.hasDatepicker {
 			line-height: 30px; 		// to match the date picker buttons' height
@@ -42,18 +42,21 @@
 		max-width: 1200px;
 	}
 	.message-body{
-		background-color: darken( $tool-background-color, 5% );
+		background-color: var(--sakai-background-color-2);
 		padding: 15px;
 		margin-bottom: 20px;
-		border: 1px solid darken( $tool-background-color, 10% );
-		border-radius: 4px;		
+		border: 1px solid var(--sakai-border-color);
+		border-radius: 4px;
 	}
 	#groupTable{
 		button.multiselect-clear-filter{
 			padding: 6px 12px;
 			font-size: 14px;
 			line-height: 1.42857143;
-			background-color: #eee;
+			background-color: var(--button-background);
+		}
+		.open .btn-default.dropdown-toggle {
+			@include sakai_secondary_button();
 		}
 	}
 }
