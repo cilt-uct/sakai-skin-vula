@@ -271,10 +271,6 @@ body.is-logged-out{
 		@include display-flex;
 		@include align-items( center );
 		@include justify-content( flex-end );
-		margin-right: $standard-spacing;
-		@media #{$phone}{
-			margin-right: $standard-space-2x;
-		}
 
 		#roleSwitch {
 			@include display-flex;

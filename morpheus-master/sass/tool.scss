@@ -29,7 +29,6 @@
 @import "modules/tool/calendar/calendarSynoptic";
 @import "modules/tool/chat/chat";
 @import "modules/tool/commons/commons";
-@import "modules/tool/conversations/conversations";
 @import "modules/tool/lessons/lessons";
 @import "modules/tool/sitemanage/sitemanage";
 @import "modules/tool/announcements/announcements";
@@ -62,7 +61,6 @@
 @import "modules/tool/authz/authz";
 @import "modules/tool/delegatedaccess/delegatedaccess";
 @import "modules/tool/simplerss/simplerss";
-@import "modules/tool/emailtemplates/emailtemplates";
 
 @import "base/rtl";
 
@@ -94,4 +92,3 @@
 @import "modules/widget-panel/base";
 @import "modules/theme-switcher/base";
 @import "modules/multiselect/base";
-@import "modules/sakai-options-menu/sakai-options-menu";

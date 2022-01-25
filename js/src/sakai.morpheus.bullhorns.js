@@ -1,11 +1,19 @@
 (function ($) {
 
   //Fail if dependencies aren't available
-  if (typeof qtip !== 'object' && typeof portal !== 'object') {
+  if ((typeof qtip !== 'object' && typeof moment !== 'object' && typeof portal !== 'object') || typeof moment === 'undefined') {
     return;
   }
 
+  moment.locale(portal.locale);
+
   portal.bullhorn = $('#Mrphs-bullhorn');
+
+  var formatDate = function (instant) {
+
+    var m = moment.unix(instant.epochSecond);
+    return m.format('L LT');
+  };
 
   portal.wrapNoAlertsString = function (noAlertsString) {
     return '<div id="portal-bullhorn-no-alerts">' + noAlertsString + '</div>';
@@ -85,10 +93,9 @@
     return map;
   };
 
-  var getBunchedHeader = function (bunch, faClass, i18n) {
+  var getBunchedHeader = function (tool, startDate, faClass, i18n) {
 
-    const startDate = bunch.latest;
-    const tool = bunch.type;
+    const formattedStartDate = formatDate({epochSecond: startDate});
 
     var toolName =  i18n.announcementsTool;   
     if ("assignments" === tool) {
@@ -107,7 +114,7 @@
             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#${tool}-${startDate}-panel"
                             aria-expanded="true" aria-controls="${tool}-${startDate}-panel">
               <div class="portal-bullhorn-icon fa fa-stack"><i class="fa fa-circle fa-stack-2x"></i><i class="fa ${faClass} fa-stack-1x fa-inverse"></i></div>
-              <div class="portal-bullhorn-bunch-title">${toolName} ${i18n.alertsFrom} ${bunch.bunchDate}</div>
+              <div class="portal-bullhorn-bunch-title">${toolName} ${i18n.alertsFrom} ${formattedStartDate}</div>
             </button>
         </div>
         <div id="${tool}-${startDate}-panel" class="collapse" aria-labelledby="${tool}-${startDate}-header" data-parent="#academic-alerts">
@@ -115,12 +122,14 @@
       `;
   };
 
-  const getAlertMarkup = function(alert, message, faClass, i18n, social) {
+  var getAlertMarkup = function(alert, message, faClass, i18n, social) {
 
-    const header = `<div id="portal-bullhorn-alert-${alert.id}" class="portal-bullhorn-alert">`;
+    const formattedDate = formatDate(alert.eventDate);
 
-    const footer = `
-          <div class="portal-bullhorn-time">${alert.formattedEventDate}</div>
+    var header = `<div id="portal-bullhorn-alert-${alert.id}" class="portal-bullhorn-alert">`;
+
+    var footer = `
+          <div class="portal-bullhorn-time">${formattedDate}</div>
         </div>
         <div class="portal-bullhorn-clear">
           <a href="javascript:;" onclick="portal.clearBullhornAlert('${alert.id}','${i18n.noAlerts}');" title="${i18n.clear}">
@@ -173,7 +182,9 @@
       social = true;
     }
 
-    markup = getBunchedHeader(bunch, faClass, i18n);
+    var formattedStartDate = formatDate({epochSecond: bunch.latest});
+
+    markup = getBunchedHeader(bunch.type, bunch.latest, faClass, i18n);
 
     bunch.alerts.forEach(alert => {
 
@@ -220,37 +231,42 @@
       content: {
         text: function (event, api) {
 
-          if (portal.bullhornAlerts && portal.bullhornAlerts.length <= 0) {
-            return portal.wrapNoAlertsString(portal.bullhornsI18n.noAlerts);
-          } else {
-            var markup = '<div id="portal-bullhorn-alerts" class="accordion">';
+          return $.ajax({
+            url: '/direct/portal/bullhornAlerts.json',
+            dataType: 'json',
+            cache: false,
+          }).then(function (data) {
 
-            var allBunches = [];
-            createBunches(portal.bullhornAlerts, "annc").forEach(alerts => allBunches.push({ type: "announcements", alerts: alerts }));
-            createBunches(portal.bullhornAlerts, "asn").forEach(alerts => allBunches.push({ type: "assignments", alerts: alerts }));
-            createBunches(portal.bullhornAlerts, "commons").forEach(alerts => allBunches.push({ type: "commons", alerts: alerts }));
-            createBunches(portal.bullhornAlerts, "lessonbuilder").forEach(alerts => allBunches.push({ type: "lessonbuilder", alerts: alerts }));
-            createBunches(portal.bullhornAlerts, "profile").forEach(alerts => allBunches.push({ type: "profile", alerts: alerts }));
+            if (data.message && data.message === 'NO_ALERTS') {
+              return portal.wrapNoAlertsString(data.i18n.noAlerts);
+            } else {
+              var markup = '<div id="portal-bullhorn-alerts" class="accordion">';
 
-            allBunches.forEach(b => {
-              b.alerts.sort((first, second) => first.eventDate.epochSecond - second.eventDate.epochSecond);
-              b.latest = b.alerts[0].eventDate.epochSecond;
-              b.bunchDate = b.alerts[0].formattedEventDate;
-            });
+              var allBunches = [];
+              createBunches(data.alerts, "annc").forEach(alerts => allBunches.push({ type: "announcements", alerts: alerts }));
+              createBunches(data.alerts, "asn").forEach(alerts => allBunches.push({ type: "assignments", alerts: alerts }));
+              createBunches(data.alerts, "commons").forEach(alerts => allBunches.push({ type: "commons", alerts: alerts }));
+              createBunches(data.alerts, "lessonbuilder").forEach(alerts => allBunches.push({ type: "lessonbuilder", alerts: alerts }));
+              createBunches(data.alerts, "profile").forEach(alerts => allBunches.push({ type: "profile", alerts: alerts }));
 
-            allBunches.sort((a,b) => { return b.latest - a.latest; });
+              allBunches.forEach(b => {
+                b.latest = b.alerts.reduce((acc, a) => { return (a.eventDate.epochSecond > acc) ? a.eventDate.epochSecond : acc; }, 0);
+              });
 
-            allBunches.forEach(b => { markup += getBunchMarkup(b, portal.bullhornsI18n) });
+              allBunches.sort((a,b) => { return b.latest - a.latest; });
 
-            markup += `
-                <div id="portal-bullhorn-clear-all">
-                  <a href="javascript:;" onclick="portal.clearAllBullhornAlerts('${portal.bullhornsI18n.noAlerts}');">${portal.bullhornsI18n.clearAll}</a>
+              allBunches.forEach(b => { markup += getBunchMarkup(b, data.i18n) });
+
+              markup += `
+                  <div id="portal-bullhorn-clear-all">
+                    <a href="javascript:;" onclick="portal.clearAllBullhornAlerts('${data.i18n.noAlerts}');">${data.i18n.clearAll}</a>
+                  </div>
                 </div>
-              </div>
-            `;
+              `;
 
-            return markup;
-          }
+              return markup;
+            }
+          }, function (xhr, status, error) { api.set('content.text', status + ': ' + error); });
         }
       },
       events: {
@@ -273,36 +289,29 @@
     horn.append('<span id="bullhorn-counter" class="bullhorn-counter-red">' + count + '</span>');
   };
 
-  var updateCount = function (count) {
+  var updateCounts = function () {
 
-      if (count > 0) {
-        portal.setBullhornCounter(count);
+    $.ajax({
+      url: '/direct/portal/bullhornAlertCount.json',
+      cache: false,
+      data: {
+        auto: true // indicates that this request is not a user action
+      }
+    }).done(function (data) {
+      if (data > 0) {
+        portal.setBullhornCounter(data);
       } else {
         portal.bullhorn.find('#bullhorn-counter').remove();
       }
+    }).fail(function (xhr, status, error) {
+      if (console) console.log('Failed to get the bullhorn counts. Status: ' + status);
+      if (console) console.log('FAILED ERROR: ' + error);
+      clearInterval(portal.bullhornCountIntervalId);
+    });
   };
 
   if (portal.loggedIn && portal.bullhorns && portal.bullhorns.enabled) {
-    portal.bullhornAlerts = [];
-
-    fetch("/direct/portal/bullhornAlerts.json", {
-        credentials: "include",
-        cache: "no-cache",
-        headers: { "Content-Type": "application/json" },
-      })
-      .then(r => r.json())
-      .then(data => {
-
-        portal.bullhornAlerts = data.alerts || [];
-        updateCount(portal.bullhornAlerts.length);
-        portal.bullhornsI18n = data.i18n;
-        portal.bullhornMessage = data.message;
-      });
-
-    portal.registerForMessages("notifications", message => {
-
-      portal.bullhornAlerts.push(message);
-      updateCount(portal.bullhornAlerts.length);
-    });
+    updateCounts();
+    portal.bullhornCountIntervalId = setInterval(updateCounts, portal.bullhorns.pollInterval);
   }
 }) ($PBJQ);

@@ -512,7 +512,7 @@
     --sakai-close-icon-color: var(--errorBanner-color);
     --sakai-table-even-color: var(--sakai-background-color-2);
     --sakai-separator-color: var(--sakai-border-color);
-    --sakai-calendar-button-background-color: #FFFFFF;
+    --sakai-calendar-button-bg-color: var(--button-background);
     --sakai-calendar-button-color: var(--button-text-color);
     --sakai-calendar-button-disabled-color: var(--button-disabled-text-color);
     --sakai-calendar-button-disabled-bg-color: var(--button-disabled-background);
@@ -533,6 +533,7 @@
     --sakai-hightlight-color: var(--errorBanner-color);
 
     --progress-bar-bg: var(--infoBanner-bordercolor);
+
 }
 
 // Tables

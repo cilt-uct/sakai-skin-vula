@@ -105,15 +105,6 @@
 
 		}
 
-		@media #{$phone} {
-			.table-datemanager {
-				min-width: 1000px;
-			}
-			.panel-collapse > .panel-body {
-				overflow-x: auto;
-			}
-		}
-
 		.modal {
 			.modal-header {
 				.close {
