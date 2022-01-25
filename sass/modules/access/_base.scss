@@ -9,8 +9,8 @@
 	background: var(--sakai-background-color-1);
 	box-shadow: var(--elevation-4dp);
 	.logo{
-		background: var(--top-header-background) var(--logo) no-repeat center center;
-		background-size: var(--logo-width) var(--logo-height);
+		background: var(--logo-background-color) var(--logo) no-repeat center center; // [UCT] dark blue background
+		//background-size: var(--logo-width) var(--logo-height); [UCT] NO background size - intresting overlay design
 		width: 100%;
 		height: 64px;
 		margin: 0 auto;

@@ -50,7 +50,7 @@ body.is-logged-out{
 		width: 100%;
 		padding: 0 $standard-spacing;
 		height: $banner-height;
-		background: var(--top-header-background);
+		background: var(--logo-background-color); // [UCT] dark blue background
         background-image: $head-gradient; // [UCT] gradient header
 		text-align: center;
 		@include transition( width 0.5s linear 0s );
@@ -240,7 +240,7 @@ body.is-logged-out{
 }
 
 .#{$namespace}topHeader{
-	background: var(--top-header-background);
+	background: var(--logo-background-color); // [UCT] logo background
     background-image: $head-gradient; // [UCT] gradient header
 	color: var(--sakai-text-color-inverted);
 	font-size: 1em;
