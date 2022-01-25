@@ -115,6 +115,7 @@
 
 	.column a[href]:not(.usebutton) {
 		color: var(--link-color);
+        text-decoration: none; // [UCT] no underline
 	}
 	//legacy gray
 	.colgray, .colgray-trans {
@@ -446,4 +447,19 @@ div#calendarEventDialog {
 			padding-left: 10px;
 		}
 	}
+}
+
+// [UCT] spacing for column dialog
+div#column-dialog {
+    form {
+
+        #sectionTitle {
+            line-height: 2; 
+            @extend .default-input;
+        }
+
+        p {
+            margin-top: $standard-spacing;
+        }
+    }
 }

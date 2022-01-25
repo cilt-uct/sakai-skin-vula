@@ -1,6 +1,6 @@
 // UCT Specific tweaks
 
-.#{$namespace}pagebody{
+.#{$namespace}pagebody {
  
     #blti-main-link {
         @include sakai_secondary_button();
@@ -70,7 +70,47 @@
     }
 }
 
-body.#{$namespace}portalBody{
+body.#{$namespace}container {
+
+    #helpSearchForm {
+        input[type="text"] {
+            padding: 0.42em 0.4em;
+            margin-right: $standard-space;
+            @extend .default-input;
+        }       
+    }
+}
+
+fieldset {
+    // sibling selector to search resuld fieldset
+    #helpSearchForm ~ & {
+        padding: 0px $standard-spacing-alt;
+        > table {
+            margin: $standard-spacing-alt 0px;
+        }
+    }
+}
+
+body.helpIndexBody {
+    ol#root li ol.docs {
+        padding-left: 20px;
+
+        table {
+            margin-left: 0px;
+
+            a {
+                font-weight: bold;
+                color: var(--sakai-tertiary-color-1);
+            }
+        }
+    }
+
+    ol#root li h1, ol#root li h2 {
+        margin: 0.4em 0;
+    }
+}
+
+body.#{$namespace}portalBody {
 
     // lesson builder drop downs
     div[role="dialog"] {

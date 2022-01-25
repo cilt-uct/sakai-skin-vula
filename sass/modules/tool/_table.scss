@@ -107,6 +107,7 @@ table{
 		.sakai-table-searchFilter-searchField
 		{
 			margin-right: 4px;
+            margin-left: 10px; // [UCT] bit more spacing
 			width: 200px;
 			@include flex-grow(1);
             border: 1px solid var(--tool-border-color); // [UCT] colour

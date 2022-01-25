@@ -719,8 +719,15 @@ body.is-logged-out{
 					padding-left: 2em;
 				}
 			}
-			.#{$namespace}userNav__submenuitem-toggle label {
-				padding-left: 0.65em; // to match 'li a' padding
+			.#{$namespace}userNav__submenuitem-toggle { // [UCT] some values to get the alignment right
+                display: flex;
+                margin: 2px 0px;
+
+                label {
+				    padding-left: 0.65em; // to match 'li a' padding
+                    padding-top: 6px; // [UCT]
+                    cursor: pointer;  // [UCT] - so it's a pointer
+                }
 			}
 			@media #{$phone}{
 				margin: 3.9em 0 0 -9.8em;
