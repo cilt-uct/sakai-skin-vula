@@ -271,6 +271,10 @@ body.is-logged-out{
 		@include display-flex;
 		@include align-items( center );
 		@include justify-content( flex-end );
+		margin-right: $standard-spacing;
+		@media #{$phone}{
+			margin-right: $standard-space-2x;
+		}
 
 		#roleSwitch {
 			@include display-flex;
@@ -408,7 +412,6 @@ body.is-logged-out{
 			top: -4.2em;
 		}
 	}
-
 }
 
 #mastLogin{
@@ -433,11 +436,9 @@ body.is-logged-out{
 		margin-bottom:0px;
 	}
 
-
 	.is-hidden{
 		display: none;
 	}
-
 
 	#loginForm{
 
@@ -1234,16 +1235,30 @@ body.is-logged-out{
 						}
 						&.#{$namespace}sitesNav__submenuitem__gotosite {
 							border-top: 1px solid var(--sites-nav-submenu-item-selected-divider-color);
+							> a:after {
+								font-family: FontAwesome;
+								content: '\f178';
+								margin-left: 10px;
+								color: var(--sites-nav-submenu-item-icon-color);
+							}	
+	
+							&:hover {	
+								border-top: 1px solid var(--sites-nav-submenu-item-selected-divider-color);
+
+								> a:after {
+									color: var(--sites-nav-submenu-item-hover-icon-color);
+								}
+							}
 						}
 					}
 				}
 			}
 
-            &.#{$namespace}sitesNav__menuitem--myworkspace .fa-home {
+			&.#{$namespace}sitesNav__menuitem--myworkspace .fa-home {
                 margin-right: 0; // [UCT] $standard-space;
                 padding-right: 0.8rem; // [UCT] change spacing for home
             }
-           
+			
 			.#{$namespace}sitesNav__gateway {
 				@extend .fa-university;
 				@extend .fa;

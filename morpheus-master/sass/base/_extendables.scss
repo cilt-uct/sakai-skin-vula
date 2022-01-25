@@ -138,6 +138,9 @@
 .sak-banner-warn {
 	@include sakai-banner(var(--warnBanner-bordercolor), var(--warnBanner-bgcolor), var(--warnBanner-color), $warnBanner-icon, false);
 }
+.sak-banner-red-warn {
+	@include sakai-banner(var(--errorBanner-bordercolor), var(--errorBanner-bgcolor), var(--errorBanner-color), $warnBanner-icon, false);
+}
 .sak-banner-warn-inline {
 	@include sakai-banner(var(--warnBanner-bordercolor), var(--warnBanner-bgcolor), var(--warnBanner-color), $warnBanner-icon, true);
 }
@@ -402,6 +405,7 @@ a.noPointers, input.noPointers {
 	
 	> input, > button, > a, > .active {
 		margin-right: $standard-space;
+    margin-top: $standard-space;
 		
 		&:last-child {
 			margin-right: 0;
@@ -576,3 +580,11 @@ div.wicket-modal div.w_blue a.w_close {
 .close {
 	opacity: 1;
 }
+
+.grab_cursor {
+	cursor: grab;
+}
+
+.grabbing_cursor {
+	cursor: grabbing;
+} 

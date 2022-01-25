@@ -138,6 +138,9 @@
 .sak-banner-warn {
 	@include sakai-banner(var(--warnBanner-bordercolor), var(--warnBanner-bgcolor), var(--warnBanner-color), $warnBanner-icon, false);
 }
+.sak-banner-red-warn {
+	@include sakai-banner(var(--errorBanner-bordercolor), var(--errorBanner-bgcolor), var(--errorBanner-color), $warnBanner-icon, false);
+}
 .sak-banner-warn-inline {
 	@include sakai-banner(var(--warnBanner-bordercolor), var(--warnBanner-bgcolor), var(--warnBanner-color), $warnBanner-icon, true);
 }
@@ -186,7 +189,7 @@ input::placeholder {
 	font-size: #{$default-font-size - 1};
 	padding: 0.3em 2.2em 0.3em 0.5em;
 	text-align: left;
-	max-width: 100%;
+	max-width: 100%;    
 	line-height: 24px; // [UCT] spacing
 	border-color: var(----tool-border-color); // $color-gray; // [UCT] colour
 	@include appearance(none);
@@ -201,8 +204,7 @@ input::placeholder {
 	}
 	
 	&:focus {
-		//box-shadow: 0px 0px $focus-outline-width $focus-outline-width var(--focus-outline-color);
-		box-shadow: $std-shadow; //[UCT] shadow - 0px 0px $focus-outline-width $focus-outline-width $focus-outline-color;
+		box-shadow: 0px 0px $focus-outline-width $focus-outline-width var(--focus-outline-color);
 	}
 	
 	&[disabled="disabled"],&[disabled],&[disabled="true"] {
@@ -405,6 +407,7 @@ a.noPointers, input.noPointers {
 	
 	> input, > button, > a, > .active {
 		margin-right: $standard-space;
+    margin-top: $standard-space;
 		
 		&:last-child {
 			margin-right: 0;
@@ -590,3 +593,11 @@ div.wicket-modal div.w_blue a.w_close {
 .close {
 	opacity: 1;
 }
+
+.grab_cursor {
+	cursor: grab;
+}
+
+.grabbing_cursor {
+	cursor: grabbing;
+} 

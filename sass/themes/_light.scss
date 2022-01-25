@@ -33,7 +33,7 @@
     // More info about defineColorHSL in sass/themes/_base.scss
     //@include defineColorHSL(--sakai-brand, 203, 76%, 25%);
     @include defineColorHSL(--sakai-brand, 201, 71%, 29%);
-    
+
     /////////////////////////////////////////////////////////////
 
     /////////////////////////////////////////////////////////////
@@ -48,6 +48,7 @@
     --logo-height: 56px; // [UCT] Size
     --logo-width: 56px;  // [UCT] Size
     --logo-opacity: 1;
+    --logo-background-color: var(--sakai-primary-color-1);
 
     // Primary branding color. 
     // Suggested: Your institution's main branding color.
@@ -184,7 +185,7 @@
     --tool-tab-active-background-color: var(--sakai-background-color-1);
     --tool-tab-active-highlight-color:var(--sakai-active-color-3);
 
-    --top-header-background: var(--sakai-primary-color-1);
+    --top-header-background: var(--sakai-color-gray--darker-7);
     --top-header-profile-border-color-top: var(--sakai-secondary-color-1);
     --top-header-profile-border-color-right: var(--sakai-secondary-color-1);
     --top-header-profile-border-color-bottom: var(--sakai-tertiary-color-1);
@@ -511,7 +512,7 @@
     --sakai-close-icon-color: var(--errorBanner-color);
     --sakai-table-even-color: var(--sakai-background-color-2);
     --sakai-separator-color: var(--sakai-border-color);
-    --sakai-calendar-button-bg-color: var(--button-background);
+    --sakai-calendar-button-background-color: #FFFFFF;
     --sakai-calendar-button-color: var(--button-text-color);
     --sakai-calendar-button-disabled-color: var(--button-disabled-text-color);
     --sakai-calendar-button-disabled-bg-color: var(--button-disabled-background);
@@ -519,8 +520,12 @@
     --sakai-calendar-today-fg-color: var(--sakai-text-color-inverted);
     --sakai-calendar-has-events-bg-color: var(--sakai-color-green--darker-4);
     --sakai-calendar-has-events-fg-color: var(--sakai-text-color-inverted);
-
     --sakai-grades-count-color: var(--sakai-text-color-dimmed);
+
+    // sakai-options-menu
+    --sakai-options-menu-background-color: #D4EBF9;
+    --sakai-options-menu-color: black;
+
     --sakai-user-status-online: var(--sakai-color-green--lighter-2);
 
     --sakai-popover-background: var(--sakai-background-color-1);
@@ -528,7 +533,6 @@
     --sakai-hightlight-color: var(--errorBanner-color);
 
     --progress-bar-bg: var(--infoBanner-bordercolor);
-
 }
 
 // Tables
