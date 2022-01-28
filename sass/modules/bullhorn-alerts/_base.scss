@@ -44,14 +44,25 @@
     padding-bottom: 5px;
 
     button {
-      margin: 2px;
-      text-align: left;
-      &:focus { outline: 0; }
+        padding: 7px; // [UCT] change spacing
+        margin: 2px;
+        text-align: left;
+        &:focus { outline: 0; }
 
-      .portal-bullhorn-bunch-title {
-          white-space: normal;
-          display: inline-block;
-      }
+        .portal-bullhorn-bunch-title {
+            white-space: normal;
+            display: inline-block;
+
+            .bullhorn-from { 
+                font-weight: 300;
+                font-size: 92%;
+            }
+
+            .bullhorn-date { 
+                font-weight: 600;
+                font-size: 92%;
+            }
+        }
     }
 
     @media #{$nonPhone} {
@@ -130,9 +141,19 @@
     }
 }
 
-
+// [UCT] change clear all button
 #portal-bullhorn-clear-all {
-    padding: 5px;
+    padding: 4px 4px 0px;
+    a {
+        display: block;
+        text-decoration: none;
+        padding: 5px;
+        text-align: center;
+
+        &:hover, &:active {
+            background-color: var(--sites-nav-submenu-background);
+        }
+    }
 }
 
 #portal-bullhorn-no-alerts {

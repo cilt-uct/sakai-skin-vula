@@ -424,6 +424,23 @@
 	}
 }
 
+// [UCT] - more generic version of buttons so that they work in iframe
+.portletBody {
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'darker', 'black');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-blue', 'lighter', 'blue');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-blue', 'darker', 'blue2');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-red', 'lighter', 'red');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-green', 'lighter', 'green');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-orange', 'lighter', 'orange');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-gold', 'lighter', 'gold');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-teal', 'lighter', 'teal');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-purple', 'lighter', 'purple');
+
+	@include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'lighter', 'navy' );
+	@include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'darker', 'navy2' );
+}
+
 // Lessons tool calendar event pop-up.
 div#calendarEventDialog {
 	label {

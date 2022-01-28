@@ -56,7 +56,7 @@
 		input[type="text"],input[type="password"]{
 			display: inline-block;
             
-			// UCT - make input slighlty bigger, better shaddow and border radius
+			// [UCT] - make input slighlty bigger, better shaddow and border radius
 			min-width: 66%;
 			border: 1px solid var(--sakai-border-color);
 			padding: 0.3em;
@@ -71,7 +71,7 @@
 		}
 		p{
 			text-align: right;
-			// @media #{$phone} { // UCT - ignore margin
+			// @media #{$phone} { [UCT] - ignore margin
 			// 	margin: 1em 0 0 0;
 			// }
 		}
@@ -139,11 +139,13 @@
 		justify-content: center;
 	}
 
-	a.link { // UCT - more specific
+	a.link { // [UCT] - more specific
 		width: 48%;
 		display: inline-block;
 		text-align: center;
-        > img { // UCT - define for an image
+        text-decoration: none;
+
+        > img { // [UCT] - define for an image
 			background-position: 50% center;
 			background-size: auto 100%;
 			@include border-radius(50%);
@@ -160,7 +162,7 @@
 		}
 
 		&:hover, &:active {
-			color: $primary-color;
+			//color: $primary-color;
 
 			> img {
 				@include opacity(1);
@@ -187,7 +189,7 @@
 	background: var(--sakai-background-color-1) url(#{$skin-path}images/capsLock.png) no-repeat right;
 }
 
-// UCT - change login form inputs
+// [UCT] - change login form inputs
 .login-password-form {
 
 	input[type="text"], input[type="password"] {

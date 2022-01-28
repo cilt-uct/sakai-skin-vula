@@ -48,7 +48,6 @@ function toggleUserNav(event) {
 $PBJQ(".js-toggle-user-nav a#loginUser > .Mrphs-userNav__drop-btn", "#loginLinks").on("click", toggleUserNav);
 $PBJQ(".js-toggle-user-nav .Mrphs-userNav__drop-btn", "#loginLinks").on("click", toggleUserNav);
 
-/*
 $PBJQ('.Mrphs-userNav__pic-changer').on("click", function (event) {
 
     var $profileLink = $PBJQ(this);
@@ -258,7 +257,7 @@ $PBJQ('.Mrphs-userNav__pic-changer').on("click", function (event) {
 
     return false;
 });
-*/
+
 
 var header = $PBJQ(".Mrphs-topHeader");
 var currentHeaderWidth = -1;

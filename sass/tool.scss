@@ -63,15 +63,15 @@
 @import "modules/tool/delegatedaccess/delegatedaccess";
 @import "modules/tool/simplerss/simplerss";
 @import "modules/tool/emailtemplates/emailtemplates";
-@import "modules/tool/wiki/wiki";           // UCT - additional style for wiki
-@import "modules/tool/gradebook/gradebook"; // UCT - additional style for gradebook
-@import "modules/tool/postem/postem";       // UCT - additional style for postem
-@import "modules/tool/sections/sections";   // UCT - additional style for sections
-@import "modules/tool/checklist/checklist"; // UCT - additional style for checklists (Tasneem Jaffer)
+@import "modules/tool/wiki/wiki";           // [UCT] - additional style for wiki
+@import "modules/tool/gradebook/gradebook"; // [UCT] - additional style for gradebook
+@import "modules/tool/postem/postem";       // [UCT] - additional style for postem
+@import "modules/tool/sections/sections";   // [UCT] - additional style for sections
+@import "modules/tool/checklist/checklist"; // [UCT] - additional style for checklists (Tasneem Jaffer)
 
-@import "templates/_templates.scss";   // UCT - additional style for ckeditor templates (Tasneem Jaffer)
+@import "templates/_templates.scss";   // [UCT] - additional style for ckeditor templates (Tasneem Jaffer)
 
-@import "modules/tool/src_msgcntr/_src_msgcntr.scss";   // UCT - src imports
+@import "modules/tool/src_msgcntr/_src_msgcntr.scss";   // [UCT] - src imports
 
 @import "base/rtl";
 
@@ -105,4 +105,4 @@
 @import "modules/multiselect/base";
 @import "modules/sakai-options-menu/sakai-options-menu";
 
-@import "specific"; // UCT custom specific tweaks
+@import "specific"; // [UCT] custom specific tweaks

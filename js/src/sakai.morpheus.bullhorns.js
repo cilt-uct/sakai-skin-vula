@@ -12,7 +12,7 @@
   var formatDate = function (instant) {
 
     var m = moment.unix(instant.epochSecond);
-    return m.format('L LT');
+    return m.format('llll'); //L LT'); 01/28/2022 1:15pm to Fri, Jan 28, 2022 1:15 PM
   };
 
   portal.wrapNoAlertsString = function (noAlertsString) {
@@ -114,7 +114,7 @@
             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#${tool}-${startDate}-panel"
                             aria-expanded="true" aria-controls="${tool}-${startDate}-panel">
               <div class="portal-bullhorn-icon fa fa-stack"><i class="fa fa-circle fa-stack-2x"></i><i class="fa ${faClass} fa-stack-1x fa-inverse"></i></div>
-              <div class="portal-bullhorn-bunch-title">${toolName} ${i18n.alertsFrom} ${formattedStartDate}</div>
+              <div class="portal-bullhorn-bunch-title">${toolName} <span class="bullhorn-from">${i18n.alertsFrom}</span> <span class="bullhorn-date">${formattedStartDate}</span></div>
             </button>
         </div>
         <div id="${tool}-${startDate}-panel" class="collapse" aria-labelledby="${tool}-${startDate}-header" data-parent="#academic-alerts">

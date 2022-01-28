@@ -20,7 +20,7 @@ body.is-logged-out{
 		}
 		a {
 			&:focus, &:hover, &:active {
-				// UCT - no underline
+				// [UCT] - no underline
 				text-decoration: none;
 				color: var(--sakai-text-color-1);
 			}
@@ -412,8 +412,8 @@ body.is-logged-out{
 
 #mastLogin{
 
-	// make it so the separator lines are a consistent height
-    	// UCT - different spacing
+    // make it so the separator lines are a consistent height
+    // [UCT] - different spacing
 	/*
 	> * {
 		height: 2.3em;
@@ -499,7 +499,7 @@ body.is-logged-out{
 			&.has-avatar .#{$namespace}userNav__submenuitem--username:active
 		{
 			color: var(--topNav-text-color);
-			text-decoration: none; // UCT - no underline on links
+			text-decoration: none; // [UCT] - no underline on links
 		}
 	}
 
@@ -518,7 +518,7 @@ body.is-logged-out{
 				white-space: nowrap;
                 @media #{$phone}
 				{
-					display: none; // UCT - on mobile the name is hidden - avatar still visible
+					display: none; // [UCT] - on mobile the name is hidden - avatar still visible
 				}
 			}
 		}
@@ -558,10 +558,10 @@ body.is-logged-out{
 	.has-avatar{
 		.#{$namespace}userNav__submenuitem--profilelink{
 			padding: 0 !important;
-            // UCT - hover over avatar
+            // [UCT] - hover over avatar
 			&:focus, &:hover, &:active
 			{
-				background-color: $tool-menu-background-color !important; // hover not trigger background-color
+				background-color: var(--tool-tab-background-color) !important; // hover not trigger background-color
 			}
 		}
 		.#{$namespace}userNav__submenuitem--profilepicture{
@@ -581,20 +581,20 @@ body.is-logged-out{
 			// box-shadow:inset 0 0 0 2px $top-header-profile-border-color-inner;
 			position: relative;
 
-			&:hover, &:active
-			{
-					box-shadow:inset 0 0 0 2px var(--top-header-profile-border-color-inner), 0 0 0 2px rgba(0,0,0,.2);
+            // [UCT] some spacing issues
+			&:hover {
+                box-shadow:inset 0 0 0 2px var(--top-header-profile-border-color-inner), 0 0 0 2px rgba(0,0,0,.2);
 			}
 			&:active {
-				background:inset 0 0 0 2px var(--top-header-profile-border-color-inner), 0 0 0 2px rgba(0,0,0,.4);
+				box-shadow:inset 0 0 0 2px var(--top-header-profile-border-color-inner), 0 0 0 2px rgba(0,0,0,.4);
 			}
 			@media #{$phone}
 			{
 				margin-right: 0;
 			}
 		}
-		// [UCT] - add border and some changes on hover
-        .#{$namespace}userNav__pic-changer{
+		// [UCT] - don't display change button
+        /*.#{$namespace}userNav__pic-changer{
 			overflow: hidden;
 			&:hover, &:active
 			{
@@ -612,6 +612,7 @@ body.is-logged-out{
 				}
 			}
 		}
+        */
 		/* [UCT] - Display Avatar
 		.#{$namespace}userNav__submenuitem--username span.textlink, .#{$namespace}userNav__submenuitem--userid span.textlink {
 			@media #{$phone}{
@@ -839,7 +840,7 @@ body.is-logged-out{
 
 .view-all-sites-btn a{
 	text-decoration: none;
-    opacity: 0.9; // UCT - opacity on other sites btn and slight transition
+    opacity: 0.9; // [UCT] - opacity on other sites btn and slight transition
     @include transition(opacity 0.25s linear 0s);
 	&:hover, &:active
 	{
@@ -854,7 +855,7 @@ body.is-logged-out{
 
 		span.all-sites-label
 		{
-			text-decoration: none; // UCT - no underlined text
+			text-decoration: none; // [UCT] - no underlined text
 		}
 	}
 	&:active i {
@@ -1101,7 +1102,7 @@ body.is-logged-out{
 					}
 				}
 
-                // UCT - last link borders
+                // [UCT] - last link borders
 				li:last-child {
 					border-bottom-right-radius: $sites-nav-menu-item-border-radius;
 					border-bottom-left-radius: $sites-nav-menu-item-border-radius;

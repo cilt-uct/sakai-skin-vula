@@ -120,9 +120,9 @@ $warncolor: $color-warning !default;
 // Gradient
 // %head-gradient {
 //   @include gradient-vertical($start-color: darken($color-primary, 25%), $end-color: darken($color-primary, 15%) ); //UCT - %head-gradient
-//   @include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); //UCT - %head-gradient 
+//   @include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); // [UCT] - %head-gradient 
 // }
-//@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); // UCT - %head-gradient
+//@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); // [UCT] - %head-gradient
 $head-gradient: linear-gradient(to right bottom, #15597e, #156089, #146895, #136fa0, #1377ac, #1377ac, #1377ac, #1377ac, #136fa0, #146895, #156089, #15597e);
 
 // Favorites 
@@ -231,7 +231,7 @@ $footer-border-color: shade( $footer-background-color, 20%) !default;
 $footer-details-border-color: $footer-border-color !default;
 $footer-color: tint($text-color, 10%) !default;
 $footer-border: 1px solid $footer-border-color !default;
-$footer-font-size: 10px !default; // UCT - slightly smaller font
+$footer-font-size: 10px !default; // [UCT] - slightly smaller font
 $footer-color: #54595b !default;
 
 // Layout

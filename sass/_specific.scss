@@ -1,4 +1,4 @@
-// UCT Specific tweaks
+// [UCT] Specific tweaks
 
 .#{$namespace}pagebody {
  
@@ -183,7 +183,253 @@ body.#{$namespace}portalBody {
     }
 }
 
+// Custom styles for Profile Page
+.#{$namespace}sakai-profilewow { 
+    .portletBody {
+        .profilepic {
+            #changepic {
+                img {
+                    display: none;
+                }
+
+                a:not(.fc-button) {
+                    @extend button;
+                    display: block;
+                    margin-bottom: 8px;
+                    padding: 7px;
+
+                    &:before {
+                        @extend .fa;
+                        @extend .fa-camera-retro;
+                        color: var(--sakai-text-color-1);
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+        .action {
+            img {
+                display: none;
+            }
+
+            a:not(.fc-button) {
+                @extend button;
+                display: block;
+                margin-bottom: 8px;
+                padding: 7px;
+
+                &:before {
+                    @extend .fa;
+                    @extend .fa-pencil-square-o;
+                    color: var(--sakai-text-color-1);
+                    margin-right: 5px;
+                }
+            }
+        }
+    
+        // we can't search for users
+        .search {
+            display: none;
+        }
+
+        .sidebarTitle {
+            img {
+                margin-right: 4px;
+            }
+            color: var(--sakai-text-color-1);
+            background-color: var(--sakai-background-color-2);
+            padding: 0.8em;
+        }
+
+        .sidebar {
+            width: 360px;
+            min-width: 250px;
+
+            table {
+                width: 100%
+            }
+
+            .password {
+
+                table {
+                    margin-top: 8px;
+
+                    tr { 
+
+                        td:first-child { 
+                            text-align: right;
+                        }
+
+                        td:last-child { 
+                            text-align: left;
+                        }
+
+                        td[colspan~="2"] {
+                            text-align: center;
+                        }
+
+                        input[type="submit"] {
+                            margin-top: 6px;
+                        }
+                    }
+                }
+
+                input[type="password"] {
+                    @extend .default-input;
+                    width: 200px;
+                    min-width: 100px;
+                    margin-bottom: 4px;
+                    padding: 0.3em;
+                    margin-left: 6px;
+                }
+            }
+        }
+    }
+
+    #edit-form {
+        margin-left: 6px;
+        table {
+            tr { 
+                td {
+                    span {
+                        &.reqStarProfile {
+                            padding-right: 4px;
+                            color: #BB1111;
+                        }
+                    }
+
+                    & > span:nth-of-type(2) {
+                        display: block;
+                        padding: 4px 0px 16px 12px;
+
+                        > span {
+                            padding-right: 8px;
+                            input[type="radio"] {
+                                margin-right: 4px;
+                            }
+                        }
+                    }
+                
+                    &:first-child { 
+                        text-align: right;
+                    }
+
+                    &:last-child { 
+                        text-align: left;
+                    }
+
+                    &[colspan~="2"] {
+                        text-align: left;
+                    }
+
+                    h4 {
+                        margin-top: 16px;   
+                    }
+                    input[type="text"] {
+                        @extend .default-input;
+                        padding: 0.3em;
+                        margin: 0px 0px 6px 6px;
+                        width: 80%;
+
+                        &.required {
+                            color: var(--sakai-text-color-1);
+                            font-size: 14px;
+                        }
+                    }
+                    
+                    a.addItem {
+                        text-decoration: none;
+                        background: transparent url(/library/image/silk/add.png) no-repeat scroll left center;
+                        padding: 0.4em 0.4em 0.4em 1.6em;
+
+                        &:hover, &:active {
+                            background-color: var(--sites-nav-submenu-background);                           
+                        }
+                    }
+                }
+            }
+        }
+
+        input[type="submit"] {
+            margin-right: 12px;
+        }
+    }
+}
+
+// Become user
+#su\:username {
+    @extend .default-input;
+    padding: 0.3em;
+}
+
+// Participants
+#roster_form\:section_filter {
+    margin-left: 8px;
+}
+
+#roster_form\:search {
+    @extend .default-input;
+    padding: 0.46em;
+    min-height: 2em;
+    width: 20em;
+}
+
+#roster_form\:search_group {
+    .instruction {
+        margin-left: 12px;
+    }
+}
+
+.#{$namespace}sakai-users {
+    .listNav {
+        .inlineForm {
+            select {
+                position: relative;
+                top: -12px;
+            }
+        }
+    }
+
+}
+
+.#{$namespace}sakai-sms-admin {
+
+
+    #searchCriteria\:\:task-status-selection,
+    #searchCriteria\:\:task-message-type-selection {
+        margin: 0px 8px;
+    }
+
+    #searchDateFrom, #searchDateTo, #searchCriteria\:\:tool-name, #searchCriteria\:\:sender {
+        @extend .default-input;
+        padding: 0.46em;
+        min-height: 2em;
+        margin-left: 4px;
+    }
+
+    #searchDateFrom, #searchDateTo {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-right-width: 0px;
+    }
+
+    .ui-datepicker-trigger {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+
+    #searchCriteria\:\:tool-name {
+        margin-right: 8px;
+    }
+
+    .navIntraTool li span a {
+        border-bottom-width: 0px;
+    }
+}
+
 /*
+
+
 //changing left insight ckeditor template colour
 .left-insight p {
     background-color: rgba(0,152,219,0.2)!important;

@@ -820,9 +820,9 @@ li.organizeFavorites:not(.active) .favoriteCountAndWarning.maxFavoritesReached {
 #organize-favorites-pane {
 	float: left;
 	width: 70%;
-	//border-right: solid 1px $all-sites-tab-border-color; // UCT - Remove border
+	//border-right: solid 1px $all-sites-tab-border-color; [UCT] - Remove border
 
-	h2.heading { // UCT - change H2
+	h2.heading { // [UCT] - change H2
 		display:none;
 	}
 

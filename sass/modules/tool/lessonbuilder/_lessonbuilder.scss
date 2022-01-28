@@ -1,3 +1,83 @@
+@mixin sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name){
+    // Color scheme generation in Lessons Layouts
+    // Use any color previously defined via defineColorHSL
+    // @include sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name)
+    // @param color
+    //      Type: string
+    //      expects the same value used to define a color palette in defineColorHSL
+    // @param lighterOrDarker
+    //      Type: string
+    //      expects a string either lighter or darker
+    // @param name
+    //      Type: string
+    //      expects a string which matches the classes the lessons tool will apply to the markup
+    // @returns a set of CSS selectors and rules
+    // Example usage 
+    //      @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
+
+    $shade1: #{$color}--#{$lighterOrDarker}-4;
+    $shade2: #{$color}--#{$lighterOrDarker}-5;
+    $shade3: #{$color}--#{$lighterOrDarker}-3;
+    $shade4: #{$color}--#{$lighterOrDarker}-7;
+    @if $lighterOrDarker == 'darker' {
+        $shade1: #{$color}--#{$lighterOrDarker}-3;
+        $shade2: #{$color}--#{$lighterOrDarker}-4;
+        $shade3: #{$color}--#{$lighterOrDarker}-2;
+        $shade4: #{$color}--#{$lighterOrDarker}-6;
+    }
+    
+    .coln#{$name}, .coln#{$name}-trans {
+        background: var(--sakai-background-color-1);
+        border: 1px solid var($shade1);
+    }
+    .coln#{$name}-header, .coln#{$name}-trans-header {
+        @extend .sakai-colorize#{$shade2};
+        border: 1px solid var(#{$shade2});
+    }
+    .collapsibleSectionHeader.coln#{$name}-header:hover, .collapsibleSectionHeader.coln#{$name}-trans-header:hover {
+        @extend .sakai-colorize#{$shade1};
+        border-color: var(#{$shade1});
+    }
+    .collapsibleSectionHeader.coln#{$name}-header:active, .collapsibleSectionHeader.coln#{$name}-trans-header:active {
+        @extend .sakai-colorize#{$shade3};
+        border-color: var(#{$shade3});
+    }
+    .coln#{$name}-header + .section {
+        border: 1px solid var(#{$shade2});
+        border-top: none;
+    }
+    
+    .coln#{$name} {
+        .questionDiv .contentCol, .checklistDiv {
+            @extend .sakai-colorize#{$shade4};
+        }
+        input[type="submit"].question-submit,
+        .linkCell .addStudentContent,
+        input[type="submit"].setStudentZero {
+            @extend .sakai-colorize#{$shade2};
+            border: 1px solid var(#{$shade2});
+            &:hover,
+            &:focus {
+                @extend .sakai-colorize#{$shade1};
+                border: 1px solid var(#{$shade1});
+            }
+            &:active {
+                @extend .sakai-colorize#{$shade3};
+                border: 1px solid var(#{$shade3});
+            }
+        }
+        input[type="submit"].question-submit,.linkCell .addStudentContent, input[type="submit"].setStudentZero {
+            margin-top: $standard-space-4x;
+        }
+    }
+
+    .usebutton.n#{$name},
+    .usebutton.n#{$name}-trans {
+        background-color: var(#{$shade1}) !important;
+        color: white !important;
+    }
+}
+
 .#{$namespace}sakai-lessonbuildertool {
 	.navIntraTool {
 		margin: 0 0 0 0;
@@ -184,87 +264,6 @@
 		}
 	}
 
-	
-	@mixin sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name){
-	// Color scheme generation in Lessons Layouts
-	// Use any color previously defined via defineColorHSL
-	// @include sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name)
-	// @param color
-	//      Type: string
-	//      expects the same value used to define a color palette in defineColorHSL
-	// @param lighterOrDarker
-	//      Type: string
-	//      expects a string either lighter or darker
-	// @param name
-	//      Type: string
-	//      expects a string which matches the classes the lessons tool will apply to the markup
-	// @returns a set of CSS selectors and rules
-	// Example usage 
-	//      @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
-
-		$shade1: #{$color}--#{$lighterOrDarker}-4;
-		$shade2: #{$color}--#{$lighterOrDarker}-5;
-		$shade3: #{$color}--#{$lighterOrDarker}-3;
-		$shade4: #{$color}--#{$lighterOrDarker}-7;
-		@if $lighterOrDarker == 'darker' {
-			$shade1: #{$color}--#{$lighterOrDarker}-3;
-			$shade2: #{$color}--#{$lighterOrDarker}-4;
-			$shade3: #{$color}--#{$lighterOrDarker}-2;
-			$shade4: #{$color}--#{$lighterOrDarker}-6;
-		}
-		
-		.coln#{$name}, .coln#{$name}-trans {
-			background: var(--sakai-background-color-1);
-			border: 1px solid var($shade1);
-		}
-		.coln#{$name}-header, .coln#{$name}-trans-header {
-			@extend .sakai-colorize#{$shade2};
-			border: 1px solid var(#{$shade2});
-		}
-		.collapsibleSectionHeader.coln#{$name}-header:hover, .collapsibleSectionHeader.coln#{$name}-trans-header:hover {
-			@extend .sakai-colorize#{$shade1};
-			border-color: var(#{$shade1});
-		}
-		.collapsibleSectionHeader.coln#{$name}-header:active, .collapsibleSectionHeader.coln#{$name}-trans-header:active {
-			@extend .sakai-colorize#{$shade3};
-			border-color: var(#{$shade3});
-		}
-		.coln#{$name}-header + .section {
-			border: 1px solid var(#{$shade2});
-			border-top: none;
-		}
-		
-		.coln#{$name} {
-			.questionDiv .contentCol, .checklistDiv {
-				@extend .sakai-colorize#{$shade4};
-			}
-			input[type="submit"].question-submit,
-			.linkCell .addStudentContent,
-			input[type="submit"].setStudentZero {
-				@extend .sakai-colorize#{$shade2};
-				border: 1px solid var(#{$shade2});
-				&:hover,
-				&:focus {
-					@extend .sakai-colorize#{$shade1};
-					border: 1px solid var(#{$shade1});
-				}
-				&:active {
-					@extend .sakai-colorize#{$shade3};
-					border: 1px solid var(#{$shade3});
-				}
-			}
-			input[type="submit"].question-submit,.linkCell .addStudentContent, input[type="submit"].setStudentZero {
-				margin-top: $standard-space-4x;
-			}
-		}
-
-		.usebutton.n#{$name},
-		.usebutton.n#{$name}-trans {
-			background-color: var(#{$shade1}) !important;
-			color: white !important;
-		}
-	}
-
 	@include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
 	@include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'darker', 'black');
 	@include sakaiLessonsLayoutColorScheme('--sakai-color-blue', 'lighter', 'blue');
@@ -397,6 +396,23 @@
 				display: $lessons-item-edit-display;
 			}
 		}
+
+        // [UCT] custom form
+        .checklistForm {
+            .checklistFormInput {
+                input[name="name"] {
+                    @extend .default-input;
+                    padding: 0.3em;
+                    width: 34em;
+                }
+            }
+
+            #customCssClass {
+                @extend .default-input;
+                padding: 0.3em;
+                margin: 0px;
+            }
+        }
 	}
 	.topaction {
 		position: absolute;
@@ -453,6 +469,23 @@ div#calendarEventDialog {
 	}
 }
 
+// [UCT] - more generic version of buttons so that they work in iframe
+.portletBody {
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'darker', 'black');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-blue', 'lighter', 'blue');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-blue', 'darker', 'blue2');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-red', 'lighter', 'red');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-green', 'lighter', 'green');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-orange', 'lighter', 'orange');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-gold', 'lighter', 'gold');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-teal', 'lighter', 'teal');
+	@include sakaiLessonsLayoutColorScheme('--sakai-color-purple', 'lighter', 'purple');
+
+	@include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'lighter', 'navy' );
+	@include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'darker', 'navy2' );
+}
+
 // [UCT] spacing for column dialog
 div#column-dialog {
     form {
@@ -464,6 +497,66 @@ div#column-dialog {
 
         p {
             margin-top: $standard-spacing;
+        }
+    }
+}
+
+// [UCT] customize the lesson editor dialog
+.lessonsDialog {
+    .panel-group {
+        input[name="name"] {
+            @extend .default-input;
+            padding: 0.3em;
+        }
+    }
+
+    #stylingstuffbody {
+        #buttonColorLabel {
+            padding-top: 10px;
+            width: 10em;
+            text-align: right;
+        }
+
+        .shorttext {
+            label[for="indent-level"], label[for="customCssClass"] {
+                display: inline-block;
+                text-align: right;
+                width: 10em;           
+            }
+            select, #customCssClass {
+                position: relative;
+                left: -3px;
+            }
+            #customCssClass {
+                @extend .default-input;
+                padding: 0.3em;
+                margin: 0px;
+            }
+        }
+
+        & > .panel-body > p.shorttext:first-of-type {
+            padding-top: 5px;
+        }
+    }
+
+    #visibilitybody {
+        #releaseDiv2 {
+            #release_date2 {
+                @extend .default-input;
+                position: relative;
+                top: -1px;
+                padding: 0.4em;
+                min-height: 2em;
+
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+                border-right-width: 0px;
+            }
+
+            .ui-datepicker-trigger {
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+            }
         }
     }
 }

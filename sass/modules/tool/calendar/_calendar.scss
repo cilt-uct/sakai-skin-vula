@@ -142,6 +142,13 @@
 			@include flex-direction(row);	// override tables default
 			@include align-items(center);	// override tables default
 		}
+
+        // [UCT] spacing of "Set as Default View"
+        form[name="defaultViewForm"] {
+            input[type="submit"] {
+                margin-top: 5px;
+            }
+        }
 	}
 	
 	.showListOfEvents > .sakai-table-viewFilter {
@@ -610,6 +617,15 @@
 			height: 2em;
 			vertical-align: top;
 		}
+
+        // [UCT] Calendar week heading
+        .borderWhite { 
+            a {
+                background: lightblue;
+                display: block;
+                padding: 16px 0px;
+            }
+        }
 	}
 	.calendarDayView-event, .calendarWeekView-event {
 		position: absolute;
