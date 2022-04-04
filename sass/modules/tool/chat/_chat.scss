@@ -57,6 +57,10 @@
 					max-height: 517px;
 					position: relative;
 
+                    &.active {
+                        background-color: var(-chat-active-background);
+                    }
+
 					.chatListWrapper {
 						width: 100%;
 						height: 100%;

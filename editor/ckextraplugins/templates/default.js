@@ -4,39 +4,39 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 CKEDITOR.addTemplates('customtemplates', {imagesPath: CKEDITOR.getUrl(CKEDITOR.basePath.substr(0, CKEDITOR.basePath.indexOf("ckeditor/"))+"../editor/ckextraplugins/" + 'templates/images/'), templates: [
     {
-        title:'<span class="fa fa-header template-icon" style="color:#f0ad4e;"></span> Lesson Title',
+        title:'<span class="fa fa-header template-icon"></span> Lesson Title',
         description:'A lesson header for your page',
-        html:'<style type="text/css">* .lessontitle {text-align:left; color: #005590; font-size:30px;}</style><h1 class="lessontitle"><span class="fa fa-file-text fa-fw"></span> Module X: Enter Title</h1></div><p></p>'
+        html:'<h1 class="lessontitle"><span class="fa fa-file-text fa-fw"></span> Module X: Enter Title</h1></div><p></p>'
     },
     {
         title:'<span class="fa fa-header template-icon" style="color:#1377ac;"></span> Section Header',
         description:'A section header for your module content or assessments',
-        html:'<style type="text/css">* .sectionheader {text-align:left; color: #005590;	padding-top: 10.0px;padding-bottom: 10.0px;background-color: rgb(250,250,250); }</style><h2 class="sectionheader"><span class="fa fa-file-text fa-fw"></span>Enter Section Title</h2></div><p></p>'
+        html:'<h2 class="sectionheader"><span class="fa fa-file-text fa-fw"></span>Enter Section Title</h2></div><p></p>'
     },
     {
         title:'<span class="fa fa-comment template-icon" style="color:#90b193;"></span>Lecturer Conversation',
         description:'Text messaged styled box with image on the left.',
-        html:'<style type="text/css">*.insight-section ul li { list-style: none; margin-top: 10.0px; } *.insight-section ul { padding: 0.0px; } *.left-insight img, *.right-insight img { width: 70.0px; height: 70.0px; float: left; margin: 0.0px 5.0px; border-radius: 50.0%; } *.right-insight img { float: right; } *.left-insight, *.right-insight { overflow: hidden; } *.left-insight p, *.right-insight p {background-color:#d9edf7; padding: 10.0px; color: black; border-radius: 5.0px; float: left; width: 60.0%; margin-bottom: 20.0px; margin-left: 0.0px; } *.right-insight p { float: right; background-color: rgb(255,239,214); color: black; margin-right: 2.0px; } </style> <div class="insight-section"> <ul> <li> <div class="left-insight"><img alt="Instructor speaking" src="/library/image/genericProf.png" /> <p style="background-color:#d9edf7;"> Hi, {{firstname}}! Replace this text and image to create a casual personal message you would like to communicate to your students. It should be no more than a short paragraph or two. An image size of <b>70px x 70px</b> would fit best with this template.</p> </div> </li> </ul> </div><p></p>'
+        html:'<div class="insight-section"> <ul> <li> <div class="left-insight"><img alt="Instructor speaking" src="/library/image/genericProf.png" /> <p style="background-color:#d9edf7;"> Hi, {{firstname}}! Replace this text and image to create a casual personal message you would like to communicate to your students. It should be no more than a short paragraph or two. An image size of <b>70px x 70px</b> would fit best with this template.</p> </div> </li> </ul> </div><p></p>'
     },
     {
         title:'<span class="fa fa-comments template-icon" style="color:#9bbeff;"></span>Conversation Response',
         description:'Text messaged styled box with image on the right.',
-        html:'<style type="text/css">*.insight-section ul li { list-style: none; margin-top: 10.0px; } *.insight-section ul { padding: 0.0px; } *.left-insight img, *.right-insight img { width: 70.0px; height: 70.0px; float: left; margin: 0.0px 5.0px; border-radius: 50.0%; } *.right-insight img { float: right; } *.left-insight, *.right-insight { overflow: hidden; } *.left-insight p, *.right-insight p {background-color:#d9edf7; padding: 10.0px; color: black; border-radius: 5.0px; float: left; width: 60.0%; margin-bottom: 20.0px; margin-left: 0.0px; } *.right-insight p { float: right; background-color: rgb(255,239,214); color: black; margin-right: 2.0px; } </style> <div class="insight-section"> <ul> <li> <div class="right-insight"><img alt="Student" src="/library/image/genericProf.png" /> <p style="background-color: rgb(255,239,214);"> Replace this text and maybe the image to create the effect of another side of a conversation or of a student responding to an instructor insight. It should be no more than a short paragraph or two. <b>An image size of 70px x 70px</b> would fit best with this template.</p> </div> </li> </ul> </div><p></p>'
+        html:' <div class="insight-section"> <ul> <li> <div class="right-insight"><img alt="Student" src="/library/image/genericProf.png" /> <p style="background-color: rgb(255,239,214);"> Replace this text and maybe the image to create the effect of another side of a conversation or of a student responding to an instructor insight. It should be no more than a short paragraph or two. <b>An image size of 70px x 70px</b> would fit best with this template.</p> </div> </li> </ul> </div><p></p>'
     },
     {
         title:'<span class="fa fa-bullseye fa-fw template-icon" style="color:#005590;"></span>Learning Outcomes',
         description:'Organised list of learning outcomes with icon',
-          html:'<h2><span class="fa fa-bullseye fa-fw" style="color:#000000; font-size:25.0px"></span>&nbsp; Learning Outcomes</h2>  <p style="margin-left:40.0px">After completing this module, you will be able to:</p>  <ol> <li style="margin-left: 40.0px;">Construct learning outcomes using Bloom&#39;s Taxonomy.</li> <li style="margin-left: 40.0px;">Explain why each learning outcome must be measurable.</li> <li style="margin-left: 40.0px;">Revise this list as the course content changes.</li> <li style="margin-left: 40.0px;">State the contact information for E-Learning to get help with learning outcomes.</li> </ol><p></p>'
+          html:'<h2><span class="fa fa-bullseye fa-fw"></span>Learning Outcomes</h2>  <p style="margin-left:40.0px">After completing this module, you will be able to:</p>  <ol> <li style="margin-left: 40.0px;">Construct learning outcomes using Bloom&#39;s Taxonomy.</li> <li style="margin-left: 40.0px;">Explain why each learning outcome must be measurable.</li> <li style="margin-left: 40.0px;">Revise this list as the course content changes.</li> <li style="margin-left: 40.0px;">State the contact information for E-Learning to get help with learning outcomes.</li> </ol><p></p>'
     },
     {    
         title:'<span class="fa fa-key fa-fw template-icon" style="color:#cc318e;"></span>Key Information',
         description:'List of dates, core readings and any tasks',
-        html:'<h2><span class="fa fa-key fa-fw" style="color:#000000; font-size:25.0px"></span>&nbsp; Key Information</h2><p>Please take note of the following key information below for this module.</p> <table class="table table-bordered table-striped" style="width:auto"><tbody><tr><td><strong>Module dates</strong></td><td>[Insert dates]</td></tr><tr><td><strong>[Estimated time to complete]</strong></td><td>[Indicate estimated time to complete</td></tr><tr><td><strong>Core reading materials</strong></td><td>[Indicate core reading]</td></tr><tr><td><strong>Assignment</strong></td><td>[Specify title of assignment]</td></tr></tbody></table><p></p>'
+        html:'<h2><span class="fa fa-key fa-fw"></span>Key Information</h2><p>Please take note of the following key information below for this module.</p> <table class="table table-bordered table-striped" style="width:auto"><tbody><tr><td><strong>Module dates</strong></td><td>[Insert dates]</td></tr><tr><td><strong>[Estimated time to complete]</strong></td><td>[Indicate estimated time to complete</td></tr><tr><td><strong>Core reading materials</strong></td><td>[Indicate core reading]</td></tr><tr><td><strong>Assignment</strong></td><td>[Specify title of assignment]</td></tr></tbody></table><p></p>'
     },
     {    
         title:'<span class="fa fa-check-square fa-fw template-icon" style="color:#483d8b;"></span>Key Activities',
         description:'Bulleted list of key activities',
-        html:'<h2><span class="fa fa-check-square fa-fw" style="color:#000000; font-size:25.0px"></span>&nbsp; Key Activities</h2><p style="margin-left:40.0px">For this module, complete the following activities:</p><ul style="margin-left:40.0px"><li>[Watch the video on topic X]</li><li>[Read through the articles]&nbsp;</li><li>[Post in the Module X&nbsp;forum]</li><li>[Complete the MCQ quiz]</li><li>[Write a short reflective blog post]</li></ul><p></p>'
+        html:'<h2><span class="fa fa-check-square fa-fw"></span>Key Activities</h2><p style="margin-left:40.0px">For this module, complete the following activities:</p><ul style="margin-left:40.0px"><li>[Watch the video on topic X]</li><li>[Read through the articles]&nbsp;</li><li>[Post in the Module X&nbsp;forum]</li><li>[Complete the MCQ quiz]</li><li>[Write a short reflective blog post]</li></ul><p></p>'
      },    
     {
         title:'<span class="fa fa-book template-icon" style="color:#5cb85c;"></span>Reading',

@@ -3,9 +3,22 @@
 		display: none; // [UCT] let's see how it goes without a header - breadcrumbs should show stuff right?
 	}
 
-	// [UCT] - redo some spacing 
+	// [UCT] - redo some spacing and colours
 	ol.breadcrumb {
-		padding: 8px 15px;
+		padding: 0px 15px;
+
+        & > li {
+            & > a {
+                padding: 8px 0px;
+                display: inline-block;
+            }
+        
+            &.active {
+                padding: 8px 8px 8px 0px;
+                color: var(--breadcrumbs-resource-active-text);
+                background-color: var(--breadcrumbs-resource-active-background);          
+            }
+        }
 	}
 
 	input, textarea{
@@ -76,7 +89,12 @@
 				.dropdown-menu a {
 					color:var(--sakai-text-color-1) !important;
 				}
-			} 
+			}
+
+            // [UCT] no underline for links
+            td > a {
+                text-decoration: none;
+            }
 		}
 
 		td.attach{

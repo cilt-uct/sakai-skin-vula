@@ -1,4 +1,4 @@
-@mixin sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name){
+@mixin sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name, $text_color: 'white'){
     // Color scheme generation in Lessons Layouts
     // Use any color previously defined via defineColorHSL
     // @include sakaiLessonsLayoutColorScheme($color, $lighterOrDarker, $name)
@@ -15,10 +15,20 @@
     // Example usage 
     //      @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'gray');
 
+    // [UCT] - create border
+    $alt: 'lighter';
+    @if $lighterOrDarker == 'lighter' {
+        $alt: 'darker';
+    }
     $shade1: #{$color}--#{$lighterOrDarker}-4;
     $shade2: #{$color}--#{$lighterOrDarker}-5;
     $shade3: #{$color}--#{$lighterOrDarker}-3;
     $shade4: #{$color}--#{$lighterOrDarker}-7;
+
+    // [UCT] - make the buttons a bit darker
+    $button_background: #{$color}--#{$lighterOrDarker}-2;
+    $button_border: #{$color}--#{$alt}-1;
+
     @if $lighterOrDarker == 'darker' {
         $shade1: #{$color}--#{$lighterOrDarker}-3;
         $shade2: #{$color}--#{$lighterOrDarker}-4;
@@ -44,7 +54,7 @@
     }
     .coln#{$name}-header + .section {
         border: 1px solid var(#{$shade2});
-        border-top: none;
+        // border-top: none; [UCT] show the border at the top
     }
     
     .coln#{$name} {
@@ -73,8 +83,32 @@
 
     .usebutton.n#{$name},
     .usebutton.n#{$name}-trans {
-        background-color: var(#{$shade1}) !important;
-        color: white !important;
+        background-color: var(#{$button_background}) !important;
+        border-color: var(#{$button_border}) !important;
+        color: unquote($text_color) !important;
+
+        &:hover, &:active {
+            background-color: var(#{$shade1});                           
+        }
+    }
+}
+
+// [UCT] - create dark mode for buttons
+:root.sakaiUserTheme-dark {
+    .#{$namespace}sakai-lessonbuildertool {
+        @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'darker', 'gray');
+        @include sakaiLessonsLayoutColorScheme('--sakai-color-gray', 'lighter', 'black');
+        @include sakaiLessonsLayoutColorScheme('--sakai-color-blue', 'darker', 'blue');
+        @include sakaiLessonsLayoutColorScheme('--sakai-color-blue', 'lighter', 'blue2');
+        @include sakaiLessonsLayoutColorScheme('--sakai-color-red', 'darker', 'red');
+        @include sakaiLessonsLayoutColorScheme('--sakai-color-green', 'darker', 'green');
+        @include sakaiLessonsLayoutColorScheme('--sakai-color-orange', 'darker', 'orange');
+        @include sakaiLessonsLayoutColorScheme('--sakai-color-gold', 'darker', 'gold');
+        @include sakaiLessonsLayoutColorScheme('--sakai-color-teal', 'darker', 'teal');
+        @include sakaiLessonsLayoutColorScheme('--sakai-color-purple', 'darker', 'purple');
+
+        @include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'darker', 'navy' );
+        @include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'lighter', 'navy2' );
     }
 }
 
@@ -492,9 +526,14 @@ div#column-dialog {
 
         #sectionTitle {
             line-height: 2; 
+            width: 36%;
             @extend .default-input;
         }
 
+        input[type="checkbox"] + label {
+            margin-left: 3px;
+        }
+        
         p {
             margin-top: $standard-spacing;
         }

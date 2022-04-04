@@ -198,6 +198,9 @@
     --breadcrumbs-tool-color: var(--sakai-primary-color-1);
     --breadcrumbs-hover-color: var(--sakai-primary-color-1);
 
+    --breadcrumbs-resource-active-text: var(--sakai-text-color-3);
+    --breadcrumbs-resource-active-background: var(--sakai-color-blue--lighter-6);
+
     /* Link colors */
     --link-color: var(--sakai-primary-color-1);
     --link-active-color: var(--sakai-primary-color-3);
@@ -534,6 +537,10 @@
 
     --progress-bar-bg: var(--infoBanner-bordercolor);
 
+    // [UCT]
+    --sakai-lessontitle: var(--sakai-brand--lighter-1);
+    --chat-active-background: var(--sakai-color-blue--lighter-7);
+    --sakai-lesson-checklist-item-border: var(--sakai-color-gray--lighter-1);
 }
 
 // Tables

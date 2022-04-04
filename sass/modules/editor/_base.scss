@@ -155,6 +155,7 @@
 	a:focus,
 	a:hover,
 	a:active {
+        text-decoration: none; // [UCT] no underline
 
 		.cke_tpl_item {
 			border-color: var(--sakai-border-color);

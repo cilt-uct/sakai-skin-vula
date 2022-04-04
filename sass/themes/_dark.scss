@@ -154,8 +154,12 @@
 
     // Overrides _light.scss variables when necessary
     --top-header-background: var(--sakai-background-color-1);
-    --breadcrumbs-tool-color: var(--sakai-text-color-color-3);
+    --breadcrumbs-tool-color: var(--sakai-text-color-3);
     --breadcrumbs-hover-color: var(--sakai-primary-color-3);
+
+    --breadcrumbs-resource-active-text: var(--sakai-text-color-3);
+    --breadcrumbs-resource-active-background: var(--sakai-color-blue--darker-4);
+
     --link-color: var(--sakai-text-color-3);
     --link-active-color: var(--sakai-text-color-2);
     --link-hover-color: var(--sakai-text-color-2);
@@ -206,5 +210,10 @@
     --sites-nav-submenu-item-selected-divider-color: var(--sakai-brand--lighter-5); // [UCT] var(--sites-nav-menu-item-selected-color);
 
     --overview-portlet-title-background-color: var(--sakai-color-gray--darker-7);// [UCT] var(--tool-tab-background-color);
+
+    // [UCT]
+    --sakai-lessontitle: var(--sakai-brand--lighter-4);
+    --chat-active-background: var(--sakai-color-blue--darker-6);
+    --sakai-lesson-checklist-item-border: var(--sakai-color-gray--lighter-1);
 }
 

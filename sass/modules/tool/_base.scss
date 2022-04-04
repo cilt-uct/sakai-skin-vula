@@ -81,6 +81,7 @@ body.is-logged-out{
 			
 			a{
 				margin-right: 0.25em;
+                text-decoration: none; // [UCT] links don't have underlines
 			}
 		}
 	}

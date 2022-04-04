@@ -95,6 +95,9 @@ body.is-logged-out{
 		p{
 			margin: 0 0 0.05em 0; // [UCT] - slight spacing change to logout button on menu
 		}
+        p:last-child {
+			margin: 0 1em 0.05em 0; // [UCT] - slight spacing change to logout button on menu
+		}
 	}
 
 	&.is-maximized{

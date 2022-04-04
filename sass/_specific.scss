@@ -142,47 +142,6 @@ body.#{$namespace}portalBody {
     }
 }
 
-// Tasneem
-// changing the background of the student comment [UCT]-TJ
-.commentsCell {
-    .commentsDiv {
-        .replaceWithComments {
-            .commentDiv{
-                background-color: rgba($primary-desaturate, 0.1);
-
-                .comment-image {
-                    display: inline-block;
-                }
-                
-                a {
-                    &.deleteLink, &.editLink, &.replyLink {
-                      /* border: 1px solid black; */
-                    }
-                }
-
-                h3.author {
-                    color: $text-color;
-                    padding: 0px;
-                    background-color: transparent !important; // changing background of white block behind person's name on comments
-                    margin-right: 12px; // same as in stylesheet
-                    font-weight: 600;
-
-                    &.personalComment {
-                      color: $primary-color;
-                      font-weight: 700;
-                    }
-                }
-
-            }
-        }
-
-        // student comments tool button, looks like standard Vula button but does not pop enough[UCT]-TJ
-        .add-comment-button .ui-button {
-            @include sakai_secondary_button();
-        }
-    }
-}
-
 // Custom styles for Profile Page
 .#{$namespace}sakai-profilewow { 
     .portletBody {
@@ -394,7 +353,6 @@ body.#{$namespace}portalBody {
 
 .#{$namespace}sakai-sms-admin {
 
-
     #searchCriteria\:\:task-status-selection,
     #searchCriteria\:\:task-message-type-selection {
         margin: 0px 8px;
@@ -427,43 +385,508 @@ body.#{$namespace}portalBody {
     }
 }
 
+// Mrphs-sakai-iframe-site
+.#{$namespace}toolBody--sakai-iframe-site {
+
+    /*
+    input#title-of-page {
+        border: 1px solid blue;
+    }
+    */
+
+    .portletBody {
+        form {
+            .shorttext {
+                
+                input[type="text"] {
+                    padding: 0.42em 0.4em;
+                    @extend .default-input;
+                }
+            }
+        }
+    }
+}
+
+#course-dashboard-widget-grid {
+    #add-button {
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+////////////////////////////////
+
 /*
-
-
 //changing left insight ckeditor template colour
 .left-insight p {
-    background-color: rgba(0,152,219,0.2)!important;
+    background-color: rgba(0,152,219,0.2) !important;
 }
 
 //changing right insight ckeditor template colour
 .right-insight p {
-  background-color: rgba(219, 81, 0, 0.2)!important;
+  background-color: rgba(219, 81, 0, 0.2) !important;
+}
+*/
+
+.#{$namespace}sakai-sites {
+    form {
+
+        #title, #url_alias, #type, #joinerRole, #icon, #info, #skin {
+            @extend .default-input;
+            padding: 0.42em 0.4em;
+            width: 82%;
+        }
+
+        #type, #joinerRole, #skin {
+            width: 42%;
+        }
+
+        #shortDescription {
+            width: 82%;
+        }
+    }
 }
 
-// changing ckeditor panel template colour to darker blue 
-.panel-primary > .panel-heading
-{
-  background-color: #005590;
-  border-color: #005590;
+.#{$namespace}sakai-lessonbuildertool {
+
+    .portletBody {
+        h1 {
+            &.lessontitle {
+                color: var(--sakai-lessontitle);
+                text-align: left;
+                font-size: 30px;
+            }
+        }
+
+        h2 {
+            &.sectionheader {
+                color: var(--sakai-lessontitle); 
+                background-color: var(--overview-portlet-title-background-color);
+                text-align: left; 
+                padding: 10px 0px;
+
+                & > span.fa-fw {
+                    margin: 0px 6px 0px 8px;
+                    display: inline-block;
+                }
+            }
+
+            .fa-check-square.fa-fw,
+            .fa-bullseye.fa-fw,
+            .fa-key.fa-fw
+            {
+                color: var(--sakai-text-color-3);
+                font-size: 25.0px;
+                position: relative;
+                top: 2px;
+                padding-right: 6px;
+            }
+        }
+
+        h3 {
+            & > span.fa-comments, 
+            & > span.fa-file-text,
+            & > span.fa-play-circle,
+            & > span.fa-book {
+                padding-right: 4px;
+            }
+        }
+
+        *.insight-section ul li { list-style: none; margin-top: 10.0px; } *.insight-section ul { padding: 0.0px; } *.left-insight img, *.right-insight img { width: 70.0px; height: 70.0px; float: left; margin: 0.0px 5.0px; border-radius: 50.0%; } *.right-insight img { float: right; } *.left-insight, *.right-insight { overflow: hidden; } *.left-insight p, *.right-insight p {background-color:#d9edf7; padding: 10.0px; color: black; border-radius: 5.0px; float: left; width: 60.0%; margin-bottom: 20.0px; margin-left: 0.0px; } *.right-insight p { float: right; background-color: rgb(255,239,214); color: black; margin-right: 2.0px; }
+        
+        .left-insight, .right-insight {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .left-insight p, .right-insight p {
+            background-color: var(--sakai-brand--lighter-6);
+            color: var(--sakai-color-gray--darker-5);
+            padding: 10px;
+            border-radius: 5px;
+            float: left;
+            width: 60%;
+            margin-bottom: 20px;
+            margin-left: 0px;
+        }
+
+        .left-insight:before {
+            content: " ";
+            position: absolute;
+            top: 0px;
+            left: 65px;
+            bottom: 150px;
+            border: 15px solid transparent;
+            border-top-color: var(--sakai-brand--lighter-6);
+        }
+
+        .right-insight:before {
+            content: " ";
+            position: absolute;
+            top: 0px;
+            right: 67px;
+            bottom: 150px;
+            border: 15px solid transparent;
+            border-top-color: var(--sakai-color-green--lighter-6);
+        }
+
+        .right-insight p {
+            float: right;
+            background-color: var(--sakai-color-green--lighter-6);
+            color: var(--sakai-color-gray--darker-5);
+            margin-right: 2px;
+        }
+
+        // changing ckeditor panel template colour to darker blue 
+        .panel-primary > .panel-heading {
+            color: var(--sakai-color-white);
+            background-color: var(--sakai-color-blue--darker-2);
+            border-color: var(----sakai-color-blue--darker-2);
+            border-bottom-width: 0px;
+        }
+
+        .alert-info .fa-3x.fa-lightbulb-o {
+            position: relative;
+            top: -10px;
+        }
+
+        .panel-danger {
+            h3.callout-title {
+                margin-top: 0px;
+            }
+
+            .fa-exclamation-triangle {
+                font-size: 1.6em;
+                position: relative;
+                top: 4px;
+                padding-right: 6px;
+            }
+        }
+
+        
+        .section {
+            & > .column {
+                border-width: 0px;
+                margin: 6px;
+            }
+        }
+
+        .sectionedit {
+            padding: 0px;
+            a {
+                padding: 0px 5px;
+            }
+        }
+
+        .column {
+            .questionDiv {
+                .contentCol {
+                    border-radius: $main-border-radius;
+                    box-shadow: $std-shadow;
+                }
+            }
+        }
+
+        .deleteListMessage.panel-heading, .deleteListMessageEmpty.panel-heading {
+            padding: 25px; 
+        }
+
+        // [UCT] Styling the comment section [UCT]-TJ
+        .commentsDiv {
+            .replaceWithComments {
+                .commentDiv{
+                    background-color: rgba($primary-desaturate, 0.1); // changing the background of the student comment [UCT]-TJ
+    
+                    .comment-image {
+                        display: inline-block;
+                    }
+    
+                    h3.author {
+                        color: $text-color;
+                        padding: 0px;
+                        background-color: transparent !important; // changing background of white block behind person's name on comments
+                        margin-right: 12px; // same as in stylesheet
+                        font-weight: 600;
+    
+                        &.personalComment {
+                          color: $primary-color;
+                          font-weight: 700;
+                        }
+                    }
+    
+                    // student comments tool button, looks like standard Vula button but does not pop enough [UCT]-TJ
+                    .add-comment-button .ui-button {
+                        @include sakai_secondary_button();
+                    }
+                }
+            }
+
+            a.loadMore {
+                @extend button;
+                cursor: pointer;
+
+                &:before {
+                    @extend .fa;
+                    @extend .fa-comments;                    
+
+                    color: var(--sakai-text-color-1);
+                    margin-right: 5px;
+                }
+
+                & ~ img {
+                    display: none !important; // don't want to display the simple image
+                }
+            }
+
+            a.deleteLink, a.editLink, a.replyLink {
+                &:hover, &:active {
+                    background-color: var(--tool-menu-item-active-background-color)
+                }
+            }
+        }
+
+        // [UCT] Styling the poll checklist labels
+        .checklistItemDiv {
+            .checklistLabel {
+                display: flex !important; // overwrite #content label
+                align-items: center;
+
+                input[type="checkbox"] {
+                    flex: none;
+                    width: 20px;
+                    height: 20px;
+                    border: 2px solid var(--sakai-lesson-checklist-item-border);
+                }
+
+                input[type=checkbox]:checked {
+                    border-color: var(--sakai-text-color-2);
+                }
+
+                &:hover, &:active {
+                    input[type="checkbox"] {
+                        border-color: var(--link-hover-color);
+                    }
+                }
+
+                & > span {
+                    padding-left: 4px;
+                    position: relative;
+                    top: 2px;
+                }
+            }
+        }
+
+        .checklistProgressTable {
+            th.tablesorter-header {
+                cursor: pointer;
+            }
+
+            .headerNum > div {
+                text-align: center;
+            }
+        }
+        
+        // [UCT] item sorter styling
+        .reordDeleteContainer {
+            a.deleteAnswerLink, a.deleteAllLink {
+                & > span.fa {
+                    font-size: 20px;
+                    position: relative;
+                    padding: 10px 16px 9px;
+                }
+
+                &:hover, &:active {
+                    color: var(--sakai-text-color-2);
+                    & > span {
+                        color: var(--sakai-text-color-2);
+                    }
+                }
+            }
+        }
+    }
 }
 
+.portletBody {
+
+    .neoPortletTitleWrap {
+        .portletTitle {
+            h2 {
+                padding-right: 12px;
+            }
+        }
+    }
+    
+    .oldPortal .action {
+        margin-top: 0px;
+    }
+
+    @media only screen and (min-width: 855px) {
+        .oldPortal .action {
+            margin-top: 0px;
+        }
+    }
+
+    .container-fluid {
+        form {
+            .form-group {
+                margin-bottom: 0px;
+                
+                label[for=fa_icon] {
+                    position: relative;
+                    top: 6px;
+                    padding-right: 2px;
+                    display: table-caption;
+                }
+
+                #customNumberField {
+                    @extend .default-input;
+                    display: inline-block;
+                    height: 34px;
+                    padding: 6px 12px;
+                    font-size: 14px;
+                }
+
+                .input-group-addon {
+                    padding: 8px;
+                    width: 36px;
+                    height: 34px;
+                }
+
+                #source {
+                    @extend .default-input;
+                    display: block;
+                    width: 100%;
+                    height: 34px;
+                    padding: 6px 12px;
+                    font-size: 14px;
+                    line-height: 1.428571429;
+                }
+            }
+        }
+    }
+}
+
+#edit-title-dialog {
+    #pageTitle {
+        padding: 0.42em 0.4em;
+        @extend .default-input;
+        width: 40%;
+    }
+
+    #release_date {
+        @extend .default-input;
+        padding: 0.46em;
+        min-height: 2em;
+        margin-left: 4px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-right-width: 0px;        
+    }
+
+    .ui-datepicker-trigger {
+        padding: 5px 10px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        position: relative;
+        top: 1px;
+    }
+}
+
+#subpage-dialog {
+    #subpage-title {
+        padding: 0.42em 0.4em;
+        @extend .default-input;
+        width: 34%;
+
+        & ~ label {
+            color: var(--sakai-text-color-disabled);
+            span {
+                padding-left: 4px;
+            }
+
+            &.pageTitle {
+                color: var(--sakai-text-color-1);
+            }
+        }
+    }
+}
+
+#edit-item-dialog {
+    form {
+
+        #accordion {
+
+            div.panel {
+                border-radius: 0px;
+            }
+
+            & > div {
+                &.panel:first-child {
+                    border-radius: 4px;
+                    border-bottom-right-radius: 0px;
+                    border-bottom-left-radius: 0px;
+                }
+
+                & > div {
+                    border-top-width: 0px;
+                }
+
+                .panel + .panel {
+                    margin-top: 0px;
+                }
+            }
+
+            #stylingstuff {
+                border-top-width: 0px;
+            }
+
+            .pageItem {
+                input[type="checkbox"] ~ label {
+                   padding-left: 4px;
+                }
+            }
+        }
+    }
+}
+
+.#{$namespace}sakai-realms {
+
+    form[name="realm-form"] {
+        .shorttext {
+            label {
+                width: 120px;
+                text-align: right;
+            }
+
+            input[type="text"] {
+                @extend .default-input;
+                padding: 0.42em 0.4em;
+                width: 24%;
+            }
+        }
+        
+    }
+}
+
+/*
 //change the content link style 
 .link-div {
-font-weight: 600; //making it bolder to be more visible 
+    font-weight: 600; //making it bolder to be more visible 
 
 }
 
 // custom lessons dark blue header 
 
     .header {
-      text-align: left;
-            color: #005590;
+        text-align: left;
+        color: #005590;
     
-      //padding: 12px;
-    //text-align: center;
-    //background: #005590;
-    // color: white;
-    //border-radius: 1px;
+        //padding: 12px;
+        //text-align: center;
+        //background: #005590;
+        // color: white;
+        //border-radius: 1px;
     }
 
     .header .headerfont {

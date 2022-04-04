@@ -734,8 +734,10 @@ body {
 						padding: $tool-lessons-toplevel-menu-text-padding;
 						padding-left: 0; 	// remove space from text to icon
 						width: calc(#{$tool-menu-width} - calc(#{$standard-spacing} * 2));
+                        text-decoration: none; // [UCT] no underline
 						.Mrphs-toolsNav__menuitem--title {
 							color: var(--tool-menu-item-text-color);
+                            margin-left: 4px; // [UCT] change spacing                            
 						}
 						&:hover {
 							.Mrphs-toolsNav__menuitem--title {
@@ -753,7 +755,7 @@ body {
 								&:after {
 									font-family: 'FontAwesome';
 									content: '\f0a9';
-									padding-left: 4px;
+									padding-right: 4px; // [UCT] some better spacing
 									position: absolute;
 									left: calc(#{$tool-menu-width} - (#{$standard-spacing} * 1.5))
 								}
@@ -766,7 +768,7 @@ body {
 								&:after {
 									font-family: 'FontAwesome';
 									content: '\f0a9';
-									padding-left: 4px;
+									padding-right: 4px; // [UCT] some better spacing
 								}
 							}
 						}
