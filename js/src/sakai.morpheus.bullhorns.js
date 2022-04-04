@@ -12,6 +12,7 @@
   var formatDate = function (instant) {
 
     var m = moment.unix(instant.epochSecond);
+    // [UCT]
     return m.format('llll'); //L LT'); 01/28/2022 1:15pm to Fri, Jan 28, 2022 1:15 PM
   };
 
@@ -108,6 +109,7 @@
       toolName = i18n.socialAlerts;
     }
 
+    // [UCT] add span for date formatting
     return `
       <div class="card portal-bullhorn-bunch">
         <div class="card-header" id="${tool}-${startDate}-header">

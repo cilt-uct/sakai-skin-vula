@@ -258,7 +258,6 @@ $PBJQ('.Mrphs-userNav__pic-changer').on("click", function (event) {
     return false;
 });
 
-
 var header = $PBJQ(".Mrphs-topHeader");
 var currentHeaderWidth = -1;
 

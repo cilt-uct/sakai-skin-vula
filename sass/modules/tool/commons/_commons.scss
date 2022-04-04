@@ -87,10 +87,10 @@
 
     .commons-post-outer-container {
         border-bottom: 1px solid var(--sakai-border-color);
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
         .commons-post-inner-container{
-            padding: 5px;
+            margin: 5px;
             overflow: auto;
         }
             .commons-post-body {
@@ -252,6 +252,7 @@
     max-width: 310px;
 }
 
+//  removed but still used? 
 .likedAlready {
     font-weight: bold;
 }

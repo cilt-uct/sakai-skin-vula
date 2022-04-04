@@ -20,22 +20,22 @@
     @if $lighterOrDarker == 'lighter' {
         $alt: 'darker';
     }
-    $shade1: #{$color}--#{$lighterOrDarker}-4;
-    $shade2: #{$color}--#{$lighterOrDarker}-5;
-    $shade3: #{$color}--#{$lighterOrDarker}-3;
-    $shade4: #{$color}--#{$lighterOrDarker}-7;
+    $shade1: #{$color}--#{$lighterOrDarker}-1; //-1
+    $shade2: #{$color}--#{$lighterOrDarker}-2; //-2
+    $shade3: #{$color}--#{$lighterOrDarker}-3; //color
+    $shade4: #{$color}--#{$lighterOrDarker}-7; //-7
 
     // [UCT] - make the buttons a bit darker
     $button_background: #{$color}--#{$lighterOrDarker}-2;
     $button_border: #{$color}--#{$alt}-1;
 
     @if $lighterOrDarker == 'darker' {
-        $shade1: #{$color}--#{$lighterOrDarker}-3;
-        $shade2: #{$color}--#{$lighterOrDarker}-4;
-        $shade3: #{$color}--#{$lighterOrDarker}-2;
-        $shade4: #{$color}--#{$lighterOrDarker}-6;
+        $shade1: #{$color}--#{$lighterOrDarker}-3; //-4
+        $shade2: #{$color}--#{$lighterOrDarker}-4; //-5
+        $shade3: #{$color}--#{$lighterOrDarker}-2; //-3
+        $shade4: #{$color}--#{$lighterOrDarker}-6; //-7
     }
-    
+
     .coln#{$name}, .coln#{$name}-trans {
         background: var(--sakai-background-color-1);
         border: 1px solid var($shade1);
@@ -83,12 +83,19 @@
 
     .usebutton.n#{$name},
     .usebutton.n#{$name}-trans {
-        background-color: var(#{$button_background}) !important;
+        @extend .sakai-colorize#{$shade2};
         border-color: var(#{$button_border}) !important;
         color: unquote($text_color) !important;
 
-        &:hover, &:active {
-            background-color: var(#{$shade1});                           
+        &:hover,
+        &:focus {
+            @extend .sakai-colorize#{$shade1};
+            border-color: var(#{$button_border}) !important;
+        }
+
+        &:active {
+            @extend .sakai-colorize#{$shade3};
+            border-color: var(#{$button_border}) !important;
         }
     }
 }
@@ -157,20 +164,6 @@
 		}
 	}
 
-	label.checklistLabel.disabled:hover {
-		color: var(--sakai-text-color-disabled);
-		cursor: not-allowed;
-	}
-
-	label.checklistLabel.disabled {
-		color: var(--sakai-text-color-disabled);
-	}
-
-	.checklist-blur label.checklistLabel.disabled, .checklist-blur label.checklistLabel.disabled:hover {
-		text-shadow: 0 0 5px rgba(0,0,0,0.5);
-		color: transparent;
-	}
-
 	.#{$namespace}toolTitleNav {
 		@media #{$phone} {
 		       margin-top: 0px;
@@ -222,9 +215,6 @@
 	}
 	.column .commentDiv, .column .studentContentTable, .column .forumSummaryHeaderDiv, .column .announcementsHeaderDiv, .column .fc-toolbar {
 		background-color: var(--sakai-background-color-2);
-	}
-	.checklist-checkbox-label {
-		vertical-align: baseline;
 	}
 
 	.column a[href]:not(.usebutton) {
@@ -520,34 +510,36 @@ div#calendarEventDialog {
 	@include sakaiLessonsLayoutColorScheme('--sakai-lessons-navy', 'darker', 'navy2' );
 }
 
-// [UCT] spacing for column dialog
-div#column-dialog {
-    form {
+// [UCT] customize the lesson editor dialog
+#addContentDiv.lessonsDialog {
 
-        #sectionTitle {
-            line-height: 2; 
-            width: 36%;
-            @extend .default-input;
-        }
-
-        input[type="checkbox"] + label {
-            margin-left: 3px;
-        }
-        
-        p {
-            margin-top: $standard-spacing;
+    li {
+        padding: 0px !important;
+        padding-left: 0px !important;
+        margin: 3px 0px;
+        a {
+            padding: 3px 7px;
+            background: var(--link-alt-background-color);
+            &:hover,&:focus,&:active {
+                text-decoration: none;
+                background: var(--link-alt-active-background-color);
+            }
+            &:active {
+                text-decoration: none;
+                background: var(--link-alt-hover-background-color);
+            }
         }
     }
 }
 
-// [UCT] customize the lesson editor dialog
 .lessonsDialog {
     .panel-group {
         input[name="name"] {
             @extend .default-input;
-            padding: 0.3em;
+            padding: 0.6em;
         }
     }
+
 
     #stylingstuffbody {
         #buttonColorLabel {
