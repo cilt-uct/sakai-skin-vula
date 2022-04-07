@@ -61,8 +61,8 @@ $skin-path: "/library/skin/vula/" !default;
 // ----------------------------------------
 
 // Primary
-$color-primary:   #15597e; //#0099ff;
-$color-secondary: #42AAE0;
+$color-primary:   #2E431D; //#15597e; //#0099ff; - #155a7e
+$color-secondary: #6C9E21; //#42AAE0;
 $color-success:   #52a536;
 $color-warning:   #efc777;
 $color-alert:     #91353a;
@@ -123,7 +123,8 @@ $warncolor: $color-warning !default;
 //   @include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); // [UCT] - %head-gradient 
 // }
 //@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); // [UCT] - %head-gradient
-$head-gradient: linear-gradient(to right bottom, #15597e, #156089, #146895, #136fa0, #1377ac, #1377ac, #1377ac, #1377ac, #136fa0, #146895, #156089, #15597e);
+//$head-gradient: linear-gradient(to right bottom, #15597e, #156089, #146895, #136fa0, #1377ac, #1377ac, #1377ac, #1377ac, #136fa0, #146895, #156089, #15597e);
+$head-gradient: linear-gradient(to right bottom, #50c255, #60bd50, #6cb94b, #77b448, #7faf46, #7cab44, #79a643, #76a241, #689d3f, #59983e, #4a933d, #388e3c);
 
 // Favorites 
 // ----------------------------------------
@@ -319,7 +320,7 @@ $lessons-as-material: true !default;
   $sites-nav-menu-item-hover-border-left:     $sites-nav-menu-item-hover-border-top;
   
   $sites-nav-menu-item-selected-background: hsla(200, 31%, 84%,1);
-  $sites-nav-menu-item-selected-color: hsl(201, 71%, 20%);
+  $sites-nav-menu-item-selected-color: hsl(93, 40%, 19%); //hsl(201, 71%, 20%);
   $sites-nav-menu-item-selected-border-color: $sites-nav-menu-item-selected-background;
   $sites-nav-menu-item-selected-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-border-color;
   $sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top;
@@ -327,7 +328,7 @@ $lessons-as-material: true !default;
   $sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top;
   
   $sites-nav-menu-item-selected-hover-background:   hsla(200, 31%, 76%,1);
-  $sites-nav-menu-item-selected-hover-color: hsl(201, 71%, 20%);
+  $sites-nav-menu-item-selected-hover-color: hsl(93, 40%, 19%); //hsl(201, 71%, 20%);
   $sites-nav-menu-item-selected-hover-border-color: $sites-nav-menu-item-selected-hover-background;
   $sites-nav-menu-item-selected-hover-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-hover-border-color;
   $sites-nav-menu-item-selected-hover-border-right: $sites-nav-menu-item-selected-hover-border-top;
