@@ -531,8 +531,8 @@ nav#subSites{
 					// margin-right: 10px; // [UCT]
 					margin-left: 4px;
 					display: flex;
-                    position: relative; // [UCT]
-                    right: -14px;		// [UCT]
+                    position: absolute; // [UCT]
+                    right: 0px;		    // [UCT]
 					div {
 						margin-right: 10px;
 						&.tool-status-icon {
@@ -715,6 +715,22 @@ body {
 					}
 				}
 
+                // [UCT] - spacing
+                & > a {
+                    padding: 0px 12px;
+                }
+
+                // [UCT] - spacing
+                & > span {
+                    padding: 0px 12px;
+                }
+                // [UCT] - spacing
+                .Mrphs-toolsNav__menuitem--title {
+                    margin-left: 10px;
+                    position: relative;
+                    padding: 10px 0px;
+                }
+
 				.lessons-top-level-placeholder {
 					@include flex-direction(row);	// always make the flex-direction row, including when "$tool-menu-icon-on-left: false"
 					
@@ -733,8 +749,11 @@ body {
                         z-index: 10;
                         text-decoration: none;	// remove underline from linked icon
                         font-style: normal;
+                        width: calc(#{$tool-menu-width} - calc(#{$standard-spacing} * 3));
+                        position: absolute;
+                        left: calc(16px * 3 - 8px);
+                        height: 40px;
 
-                        width: calc(#{$tool-menu-width} - calc(#{$standard-spacing} * 2));
 						.Mrphs-toolsNav__menuitem--title {
 							color: var(--tool-menu-item-text-color);
                             margin-left: 4px; // [UCT] change spacing                            
@@ -742,6 +761,7 @@ body {
 						&:hover {
 							color: var(--tool-menu-item-hover-text-color);
 						}
+                        /* [UCT] remove unnecessary css
 						&:focus {
 							&:after {
 								font-family: 'FontAwesome';
@@ -750,8 +770,10 @@ body {
 								padding-right: 5px;
 							}
 						}
+                        */
 					}
 
+                    /* [UCT] remove unnecessary css
 					&:hover {
 						.lessons-goto-top-page {
 							
@@ -775,11 +797,12 @@ body {
 								&:after {
 									font-family: 'FontAwesome';
 									content: '\f0a9';
-									padding-right: 4px; // [UCT] some better spacing
+									padding-right: 4px; 
 								}
 							}
 						}
 					}
+                    */
 				}
 			}
 
@@ -804,6 +827,7 @@ body {
 						.#{$namespace}toolsNav__menuitem--title {
 							color: var(--tool-lessons-toplevel-menu-expanded-selected-color) !important;
 							font-weight: normal !important;
+                            background-color: crimson; // [UCT]
 						}
 						&:hover {
 							color: var(--tool-lessons-toplevel-menu-expanded-selected-color) !important;
@@ -907,7 +931,7 @@ body {
 						@if $tool-menu-icon-on-left {
 							padding: $tool-lessons-subpage-menu-text-padding;
 							text-align: left;
-							border-radius: $tool-lessons-subpage-menu-border-radius;
+							//border-radius: $tool-lessons-subpage-menu-border-radius; [UCT] remove rounding
 							margin-right: $tool-menu-item-margin-right;
 						}
 						@else {

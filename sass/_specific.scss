@@ -727,6 +727,55 @@ body.#{$namespace}portalBody {
         }
     }
 
+    // Edit Site Information
+    #classInformationForm {
+
+        #title, #iconUrl, #siteContactName, #siteContactEmail {
+            @extend .default-input;
+            padding: 0.42em 0.4em;
+            width: 450px;
+            min-width: 200px;
+        }
+
+        #short_description {
+            padding: 0.42em 0.4em;
+            width: 450px;
+            min-width: 200px;
+        }
+
+        #locales.indnt2 {
+            margin-left: 0px;
+        }
+    }
+
+    // New Assignment
+    #newAssignmentForm {
+
+        .ui-datepicker-trigger {
+            padding: 7px 10px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            position: relative;
+            top: 2px;
+        }
+
+        #opendate, #duedate, #closedate, #resubmit {
+            @extend .default-input;
+            padding: 0.4em;
+            min-height: 2em;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border-right-width: 0px;
+
+        }
+
+        #duedate, #closedate, #resubmit {
+            & ~ .ui-datepicker-trigger {
+                top: 1px;
+            }
+        }
+    }
+
     .container-fluid {
         form {
             .form-group {
@@ -781,7 +830,7 @@ body.#{$namespace}portalBody {
         margin-left: 4px;
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
-        border-right-width: 0px;        
+        border-right-width: 0px;
     }
 
     .ui-datepicker-trigger {
@@ -813,10 +862,9 @@ body.#{$namespace}portalBody {
 }
 
 #edit-item-dialog {
+
     form {
-
         #accordion {
-
             div.panel {
                 border-radius: 0px;
             }
