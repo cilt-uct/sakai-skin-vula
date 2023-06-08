@@ -251,3 +251,14 @@
     background-color: var(--sakai-background-color-2) !important;
     max-width: 310px;
 }
+
+.commons-post-content[contenteditable="true"] {
+    display: inline-block;
+    min-width: 100%;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.commons-post-content[contenteditable="true"]:empty:before {
+    content: "\feff"; /* ZERO WIDTH NO-BREAK SPACE */
+}

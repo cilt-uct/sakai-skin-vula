@@ -252,29 +252,13 @@
     max-width: 310px;
 }
 
-//  removed but still used? 
-.likedAlready {
-    font-weight: bold;
-}
-#commons-like-section {
-    margin-right: 1em;
-}
-
-.commons-editor-priority-label {
-    margin-top: 7px;
-}
-
-#commons-editor-priority-help {
-    text-decoration: none;
-}
-
-span.commons-high-priority {
-    float: right;
-}
-
 .commons-post-content[contenteditable="true"] {
     display: inline-block;
     min-width: 100%;
     border: 1px solid black;
     overflow: hidden;
+}
+
+.commons-post-content[contenteditable="true"]:empty:before {
+    content: "\feff"; /* ZERO WIDTH NO-BREAK SPACE */
 }
