@@ -705,7 +705,6 @@ div.fav-title-myworkspace {
 		position: relative;
 		right: 2px;
 		padding: 0 calc( #{$standard-spacing} / 2 ); // [UCT]
-		height: $tool-tab-height;					 // [UCT]
 		line-height: $tool-tab-height;
 		color: var(--all-sites-button-drag-icon-color);
 		cursor: move; /* fallback if grab cursor is unsupported */
