@@ -23,11 +23,11 @@
     //      named colorname-0 through colorname-10
     //      The HSL you provide in the parameters will be in the
     //      middle of the range at -5.
-    // Example 
+    // Example
     // @include defineColorHSL(--myschool-gray, 214, 3%, 55%);
     //      returns --myschool-gray-5: hsl(214, 3%, 55%;
     //
-    // In addition to the primary branding color defined here, Sakai comes 
+    // In addition to the primary branding color defined here, Sakai comes
     // predefined with gray, blue, teal, gold, green, orange,
     // purple, and red palettes available for you to use.
     // More info about defineColorHSL in sass/themes/_base.scss
@@ -50,7 +50,7 @@
     --logo-opacity: 1;
     --logo-background-color: var(--sakai-primary-color-1);
 
-    // Primary branding color. 
+    // Primary branding color.
     // Suggested: Your institution's main branding color.
     // Used in the top header, action buttons, etc. Commonly used as the background
     // color with white text color.
@@ -64,7 +64,7 @@
     // Used for active, focus, selected effects
     --sakai-primary-color-3: var(--sakai-brand--darker-3);
 
-    // Default: A very light tint of --sakai-primary-color-1. 
+    // Default: A very light tint of --sakai-primary-color-1.
     // Suggested: A light tint of your institution's main branding color.
     // Used to highlight active/current site in favorites and active/current tool in toolmenu
     // Commonly used with white background color with white text color.
@@ -78,7 +78,7 @@
     // Used for active, focus, selected effects with --sakai-text-color-3
     --sakai-active-color-3: var(--sakai-brand--lighter-4);
 
-    // Default: A very light tint of gray. 
+    // Default: A very light tint of gray.
     // Suggested: --sakai-color-gray--lighter-6.
     // Used as background for non-active/current site in favorites and buttons
     // Commonly used with dark text color.
@@ -92,7 +92,7 @@
     // Used for active, focus, selected effects with --sakai-text-color-1
     --sakai-passive-color-3: var(--sakai-color-gray--lighter-4);
 
-    // Primary background color. 
+    // Primary background color.
     // Suggested: white
     // Used on the body and main content containers
     --sakai-background-color-1: var(--sakai-color-white);
@@ -110,23 +110,44 @@
     // Used for active, focus, selected effects of --sakai-background-color-3
     --sakai-background-color-4: var(--sakai-color-gray--lighter-5);
 
-    // Secondary color. 
+    // Default: A slightly darker shade of --sakai-background-color-4
+    // Used for active, focus, selected effects of --sakai-background-color-3
+    --sakai-background-color-5: var(--sakai-color-gray--lighter-4);
+
+    // Default: A slightly darker shade of --sakai-background-color-5
+    // Used for active, focus, selected effects of --sakai-background-color-3
+    --sakai-background-color-6: var(--sakai-color-gray--lighter-3);
+
+    // Default: A slightly darker shade of --sakai-background-color-6
+    // Used for active, focus, selected effects of --sakai-background-color-3
+    --sakai-background-color-7: var(--sakai-color-gray--lighter-2);
+
+    // Default: A slightly darker shade of --sakai-background-color-7
+    // Used for active, focus, selected effects of --sakai-background-color-3
+    // Note: --sakai-background-color-8 is not currently used, it is included to maintain the consistent pattern in the code.
+    --sakai-background-color-8: var(--sakai-color-gray--lighter-1);
+
+    // Default: A slightly darker shade of --sakai-background-color-8
+    // Used for active, focus, selected effects of --sakai-background-color-3
+    --sakai-background-color-9: var(--sakai-color-gray);
+
+    // Secondary color.
     // Suggested: An alterate branding color distinct from
     // what you select for --sakai-primary-color-1
     // Used in href, new user tutorial, user profile image border
     --sakai-secondary-color-1: var(--sakai-color-blue--darker-2);
 
-    // Tertiary branding color. 
+    // Tertiary branding color.
     // Suggested: A third branding color distinct from
     // what you selected for --sakai-primary-color-1 and --sakai-secondary-color-1
     // Used in user profile image border, swapped view
     --sakai-tertiary-color-1: var(--sakai-color-orange--darker-4);
 
-    // Primary border color used across sakai. 
+    // Primary border color used across sakai.
     // Suggested: light gray
     --sakai-border-color: var(--sakai-color-gray--lighter-6);
 
-    // Primary text color used across sakai. 
+    // Primary text color used across sakai.
     // Suggested: dark gray, near black
     // Most commonly used against --sakai-background-color-1
     --sakai-text-color-1: var(--sakai-color-gray--darker-5);
