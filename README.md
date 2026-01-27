@@ -27,7 +27,7 @@
 
 `grunt`
 
-## Developement
+## Development
 
 1. Get the update from the Sakai repository (`/library/source/morpheus-master`) and overwrite the contained `morpheus-master` folder.
 2. Copy the assets folder from `./morpheus-master/bootstrap-sass-x/` and overwrite the assets folder in `bootstrap-sass`.
@@ -64,3 +64,8 @@ Morpheus (Mobile Optimized Responsive Portal for Higher Education Using Sass) is
  - [Folder structure and files](./morpheus-master/folder-structure.md) [Spanish version](./morpheus-master/folder-structure.es.md)
  - [Compiling my own skin with maven](./morpheus-master/compile-skin.md)
  - [Adding a tool to Morpheus](./morpheus-master/customization-tool.md)
+
+
+/etc/apache2/sites-enabled/vuladev.uct.ac.za.conf
+
+ RewriteRule   ^/library/skin/default/tool.css  /library/skin/vula/tool.css   [R]
