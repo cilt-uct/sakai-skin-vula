@@ -1,0 +1,1394 @@
+/* Base theme */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+:root {
+  --sakai-theme-color-interval: 9;
+  --sakai-color-contrast-threshold: 60%;
+  --sakai-theme-switch-ease: background-color 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+  --sakai-color-white: hsl(0, 0%, 100%);
+  --sakai-color-black: hsl(0, 0%, 0%);
+  --sakai-color-gray--lighter-7: #f3f4f4;
+  --sakai-color-gray--lighter-6: #e3e4e5;
+  --sakai-color-gray--lighter-5: #d3d4d6;
+  --sakai-color-gray--lighter-4: #c3c5c7;
+  --sakai-color-gray--lighter-3: #b3b5b8;
+  --sakai-color-gray--lighter-2: #a4a6a9;
+  --sakai-color-gray--lighter-1: #94969a;
+  --sakai-color-gray: #898c90;
+  --sakai-color-gray--darker-1: #7d7f83;
+  --sakai-color-gray--darker-2: #6a6d70;
+  --sakai-color-gray--darker-3: #585a5c;
+  --sakai-color-gray--darker-4: #454749;
+  --sakai-color-gray--darker-5: #333435;
+  --sakai-color-gray--darker-6: #202122;
+  --sakai-color-gray--darker-7: #0e0e0e;
+  --sakai-color-blue--lighter-7: #eaf5fc;
+  --sakai-color-blue--lighter-6: #cce7f8;
+  --sakai-color-blue--lighter-5: #afdaf4;
+  --sakai-color-blue--lighter-4: #92ccf0;
+  --sakai-color-blue--lighter-3: #75beec;
+  --sakai-color-blue--lighter-2: #58b1e9;
+  --sakai-color-blue--lighter-1: #3ba3e5;
+  --sakai-color-blue: #289ae2;
+  --sakai-color-blue--darker-1: #248cce;
+  --sakai-color-blue--darker-2: #1f77af;
+  --sakai-color-blue--darker-3: #1a6391;
+  --sakai-color-blue--darker-4: #144e72;
+  --sakai-color-blue--darker-5: #0f3954;
+  --sakai-color-blue--darker-6: #092435;
+  --sakai-color-blue--darker-7: #040f17;
+  --sakai-color-teal--lighter-7: #e6f5f5;
+  --sakai-color-teal--lighter-6: #c3e7e7;
+  --sakai-color-teal--lighter-5: #a1d9d9;
+  --sakai-color-teal--lighter-4: #7ecbcb;
+  --sakai-color-teal--lighter-3: #5cbebe;
+  --sakai-color-teal--lighter-2: #39b0b0;
+  --sakai-color-teal--lighter-1: #17a2a2;
+  --sakai-color-teal: #009999;
+  --sakai-color-teal--darker-1: darkcyan;
+  --sakai-color-teal--darker-2: #007777;
+  --sakai-color-teal--darker-3: #006262;
+  --sakai-color-teal--darker-4: #004d4d;
+  --sakai-color-teal--darker-5: #003939;
+  --sakai-color-teal--darker-6: #002424;
+  --sakai-color-teal--darker-7: #000f0f;
+  --sakai-color-gold--lighter-7: #fbf8e6;
+  --sakai-color-gold--lighter-6: #f6eec3;
+  --sakai-color-gold--lighter-5: #f1e4a1;
+  --sakai-color-gold--lighter-4: #ecda7f;
+  --sakai-color-gold--lighter-3: #e7d05c;
+  --sakai-color-gold--lighter-2: #e2c63a;
+  --sakai-color-gold--lighter-1: #ddbd18;
+  --sakai-color-gold: #dab601;
+  --sakai-color-gold--darker-1: #c6a601;
+  --sakai-color-gold--darker-2: #a98d01;
+  --sakai-color-gold--darker-3: #8c7401;
+  --sakai-color-gold--darker-4: #6e5c01;
+  --sakai-color-gold--darker-5: #514300;
+  --sakai-color-gold--darker-6: #332b00;
+  --sakai-color-gold--darker-7: #161200;
+  --sakai-color-green--lighter-7: #e6f6ed;
+  --sakai-color-green--lighter-6: #c5ead6;
+  --sakai-color-green--lighter-5: #a3debe;
+  --sakai-color-green--lighter-4: #82d2a6;
+  --sakai-color-green--lighter-3: #60c68e;
+  --sakai-color-green--lighter-2: #3fba77;
+  --sakai-color-green--lighter-1: #1dae5f;
+  --sakai-color-green: #07a64f;
+  --sakai-color-green--darker-1: #069748;
+  --sakai-color-green--darker-2: #05813d;
+  --sakai-color-green--darker-3: #046a33;
+  --sakai-color-green--darker-4: #045428;
+  --sakai-color-green--darker-5: #033d1d;
+  --sakai-color-green--darker-6: #022713;
+  --sakai-color-green--darker-7: #011108;
+  --sakai-color-orange--lighter-7: #fbf1e6;
+  --sakai-color-orange--lighter-6: #f6ddc5;
+  --sakai-color-orange--lighter-5: #f1caa4;
+  --sakai-color-orange--lighter-4: #ecb782;
+  --sakai-color-orange--lighter-3: #e7a361;
+  --sakai-color-orange--lighter-2: #e29040;
+  --sakai-color-orange--lighter-1: #dc7d1e;
+  --sakai-color-orange: #d97008;
+  --sakai-color-orange--darker-1: #c56607;
+  --sakai-color-orange--darker-2: #a85706;
+  --sakai-color-orange--darker-3: #8b4805;
+  --sakai-color-orange--darker-4: #6e3904;
+  --sakai-color-orange--darker-5: #502903;
+  --sakai-color-orange--darker-6: #331a02;
+  --sakai-color-orange--darker-7: #160b01;
+  --sakai-color-purple--lighter-7: #ededfe;
+  --sakai-color-purple--lighter-6: #d4d4fe;
+  --sakai-color-purple--lighter-5: #bbbbfd;
+  --sakai-color-purple--lighter-4: #a3a3fc;
+  --sakai-color-purple--lighter-3: #8a8afb;
+  --sakai-color-purple--lighter-2: #7171fa;
+  --sakai-color-purple--lighter-1: #5858fa;
+  --sakai-color-purple: #4848f9;
+  --sakai-color-purple--darker-1: #4242e3;
+  --sakai-color-purple--darker-2: #3838c1;
+  --sakai-color-purple--darker-3: #2e2e9f;
+  --sakai-color-purple--darker-4: #24247e;
+  --sakai-color-purple--darker-5: #1b1b5c;
+  --sakai-color-purple--darker-6: #11113b;
+  --sakai-color-purple--darker-7: #070719;
+  --sakai-color-red--lighter-7: #fae6e7;
+  --sakai-color-red--lighter-6: #f3c3c5;
+  --sakai-color-red--lighter-5: #eca1a4;
+  --sakai-color-red--lighter-4: #e57e83;
+  --sakai-color-red--lighter-3: #de5c62;
+  --sakai-color-red--lighter-2: #d73941;
+  --sakai-color-red--lighter-1: #d11720;
+  --sakai-color-red: #cc000a;
+  --sakai-color-red--darker-1: #ba0009;
+  --sakai-color-red--darker-2: #9e0008;
+  --sakai-color-red--darker-3: #830006;
+  --sakai-color-red--darker-4: #670005;
+  --sakai-color-red--darker-5: #4b0004;
+  --sakai-color-red--darker-6: #300002;
+  --sakai-color-red--darker-7: #140001;
+  --sakai-lessons-navy--lighter-7: #e6eaf0;
+  --sakai-lessons-navy--lighter-6: #c3cddb;
+  --sakai-lessons-navy--lighter-5: #a1b1c6;
+  --sakai-lessons-navy--lighter-4: #7e94b2;
+  --sakai-lessons-navy--lighter-3: #5c789d;
+  --sakai-lessons-navy--lighter-2: #395b88;
+  --sakai-lessons-navy--lighter-1: #173f74;
+  --sakai-lessons-navy: #002c66;
+  --sakai-lessons-navy--darker-1: #00285d;
+  --sakai-lessons-navy--darker-2: #00224f;
+  --sakai-lessons-navy--darker-3: #001c41;
+  --sakai-lessons-navy--darker-4: #001634;
+  --sakai-lessons-navy--darker-5: #001026;
+  --sakai-lessons-navy--darker-6: #000a18;
+  --sakai-lessons-navy--darker-7: #00040a;
+}
+:root .sakai-colorize--sakai-color-gray--lighter-7 {
+  color: #262728;
+  background-color: #f3f4f4;
+}
+:root .sakai-colorize--sakai-color-gray--lighter-6 {
+  color: #262728;
+  background-color: #e3e4e5;
+}
+:root .sakai-colorize--sakai-color-gray--lighter-5 {
+  color: #262728;
+  background-color: #d3d4d6;
+}
+:root .sakai-colorize--sakai-color-gray--lighter-4 {
+  color: #262728;
+  background-color: #c3c5c7;
+}
+:root .sakai-colorize--sakai-color-gray--lighter-3 {
+  color: #262728;
+  background-color: #b3b5b8;
+}
+:root .sakai-colorize--sakai-color-gray--lighter-2 {
+  color: #262728;
+  background-color: #a4a6a9;
+}
+:root .sakai-colorize--sakai-color-gray--lighter-1 {
+  color: #262728;
+  background-color: #94969a;
+}
+:root .sakai-colorize--sakai-color-gray {
+  color: #000;
+  background-color: #898c90;
+}
+:root .sakai-colorize--sakai-color-gray--darker-1 {
+  color: #000;
+  background-color: #7d7f83;
+}
+:root .sakai-colorize--sakai-color-gray--darker-2 {
+  color: #fff;
+  background-color: #6a6d70;
+}
+:root .sakai-colorize--sakai-color-gray--darker-3 {
+  color: #dedfe0;
+  background-color: #585a5c;
+}
+:root .sakai-colorize--sakai-color-gray--darker-4 {
+  color: #dedfe0;
+  background-color: #454749;
+}
+:root .sakai-colorize--sakai-color-gray--darker-5 {
+  color: #dedfe0;
+  background-color: #333435;
+}
+:root .sakai-colorize--sakai-color-gray--darker-6 {
+  color: #dedfe0;
+  background-color: #202122;
+}
+:root .sakai-colorize--sakai-color-gray--darker-7 {
+  color: #dedfe0;
+  background-color: #0e0e0e;
+}
+:root .sakai-colorize--sakai-color-blue--lighter-7 {
+  color: #0b2b3f;
+  background-color: #eaf5fc;
+}
+:root .sakai-colorize--sakai-color-blue--lighter-6 {
+  color: #0b2b3f;
+  background-color: #cce7f8;
+}
+:root .sakai-colorize--sakai-color-blue--lighter-5 {
+  color: #0b2b3f;
+  background-color: #afdaf4;
+}
+:root .sakai-colorize--sakai-color-blue--lighter-4 {
+  color: #0b2b3f;
+  background-color: #92ccf0;
+}
+:root .sakai-colorize--sakai-color-blue--lighter-3 {
+  color: #0b2b3f;
+  background-color: #75beec;
+}
+:root .sakai-colorize--sakai-color-blue--lighter-2 {
+  color: #0b2b3f;
+  background-color: #58b1e9;
+}
+:root .sakai-colorize--sakai-color-blue--lighter-1 {
+  color: #0b2b3f;
+  background-color: #3ba3e5;
+}
+:root .sakai-colorize--sakai-color-blue {
+  color: #0b2b3f;
+  background-color: #289ae2;
+}
+:root .sakai-colorize--sakai-color-blue--darker-1 {
+  color: #000;
+  background-color: #248cce;
+}
+:root .sakai-colorize--sakai-color-blue--darker-2 {
+  color: #fff;
+  background-color: #1f77af;
+}
+:root .sakai-colorize--sakai-color-blue--darker-3 {
+  color: #c3e3f7;
+  background-color: #1a6391;
+}
+:root .sakai-colorize--sakai-color-blue--darker-4 {
+  color: #c3e3f7;
+  background-color: #144e72;
+}
+:root .sakai-colorize--sakai-color-blue--darker-5 {
+  color: #c3e3f7;
+  background-color: #0f3954;
+}
+:root .sakai-colorize--sakai-color-blue--darker-6 {
+  color: #c3e3f7;
+  background-color: #092435;
+}
+:root .sakai-colorize--sakai-color-blue--darker-7 {
+  color: #c3e3f7;
+  background-color: #040f17;
+}
+:root .sakai-colorize--sakai-color-teal--lighter-7 {
+  color: #002b2b;
+  background-color: #e6f5f5;
+}
+:root .sakai-colorize--sakai-color-teal--lighter-6 {
+  color: #002b2b;
+  background-color: #c3e7e7;
+}
+:root .sakai-colorize--sakai-color-teal--lighter-5 {
+  color: #002b2b;
+  background-color: #a1d9d9;
+}
+:root .sakai-colorize--sakai-color-teal--lighter-4 {
+  color: #002b2b;
+  background-color: #7ecbcb;
+}
+:root .sakai-colorize--sakai-color-teal--lighter-3 {
+  color: #002b2b;
+  background-color: #5cbebe;
+}
+:root .sakai-colorize--sakai-color-teal--lighter-2 {
+  color: #002b2b;
+  background-color: #39b0b0;
+}
+:root .sakai-colorize--sakai-color-teal--lighter-1 {
+  color: #002b2b;
+  background-color: #17a2a2;
+}
+:root .sakai-colorize--sakai-color-teal {
+  color: #000;
+  background-color: #009999;
+}
+:root .sakai-colorize--sakai-color-teal--darker-1 {
+  color: #000;
+  background-color: darkcyan;
+}
+:root .sakai-colorize--sakai-color-teal--darker-2 {
+  color: #fff;
+  background-color: #007777;
+}
+:root .sakai-colorize--sakai-color-teal--darker-3 {
+  color: #b8e2e2;
+  background-color: #006262;
+}
+:root .sakai-colorize--sakai-color-teal--darker-4 {
+  color: #b8e2e2;
+  background-color: #004d4d;
+}
+:root .sakai-colorize--sakai-color-teal--darker-5 {
+  color: #b8e2e2;
+  background-color: #003939;
+}
+:root .sakai-colorize--sakai-color-teal--darker-6 {
+  color: #b8e2e2;
+  background-color: #002424;
+}
+:root .sakai-colorize--sakai-color-teal--darker-7 {
+  color: #b8e2e2;
+  background-color: #000f0f;
+}
+:root .sakai-colorize--sakai-color-gold--lighter-7 {
+  color: #3d3300;
+  background-color: #fbf8e6;
+}
+:root .sakai-colorize--sakai-color-gold--lighter-6 {
+  color: #3d3300;
+  background-color: #f6eec3;
+}
+:root .sakai-colorize--sakai-color-gold--lighter-5 {
+  color: #3d3300;
+  background-color: #f1e4a1;
+}
+:root .sakai-colorize--sakai-color-gold--lighter-4 {
+  color: #3d3300;
+  background-color: #ecda7f;
+}
+:root .sakai-colorize--sakai-color-gold--lighter-3 {
+  color: #3d3300;
+  background-color: #e7d05c;
+}
+:root .sakai-colorize--sakai-color-gold--lighter-2 {
+  color: #3d3300;
+  background-color: #e2c63a;
+}
+:root .sakai-colorize--sakai-color-gold--lighter-1 {
+  color: #3d3300;
+  background-color: #ddbd18;
+}
+:root .sakai-colorize--sakai-color-gold {
+  color: #3d3300;
+  background-color: #dab601;
+}
+:root .sakai-colorize--sakai-color-gold--darker-1 {
+  color: #3d3300;
+  background-color: #c6a601;
+}
+:root .sakai-colorize--sakai-color-gold--darker-2 {
+  color: #000;
+  background-color: #a98d01;
+}
+:root .sakai-colorize--sakai-color-gold--darker-3 {
+  color: #fff;
+  background-color: #8c7401;
+}
+:root .sakai-colorize--sakai-color-gold--darker-4 {
+  color: #f5ebb8;
+  background-color: #6e5c01;
+}
+:root .sakai-colorize--sakai-color-gold--darker-5 {
+  color: #f5ebb8;
+  background-color: #514300;
+}
+:root .sakai-colorize--sakai-color-gold--darker-6 {
+  color: #f5ebb8;
+  background-color: #332b00;
+}
+:root .sakai-colorize--sakai-color-gold--darker-7 {
+  color: #f5ebb8;
+  background-color: #161200;
+}
+:root .sakai-colorize--sakai-color-green--lighter-7 {
+  color: #022e16;
+  background-color: #e6f6ed;
+}
+:root .sakai-colorize--sakai-color-green--lighter-6 {
+  color: #022e16;
+  background-color: #c5ead6;
+}
+:root .sakai-colorize--sakai-color-green--lighter-5 {
+  color: #022e16;
+  background-color: #a3debe;
+}
+:root .sakai-colorize--sakai-color-green--lighter-4 {
+  color: #022e16;
+  background-color: #82d2a6;
+}
+:root .sakai-colorize--sakai-color-green--lighter-3 {
+  color: #022e16;
+  background-color: #60c68e;
+}
+:root .sakai-colorize--sakai-color-green--lighter-2 {
+  color: #022e16;
+  background-color: #3fba77;
+}
+:root .sakai-colorize--sakai-color-green--lighter-1 {
+  color: #022e16;
+  background-color: #1dae5f;
+}
+:root .sakai-colorize--sakai-color-green {
+  color: #022e16;
+  background-color: #07a64f;
+}
+:root .sakai-colorize--sakai-color-green--darker-1 {
+  color: #000;
+  background-color: #069748;
+}
+:root .sakai-colorize--sakai-color-green--darker-2 {
+  color: #fff;
+  background-color: #05813d;
+}
+:root .sakai-colorize--sakai-color-green--darker-3 {
+  color: #bae6ce;
+  background-color: #046a33;
+}
+:root .sakai-colorize--sakai-color-green--darker-4 {
+  color: #bae6ce;
+  background-color: #045428;
+}
+:root .sakai-colorize--sakai-color-green--darker-5 {
+  color: #bae6ce;
+  background-color: #033d1d;
+}
+:root .sakai-colorize--sakai-color-green--darker-6 {
+  color: #bae6ce;
+  background-color: #022713;
+}
+:root .sakai-colorize--sakai-color-green--darker-7 {
+  color: #bae6ce;
+  background-color: #011108;
+}
+:root .sakai-colorize--sakai-color-orange--lighter-7 {
+  color: #3d1f02;
+  background-color: #fbf1e6;
+}
+:root .sakai-colorize--sakai-color-orange--lighter-6 {
+  color: #3d1f02;
+  background-color: #f6ddc5;
+}
+:root .sakai-colorize--sakai-color-orange--lighter-5 {
+  color: #3d1f02;
+  background-color: #f1caa4;
+}
+:root .sakai-colorize--sakai-color-orange--lighter-4 {
+  color: #3d1f02;
+  background-color: #ecb782;
+}
+:root .sakai-colorize--sakai-color-orange--lighter-3 {
+  color: #3d1f02;
+  background-color: #e7a361;
+}
+:root .sakai-colorize--sakai-color-orange--lighter-2 {
+  color: #3d1f02;
+  background-color: #e29040;
+}
+:root .sakai-colorize--sakai-color-orange--lighter-1 {
+  color: #3d1f02;
+  background-color: #dc7d1e;
+}
+:root .sakai-colorize--sakai-color-orange {
+  color: #000;
+  background-color: #d97008;
+}
+:root .sakai-colorize--sakai-color-orange--darker-1 {
+  color: #000;
+  background-color: #c56607;
+}
+:root .sakai-colorize--sakai-color-orange--darker-2 {
+  color: #fff;
+  background-color: #a85706;
+}
+:root .sakai-colorize--sakai-color-orange--darker-3 {
+  color: #f4d7ba;
+  background-color: #8b4805;
+}
+:root .sakai-colorize--sakai-color-orange--darker-4 {
+  color: #f4d7ba;
+  background-color: #6e3904;
+}
+:root .sakai-colorize--sakai-color-orange--darker-5 {
+  color: #f4d7ba;
+  background-color: #502903;
+}
+:root .sakai-colorize--sakai-color-orange--darker-6 {
+  color: #f4d7ba;
+  background-color: #331a02;
+}
+:root .sakai-colorize--sakai-color-orange--darker-7 {
+  color: #f4d7ba;
+  background-color: #160b01;
+}
+:root .sakai-colorize--sakai-color-purple--lighter-7 {
+  color: #141446;
+  background-color: #ededfe;
+}
+:root .sakai-colorize--sakai-color-purple--lighter-6 {
+  color: #141446;
+  background-color: #d4d4fe;
+}
+:root .sakai-colorize--sakai-color-purple--lighter-5 {
+  color: #141446;
+  background-color: #bbbbfd;
+}
+:root .sakai-colorize--sakai-color-purple--lighter-4 {
+  color: #141446;
+  background-color: #a3a3fc;
+}
+:root .sakai-colorize--sakai-color-purple--lighter-3 {
+  color: #141446;
+  background-color: #8a8afb;
+}
+:root .sakai-colorize--sakai-color-purple--lighter-2 {
+  color: #000;
+  background-color: #7171fa;
+}
+:root .sakai-colorize--sakai-color-purple--lighter-1 {
+  color: #fff;
+  background-color: #5858fa;
+}
+:root .sakai-colorize--sakai-color-purple {
+  color: #fff;
+  background-color: #4848f9;
+}
+:root .sakai-colorize--sakai-color-purple--darker-1 {
+  color: #fff;
+  background-color: #4242e3;
+}
+:root .sakai-colorize--sakai-color-purple--darker-2 {
+  color: #ccccfd;
+  background-color: #3838c1;
+}
+:root .sakai-colorize--sakai-color-purple--darker-3 {
+  color: #ccccfd;
+  background-color: #2e2e9f;
+}
+:root .sakai-colorize--sakai-color-purple--darker-4 {
+  color: #ccccfd;
+  background-color: #24247e;
+}
+:root .sakai-colorize--sakai-color-purple--darker-5 {
+  color: #ccccfd;
+  background-color: #1b1b5c;
+}
+:root .sakai-colorize--sakai-color-purple--darker-6 {
+  color: #ccccfd;
+  background-color: #11113b;
+}
+:root .sakai-colorize--sakai-color-purple--darker-7 {
+  color: #ccccfd;
+  background-color: #070719;
+}
+:root .sakai-colorize--sakai-color-red--lighter-7 {
+  color: #390003;
+  background-color: #fae6e7;
+}
+:root .sakai-colorize--sakai-color-red--lighter-6 {
+  color: #390003;
+  background-color: #f3c3c5;
+}
+:root .sakai-colorize--sakai-color-red--lighter-5 {
+  color: #390003;
+  background-color: #eca1a4;
+}
+:root .sakai-colorize--sakai-color-red--lighter-4 {
+  color: #390003;
+  background-color: #e57e83;
+}
+:root .sakai-colorize--sakai-color-red--lighter-3 {
+  color: #390003;
+  background-color: #de5c62;
+}
+:root .sakai-colorize--sakai-color-red--lighter-2 {
+  color: #fff;
+  background-color: #d73941;
+}
+:root .sakai-colorize--sakai-color-red--lighter-1 {
+  color: #fff;
+  background-color: #d11720;
+}
+:root .sakai-colorize--sakai-color-red {
+  color: #fff;
+  background-color: #cc000a;
+}
+:root .sakai-colorize--sakai-color-red--darker-1 {
+  color: #fff;
+  background-color: #ba0009;
+}
+:root .sakai-colorize--sakai-color-red--darker-2 {
+  color: #f1b8ba;
+  background-color: #9e0008;
+}
+:root .sakai-colorize--sakai-color-red--darker-3 {
+  color: #f1b8ba;
+  background-color: #830006;
+}
+:root .sakai-colorize--sakai-color-red--darker-4 {
+  color: #f1b8ba;
+  background-color: #670005;
+}
+:root .sakai-colorize--sakai-color-red--darker-5 {
+  color: #f1b8ba;
+  background-color: #4b0004;
+}
+:root .sakai-colorize--sakai-color-red--darker-6 {
+  color: #f1b8ba;
+  background-color: #300002;
+}
+:root .sakai-colorize--sakai-color-red--darker-7 {
+  color: #f1b8ba;
+  background-color: #140001;
+}
+:root .sakai-colorize--sakai-lessons-navy--lighter-7 {
+  color: #000c1d;
+  background-color: #e6eaf0;
+}
+:root .sakai-colorize--sakai-lessons-navy--lighter-6 {
+  color: #000c1d;
+  background-color: #c3cddb;
+}
+:root .sakai-colorize--sakai-lessons-navy--lighter-5 {
+  color: #000c1d;
+  background-color: #a1b1c6;
+}
+:root .sakai-colorize--sakai-lessons-navy--lighter-4 {
+  color: #000c1d;
+  background-color: #7e94b2;
+}
+:root .sakai-colorize--sakai-lessons-navy--lighter-3 {
+  color: #fff;
+  background-color: #5c789d;
+}
+:root .sakai-colorize--sakai-lessons-navy--lighter-2 {
+  color: #fff;
+  background-color: #395b88;
+}
+:root .sakai-colorize--sakai-lessons-navy--lighter-1 {
+  color: #b8c4d4;
+  background-color: #173f74;
+}
+:root .sakai-colorize--sakai-lessons-navy {
+  color: #b8c4d4;
+  background-color: #002c66;
+}
+:root .sakai-colorize--sakai-lessons-navy--darker-1 {
+  color: #b8c4d4;
+  background-color: #00285d;
+}
+:root .sakai-colorize--sakai-lessons-navy--darker-2 {
+  color: #b8c4d4;
+  background-color: #00224f;
+}
+:root .sakai-colorize--sakai-lessons-navy--darker-3 {
+  color: #b8c4d4;
+  background-color: #001c41;
+}
+:root .sakai-colorize--sakai-lessons-navy--darker-4 {
+  color: #b8c4d4;
+  background-color: #001634;
+}
+:root .sakai-colorize--sakai-lessons-navy--darker-5 {
+  color: #b8c4d4;
+  background-color: #001026;
+}
+:root .sakai-colorize--sakai-lessons-navy--darker-6 {
+  color: #b8c4d4;
+  background-color: #000a18;
+}
+:root .sakai-colorize--sakai-lessons-navy--darker-7 {
+  color: #b8c4d4;
+  background-color: #00040a;
+}
+
+/* Light Theme */
+:root {
+  --sakai-brand--lighter-7: #e7edf1;
+  --sakai-brand--lighter-6: #c7d5dd;
+  --sakai-brand--lighter-5: #a6bcca;
+  --sakai-brand--lighter-4: #86a4b7;
+  --sakai-brand--lighter-3: #658ca3;
+  --sakai-brand--lighter-2: #457490;
+  --sakai-brand--lighter-1: #255b7d;
+  --sakai-brand: #0f4b70;
+  --sakai-brand--darker-1: #0e4466;
+  --sakai-brand--darker-2: #0c3a57;
+  --sakai-brand--darker-3: #0a3048;
+  --sakai-brand--darker-4: #082639;
+  --sakai-brand--darker-5: #061c29;
+  --sakai-brand--darker-6: #04121a;
+  --sakai-brand--darker-7: #02080b;
+  --logo: url(library/skin/images/sakaiLogo.png);
+  --logo-height: 36px;
+  --logo-width: 126px;
+  --logo-opacity: 1;
+  --logo-background-color: var(--sakai-primary-color-1);
+  --sakai-primary-color-1: var(--sakai-brand);
+  --sakai-primary-color-2: var(--sakai-brand--darker-2);
+  --sakai-primary-color-3: var(--sakai-brand--darker-3);
+  --sakai-active-color-1: var(--sakai-brand--lighter-6);
+  --sakai-active-color-2: var(--sakai-brand--lighter-5);
+  --sakai-active-color-3: var(--sakai-brand--lighter-4);
+  --sakai-passive-color-1: var(--sakai-color-gray--lighter-6);
+  --sakai-passive-color-2: var(--sakai-color-gray--lighter-5);
+  --sakai-passive-color-3: var(--sakai-color-gray--lighter-4);
+  --sakai-background-color-1: var(--sakai-color-white);
+  --sakai-background-color-2: var(--sakai-color-gray--lighter-7);
+  --sakai-background-color-3: var(--sakai-color-gray--lighter-6);
+  --sakai-background-color-4: var(--sakai-color-gray--lighter-5);
+  --sakai-background-color-5: var(--sakai-color-gray--lighter-4);
+  --sakai-background-color-6: var(--sakai-color-gray--lighter-3);
+  --sakai-background-color-7: var(--sakai-color-gray--lighter-2);
+  --sakai-background-color-8: var(--sakai-color-gray--lighter-1);
+  --sakai-background-color-9: var(--sakai-color-gray);
+  --sakai-secondary-color-1: var(--sakai-color-blue--darker-2);
+  --sakai-tertiary-color-1: var(--sakai-color-orange--darker-4);
+  --sakai-border-color: var(--sakai-color-gray--lighter-6);
+  --sakai-text-color-1: var(--sakai-color-gray--darker-5);
+  --sakai-text-color-2: var(--sakai-color-gray--darker-6);
+  --sakai-text-color-3: var(--sakai-brand--darker-3);
+  --sakai-text-color-dimmed: var(--sakai-color-gray--darker-4);
+  --sakai-text-color-disabled: var(--sakai-color-gray--darker-2);
+  --sakai-text-color-inverted: var(--sakai-background-color-1);
+  --elevation-0dp: none;
+  --elevation-1dp: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  --elevation-2dp: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  --elevation-3dp: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12);
+  --elevation-4dp: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+  --elevation-5dp: 0 3px 5px -1px rgba(0,0,0,.2), 0 5px 8px 0 rgba(0,0,0,.14), 0 1px 14px 0 rgba(0,0,0,.12);
+  --elevation-6dp: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  --elevation-7dp: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12);
+  --elevation-8dp: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  --portal-background-color: var(--sakai-background-color-1);
+  --portal-mask-background: rgba(0,0,0,0.5);
+  /* Tool tabs */
+  --tool-background-color: var(--sakai-background-color-1);
+  --tool-menu-background-color: var(--sakai-background-color-1);
+  --tool-menu-hover-background-color: var(--sakai-background-color-2);
+  --tool-menu-color: var(--sakai-text-color-1);
+  --tool-border-color: var(--sakai-border-color);
+  --tool-tab-text-color: var(--tool-menu-color);
+  --tool-tab-background-color: var(--tool-menu-background-color);
+  --tool-tab-border-color: var(--sakai-border-color);
+  --tool-tab-hover-text-color: var(--sakai-text-color-3);
+  --tool-tab-hover-background-color: var(--sakai-background-color-3);
+  --tool-tab-hover-highlight-color: var(--sakai-active-color-2);
+  --tool-tab-active-text-color: var(--sakai-text-color-3);
+  --tool-tab-active-background-color: var(--sakai-background-color-1);
+  --tool-tab-active-highlight-color:var(--sakai-active-color-3);
+  --top-header-background: var(--sakai-color-gray--darker-5);
+  --top-header-profile-border-color-top: var(--sakai-secondary-color-1);
+  --top-header-profile-border-color-right: var(--sakai-secondary-color-1);
+  --top-header-profile-border-color-bottom: var(--sakai-tertiary-color-1);
+  --top-header-profile-border-color-left: var(--sakai-tertiary-color-1);
+  --top-header-profile-border-color-inner: var(--sakai-background-color-1);
+  --sites-nav-background: var(--sakai-background-color-1);
+  --sticky-footer-bg: var(--sakai-background-color-3);
+  --breadcrumbs-color: var(--sakai-text-color-1);
+  --breadcrumbs-tool-color: var(--sakai-primary-color-1);
+  --breadcrumbs-hover-color: var(--sakai-primary-color-1);
+  /* Link colors */
+  --link-color: var(--sakai-primary-color-1);
+  --link-active-color: var(--sakai-primary-color-3);
+  --link-hover-color: var(--sakai-primary-color-2);
+  --link-visited-color: var(--sakai-color-purple);
+  --link-background-color: transparent;
+  --link-active-background-color: transparent;
+  --link-hover-background-color: transparent;
+  --button-text-color: var(--sakai-text-color-2);
+  --button-background: var(--sakai-passive-color-1);
+  --button-border-color: var(--sakai-passive-color-2);
+  --button-shadow: none;
+  --button-hover-text-color: var(--button-text-color);
+  --button-hover-background: var(--sakai-passive-color-2);
+  --button-hover-border-color: var(--sakai-passive-color-3);
+  --button-hover-shadow: none;
+  --button-active-text-color:var(--button-text-color);
+  --button-active-background: var(--sakai-passive-color-3);
+  --button-active-border-color: var(--button-active-background);
+  --button-active-shadow-color: rgba(0,0,0,0);
+  --button-active-shadow: none;
+  --button-disabled-text-color: var(--sakai-text-color-disabled);
+  --button-disabled-background: var(--sakai-background-color-2);
+  --button-disabled-border-color: var(--sakai-border-color);
+  --button-disabled-shadow: none;
+  --button-primary-text-color: var(--sakai-text-color-inverted);
+  --button-primary-background: var(--sakai-primary-color-1);
+  --button-primary-border-color: var(--button-primary-background);
+  --button-primary-shadow: var(--elevation-2dp);
+  --button-primary-hover-text-color: var(--button-primary-text-color);
+  --button-primary-hover-background: var(--sakai-primary-color-2);
+  --button-primary-hover-border-color: var(--button-primary-hover-background);
+  --button-primary-hover-shadow: var(--elevation-4dp);
+  --button-primary-active-text-color: var(--button-primary-text-color);
+  --button-primary-active-background: var(--sakai-primary-color-3);
+  --button-primary-active-border-color: var(--button-primary-active-background);
+  --button-primary-active-shadow: var(--elevation-4dp);
+  --radio-button-background: var(--button-primary-background);
+  --checkbox-background: var(--button-primary-background);
+  --instruction-color: var(--sakai-text-color-disabled);
+  --infoBanner-bordercolor: var(--sakai-color-blue--lighter-2);
+  --infoBanner-bgcolor: var(--sakai-color-blue--lighter-7);
+  --infoBanner-color: var(--sakai-color-blue--darker-3);
+  --successBanner-bordercolor: var(--sakai-color-green--lighter-2);
+  --successBanner-bgcolor: var(--sakai-color-green--lighter-7);
+  --successBanner-color: var(--sakai-color-green--darker-3);
+  --warnBanner-bordercolor: var(--sakai-color-gold--lighter-2);
+  --warnBanner-bgcolor: var(--sakai-color-gold--lighter-7);
+  --warnBanner-color: var(--sakai-color-gold--darker-4);
+  --errorBanner-bordercolor: var(--sakai-color-red--lighter-2);
+  --errorBanner-bgcolor: var(--sakai-color-red--lighter-7);
+  --errorBanner-color: var(--sakai-color-red--darker-2);
+  /* Swapped 'View As' view */
+  --swapped-view-primary: var(--warnBanner-bgcolor);
+  /* Admin Become User view */
+  --become-user-primary: var(--sakai-color-purple--darker-1);
+  --topNav-text-color: var(--sakai-text-color-inverted);
+  --topNav-border-color: var(--sakai-border-color);
+  /* Favorites */
+  --sites-nav-background: var(--sakai-background-color-1);
+  /* Default state - not selected */
+  --sites-nav-menu-item-background: var(--sakai-passive-color-1);
+  --sites-nav-menu-item-color: var(--sakai-text-color-1);
+  --sites-nav-menu-item-border-color: var(--sites-nav-menu-item-background);
+  --sites-nav-menu-item-hover-background: var(--sakai-passive-color-2);
+  --sites-nav-menu-item-hover-color: var(--sakai-text-color-2);
+  --sites-nav-menu-item-hover-border-color: var(--sites-nav-menu-item-hover-background);
+  --sites-nav-menu-item-hover-icon-background: var(--sakai-passive-color-3);
+  --sites-nav-menu-item-hover-icon-border-color: var( --sites-nav-menu-item-hover-icon-background);
+  --sites-nav-menu-item-active-background: var(--sakai-passive-color-3);
+  --sites-nav-menu-item-active-border-color: var(--sites-nav-menu-item-active-background);
+  --sites-nav-menu-item-active-icon-background: var(--sites-nav-menu-item-active-background);
+  --sites-nav-menu-item-active-icon-border-color: var(--sites-nav-menu-item-active-background);
+  --sites-nav-submenu-border-color: transparent;
+  --sites-nav-submenu-background: var(--sites-nav-menu-item-background);
+  --sites-nav-submenu-item-color: var(--sites-nav-menu-item-color);
+  --sites-nav-submenu-item-divider-color: var(--sites-nav-submenu-item-color);
+  --sites-nav-submenu-item-hover-background: var(--sites-nav-menu-item-hover-background);
+  --sites-nav-submenu-item-hover-color: var(--sites-nav-menu-item-hover-color);
+  --sites-nav-submenu-item-hover-icon-color: var(--sites-nav-menu-item-hover-color);
+  --sites-nav-submenu-item-active-background: var(--sites-nav-menu-item-active-background);
+  /* End Default state */
+  /* Active/Current site */
+  --sites-nav-menu-item-selected-background: var(--sakai-active-color-1);
+  --sites-nav-menu-item-selected-color: var(--sakai-text-color-3);
+  --sites-nav-menu-item-selected-border-color: var(--sites-nav-menu-item-selected-background);
+  --sites-nav-menu-item-selected-hover-background: var(--sakai-active-color-2);
+  --sites-nav-menu-item-selected-hover-color: var(--sakai-text-color-3);
+  --sites-nav-menu-item-selected-hover-border-color: var(--sites-nav-menu-item-selected-hover-background);
+  --sites-nav-menu-item-selected-hover-icon-background: var(--sakai-active-color-3);
+  --sites-nav-menu-item-selected-hover-icon-border-color: var(--sites-nav-menu-item-selected-hover-icon-background);
+  --sites-nav-menu-item-selected-active-background: var(--sakai-active-color-3);
+  --sites-nav-menu-item-selected-active-border-color: var(--sites-nav-menu-item-selected-active-background);
+  --sites-nav-menu-item-selected-active-icon-background: var(--sites-nav-menu-item-selected-active-background);
+  --sites-nav-menu-item-selected-active-icon-border-color: var(--sites-nav-menu-item-selected-active-background);
+  --sites-nav-submenu-selected-border-color: transparent;
+  --sites-nav-submenu-selected-background: var(--sites-nav-menu-item-selected-background);
+  --sites-nav-submenu-item-selected-divider-color: var(--sites-nav-menu-item-selected-color);
+  --sites-nav-submenu-item-selected-hover-background: var(--sites-nav-menu-item-selected-hover-background);
+  --sites-nav-submenu-item-selected-hover-color: var(--sites-nav-menu-item-selected-hover-color);
+  --sites-nav-submenu-item-selected-hover-icon-color: var(--sites-nav-menu-item-selected-hover-color);
+  --sites-nav-submenu-item-selected-active-background: var(--sites-nav-menu-item-selected-active-background);
+  /* End Favorites */
+  --site-nav-btn-color: var(--button-text-color);
+  --site-nav-btn-bg: transparent;
+  --site-nav-btn-border-color: var(--site-nav-btn-bg);
+  --site-nav-btn-hover-color: var(--site-nav-btn-color);
+  --site-nav-btn-hover-bg: var(--sakai-brand--lighter-6);
+  --site-nav-btn-hover-border-color: var(--site-nav-btn-hover-bg);
+  --site-nav-btn-focus-shadow-rgb: 249, 250, 251;
+  --site-nav-btn-active-color: var(--site-nav-btn-color);
+  --site-nav-btn-active-bg: var(--sakai-brand--lighter-5);
+  --site-nav-btn-active-border-color: var(--site-nav-btn-border-color);
+  --site-nav-btn-disabled-color: var(--site-nav-btn-color);
+  --site-nav-btn-disabled-bg: var(--site-nav-btn-bg);
+  --site-nav-btn-disabled-border-color: var(--site-nav-btn-border-color);
+  --site-nav-btn-current-color: var(--button-text-color);
+  --site-nav-btn-current-bg: transparent;
+  --site-nav-btn-current-border-color: var(--site-nav-btn-current-bg);
+  --site-nav-btn-current-hover-color: var(--site-nav-btn-current-color);
+  --site-nav-btn-current-hover-bg: var(--sakai-brand--lighter-5);
+  --site-nav-btn-current-hover-border-color: var(--site-nav-btn-current-hover-bg);
+  --site-nav-btn-current-focus-shadow-rgb: 249, 250, 251;
+  --site-nav-btn-current-active-color: var(--site-nav-btn-current-color);
+  --site-nav-btn-current-active-bg: var(--sakai-brand--lighter-4);
+  --site-nav-btn-current-active-border-color: var(--site-nav-btn-current-border-color);
+  --site-nav-btn-current-disabled-color: var(--site-nav-btn-current-color);
+  --site-nav-btn-current-disabled-bg: var(--site-nav-btn-current-bg);
+  --site-nav-btn-current-disabled-border-color: var(--site-nav-btn-current-border-color);
+  --site-nav-bg: var(--sakai-background-color-2);
+  --site-nav-list-item-bg: var(--site-nav-bg);
+  --site-nav-list-item-collapse-bg: var(--sakai-background-color-1);
+  --site-nav-list-item-current-bg: var(--sakai-brand--lighter-5);
+  --site-nav-list-item-current-collapse-bg: var(--sakai-brand--lighter-6);
+  /* All Sites */
+  --all-sites-background-color: var(--sakai-background-color-1);
+  --all-sites-drop-shadow: var(--elevation-8dp);
+  --all-sites-tab-text-color: var(--tool-menu-color);
+  --all-sites-tab-background-color: var(--tool-tab-background-color);
+  --all-sites-tab-border-color: var(--tool-tab-border-color);
+  --all-sites-tab-hover-text-color: var(--tool-tab-hover-text-color);
+  --all-sites-tab-hover-background-color: var(--tool-tab-hover-background-color);
+  --all-sites-tab-hover-highlight: var(--tool-tab-hover-highlight-color);
+  --all-sites-tab-active-text-color: var(--tool-tab-active-text-color);
+  --all-sites-tab-active-background-color: var(--tool-tab-active-background-color);
+  --all-sites-tab-active-highlight-color: var(--tool-tab-active-highlight-color);
+  --all-sites-title-text-color: var(--sakai-text-color-1);
+  --all-sites-button-text-color: var(--sakai-text-color-1);
+  --all-sites-button-background-color: var(--sakai-background-color-2);
+  --all-sites-button-border-color: var(--sakai-border-color);
+  --all-sites-button-star-full-color: var(--sakai-color-gold);
+  --all-sites-button-star-empty-color: var(--sakai-text-color-1);
+  --all-sites-button-selected-text-color: var(--sakai-text-color-3);
+  --all-sites-button-selected-background-color: var(--sakai-active-color-1);
+  --all-sites-button-selected-border-color: var(--all-sites-button-selected-background-color);
+  --all-sites-button-selected-dropdown-color: var(--all-sites-button-selected-text-color);
+  --all-sites-button-selected-star-full-color: var(--all-sites-button-star-full-color);
+  --all-sites-button-selected-star-empty-color: var(--all-sites-button-star-empty-color);
+  --all-sites-button-hover-text-color: var(--sakai-text-color-1);
+  --all-sites-button-hover-background-color: var(--sakai-background-color-3);
+  --all-sites-button-hover-border-color: var(--all-sites-button-hover-background-color);
+  --all-sites-button-hover-dropdown-color: var(--all-sites-button-hover-text-color);
+  --all-sites-button-hover-star-full-color: var(--all-sites-button-star-full-color);
+  --all-sites-button-hover-star-empty-color: var(--all-sites-button-star-empty-color);
+  --all-sites-button-drag-icon-color: var(--sakai-text-color-1);
+  --all-sites-button-drag-icon-hover-color: var(--sakai-text-color-1);
+  --all-sites-tool-menu-divider-color: var(--sakai-border-color);
+  --all-sites-tool-menu-background-color: var(--all-sites-button-background-color);
+  --all-sites-tool-menu-text-color: var(--all-sites-button-text-color);
+  --all-sites-tool-menu-icon-color: var(--all-sites-button-text-color);
+  --all-sites-tool-menu-left-border-color: var(--all-sites-tool-menu-background-color);
+  --all-sites-tool-menu-hover-background-color: var(--all-sites-button-hover-background-color);
+  --all-sites-tool-menu-hover-text-color: var(--all-sites-button-hover-text-color);
+  --all-sites-tool-menu-hover-icon-color: var(--all-sites-button-hover-text-color);
+  --all-sites-tool-menu-hover-left-border-color: var(--all-sites-tool-menu-hover-background-color);
+  --all-sites-close-action-color: var(--button-text-color);
+  --all-sites-close-action-hover-color: var(--button-hover-text-color);
+  --tool-menu-item-separator-color: transparent;
+  --tool-menu-item-text-color: var(--sakai-text-color-2);
+  --tool-menu-item-icon-color: var(--sakai-text-color-1);
+  --tool-menu-item-background-color: var(--sakai-background-color-1);
+  --tool-menu-item-hover-text-color: var(--tool-menu-item-text-color);
+  --tool-menu-item-hover-icon-color: var(--tool-menu-item-icon-color);
+  --tool-menu-item-hover-background-color: var(--sakai-background-color-2);
+  --tool-menu-item-active-text-color: var(--tool-menu-item-text-color);
+  --tool-menu-item-active-icon-color: var(--tool-menu-item-icon-color);
+  --tool-menu-item-active-background-color: var(--sakai-background-color-3);
+  --tool-menu-item-hidden-text-color: var(--tool-menu-item-text-color);
+  --tool-menu-item-hidden-icon-color: var(--tool-menu-item-icon-color);
+  --tool-menu-item-hidden-background-color: var(--tool-menu-item-background-color);
+  --tool-menu-item-hidden-hover-text-color: var(--tool-menu-item-hover-text-color);
+  --tool-menu-item-hidden-hover-icon-color: var(--tool-menu-item-hover-icon-color);
+  --tool-menu-item-hidden-hover-background-color: var(--tool-menu-item-hover-background-color);
+  --tool-menu-item-hidden-active-text-color: var(--tool-menu-item-active-text-color);
+  --tool-menu-item-hidden-active-icon-color: var(--tool-menu-item-active-icon-color);
+  --tool-menu-item-hidden-active-background-color: var(--tool-menu-item-active-background-color);
+  --tool-menu-item-selected-text-color: var(--sakai-text-color-3);
+  --tool-menu-item-selected-icon-color: var(--sakai-text-color-3);
+  --tool-menu-item-selected-background-color: var(--sakai-active-color-1);
+  --tool-menu-item-selected-hover-text-color: var(--tool-menu-item-selected-text-color);
+  --tool-menu-item-selected-hover-icon-color: var(--tool-menu-item-selected-icon-color);
+  --tool-menu-item-selected-hover-background-color: var(--sakai-active-color-2);
+  --tool-menu-item-selected-active-text-color: var(--tool-menu-item-selected-text-color);
+  --tool-menu-item-selected-active-icon-color: var(--tool-menu-item-selected-icon-color);
+  --tool-menu-item-selected-active-background-color: var(--sakai-active-color-3);
+  --tool-menu-collapse-text-color: var(--tool-menu-item-text-color);
+  --tool-menu-collapse-icon-color: var(--tool-menu-item-text-color);
+  --tool-menu-collapse-background-color: var(--tool-menu-item-background-color);
+  --tool-menu-collapse-shadow: var(--elevation-4dp);
+  --tool-menu-collapse-hover-text-color: var(--tool-menu-item-hover-text-color);
+  --tool-menu-collapse-hover-background-color: var(--tool-menu-item-hover-background-color);
+  --tool-menu-collapse-hover-shadow: var(--elevation-6dp);
+  --tool-menu-collapse-active-text-color: var(--tool-menu-item-active-text-color);
+  --tool-menu-collapse-active-background-color: var(--tool-menu-item-active-background-color);
+  --tool-menu-collapse-active-shadow: var(--elevation-5dp);
+  --tool-menu-collapse-min-text-color: var(--tool-menu-collapse-text-color);
+  --tool-menu-collapse-min-background-color: var(--tool-menu-collapse-background-color);
+  --tool-menu-collapse-min-shadow: var(--tool-menu-collapse-shadow);
+  --tool-menu-collapse-min-hover-text-color: var(--tool-menu-collapse-hover-text-color);
+  --tool-menu-collapse-min-hover-background-color: var(--tool-menu-collapse-hover-background-color);
+  --tool-menu-collapse-min-hover-shadow: var(--tool-menu-collapse-hover-shadow);
+  --tool-menu-collapse-min-active-text-color: var(--tool-menu-collapse-active-text-color);
+  --tool-menu-collapse-min-active-background-color: var(--tool-menu-collapse-active-background-color);
+  --tool-menu-collapse-min-active-shadow: var(--tool-menu-collapse-active-shadow);
+  --tool-sub-menu-border-color: var(--sakai-border-color);
+  --tool-sub-menu-background-color: var(--tool-menu-item-background-color);
+  --tool-sub-menu-hover-color: var(--tool-menu-item-hover-text-color);
+  --tool-sub-menu-hover-background-color: var(--tool-menu-item-hover-background-color);
+  --tool-sub-menu-current-color: var(--tool-menu-item-selected-text-color);
+  --tool-sub-menu-current-background-color: var(--tool-menu-item-selected-background-color);
+  --tool-sub-menu-current-hover-color: var(--tool-menu-item-selected-hover-text-color);
+  --tool-sub-menu-current-hover-background-color: var(--tool-menu-item-selected-hover-background-color);
+  --tool-lessons-toplevel-menu-selected-background-color: var(--tool-menu-item-background-color);
+  --tool-lessons-toplevel-menu-expanded-background-color: var(--tool-menu-item-background-color);
+  --tool-lessons-toplevel-menu-expanded-hover-background-color: var(--tool-menu-item-hover-background-color);
+  --tool-lessons-toplevel-menu-expanded-selected-background-color: var(--tool-menu-item-selected-background-color);
+  --tool-lessons-toplevel-menu-expanded-selected-color: var(--tool-menu-item-selected-color);
+  --tool-lessons-toplevel-menu-sliding-background-color: var(--tool-menu-item-background-color);
+  --tool-lessons-subpage-menu-selected-background-color: var(--tool-menu-item-selected-background-color);
+  --tool-lessons-subpage-menu-selected-parent-background-color: var(--tool-menu-item-background-color);
+  --tool-lessons-subpage-menu-expanded-background-color: var(--tool-menu-item-background-color);
+  --lessons-item-border-top-color: var(--sites-nav-menu-item-background);
+  --lessons-column-border-color: var(--sakai-border-color);
+  --lessons-item-hover-background: var(--sakai-background-color-2);
+  --lessons-item-hover-shadow: var(--elevation-4dp);
+  --siteUnpublish-background: var(--warnBanner-bgcolor);
+  --siteUnpublish-color: var(--warnBanner-color);
+  --siteUnpublish-border-color: var(--warnBanner-bordercolor);
+  --siteDelete-background: var(--infoBanner-bgcolor);
+  --siteDelete-color: var(--infoBanner-color);
+  --siteDelete-border-color: var(--infoBanner-bordercolor);
+  --footer-background-color: var(--sakai-background-color-1);
+  --footer-border-color: var(--tool-border-color);
+  --footer-color: var(--sakai-text-color-1);
+  --footer-link-separator: var(--sakai-border-color);
+  --divider-shadow: var(--elevation-2dp);
+  --divider-shadow-fixed: 0 1px 0 var(--tool-border-color);
+  --overview-portlet-shadow: var(--elevation-2dp);
+  --overview-portlet-title-background-color: var(--tool-tab-background-color);
+  --focus-outline-color: var(--sakai-color-blue--lighter-3);
+  --sakai-dashboard-widget-bg-color: var(--sakai-background-color-1);
+  --sakai-dashboard-widget-border-color: var(--sakai-border-color);
+  --sakai-title-bar-bg-color: var(--sakai-background-color-2);
+  --sakai-close-icon-color: var(--errorBanner-color);
+  --sakai-table-even-color: var(--sakai-background-color-2);
+  --sakai-separator-color: var(--sakai-border-color);
+  --sakai-calendar-button-background-color: #FFFFFF;
+  --sakai-calendar-button-color: var(--button-text-color);
+  --sakai-calendar-button-disabled-color: var(--button-disabled-text-color);
+  --sakai-calendar-button-disabled-bg-color: var(--button-disabled-background);
+  --sakai-calendar-today-bg-color: var(--sakai-color-blue);
+  --sakai-calendar-today-color: var(--sakai-text-color-inverted);
+  --sakai-calendar-has-events-bg-color: var(--sakai-color-green--darker-4);
+  --sakai-calendar-has-events-fg-color: var(--sakai-text-color-inverted);
+  --sakai-grades-count-color: var(--sakai-text-color-dimmed);
+  --jumbotron-bg: var(--sakai-color-gray--lighter-6);
+  --jumbotron-color: var(--sakai-text-color-1);
+  --sakai-options-menu-background-color: #D4EBF9;
+  --sakai-options-menu-color: black;
+  --sakai-user-status-online: var(--sakai-color-green--lighter-2);
+  --sakai-popover-background: var(--sakai-background-color-1);
+  --sakai-popover-title-background: var(--sakai-background-color-1);
+  --sakai-highlight-color: var(--errorBanner-color);
+  --timer-bar-full-bg: var(--sakai-color-green);
+  --timer-bar-medium-bg: var(--sakai-color-orange);
+  --timer-bar-low-bg: var(--sakai-color-red--lighter-1);
+  --progress-bar-bg: var(--sakai-color-blue--lighter-6);
+  --progress-bar-empty-bg: transparent;
+  --sakai-modal-header-bg: #003a6b;
+  --sakai-modal-header-color: #fff;
+  --sakai-modal-close-btn-bg: #fff;
+  --sakai-modal-content-bg: var(--sakai-background-color-2);
+  --sakai-offcanvas-header-bg: #003a6b;
+  --sakai-offcanvas-header-color: #fff;
+  --sakai-offcanvas-close-btn-bg: #000;
+  --sakai-pin-hover-color: black;
+  --sakai-selected-page-bg-color: var(--sakai-color-blue--darker-5);
+  --sakai-selected-page-color: white;
+}
+:root .sakai-colorize--sakai-brand--lighter-7 {
+  color: #04151f;
+  background-color: #e7edf1;
+}
+:root .sakai-colorize--sakai-brand--lighter-6 {
+  color: #04151f;
+  background-color: #c7d5dd;
+}
+:root .sakai-colorize--sakai-brand--lighter-5 {
+  color: #04151f;
+  background-color: #a6bcca;
+}
+:root .sakai-colorize--sakai-brand--lighter-4 {
+  color: #04151f;
+  background-color: #86a4b7;
+}
+:root .sakai-colorize--sakai-brand--lighter-3 {
+  color: #04151f;
+  background-color: #658ca3;
+}
+:root .sakai-colorize--sakai-brand--lighter-2 {
+  color: #fff;
+  background-color: #457490;
+}
+:root .sakai-colorize--sakai-brand--lighter-1 {
+  color: #fff;
+  background-color: #255b7d;
+}
+:root .sakai-colorize--sakai-brand {
+  color: #bccdd7;
+  background-color: #0f4b70;
+}
+:root .sakai-colorize--sakai-brand--darker-1 {
+  color: #bccdd7;
+  background-color: #0e4466;
+}
+:root .sakai-colorize--sakai-brand--darker-2 {
+  color: #bccdd7;
+  background-color: #0c3a57;
+}
+:root .sakai-colorize--sakai-brand--darker-3 {
+  color: #bccdd7;
+  background-color: #0a3048;
+}
+:root .sakai-colorize--sakai-brand--darker-4 {
+  color: #bccdd7;
+  background-color: #082639;
+}
+:root .sakai-colorize--sakai-brand--darker-5 {
+  color: #bccdd7;
+  background-color: #061c29;
+}
+:root .sakai-colorize--sakai-brand--darker-6 {
+  color: #bccdd7;
+  background-color: #04121a;
+}
+:root .sakai-colorize--sakai-brand--darker-7 {
+  color: #bccdd7;
+  background-color: #02080b;
+}
+
+/* Dark Theme */
+/* Global namespace */
+/* The standard spacing for items in Sakai */
+/* Typography*/
+/* Tool tabs */
+/* General button design */
+/* end of General button design */
+/* Sakai Banners */
+/* end of Sakai Banners */
+/* Swapped 'View As' view */
+/* Favorites */
+/* Favorites - item */
+/* Favorites - item hovered */
+/* Favorites - item selected */
+/* Favorites - item selected and hovered */
+/* Favorites - tool submenu */
+/* Favorites - tool submenu items */
+/* All Sites menu */
+/* Tool Menu */
+/* Wide tool menu, icons on left */
+/* Narrow tool menu, icons centered */
+/* Tool Menu */
+/* Tool menu - lessons subpage menu enabled - top level pages */
+/* Tool menu - lessons subpage menu enabled - sub pages */
+/* Lessons tool */
+/* Navigation Hierarchy */
+/* Golden Ratio width for 16px font http://www.pearsonified.com/typography/ */
+/* Tool icons */
+/* Unpublished Banner */
+/* Site Deletion Banner */
+/* Icon Overrides */
+/* Footer */
+/* focus styles for all control elements (e.g. buttons, form controls, links, etc) */
+:root {
+  font-size: 14px;
+  --portal-nav-sidebar-width: 16rem;
+  --portal-header-height: 4.5rem;
+  --select-background-image-url: url(/library/skin/default-skin//images/icon-arrow-down.png);
+  --sakai-course-card-border-radius: 4px;
+  --sakai-title-bar-font-weight: 400;
+  --sakai-font-family: Open Sans, sans-serif;
+}
+
+:root.sakaiUserTheme-dark {
+  --sakai-greyblue--lighter-7: #f3f4f5;
+  --sakai-greyblue--lighter-6: #e2e5e8;
+  --sakai-greyblue--lighter-5: #d1d6db;
+  --sakai-greyblue--lighter-4: #c1c7cf;
+  --sakai-greyblue--lighter-3: #b0b8c2;
+  --sakai-greyblue--lighter-2: #a0a9b5;
+  --sakai-greyblue--lighter-1: #8f9aa8;
+  --sakai-greyblue: #84909f;
+  --sakai-greyblue--darker-1: #788391;
+  --sakai-greyblue--darker-2: #66707b;
+  --sakai-greyblue--darker-3: #545c66;
+  --sakai-greyblue--darker-4: #434950;
+  --sakai-greyblue--darker-5: #31353b;
+  --sakai-greyblue--darker-6: #1f2225;
+  --sakai-greyblue--darker-7: #0d0e10;
+  --logo-opacity: .7;
+  --sakai-primary-color-1: var(--sakai-brand);
+  --sakai-primary-color-2: var(--sakai-brand--lighter-1);
+  --sakai-primary-color-3: var(--sakai-brand--lighter-2);
+  --sakai-active-color-1: var(--sakai-brand--darker-1);
+  --sakai-active-color-2: var(--sakai-brand);
+  --sakai-active-color-3: var(--sakai-brand--lighter-1);
+  --sakai-passive-color-1: var(--sakai-greyblue--darker-5);
+  --sakai-passive-color-2: var(--sakai-greyblue--darker-4);
+  --sakai-passive-color-3: var(--sakai-greyblue--darker-3);
+  --sakai-background-color-1: var(--sakai-greyblue--darker-6);
+  --sakai-background-color-2: var(--sakai-greyblue--darker-5);
+  --sakai-background-color-3: var(--sakai-greyblue--darker-4);
+  --sakai-background-color-4: var(--sakai-greyblue--darker-3);
+  --sakai-background-color-5: var(--sakai-greyblue--darker-2);
+  --sakai-background-color-6: var(--sakai-greyblue--darker-1);
+  --sakai-background-color-7: var(--sakai-greyblue);
+  --sakai-secondary-color-1: var(--sakai-color-blue--lighter-2);
+  --sakai-tertiary-color-1: var(--sakai-color-orange--lighter-2);
+  --sakai-border-color: var(--sakai-greyblue--darker-4);
+  --sakai-text-color-1: var(--sakai-color-gray--lighter-5);
+  --sakai-text-color-2: var(--sakai-color-gray--lighter-6);
+  --sakai-text-color-3: var(--sakai-brand--lighter-6);
+  --sakai-text-color-dimmed: var(--sakai-color-gray--lighter-4);
+  --sakai-text-color-disabled: var(--sakai-color-gray--lighter-2);
+  --sakai-text-color-inverted: var(--sakai-color-gray--lighter-6);
+  --sakai-image-invert: grayscale(100%) invert(100%);
+  --breadcrumbs-tool-color: var(--sakai-text-color-color-3);
+  --breadcrumbs-hover-color: var(--sakai-primary-color-3);
+  --link-color: var(--sakai-text-color-3);
+  --link-active-color: var(--sakai-text-color-2);
+  --link-hover-color: var(--sakai-text-color-2);
+  --link-visited-color: var(--sakai-color-purple--lighter-2);
+  --radio-button-background: var(--sakai-text-color-1);
+  --checkbox-background: var(--sakai-primary-color-1);
+  --infoBanner-bordercolor: var(--sakai-color-blue--darker-4);
+  --infoBanner-bgcolor: var(--sakai-color-blue--darker-6);
+  --infoBanner-color: var(--sakai-color-blue--lighter-4);
+  --successBanner-bordercolor: var(--sakai-color-green--darker-4);
+  --successBanner-bgcolor: var(--sakai-color-green--darker-6);
+  --successBanner-color: var(--sakai-color-green--lighter-4);
+  --warnBanner-bordercolor: var(--sakai-color-gold--darker-4);
+  --warnBanner-bgcolor: var(--sakai-color-gold--darker-6);
+  --warnBanner-color: var(--sakai-color-gold--lighter-4);
+  --errorBanner-bordercolor: var(--sakai-color-red--darker-4);
+  --errorBanner-bgcolor: var(--sakai-color-red--darker-6);
+  --errorBanner-color: var(--sakai-color-red--lighter-4);
+  --timer-bar-full-bg: var(--sakai-color-green--darker-2);
+  --timer-bar-medium-bg: var(--sakai-color-orange--darker-1);
+  --progress-bar-bg: var(--sakai-color-blue--darker-5);
+  --progress-bar-empty-bg: var(--sakai-primary-color-1);
+  --footer-PoweredBy-bg: var(--sakai-color-gray--darker-1);
+  --sakai-highlight-color: var(--sakai-color-red--lighter-4);
+  --site-nav-btn-current-hover-color: var(--site-nav-btn-active-color);
+  --site-nav-btn-hover-bg: var(--sakai-primary-color-2);
+  --sakai-calendar-button-background-color: var(--sakai-background-color);
+  --sakai-calendar-button-color: var(--button-text-color);
+  --sakai-calendar-button-disabled-background-color: var(--button-disabled-background);
+  --sakai-calendar-today-background-color: yellow;
+  --sakai-calendar-today-color: black;
+  --sakai-calendar-has-events-color: white;
+  --sakai-calendar-has-events-background-color: green;
+  --jumbotron-bg: var(--sakai-color-blue--darker-5);
+  --jumbotron-color: var(--sakai-text-color-1);
+  --sakai-modal-header-bg: var(--sakai-background-color-3);
+  --sakai-modal-header-color: var(--sakai-text-color-1);
+  --sakai-modal-close-btn-bg: var(--sakai-text-color-1);
+  --sakai-offcanvas-header-bg: var(--sakai-background-color-3);
+  --sakai-offcanvas-header-color: var(--sakai-text-color-1);
+  --sakai-offcanvas-close-btn-bg: var(--sakai-background-color-1);
+  --select-background-image-url: url(/library/skin/default-skin//images/icon-arrow-down-dark.png);
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue--lighter-7 {
+  color: #25282d;
+  background-color: #f3f4f5;
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue--lighter-6 {
+  color: #25282d;
+  background-color: #e2e5e8;
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue--lighter-5 {
+  color: #25282d;
+  background-color: #d1d6db;
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue--lighter-4 {
+  color: #25282d;
+  background-color: #c1c7cf;
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue--lighter-3 {
+  color: #25282d;
+  background-color: #b0b8c2;
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue--lighter-2 {
+  color: #25282d;
+  background-color: #a0a9b5;
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue--lighter-1 {
+  color: #25282d;
+  background-color: #8f9aa8;
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue {
+  color: #25282d;
+  background-color: #84909f;
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue--darker-1 {
+  color: #000;
+  background-color: #788391;
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue--darker-2 {
+  color: #fff;
+  background-color: #66707b;
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue--darker-3 {
+  color: #dde0e4;
+  background-color: #545c66;
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue--darker-4 {
+  color: #dde0e4;
+  background-color: #434950;
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue--darker-5 {
+  color: #dde0e4;
+  background-color: #31353b;
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue--darker-6 {
+  color: #dde0e4;
+  background-color: #1f2225;
+}
+:root.sakaiUserTheme-dark .sakai-colorize--sakai-greyblue--darker-7 {
+  color: #dde0e4;
+  background-color: #0d0e10;
+}
+:root.sakaiUserTheme-dark .accordion-button::after {
+  filter: invert(100%);
+}
+:root.sakaiUserTheme-dark .w_content .btn {
+  color: white;
+}
+:root.sakaiUserTheme-dark .table {
+  --bs-table-color: var(--sakai-text-color-1);
+  --bs-table-striped-color: var(--sakai-text-color-1);
+  --bs-table-striped-bg: var(--sakai-background-color-2);
+  --bs-table-hover-color: var(--sakai-text-color-1);
+}
+:root.sakaiUserTheme-dark .btn {
+  --bs-btn-color: white;
+}
+:root.sakaiUserTheme-dark input {
+  color-scheme: dark;
+}
+:root.sakaiUserTheme-dark input.form-control, :root.sakaiUserTheme-dark textarea.form-control, :root.sakaiUserTheme-dark select.form-control {
+  background-color: var(--sakai-background-color-2);
+  color: var(--sakai-text-color-1);
+}
+:root.sakaiUserTheme-dark input.form-control:focus, :root.sakaiUserTheme-dark input.form-control:active, :root.sakaiUserTheme-dark input.form-control:-webkit-autofill, :root.sakaiUserTheme-dark textarea.form-control:focus, :root.sakaiUserTheme-dark textarea.form-control:active, :root.sakaiUserTheme-dark textarea.form-control:-webkit-autofill, :root.sakaiUserTheme-dark select.form-control:focus, :root.sakaiUserTheme-dark select.form-control:active, :root.sakaiUserTheme-dark select.form-control:-webkit-autofill {
+  background-color: var(--sakai-background-color-3);
+  color: var(--sakai-text-color-2);
+}
+:root.sakaiUserTheme-dark input.form-control:-webkit-autofill,
+:root.sakaiUserTheme-dark input.form-control:-webkit-autofill:hover,
+:root.sakaiUserTheme-dark input.form-control:-webkit-autofill:focus,
+:root.sakaiUserTheme-dark input.form-control:-webkit-autofill:active {
+  -webkit-transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+  --webkit-text-fill-color: var(--sakai-text-color-1) !important;
+  background-color: var(--sakai-background-color-2) !important;
+}
+:root.sakaiUserTheme-dark .dropdown-menu {
+  --bs-dropdown-bg: var(--sakai-background-color-3);
+  --bs-dropdown-color: var(--sakai-text-color-1);
+  --bs-dropdown-header-color: var(--sakai-text-color-2);
+  --bs-dropdown-divider-bg: white;
+}
+:root.sakaiUserTheme-dark .card {
+  --bs-card-bg: var(--sakai-background-color-3);
+}
+:root.sakaiUserTheme-dark .nav-tabs {
+  --bs-nav-tabs-link-active-bg: var(--sakai-background-color-3);
+  --bs-nav-tabs-link-active-color: var(--sakai-text-color-1);
+}
+:root.sakaiUserTheme-dark .nav-link {
+  --bs-nav-link-color: white;
+  --bs-nav-link-hover-color: white;
+}
+:root.sakaiUserTheme-dark .list-group {
+  --bs-list-group-bg: var(--sakai-background-color-3);
+  --bs-list-group-color: var(--sakai-text-color-1);
+}
+:root.sakaiUserTheme-dark .popover {
+  --bs-popover-header-bg: var(--sakai-background-color-3);
+  --bs-popover-bg: var(--sakai-background-color-2);
+}
+:root.sakaiUserTheme-dark .paginate_button {
+  --bs-pagination-disabled-bg: var(--sakai-passive-color-1);
+  --bs-pagination-bg: var(--sakai-background-color-2);
+  --bs-pagination-color: var(--link-color);
+  --bs-pagination-hover-color: var(--sakai-text-color-1);
+  --bs-pagination-hover-bg: var(--sakai-active-color-2);
+}
+:root.sakaiUserTheme-dark .poweredby__image {
+  filter: invert(1);
+}
+
+/*# sourceMappingURL=properties.css.map */

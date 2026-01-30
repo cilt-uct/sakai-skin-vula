@@ -1,0 +1,194 @@
+
+> build
+> npm-run-all css-compile css-prefix copy:fonts copy:images
+
+
+> css-compile
+> sass --style=expanded --load-path=node_modules --quiet-deps src/sass:target
+
+Error: There is no module with the namespace "math".
+   ╷
+12 │ $fa-li-width:         math.div(30em, 14) !default;
+   │                       ^^^^^^^^^^^^^^^^^^
+   ╵
+  node_modules/font-awesome/scss/_variables.scss 12:23  @import
+  font-awesome/scss/font-awesome.scss 6:9               @import
+  src/sass/base/_icons.scss 7:9                         @import
+  src/sass/print.scss 5:9                               root stylesheet
+DEPRECATION WARNING: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($value, 255)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+133 │     $value: if($value / 255 < .03928, $value / 255 / 12.92, nth($_luminance-list, $value + 1));
+    │                ^^^^^^^^^^^^
+    ╵
+    src/sass/themes/_base.scss 133:16  luminance()
+    src/sass/themes/_base.scss 116:8   contrast-ratio()
+    src/sass/themes/_base.scss 101:22  color-contrast()
+    src/sass/themes/_base.scss 45:14   defineColorHSL()
+    src/sass/themes/_base.scss 178:3   @import
+    src/sass/properties.scss 4:9       root stylesheet
+
+DEPRECATION WARNING: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($l1 + 0.05, $l2 + 0.05)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+119 │   @return if($l1 > $l2, ($l1 + .05) / ($l2 + .05), ($l2 + .05) / ($l1 + .05));
+    │                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/sass/themes/_base.scss 119:25  contrast-ratio()
+    src/sass/themes/_base.scss 101:22  color-contrast()
+    src/sass/themes/_base.scss 45:14   defineColorHSL()
+    src/sass/themes/_base.scss 178:3   @import
+    src/sass/properties.scss 4:9       root stylesheet
+
+DEPRECATION WARNING: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($l2 + 0.05, $l1 + 0.05)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+119 │   @return if($l1 > $l2, ($l1 + .05) / ($l2 + .05), ($l2 + .05) / ($l1 + .05));
+    │                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/sass/themes/_base.scss 119:52  contrast-ratio()
+    src/sass/themes/_base.scss 101:22  color-contrast()
+    src/sass/themes/_base.scss 45:14   defineColorHSL()
+    src/sass/themes/_base.scss 178:3   @import
+    src/sass/properties.scss 4:9       root stylesheet
+
+DEPRECATION WARNING: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($value, 255)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+133 │     $value: if($value / 255 < .03928, $value / 255 / 12.92, nth($_luminance-list, $value + 1));
+    │                                       ^^^^^^^^^^^^
+    ╵
+    src/sass/themes/_base.scss 133:39  luminance()
+    src/sass/themes/_base.scss 117:8   contrast-ratio()
+    src/sass/themes/_base.scss 101:22  color-contrast()
+    src/sass/themes/_base.scss 59:12   defineColorHSL()
+    src/sass/themes/_base.scss 178:3   @import
+    src/sass/properties.scss 4:9       root stylesheet
+
+DEPRECATION WARNING: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div(math.div($value, 255), 12.92)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+133 │     $value: if($value / 255 < .03928, $value / 255 / 12.92, nth($_luminance-list, $value + 1));
+    │                                       ^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/sass/themes/_base.scss 133:39  luminance()
+    src/sass/themes/_base.scss 117:8   contrast-ratio()
+    src/sass/themes/_base.scss 101:22  color-contrast()
+    src/sass/themes/_base.scss 59:12   defineColorHSL()
+    src/sass/themes/_base.scss 178:3   @import
+    src/sass/properties.scss 4:9       root stylesheet
+
+DEPRECATION WARNING: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($value, 255)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+133 │     $value: if($value / 255 < .03928, $value / 255 / 12.92, nth($_luminance-list, $value + 1));
+    │                ^^^^^^^^^^^^
+    ╵
+    src/sass/themes/_base.scss 133:16  luminance()
+    src/sass/themes/_base.scss 116:8   contrast-ratio()
+    src/sass/themes/_base.scss 101:22  color-contrast()
+    src/sass/themes/_base.scss 45:14   defineColorHSL()
+    src/sass/themes/_base.scss 178:3   @import
+    src/sass/tool.scss 52:9            root stylesheet
+
+DEPRECATION WARNING: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($l1 + 0.05, $l2 + 0.05)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+119 │   @return if($l1 > $l2, ($l1 + .05) / ($l2 + .05), ($l2 + .05) / ($l1 + .05));
+    │                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/sass/themes/_base.scss 119:25  contrast-ratio()
+    src/sass/themes/_base.scss 101:22  color-contrast()
+    src/sass/themes/_base.scss 45:14   defineColorHSL()
+    src/sass/themes/_base.scss 178:3   @import
+    src/sass/tool.scss 52:9            root stylesheet
+
+DEPRECATION WARNING: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($l2 + 0.05, $l1 + 0.05)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+119 │   @return if($l1 > $l2, ($l1 + .05) / ($l2 + .05), ($l2 + .05) / ($l1 + .05));
+    │                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/sass/themes/_base.scss 119:52  contrast-ratio()
+    src/sass/themes/_base.scss 101:22  color-contrast()
+    src/sass/themes/_base.scss 45:14   defineColorHSL()
+    src/sass/themes/_base.scss 178:3   @import
+    src/sass/tool.scss 52:9            root stylesheet
+
+DEPRECATION WARNING: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($value, 255)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+133 │     $value: if($value / 255 < .03928, $value / 255 / 12.92, nth($_luminance-list, $value + 1));
+    │                                       ^^^^^^^^^^^^
+    ╵
+    src/sass/themes/_base.scss 133:39  luminance()
+    src/sass/themes/_base.scss 117:8   contrast-ratio()
+    src/sass/themes/_base.scss 101:22  color-contrast()
+    src/sass/themes/_base.scss 59:12   defineColorHSL()
+    src/sass/themes/_base.scss 178:3   @import
+    src/sass/tool.scss 52:9            root stylesheet
+
+DEPRECATION WARNING: Using / for division is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div(math.div($value, 255), 12.92)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+133 │     $value: if($value / 255 < .03928, $value / 255 / 12.92, nth($_luminance-list, $value + 1));
+    │                                       ^^^^^^^^^^^^^^^^^^^^
+    ╵
+    src/sass/themes/_base.scss 133:39  luminance()
+    src/sass/themes/_base.scss 117:8   contrast-ratio()
+    src/sass/themes/_base.scss 101:22  color-contrast()
+    src/sass/themes/_base.scss 59:12   defineColorHSL()
+    src/sass/themes/_base.scss 178:3   @import
+    src/sass/tool.scss 52:9            root stylesheet
+
+
+Error: There is no module with the namespace "math".
+   ╷
+12 │ $fa-li-width:         math.div(30em, 14) !default;
+   │                       ^^^^^^^^^^^^^^^^^^
+   ╵
+  node_modules/font-awesome/scss/_variables.scss 12:23  @import
+  font-awesome/scss/font-awesome.scss 6:9               @import
+  src/sass/base/_icons.scss 7:9                         @import
+  src/sass/tool.scss 107:9                              root stylesheet
+ERROR: "css-compile" exited with 65.

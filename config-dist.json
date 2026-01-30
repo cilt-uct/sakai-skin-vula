@@ -7,13 +7,5 @@
         "do": false
         ,"skin": "/location/to/store/build/vula-latest-skin.tar.gz"
         ,"editor": "/location/to/store/build/vula-latest-templates.tar.gz"
-    },
-    "remote": {
-      "do": false
-      ,"dest" : "HostName"
-      ,"port" : 22
-      ,"username" : "Username"
-      ,"password" : "********"
-      ,"path": "/Where/You/Want/The/Files/To/Be"
     }
 }

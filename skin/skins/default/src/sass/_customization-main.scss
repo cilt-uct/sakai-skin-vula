@@ -1,0 +1,369 @@
+@import "mixins/mixins";
+
+// Fonts
+// ----------------------------------------
+$font-path:     "fonts/";
+//$fa-font-path:  "fonts/font-awesome/";
+
+@mixin font-face($font-family, $file, $font-weight, $font-style, $path: $font-path) {
+  @font-face {
+    font-family: $font-family;
+      src: url('#{$path}#{$file}.eot');
+      src: url('#{$path}#{$file}.eot?#iefix') format('embedded-opentype'),
+           url('#{$path}#{$file}.woff') format('woff'),
+           url('#{$path}#{$file}.ttf') format('truetype');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+// Include Fonts
+@include font-face('Open Sans', 'OpenSans-Light-webfont', 300, normal);
+@include font-face('Open Sans', 'OpenSans-LightItalic-webfont', 300, italic);
+
+@include font-face('Open Sans', 'OpenSans-Regular-webfont', 400, normal);
+@include font-face('Open Sans', 'OpenSans-Italic-webfont', 400, italic);
+
+@include font-face('Open Sans', 'OpenSans-Semibold-webfont', 600, normal);
+@include font-face('Open Sans', 'OpenSans-SemiboldItalic-webfont', 600, italic);
+
+@include font-face('Open Sans', 'OpenSans-Bold-webfont', 700, normal);
+@include font-face('Open Sans', 'OpenSans-BoldItalic-webfont', 700, italic);
+
+@include font-face('Open Sans', 'OpenSans-ExtraBold-webfont', 800, normal);
+@include font-face('Open Sans', 'OpenSans-ExtraBoldItalic-webfont', 800, italic);
+
+@include font-face('FontAwesome', 'fontawesome-webfont', normal, normal, "fonts/font-awesome/");
+@include font-face('Glyphicons Halflings', 'glyphicons-halflings-regular', normal, normal, "fonts/bootstrap/");
+
+
+//Google family Fonts URL
+// ----------------------------------------
+$font-family: "Open Sans", Helvetica, sans-serif !default;
+
+$weight-light:        300;
+$weight-regular:      400;
+$weight-semibold:     600;
+$weight-bold:         700;
+$weight-extrabold:    800;
+
+$default-font-size:   14px !default;
+$default-font-size-small: 12px !default;
+$default-font-weight: 400 !default;										// 400 or 700 as you wish
+$default-line-height: 1.42857 !default;								// 20px / 14px = 1.42857
+$header-font-family:  $font-family;
+$header-font-weight:  700 !default;										// 400 or 700 as you wish
+
+// $skin-name : "vula" !default; // This is used for bootstrap font behaviour.
+// $skin-path: if($skin-name, "/library/skin/" + $skin-name + "/", "");
+
+// Vula Colour Palette
+// ----------------------------------------
+
+// Primary
+$color-primary:   #155a7e; //#0099ff;
+$primary: $color-primary; // override tool.scss
+
+$color-secondary: #42AAE0;
+$color-success:   #52a536;
+$success: $color-success; // override tool.scss
+$color-warning:   #efc777;
+$color-alert:     #91353a;
+
+
+$body-color: #333; // override tool.scss
+$body-bg: #fff; // override tool.scss
+
+// Tool defaults - override tool.scss
+$text-color: #333;
+$input-border-focus: #66afe9;
+$input-border: var(--sakai-border-color);
+
+// Grays
+$color-black: #000000;
+$color-gray-darker: #1f2123;
+$color-gray-dark: #414649;
+$color-gray: #979a9b;
+$color-graylight: #e3e4e5;
+$color-graylighter: #f9fafb;
+$color-white: #ffffff;
+
+// [UCT] Lighter Blue for the background color of some lessons tools - NM
+$color-blue: #b4d5e7;
+$dark-blue-border: darken($color-blue, 20%) !default;
+$blue-opacity: rgba($color-blue, 0.5) !default;
+
+$primary-color:   $color-primary !default;
+$secondary-color: $color-secondary !default;
+$text-color:      $color-gray-dark !default;
+
+// some more blue colours to play with
+$primary-desaturate: desaturate($primary-color, 20%);
+$primary-shade: shade($primary-color, 20%);
+
+// Link colors
+$link-color: $primary-color !default;
+$link-active-color: shade($secondary-color, 10%) !default;
+$link-hover-color: shade($secondary-color, 10%) !default;
+
+$link-background-color: transparent !default;
+$link-active-background-color: transparent !default;
+$link-hover-background-color: transparent !default;
+
+$background-color: 			     $color-white !default;
+$background-color-secondary: $color-gray-darker !default;
+
+$tool-background-color:      $color-white !default;
+$tool-border-color:        #E5E5E5 !default;
+$tool-menu-color:            $color-gray-darker !default;
+$tool-menu-background-color: #FAFAFA !default;
+
+$tool-menu-item-hidden-text-color: #A9A9A9 !default;
+$tool-menu-item-hidden-icon-color: $tool-menu-item-hidden-text-color !default;
+$tool-menu-item-hidden-icon-after-color: #52a536 !default;
+
+//$tool-menu-width-collapsed: 52px !default;
+$tool-menu-collapseButton-height: 42px !default; //$tool-menu-width-collapsed !default;
+
+$okcolor: $color-success !default;
+$errorcolor: $color-alert !default;
+$warncolor: $color-warning !default;
+
+// Gradient
+// %head-gradient {
+//   @include gradient-vertical($start-color: darken($color-primary, 25%), $end-color: darken($color-primary, 15%) ); //UCT - %head-gradient
+//   @include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); // [UCT] - %head-gradient
+// }
+//@include gradient-vertical($start-color: #004D80, $end-color: #0075A1 ); // [UCT] - %head-gradient
+$head-gradient: linear-gradient(to right bottom, #155a7e, #156089, #146895, #136fa0, #1377ac, #1377ac, #1377ac, #1377ac, #136fa0, #146895, #156089, #155a7e);
+
+// Favorites
+// ----------------------------------------
+
+// Favorites - item
+$sites-nav-menu-item-background:            $color-white !default;
+$sites-nav-menu-item-color:                 tint($color-gray-darker, 10%) !default;
+$sites-nav-menu-item-icon-color:            tint($color-gray-darker, 15%) !default;
+$sites-nav-menu-item-border-color:          tint($color-gray, 30%) !default;
+$sites-nav-menu-item-border-top:            1px solid $sites-nav-menu-item-border-color !default;
+$sites-nav-menu-item-border-right:          $sites-nav-menu-item-border-top !default;
+$sites-nav-menu-item-border-bottom:         $sites-nav-menu-item-border-top !default;
+$sites-nav-menu-item-border-left:           $sites-nav-menu-item-border-top !default;
+
+// Favorites - item hovered
+$sites-nav-menu-item-hover-background:      $color-white !default;
+$sites-nav-menu-item-hover-color:           $color-gray-darker !default;
+$sites-nav-menu-item-hover-icon-color:      tint($color-gray-darker, 5%) !default;
+$sites-nav-menu-item-hover-border-color:    tint($color-gray-dark, 10%) !default;
+$sites-nav-menu-item-hover-border-top:      1px solid $sites-nav-menu-item-hover-border-color !default;
+$sites-nav-menu-item-hover-border-right:    $sites-nav-menu-item-hover-border-top !default;
+$sites-nav-menu-item-hover-border-bottom:   $sites-nav-menu-item-hover-border-top !default;
+$sites-nav-menu-item-hover-border-left:     $sites-nav-menu-item-hover-border-top !default;
+
+// Favorites - item selected
+$sites-nav-menu-item-selected-background:   shade($color-secondary, 10%) !default;
+$sites-nav-menu-item-selected-color:        $color-white !default;
+$sites-nav-menu-item-selected-icon-color:   $color-white !default;
+$sites-nav-menu-item-selected-border-color: shade($color-secondary, 15%) !default;
+$sites-nav-menu-item-selected-border-top:   1px solid $sites-nav-menu-item-selected-border-color !default;
+$sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top !default;
+$sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top !default;
+$sites-nav-menu-item-selected-border-left:  $sites-nav-menu-item-selected-border-top !default;
+
+// Favorites - item selected and hovered
+$sites-nav-menu-item-selected-hover-background:   shade($color-secondary, 0%) !default;
+$sites-nav-menu-item-selected-hover-color:        $color-white !default;
+$sites-nav-menu-item-selected-hover-icon-color:   $color-white !default;
+$sites-nav-menu-item-selected-hover-border-color: shade($color-secondary, 5%) !default;
+$sites-nav-menu-item-selected-hover-border-top:   1px solid $sites-nav-menu-item-selected-hover-border-color !default;
+$sites-nav-menu-item-selected-hover-border-right: $sites-nav-menu-item-selected-hover-border-top !default;
+$sites-nav-menu-item-selected-hover-border-bottom:$sites-nav-menu-item-selected-hover-border-top !default;
+$sites-nav-menu-item-selected-hover-border-left:  $sites-nav-menu-item-selected-hover-border-top !default;
+
+// Favorites - tool submenu
+$sites-nav-submenu-background:              $color-white !default;
+$sites-nav-submenu-topleft-border-color:    $sites-nav-menu-item-background !default;
+$sites-nav-submenu-border-color:            $sites-nav-menu-item-hover-border-color !default;
+
+// Favorites - tool selected submenu
+$sites-nav-selected-submenu-border-color: $sites-nav-menu-item-selected-hover-border-color !default;
+$sites-nav-selected-submenu-topleft-border-color: $sites-nav-menu-item-selected-background !default;
+
+// Favorites - tool submenu items
+$sites-nav-submenu-item-text-size:          13px !default;
+$sites-nav-submenu-item-background:         $color-white !default;
+$sites-nav-submenu-item-color:              $color-gray-dark !default;
+$sites-nav-submenu-item-icon-color:         $color-gray-darker !default;
+$sites-nav-submenu-item-divider-color:      $color-graylight !default;
+$sites-nav-submenu-item-left-border-color:  $color-white !default;
+
+// Favorites - tool submenu items hovered
+$sites-nav-submenu-item-hover-background:   $color-graylight !default;
+$sites-nav-submenu-item-hover-color:        $color-gray-darker !default;
+$sites-nav-submenu-item-hover-icon-color:   $color-gray-dark !default;
+$sites-nav-submenu-item-hover-left-border-color: $color-gray !default;
+
+
+// All Sites menu
+// ----------------------------------------
+$all-sites-mask-background: rgba(0,0,0,0.45) !default;
+
+
+// Calendar
+// ----------------------------------------
+$calendar-event-background-color: $primary-color !default;
+$calendar-event-text-color: $text-color !default;
+
+
+// Header and Menus
+// ----------------------------------------
+$banner-height: 56px !default; //4.66em !default;
+$header-size: 60px !default; //5em !default;
+$top-header-background: $color-secondary;
+
+
+// Instructions
+// ----------------------------------------
+$instruction-text-color: $color-gray-darker !default; //#5c5c5c !default;
+$instruction-color: #A5D1FF !default; //#5c5c5c !default;
+$instruction-background-color: #F3FAFF !default; //#fff !default;
+
+// Logo
+// ----------------------------------------
+$logo: 'images/logo.svg' !default;
+$logo-full: 'images/logo_v3.svg' !default;
+
+// match $banner-height so that we fill the space and the background size to the edges don't touch
+$logo-height: $banner-height !default;
+$logo-width: $banner-height !default;
+$logo-background-size: 72% !default;
+
+// Footer
+// ----------------------------------------
+$footer-background-color: $color-white !default;
+$footer-border-color: shade( $footer-background-color, 20%) !default;
+$footer-details-border-color: $footer-border-color !default;
+$footer-color: tint($text-color, 10%) !default;
+$footer-border: 1px solid $footer-border-color !default;
+$footer-font-size: 10px !default; // [UCT] - slightly smaller font
+$footer-color: #54595b !default;
+
+// Layout
+// ----------------------------------------
+
+// Golden Ratio width for 16px font http://www.pearsonified.com/typography/
+// $measure: 960px !default;
+
+// Helpers
+$z-0:                             0;
+$z-1:                            10;
+$z-10:                          100;
+$z-20:                          200;
+$z-30:                          300;
+$z-40:                          400;
+$z-50:                          500;
+$z-60:                          600;
+$z-70:                          700;
+$z-80:                          800;
+$z-90:                          900;
+$z-100:                         1000;
+$max-z:                         2147483647 - 100;
+
+// Border
+// ----------------------------------------
+
+$border-radius: 0.4rem; // override tool.scss
+$main-border-radius:           0.4em; // +- 4px
+$small-border-radius:          0.2em; // +- 2px
+
+// Border
+// ----------------------------------------
+$std-shadow: 0 3px 2px rgba( $text-color, 0.35);
+// $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175); // override tool.scss
+
+// Material
+// ----------------------------------------
+/* Enable Google Material Design inspired theme elements */
+/* by setting the variables below to true. */
+/* Added in SAK-42889 */
+$standard-spacing-as-material: false !default;
+$sites-nav-as-material: false !default;
+$portal-as-material: false !default; // override colors
+$tool-menu-as-material: false !default;
+$buttons-as-material: true !default;
+$top-header-as-material: true !default;
+$cards-as-material: true !default;
+$lessons-as-material: true !default;
+
+// Spacing
+// ----------------------------------------/
+  $standard-spacing: 16px;
+  $tool-menu-padding: calc(#{$standard-spacing} / 2) 0 0 0;
+
+  $standard-spacing-alt: 12px;
+  $standard-space: 4px !default; 		// the width of a keyboard space
+
+  // Incorporate some of the Material design elements
+  $material-menu-padding: calc( #{$standard-spacing-alt} / 2) 0 !default;
+  $material-menu-item-padding: calc(#{$standard-spacing-alt} / 2) $standard-spacing-alt !default;
+
+// Tool-Menu
+// ----------------------------------------
+  $tool-menu-item-padding:           $standard-spacing-alt !default; // slightly sp=maller than standard
+  $tool-menu-item-collapsed-padding: $standard-spacing-alt !default;
+
+// Site Nav Menu - Material - $sites-nav-as-material
+// ----------------------------------------
+  $divider-shadow-fixed: 0 1px 0 $tool-border-color;
+  $sites-nav-menu-item-border-thickness: 1px;
+  $sites-nav-menu-item-border-radius: $main-border-radius;
+
+  $sites-nav-menu-item-background: hsla(0, 0%, 92%, 1);
+  $sites-nav-menu-item-color: hsla(0, 0%, 25%, 1);
+  $sites-nav-menu-item-border-color: $sites-nav-menu-item-background;
+  $sites-nav-menu-item-border-top:            $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-border-color;
+  $sites-nav-menu-item-border-right:          $sites-nav-menu-item-border-top;
+  $sites-nav-menu-item-border-bottom:         $sites-nav-menu-item-border-top;
+  $sites-nav-menu-item-border-left:           $sites-nav-menu-item-border-top;
+
+  $sites-nav-menu-item-hover-background: hsla(0, 0%, 82%, 1);
+  $sites-nav-menu-item-hover-color: rgba(0,0,0,1);
+  $sites-nav-menu-item-hover-border-color:      $sites-nav-menu-item-hover-background;
+  $sites-nav-menu-item-hover-border-top:      $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-hover-border-color;
+  $sites-nav-menu-item-hover-border-right:    $sites-nav-menu-item-hover-border-top;
+  $sites-nav-menu-item-hover-border-bottom:   $sites-nav-menu-item-hover-border-top;
+  $sites-nav-menu-item-hover-border-left:     $sites-nav-menu-item-hover-border-top;
+
+  $sites-nav-menu-item-selected-background: hsla(200, 31%, 84%,1);
+  $sites-nav-menu-item-selected-color: hsl(201, 71%, 20%);
+  $sites-nav-menu-item-selected-border-color: $sites-nav-menu-item-selected-background;
+  $sites-nav-menu-item-selected-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-border-color;
+  $sites-nav-menu-item-selected-border-bottom:$sites-nav-menu-item-selected-border-top;
+  $sites-nav-menu-item-selected-border-left:  $sites-nav-menu-item-selected-border-top;
+  $sites-nav-menu-item-selected-border-right: $sites-nav-menu-item-selected-border-top;
+
+  $sites-nav-menu-item-selected-hover-background:   hsla(200, 31%, 76%,1);
+  $sites-nav-menu-item-selected-hover-color: hsl(201, 71%, 20%);
+  $sites-nav-menu-item-selected-hover-border-color: $sites-nav-menu-item-selected-hover-background;
+  $sites-nav-menu-item-selected-hover-border-top:   $sites-nav-menu-item-border-thickness solid $sites-nav-menu-item-selected-hover-border-color;
+  $sites-nav-menu-item-selected-hover-border-right: $sites-nav-menu-item-selected-hover-border-top;
+  $sites-nav-menu-item-selected-hover-border-bottom:$sites-nav-menu-item-selected-hover-border-top;
+  $sites-nav-menu-item-selected-hover-border-left:  $sites-nav-menu-item-selected-hover-border-top;
+
+  $sites-nav-selected-submenu-border-color: #fff;
+  $sites-nav-selected-submenu-border-color: transparent;
+  $sites-nav-selected-submenu-border: none;
+  $sites-nav-submenu-border: none;
+  $sites-nav-submenu-item-left-border: none;
+  $sites-nav-submenu-item-padding: $material-menu-item-padding;
+  $sites-nav-submenu-padding: $material-menu-padding;
+  $sites-nav-submenu-shadow: $std-shadow; //$material-elevation-8dp;
+  //$sites-nav-submenu-top: -#{$standard-spacing}; //fallback to calc( #{$default-font-size} + #{$sites-nav-menu-item-border-thickness})
+  $sites-nav-submenu-top: calc( #{$default-font-size} + ( #{$standard-space} * 2) - #{$sites-nav-menu-item-border-thickness} - 1px) !default;
+
+// Misc
+// ----------------------------------------
+  $top-header-text-display: inline-block !default; // overrides $top-header-as-material
+
+  $instruction-size:          $default-font-size-small !default;
+  $instruction-color:        #1f2123 !default;

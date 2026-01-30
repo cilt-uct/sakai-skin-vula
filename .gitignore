@@ -4,9 +4,7 @@ node_modules
 tmp
 config.json
 *.bak
-tool2.css
-tool.css
 sass copy
 scratch.scss
 npm-audit.log
-vula-skin/target
+vula-skin/**/target
