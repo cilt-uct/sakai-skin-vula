@@ -29773,8 +29773,9 @@ body.is-logged-out .portal-mobilebar .portal-mobilebar-helpLink, body.is-logged-
   }
 }
 #Mrphs-choice .modal-content .d-grid {
-  display: flex;
+  display: flex !important;
   align-content: space-around;
+  flex-direction: row-reverse;
 }
 #Mrphs-choice .modal-content .d-grid a {
   --bs-btn-color: #000;
@@ -29793,8 +29794,6 @@ body.is-logged-out .portal-mobilebar .portal-mobilebar-helpLink, body.is-logged-
   --bs-btn-disabled-border-color: #f8f9fa;
   background-color: var(---sakai-color-white);
   border: 0px;
-  display: flex;
-  flex-direction: column;
   margin: auto;
   width: 48%;
   display: inline-block;

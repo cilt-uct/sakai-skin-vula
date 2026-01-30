@@ -488,8 +488,9 @@ body.is-logged-out{
     .modal-content {
 
         .d-grid {
-            display:flex;
-            align-content:space-around;
+            display: flex !important;
+            align-content: space-around;
+            flex-direction: row-reverse;
 
             a {
                 @include button-variant($white, $light);
@@ -497,9 +498,6 @@ body.is-logged-out{
 
                 background-color: var(---sakai-color-white);
                 border: 0px;
-
-                display: flex;
-                flex-direction: column;
 
                 margin:auto;
 
