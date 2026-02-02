@@ -20,6 +20,7 @@
   "dependencies": {
     "bootstrap": "^5.2.0",
     "bootstrap-icons": "^1.9",
+    "express": "^5.2.1",
     "font-awesome": "^4.7.0"
   },
   "devDependencies": {
