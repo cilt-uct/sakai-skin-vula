@@ -74,7 +74,7 @@
 	border-left: calc( #{$standard-spacing} / 2) solid $bordercolor;
 	background-color: $bgcolor;
 	color: $color;
-	
+
 	// display an icon indicating banner type on the left of the text
 	&:before {
 		content: '';
@@ -87,7 +87,7 @@
 		margin-right: $standard-space;	// space between icon and message text
 		color: $color;
 	}
-	
+
 	// display a closing X on the right of the banner to indicate that the banner is dismissible
 	.dismiss {
 		@if $isInline == false {
@@ -98,11 +98,11 @@
 			margin-left: $standard-space;	// space between icon and end of message text
 		}
 		text-decoration: none;
-		
+
 		span {
 			font-size: 0;		// hide the accessible text
 		}
-		
+
 		&:before {
 			content: '';
 			@extend .fa;
@@ -110,7 +110,7 @@
 			@extend .fa-close;
 		}
 	}
-	
+
 	// any links in the banners should have the same text color contrast and be underlined
 	a[href] {
 		color: $color;
@@ -165,7 +165,7 @@
 }
 
 @mixin toolicon( $width : $icon-size, $height : $icon-size ){
-	
+
 	@if $skin-with-icons {
 		border:  0px none;
 		display: inline-block;
@@ -196,15 +196,15 @@ input::placeholder {
 	&::-ms-expand {
 		display: none;
 	}
-	
+
 	&[multiple], &[size]:not([size='1']) {
 		background-image: none;
 	}
-	
+
 	&:focus {
 		box-shadow: 0px 0px $focus-outline-width $focus-outline-width var(--focus-outline-color);
 	}
-	
+
 	&[disabled="disabled"],&[disabled],&[disabled="true"] {
 		opacity: 0.7;
 		background-color: var(--sakai-background-color-1);
@@ -326,7 +326,7 @@ input::placeholder {
 		background: $sb-active-background;
 		border-color: $sb-active-border-color;
 		box-shadow: $sb-active-shadow;
-		
+
 		&:before { // icon
 			color: $sb-active-text-color;
 		}
@@ -394,9 +394,9 @@ button.btn-primary, .act .active, .#{$namespace}html .ui-priority-primary, .#{$n
 //.btn.btn-default,
 .button.link,
 a.btn-link,
-button.ui-state-default, 
-//button:not(.fc-button), 
-//button:not(.fc-button):not(.btn):not(.btn-close), 
+button.ui-state-default,
+//button:not(.fc-button),
+//button:not(.fc-button):not(.btn):not(.btn-close),
 button.btn-link,
 .#{$namespace}html .ui-priority-secondary,
 .#{$namespace}html .ui-widget-content .ui-priority-secondary,
@@ -464,9 +464,9 @@ a.noPointers, input.noPointers {
 	@include flex-wrap(wrap);
 	@include align-items(center);
 	margin: $standard-spacing 0;
-	
+
 	> input, > button, > a, > .active {
-		margin-right: $standard-space;		
+		margin-right: $standard-space;
 		&:last-child {
 			margin-right: 0;
 		}
@@ -579,7 +579,7 @@ label.panelGridLabel{
 	&:hover {
 		filter:brightness(.85);
 	}
-	
+
 	.dz-progress{
 		top: 70% !important;
 	}
@@ -607,10 +607,12 @@ div.wicket-modal div.w_blue a.w_close {
 	}
 }
 
-.text-default,
-.bg-default {
-	color: var(--sakai-text-color-1);
-	background-color: var(--sakai-background-color-1);
+.text-primary {
+	color: var(--sakai-brand) !important;
+}
+.bg-primary {
+	color: var(--sakai-text-color-inverted);
+	background-color: var(--sakai-brand) !important;
 }
 .text-primary,
 .bg-primary {
@@ -651,7 +653,7 @@ div.wicket-modal div.w_blue a.w_close {
 
 .grabbing_cursor {
 	cursor: grabbing;
-} 
+}
 
 .itemSummaryHeader.itemSummaryWrap {
 	white-space: normal;

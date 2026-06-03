@@ -2,39 +2,32 @@
   "name": "skin-default",
   "description": "Sakai Default Skin",
   "scripts": {
-    "build": "npm-run-all css-compile css-prefix copy-fonts copy-images",
-    "css-compile": "sass --style=expanded --load-path=node_modules --quiet-deps src/sass:target",
+    "build": "npm-run-all css-compile css-prefix",
+    "css-compile": "sass --style=expanded --load-path=node_modules src/sass:target",
     "css-watch": "sass --watch --style=expanded --load-path=node_modules src/sass:target",
     "css-lint": "stylelint src/sass/ --config config/.stylelintrc.json",
-    "css-prefix": "postcss --config config/postcss.config.js --replace  target/*.css --verbose",
-    "copy-fonts": "cpx \"node_modules/bootstrap-icons/font/fonts/**/*\" target/fonts && cpx \"node_modules/font-awesome/fonts/**/*\" target/fonts && cpx \"fonts/**/*\" target/fonts",
-    "copy-images": "cpx \"images/**/*\" target/images",
-    "deploy": "sudo chown -R root:root target && rsync -a --delete target/ /var/www/devubucle001.uct.ac.za/library/skin/vula/ && rsync -a --delete target/ /var/www/devubucle001.uct.ac.za/library/skin/vula-gateway/ && rsync -a --delete target/ /usr/local/sakai23a/webapps/library/skin/default-skin/",
-    "deploy-tar": "sudo chown -R root:root target && mkdir -p /data/builds && tar -czf /data/builds/vula-latest-skin.tar.gz -C target .",
-    "deploy-full": "npm-run-all build deploy deploy-tar",
+    "css-prefix": "postcss --config config/postcss.config.js --replace  target/*.css",
+    "css-clean": "rimraf ../../target/library-23-SNAPSHOT/skin/trinity",
     "watch": "nodemon -e scss -x \"npm run css-compile\"",
     "watch-clean": "nodemon -e scss -x \"npm-run-all css-clean css-reload \"",
-    "watch-deploy": "nodemon -e scss -x \"npm run build && npm run deploy\"",
-    "test": "npm run css-lint && npm run build"
+    "watch-sass": "nodemon -e html,scss -x \"npm run css-compile src/$npm_config_source/sass:$npm_config_targetDir/library/skin/$npm_config_target\"",
+    "test": "npm run css-lint && npm run css-compile"
   },
   "dependencies": {
     "bootstrap": "^5.2.0",
     "bootstrap-icons": "^1.9",
-    "express": "^5.2.1",
     "font-awesome": "^4.7.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.5",
-    "cpx": "^1.5.0",
-    "nodemon": "^2.0.22",
+    "nodemon": "^2.0.7",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.5.6",
+    "postcss": "^8.2.10",
     "postcss-cli": "^8.3.1",
-    "postcss-reporter": "^7.1.0",
     "rimraf": "^3.0.2",
     "sass": "^1.42.1",
-    "stylelint": "^17.1.0",
-    "stylelint-config-standard": "^40.0.0",
-    "stylelint-config-twbs-bootstrap": "^16.1.0"
+    "stylelint": "^13.12.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-config-twbs-bootstrap": "^2.2.4"
   }
 }
